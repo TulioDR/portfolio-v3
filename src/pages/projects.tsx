@@ -2,6 +2,8 @@ import MainContainer from "@/components/MainContainer";
 import ProjectCard from "@/components/ProjectsPage/ProjectCard";
 import Sidebar from "@/components/ProjectsPage/Sidebar";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 
 export default function projects() {
    const [showFilter, setShowFilter] = useState<boolean>(true);
@@ -22,25 +24,18 @@ export default function projects() {
    };
    return (
       <MainContainer>
-         <h1 className="text-8xl mb-7 font-semibold">Projects</h1>
-         <div className="flex justify-between overflow-y-hidden">
-            <div
-               className={`grid gap-7 pr-7 pb-7 flex-1 ${
-                  layout === "list"
-                     ? showFilter
-                        ? "grid-cols-1"
-                        : "grid-cols-2"
-                     : showFilter
-                     ? "grid-cols-2"
-                     : "grid-cols-3"
-               } ${
-                  layout === "normal"
-                     ? showFilter
-                        ? "grid-rows-6"
-                        : "grid-rows-4"
-                     : ""
-               }`}
+         <div className="overflow-hidden">
+            <motion.h1
+               initial={{ x: "-100%" }}
+               animate={{ x: 0 }}
+               transition={{ duration: 0.4, ease: [0.645, 0.045, 0.355, 1] }}
+               className="text-8xl pb-7 font-semibold w-min"
             >
+               Projects
+            </motion.h1>
+         </div>
+         <div className="flex justify-between overflow-y-hidden">
+            <ProjectsContainer layout={layout} showFilter={showFilter}>
                <ProjectCard layout={layout} />
                <ProjectCard layout={layout} small />
                <ProjectCard layout={layout} />
@@ -48,7 +43,7 @@ export default function projects() {
                <ProjectCard layout={layout} />
                <ProjectCard layout={layout} />
                <ProjectCard layout={layout} small />
-            </div>
+            </ProjectsContainer>
             <Sidebar
                setNormal={setNormal}
                setGrid={setGrid}

@@ -10,7 +10,7 @@ import { useRef, useState } from "react";
 import ProjectSlider from "./ProjectSlider";
 
 export default function ProjectsSection() {
-   const ref = useRef(null);
+   const ref = useRef<HTMLDivElement>(null);
    const { scrollYProgress } = useScroll({
       target: ref,
       offset: ["start end", "end end"],
@@ -36,8 +36,9 @@ export default function ProjectsSection() {
    const controls = useAnimationControls();
 
    const handleClick = () => {
+      ref.current!.scrollIntoView({ behavior: "smooth" });
       setShowScreen(!showScreen);
-      controls.start({ scale: 2, transition: { duration: 1, delay: 0.4 } });
+      controls.start({ scale: 1.7, transition: { duration: 1, delay: 0.4 } });
    };
 
    return (

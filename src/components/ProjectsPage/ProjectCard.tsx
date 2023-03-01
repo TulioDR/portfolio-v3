@@ -8,39 +8,42 @@ type Props = {
 };
 
 export default function ProjectCard({ layout, small }: Props) {
+   const item = {
+      initial: { y: 100, opacity: 0 },
+      animate: {
+         y: 0,
+         opacity: 1,
+         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+      },
+   };
    return (
       <motion.div
          layout
-         className={`bg-white rounded-2xl overflow-hidden shadow-xl
-         ${
-            layout === "normal"
-               ? small
-                  ? "aspect-[16/9] row-span-1"
-                  : "row-span-2"
-               : ""
-         } 
-         ${layout === "grid" ? "aspect-square" : ""} 
-         ${layout === "list" ? "h-24 w-full" : "flex justify-center"}`}
+         variants={item}
+         className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer
+         ${layout === "normal" ? (small ? "row-span-1" : "row-span-2") : ""}`}
       >
-         <motion.div className="p-5 bg-black relative w-full h-full overflow-hidden">
+         <div
+            className={`overflow-hidden h-full 
+            ${layout === "normal" && small ? "aspect-video" : ""}
+            ${layout === "grid" ? "aspect-square" : ""}`}
+         >
             <motion.div layout className="relative h-full aspect-video">
                <Image
                   src={landscape}
                   alt="image"
                   fill
+                  sizes="100%"
                   className="object-cover"
                />
             </motion.div>
-            {/* <motion.div
-               layout="position"
-               className={`absolute text-2xl font-bold text-gray-800 pl-5 top-0 ${
-                  layout === "list"
-                     ? "left-[170px] flex items-center h-full"
-                     : "left-0 pt-5"
-               }`}
-            >
+         </div>
+         <motion.div
+            className={`absolute w-full h-full top-0 text-white grid place-content-center bg-black bg-opacity-80 opacity-0 hover:opacity-100 duration-300 group`}
+         >
+            <div className="scale-50 group-hover:scale-100 duration-300 text-3xl font-bold">
                Card Title
-            </motion.div> */}
+            </div>
          </motion.div>
       </motion.div>
    );

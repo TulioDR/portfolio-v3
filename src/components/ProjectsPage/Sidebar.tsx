@@ -42,8 +42,8 @@ export default function Sidebar({
                   }`}
                >
                   <LayoutButton onClick={setNormal} icon="dashboard" />
-                  <LayoutButton onClick={setGrid} icon="apps" />
-                  <LayoutButton onClick={setList} icon="table_rows" />
+                  <LayoutButton onClick={setGrid} icon="grid_view" sharp />
+                  <LayoutButton onClick={setList} icon="view_agenda" sharp />
                </div>
                <div className="space-y-5 pb-5">
                   {/* <TechnologyCard name="HTML" />

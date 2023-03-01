@@ -17,3 +17,13 @@ a {
    color: inherit;
    text-decoration: none;
 }
+
+.main-scrollbar::-webkit-scrollbar {
+   width: 8px;
+}
+.main-scrollbar::-webkit-scrollbar-track {
+   @apply bg-gray-200;
+}
+.main-scrollbar::-webkit-scrollbar-thumb {
+   @apply bg-gray-800;
+}

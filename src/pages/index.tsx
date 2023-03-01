@@ -1,5 +1,6 @@
 import AboutSection from "@/components/Sections/About/AboutSection";
 import ContactSection from "@/components/Sections/Contact/ContactSection";
+import HomeSection from "@/components/Sections/Home/HomeSection";
 import ProjectsSection from "@/components/Sections/Projects/ProjectsSection";
 import SkillsSection from "@/components/Sections/Skills/SkillsSection";
 import Head from "next/head";
@@ -16,7 +17,7 @@ export default function Home() {
             />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <main className="h-screen grid place-content-center">Main Page</main>
+         <HomeSection />
          <AboutSection />
          <SkillsSection />
          <ProjectsSection />

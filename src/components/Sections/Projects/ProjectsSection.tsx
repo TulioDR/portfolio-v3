@@ -1,6 +1,11 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRouter } from "next/router";
-import { useRef } from "react";
+import {
+   motion,
+   useScroll,
+   useTransform,
+   useSpring,
+   useAnimationControls,
+} from "framer-motion";
+import { useRef, useState } from "react";
 
 import ProjectSlider from "./ProjectSlider";
 
@@ -27,9 +32,12 @@ export default function ProjectsSection() {
       ["150%", "-50%", "-50%"]
    );
 
-   const router = useRouter();
+   const [showScreen, setShowScreen] = useState<boolean>(false);
+   const controls = useAnimationControls();
+
    const handleClick = () => {
-      router.push("/projects");
+      setShowScreen(!showScreen);
+      controls.start({ scale: 2, transition: { duration: 1, delay: 0.4 } });
    };
 
    return (
@@ -37,6 +45,8 @@ export default function ProjectsSection() {
          <div className="h-screen bg-black w-full sticky top-0">
             <div className=" w-full h-full flex items-center justify-center overflow-hidden">
                <ProjectSlider
+                  controls={controls}
+                  showScreen={showScreen}
                   scrollYProgressVelocity={scrollYProgressVelocity}
                />
                <motion.div

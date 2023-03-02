@@ -35,6 +35,7 @@ export default function ProjectCard({ layout, small }: Props) {
                   fill
                   sizes="100%"
                   className="object-cover"
+                  priority
                />
             </motion.div>
          </div>

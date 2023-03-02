@@ -4,8 +4,10 @@ import Sidebar from "@/components/ProjectsPage/Sidebar";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
+import Link from "next/link";
+import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 
-export default function projects() {
+export default function ProjectsPage() {
    const [showFilter, setShowFilter] = useState<boolean>(true);
    const toggle = () => {
       setShowFilter((prev) => !prev);
@@ -22,17 +24,26 @@ export default function projects() {
    const setList = () => {
       setLayout("list");
    };
+
+   const { setIsBackFromProjects } = useBackFromProjectsContext();
+   const handleClick = () => {
+      setIsBackFromProjects(true);
+   };
    return (
       <MainContainer>
          <div className="overflow-hidden">
             <motion.h1
                initial={{ x: "-100%" }}
                animate={{ x: 0 }}
+               exit={{ x: "-100%" }}
                transition={{ duration: 0.4, ease: [0.645, 0.045, 0.355, 1] }}
                className="text-8xl pb-7 font-semibold w-min"
             >
                Projects
             </motion.h1>
+            <Link onClick={handleClick} href="/#projects">
+               Go Back
+            </Link>
          </div>
          <div className="flex justify-between overflow-y-hidden">
             <ProjectsContainer layout={layout} showFilter={showFilter}>

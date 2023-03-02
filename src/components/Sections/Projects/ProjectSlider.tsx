@@ -12,6 +12,7 @@ import filmOrganizer from "@/assets/images/projects/film-organizer.png";
 import pokedex from "@/assets/images/projects/pokedex.png";
 import dashboard from "@/assets/images/projects/dashboard.png";
 import { useRouter } from "next/router";
+import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 
 type Props = {
    scrollYProgressVelocity: MotionValue<any>;
@@ -35,11 +36,25 @@ export default function ProjectSlider({
       ["-45deg", "0deg", "0deg"]
    );
    const router = useRouter();
+   const { isBackFromProjects, setIsBackFromProjects } =
+      useBackFromProjectsContext();
+
+   const onAnimationComplete = () => {
+      console.log("animation complete");
+      if (!isBackFromProjects) router.push("/projects");
+      else setIsBackFromProjects(false);
+   };
+
    return (
       <motion.div
-         style={{ scale, rotate }}
-         animate={controls}
-         onAnimationComplete={() => router.push("/projects")}
+         style={!isBackFromProjects ? { scale, rotate } : {}}
+         initial={isBackFromProjects ? { scale: 1.5 } : {}}
+         animate={
+            isBackFromProjects
+               ? { scale: 1, transition: { duration: 1 } }
+               : controls
+         }
+         onAnimationComplete={onAnimationComplete}
          className="rounded-3xl aspect-video bg-gradient-to-r from-red-900 to-yellow-700 py-2 px-4 h-full"
       >
          <div className="rounded-[30px] w-full h-full bg-gray-200 overflow-hidden relative">
@@ -55,10 +70,11 @@ export default function ProjectSlider({
                </SwiperSlide>
             </Swiper>
             <AnimatePresence>
-               {showScreen && (
+               {(showScreen || isBackFromProjects) && (
                   <motion.div
-                     initial={{ opacity: 0 }}
+                     initial={isBackFromProjects ? {} : { opacity: 0 }}
                      animate={{ opacity: 1 }}
+                     exit={{ opacity: 0 }}
                      transition={{ duration: 0.2 }}
                      className="absolute top-0 left-0 bg-gray-200 h-full w-full z-10"
                   ></motion.div>

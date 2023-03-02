@@ -14,7 +14,9 @@ export default function SkillCard({}: Props) {
          <div className="aspect-square relative w-1/2">
             <Image src={logo} alt="logo" fill sizes="100%" />
          </div>
-         <div className="text-slate-700 font-bold">Tailwind CSS</div>
+         <div className="text-slate-700 font-bold text-sm md:text-base">
+            Tailwind CSS
+         </div>
       </motion.div>
    );
 }

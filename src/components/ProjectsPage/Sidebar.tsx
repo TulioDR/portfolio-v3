@@ -1,6 +1,5 @@
 import LayoutButton from "./LayoutButton";
 import TechnologyCard from "./TechnologyCard";
-import { motion } from "framer-motion";
 
 type Props = {
    setNormal: () => void;
@@ -25,12 +24,12 @@ export default function Sidebar({
             }`}
          >
             <div
-               className={`fixed bottom-0 duration-300 main-scrollbar overflow-hidden hover:overflow-auto bg-white shadow-xl ${
+               className={`fixed bottom-0 duration-300 bg-white shadow-xl ${
                   showFilter ? "w-64" : "w-20"
                }`}
-               style={{ height: "calc(100vh - 96px - 56px)" }}
+               style={{ height: "calc(100vh - 96px - 28px)" }}
             >
-               <div className="w-full pl-5 pr-5 hover:pr-3 pb-5">
+               <div className="w-full h-full pl-5 pr-5 hover:pr-3 pb-5 main-scrollbar overflow-hidden hover:overflow-auto">
                   <div className="z-10 flex items-center justify-between pt-5 w-full sticky top-0 bg-white">
                      <span className="truncate text-xl font-semibold">
                         Filter Projects
@@ -42,13 +41,10 @@ export default function Sidebar({
                         <span className="material-icons">menu</span>
                      </button>
                   </div>
-                  <div className="">
+                  <div>
                      <TechnologyCard name="HTML" />
                      <TechnologyCard name="CSS" />
                      <TechnologyCard name="Javascript" />
-                     <TechnologyCard name="Axios" />
-                     <TechnologyCard name="Axios" />
-                     <TechnologyCard name="Axios" />
                      <TechnologyCard name="Axios" />
                      <TechnologyCard name="Axios" />
                      <TechnologyCard name="Axios" />

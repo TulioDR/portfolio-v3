@@ -29,9 +29,10 @@ export default function ProjectsPage() {
    const handleClick = () => {
       setIsBackFromProjects(true);
    };
+
    return (
       <MainContainer>
-         <div className="overflow-hidden">
+         <div className="overflow-hidden flex justify-between items-start">
             <motion.h1
                initial={{ x: "-100%" }}
                animate={{ x: 0 }}
@@ -41,7 +42,11 @@ export default function ProjectsPage() {
             >
                Projects
             </motion.h1>
-            <Link onClick={handleClick} href="/#projects">
+            <Link
+               onClick={handleClick}
+               href="/#projects"
+               className="py-2 bg-slate-800 text-white mt-5 w-20 text-center"
+            >
                Go Back
             </Link>
          </div>

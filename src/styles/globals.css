@@ -22,7 +22,7 @@ a {
    width: 8px;
 }
 .main-scrollbar::-webkit-scrollbar-track {
-   @apply bg-gray-200;
+   @apply bg-white;
 }
 .main-scrollbar::-webkit-scrollbar-thumb {
    @apply bg-gray-800;

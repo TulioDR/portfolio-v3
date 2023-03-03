@@ -46,7 +46,7 @@ export default function ProjectsSection() {
    return (
       <div>
          <div className="h-screen bg-black w-full sticky top-0">
-            <div className=" w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center overflow-hidden">
                <ProjectSlider
                   controls={controls}
                   showScreen={showScreen}

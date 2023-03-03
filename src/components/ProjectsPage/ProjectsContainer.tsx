@@ -25,7 +25,7 @@ export default function ProjectsContainer({
          variants={container}
          initial="initial"
          animate="animate"
-         className={`grid gap-7 pr-7 pb-7 flex-1 ${
+         className={`grid gap-7 pb-7 pr-7 flex-1 ${
             layout === "list"
                ? showFilter
                   ? "grid-cols-1"

@@ -6,10 +6,10 @@ import VanillaTilt from "vanilla-tilt";
 
 type Props = {
    small?: boolean;
-   layout: "grid" | "list" | "normal";
+   currentLayout: "grid" | "list" | "normal";
 };
 
-export default function ProjectCard({ layout, small }: Props) {
+export default function ProjectCard({ currentLayout, small }: Props) {
    const item = {
       initial: { y: 100, opacity: 0 },
       animate: {
@@ -32,12 +32,20 @@ export default function ProjectCard({ layout, small }: Props) {
          layout
          variants={item}
          className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden
-         ${layout === "normal" ? (small ? "row-span-1" : "row-span-2") : ""}`}
+         ${
+            currentLayout === "normal"
+               ? small
+                  ? "row-span-1"
+                  : "row-span-2"
+               : ""
+         }`}
       >
          <div
-            className={`overflow-hidden h-full flex justify-center scale-110
-            ${layout === "normal" && small ? "aspect-video" : ""}
-            ${layout === "grid" ? "aspect-square" : ""}`}
+            className={`overflow-hidden h-full flex justify-center scale-[1.15]
+            ${currentLayout === "normal" && small ? "aspect-video" : ""}
+            ${currentLayout === "grid" ? "aspect-square" : ""}
+            ${currentLayout === "list" ? "aspect-video" : ""}
+            `}
          >
             <motion.div
                ref={tilt}

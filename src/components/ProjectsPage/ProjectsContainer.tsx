@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 
 type Props = {
    children: React.ReactNode;
-   layout: "normal" | "grid" | "list";
-   showFilter: boolean;
+   currentLayout: "normal" | "grid" | "list";
+   isSidebarExpanded: boolean;
 };
 
 export default function ProjectsContainer({
-   layout,
-   showFilter,
+   currentLayout,
+   isSidebarExpanded,
    children,
 }: Props) {
    const container = {
@@ -19,23 +19,25 @@ export default function ProjectsContainer({
             staggerChildren: 0.18,
          },
       },
+      exit: { y: 100, opacity: 0, transition: { duration: 0.1 } },
    };
    return (
       <motion.div
          variants={container}
          initial="initial"
          animate="animate"
+         exit="exit"
          className={`grid gap-7 pb-7 pr-7 flex-1 ${
-            layout === "list"
-               ? showFilter
+            currentLayout === "list"
+               ? isSidebarExpanded
                   ? "grid-cols-1"
                   : "grid-cols-2"
-               : showFilter
+               : isSidebarExpanded
                ? "grid-cols-2"
                : "grid-cols-3"
          } ${
-            layout === "normal"
-               ? showFilter
+            currentLayout === "normal"
+               ? isSidebarExpanded
                   ? "grid-rows-6"
                   : "grid-rows-4"
                : ""

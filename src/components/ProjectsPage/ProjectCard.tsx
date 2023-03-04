@@ -31,7 +31,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
       <motion.div
          layout
          variants={item}
-         className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden
+         className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden group
          ${
             currentLayout === "normal"
                ? small
@@ -62,13 +62,13 @@ export default function ProjectCard({ currentLayout, small }: Props) {
                />
             </motion.div>
          </div>
-         {/* <motion.div
-            className={`absolute w-full h-full top-0 text-white grid place-content-center bg-black bg-opacity-80 opacity-0 hover:opacity-100 duration-300 group`}
+         <motion.div
+            className={`absolute w-full bottom-0 bg-gradient-to-t from-black to-transparent px-7 pb-7 pt-20 pointer-events-none group-hover:opacity-0 duration-300`}
          >
-            <div className="scale-50 group-hover:scale-100 duration-300 text-3xl font-bold">
+            <div className="text-3xl font-bold text-center text-white">
                Card Title
             </div>
-         </motion.div> */}
+         </motion.div>
       </motion.div>
    );
 }

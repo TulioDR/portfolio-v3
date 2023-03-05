@@ -19,7 +19,7 @@ export default function ViewProjectsButton({
    const y = useTransform(
       scrollYProgressVelocity,
       [0, 0.75, 1],
-      ["150%", "-50%", "-50%"]
+      ["150%", "0%", "0%"]
    );
    return (
       <AnimatePresence>
@@ -28,7 +28,7 @@ export default function ViewProjectsButton({
                onClick={onClick}
                style={{ y }}
                exit={{ x: 100, opacity: 0, transition: { duration: 0.2 } }}
-               className="bg-yellow-600 text-black cursor-pointer rounded-full aspect-square w-min text-xl p-7 absolute right-96 top-1/2  z-10"
+               className="bg-yellow-600 text-black cursor-pointer rounded-full aspect-square w-min text-xl p-7 z-10"
             >
                View Projects
             </motion.div>

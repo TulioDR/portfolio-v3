@@ -27,7 +27,7 @@ export default function Sidebar({
    };
    return (
       <SidebarContainer isSidebarExpanded={isSidebarExpanded}>
-         <div className="h-32 w-full flex flex-col justify-between">
+         <div className="h-52 w-full flex flex-col justify-between pt-20">
             <motion.div
                initial={{ width: 0 }}
                animate={{ width: 80 }}

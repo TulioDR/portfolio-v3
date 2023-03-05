@@ -1,3 +1,4 @@
+import MainContainer from "@/components/MainContainer";
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 import { useScroll, useSpring, useAnimationControls } from "framer-motion";
 import { useRouter } from "next/router";
@@ -45,22 +46,29 @@ export default function ProjectsSection() {
 
    return (
       <div>
-         <div className="h-screen bg-black w-full sticky top-0">
+         <div className="h-screen bg-gradient-to-bl from-[#1D1D1C] to-[#232322] w-full sticky top-0">
             <div className="w-full h-full flex items-center justify-center overflow-hidden">
                <ProjectSlider
                   controls={controls}
                   showScreen={showScreen}
                   scrollYProgressVelocity={scrollYProgressVelocity}
                />
-               <ProjectsTitle
-                  showScreen={showScreen}
-                  scrollYProgressVelocity={scrollYProgressVelocity}
-               />
-               <ViewProjectsButton
-                  onClick={handleClick}
-                  showScreen={showScreen}
-                  scrollYProgressVelocity={scrollYProgressVelocity}
-               />
+               <div className="absolute top-0 left-0 w-full h-full">
+                  {/* How to make background transparent but bot button */}
+                  <MainContainer>
+                     <div className="flex items-center justify-between h-full">
+                        <ProjectsTitle
+                           showScreen={showScreen}
+                           scrollYProgressVelocity={scrollYProgressVelocity}
+                        />
+                        <ViewProjectsButton
+                           onClick={handleClick}
+                           showScreen={showScreen}
+                           scrollYProgressVelocity={scrollYProgressVelocity}
+                        />
+                     </div>
+                  </MainContainer>
+               </div>
             </div>
          </div>
          <div

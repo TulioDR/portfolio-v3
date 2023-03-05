@@ -4,6 +4,7 @@ import {
    MotionValue,
    useTransform,
 } from "framer-motion";
+import SectionTitle from "../SectionTitle";
 
 type Props = {
    showScreen: boolean;
@@ -17,7 +18,7 @@ export default function ProjectsTitle({
    const y = useTransform(
       scrollYProgressVelocity,
       [0, 0.75, 1],
-      ["-150%", "-50%", "-50%"]
+      ["-150%", "0%", "0%"]
    );
    return (
       <AnimatePresence>
@@ -25,9 +26,9 @@ export default function ProjectsTitle({
             <motion.div
                style={{ y }}
                exit={{ x: -100, opacity: 0, transition: { duration: 0.2 } }}
-               className="text-yellow-600 text-9xl absolute left-10 top-1/2 pointer-events-none z-10"
+               className="text-yellow-600 xl:text-9xl pointer-events-none z-10"
             >
-               Projects
+               <SectionTitle>Projects</SectionTitle>
             </motion.div>
          )}
       </AnimatePresence>

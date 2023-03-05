@@ -21,10 +21,13 @@ export default function LayoutButton({
    isSidebarExpanded,
 }: Props) {
    const [showButton, setShowButton] = useState<boolean>(false);
+
    useEffect(() => {
       if (currentLayout === layout || isSidebarExpanded) {
-         setTimeout(() => setShowButton(true), 300);
+         var handler = setTimeout(() => setShowButton(true), 300);
       } else setShowButton(false);
+
+      return () => clearTimeout(handler);
    }, [currentLayout, layout, isSidebarExpanded]);
 
    const handleClick = () => setCurrentLayout(layout);

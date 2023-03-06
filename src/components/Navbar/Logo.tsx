@@ -5,7 +5,7 @@ type Props = {};
 
 export default function Logo({}: Props) {
    return (
-      <div className="flex flex-col items-center h-full justify-end">
+      <div className="flex flex-col items-center h-full justify-center">
          <div className="relative">
             <Image src={eagle} alt="eagle" className="h-10" />
          </div>

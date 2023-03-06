@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function BackButton() {
-   const { setIsBackFromProjects } = useBackFromProjectsContext();
+   // const { setIsBackFromProjects } = useBackFromProjectsContext();
    const handleClick = () => {
-      setIsBackFromProjects(true);
+      // setIsBackFromProjects(true);
    };
    return (
       <motion.div

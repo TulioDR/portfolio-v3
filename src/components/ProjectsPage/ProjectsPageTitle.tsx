@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function ProjectsPageTitle() {
    return (
-      <div className="overflow-hidden mt-20">
+      <div className="overflow-hidden">
          <motion.h1
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}

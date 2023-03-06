@@ -9,6 +9,8 @@ import SkillPagination from "./SkillPagination";
 
 import "swiper/css/pagination";
 import SkillCardsContainer from "./SkillCardsContainer";
+import mainSkills from "@/assets/skills/mainSkills/mainSkills";
+import secondarySkills from "@/assets/skills/secondarySkills/secondarySkills";
 export default function SkillsSection() {
    const [activeIndex, setActiveIndex] = useState<number>(0);
    return (
@@ -35,42 +37,38 @@ export default function SkillsSection() {
                </div>
                <SwiperSlide>
                   <SkillCardsContainer>
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
+                     {mainSkills.map(({ name, logo, link }) => (
+                        <SkillCard
+                           key={name}
+                           name={name}
+                           logo={logo}
+                           link={link}
+                        />
+                     ))}
                   </SkillCardsContainer>
                </SwiperSlide>
                <SwiperSlide>
                   <SkillCardsContainer>
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
+                     {secondarySkills.map(({ name, logo, link }) => (
+                        <SkillCard
+                           key={name}
+                           name={name}
+                           logo={logo}
+                           link={link}
+                        />
+                     ))}
                   </SkillCardsContainer>
                </SwiperSlide>
                <SwiperSlide>
                   <SkillCardsContainer>
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
-                     <SkillCard />
+                     {secondarySkills.map(({ name, logo, link }) => (
+                        <SkillCard
+                           key={name}
+                           name={name}
+                           logo={logo}
+                           link={link}
+                        />
+                     ))}
                   </SkillCardsContainer>
                </SwiperSlide>
             </Swiper>

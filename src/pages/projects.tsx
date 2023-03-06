@@ -4,6 +4,7 @@ import Sidebar from "@/components/ProjectsPage/Sidebar/Sidebar";
 import { useState } from "react";
 import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
+import BackButton from "@/components/ProjectsPage/Sidebar/BackButton";
 
 export default function ProjectsPage() {
    const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(true);
@@ -15,7 +16,10 @@ export default function ProjectsPage() {
 
    return (
       <MainContainer>
-         <ProjectsPageTitle />
+         <div className="flex mt-20 items-center">
+            <ProjectsPageTitle />
+            <BackButton />
+         </div>
          <div className="flex justify-between overflow-y-hidden">
             <ProjectsContainer
                currentLayout={currentLayout}

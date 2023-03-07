@@ -4,13 +4,12 @@ type Props = {
 
 export default function ContactInput({ placeholder }: Props) {
    return (
-      <div className="w-full relative h-10">
+      <div className="w-full relative h-10 bg-white px-5 rounded-xl">
          <input
             type="text"
-            className="w-full outline-none h-full text-sm"
+            className="w-full outline-none h-full text-sm bg-transparent text-black"
             placeholder={placeholder}
          />
-         <div className="w-full absolute bottom-0 h-1 bg-slate-800"></div>
       </div>
    );
 }

@@ -1,35 +1,36 @@
 import MainContainer from "@/components/MainContainer";
-import SectionTitle from "../SectionTitle";
-import ContactInfo from "./ContactInfo";
-import ContactInput from "./ContactInput";
-import SendButton from "./SendButton";
+import Logo from "@/components/Navbar/Logo";
+import ContactForm from "./ContactForm";
+import Footer from "./Footer";
 
 export default function ContactSection() {
    return (
-      <div className="w-full py-24">
+      <div className="w-full py-24 bg-[#161b21] text-white 2xl:h-screen">
          <MainContainer>
-            <SectionTitle>Contact Me</SectionTitle>
-            <div className="mx-auto w-full md:w-min mt-20 md:mt-7 md:pl-36">
-               <div className="w-full md:w-max md:flex md:space-x-7 py-7 pr-7 pl-7 md:pl-0 bg-white shadow-2xl">
-                  <ContactInfo />
-                  <div className="mt-7 space-y-6 w-full sm:w-96">
-                     <h4 className="text-xl font-medium">Send a Message</h4>
-                     <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
-                        <ContactInput placeholder="First Name" />
-                        <ContactInput placeholder="Last Name" />
-                        <ContactInput placeholder="Email" />
-                        <ContactInput placeholder="Phone Number (optional)" />
-                     </div>
-                     <div className="w-full relative h-28">
-                        <textarea
-                           placeholder="Write your message here"
-                           className="w-full h-full outline-none text-sm"
-                        />
-                        <div className="w-full absolute bottom-0 h-1 bg-slate-800"></div>
-                     </div>
-                     <SendButton />
-                  </div>
+            <div className="flex flex-col h-full">
+               <div className="text-white flex">
+                  <Logo />
                </div>
+               <div className="grid lg:grid-cols-2 gap-7 lg:gap-0 my-24 2xl:my-auto">
+                  <div className="grid sm:grid-cols-2 gap-7 sm:gap-0 text-sm sm:text-base md:text-lg font-semibold">
+                     <div className="space-y-5 hidden sm:block">
+                        <div>Home</div>
+                        <div>About me</div>
+                        <div>Skills</div>
+                        <div>Projects</div>
+                     </div>
+                     <div className="space-y-5">
+                        <div className="font-bold underline">
+                           Contact me at:
+                        </div>
+                        <div>tulioruzo29@gmail.com</div>
+                        <div>Github</div>
+                        <div>Linkedin</div>
+                     </div>
+                  </div>
+                  <ContactForm />
+               </div>
+               <Footer />
             </div>
          </MainContainer>
       </div>

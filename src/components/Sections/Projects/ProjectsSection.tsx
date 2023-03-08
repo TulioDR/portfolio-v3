@@ -29,7 +29,7 @@ export default function ProjectsSection() {
    };
 
    return (
-      <div>
+      <div className="">
          <div className="h-screen bg-gradient-to-bl from-[#1D1D1C] to-[#232322] w-full sticky top-0">
             <div className="w-full h-full flex items-center justify-center overflow-hidden">
                <ProjectSlider

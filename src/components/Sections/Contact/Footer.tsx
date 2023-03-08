@@ -1,6 +1,6 @@
 export default function Footer() {
    return (
-      <div className="flex justify-between text-sm">
+      <div className="flex justify-between items-center text-sm">
          <div>
             <span>2022 Tulio Ruzo Portfolio</span>
          </div>

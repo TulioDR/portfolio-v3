@@ -5,6 +5,7 @@ import MainContainer from "../MainContainer";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
 import Menu from "./Menu/Menu";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
    // cubic-bezier(1,0,0,1)
@@ -18,11 +19,16 @@ export default function Navbar() {
    };
    return (
       <>
-         <div className="fixed top-0 w-full z-20">
+         <motion.div
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+            className="fixed top-0 w-full z-30"
+         >
             <MainContainer>
                <div className="flex justify-between items-center h-20 font-semibold">
                   <div className="flex space-x-7 items-center w-1/3">
-                     <button className="rounded-full border border-orange-700 w-28 h-10">
+                     <button className="rounded-full border border-orange-700 w-28 h-10 hover:bg-orange-700">
                         About me
                      </button>
                      <button>Skills</button>
@@ -36,11 +42,11 @@ export default function Navbar() {
                   </div>
                </div>
                {/* <Hamburger
-                        isMenuOpen={isMenuOpen}
-                        toggleMenu={toggleMenu}
-                     /> */}
+                  isMenuOpen={isMenuOpen}
+                  toggleMenu={toggleMenu}
+               /> */}
             </MainContainer>
-         </div>
+         </motion.div>
          <AnimatePresence>
             {isMenuOpen && (
                <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

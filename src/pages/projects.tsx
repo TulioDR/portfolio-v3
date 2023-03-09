@@ -1,7 +1,7 @@
 import MainContainer from "@/components/MainContainer";
 import ProjectCard from "@/components/ProjectsPage/ProjectCard";
 import Sidebar from "@/components/ProjectsPage/Sidebar/Sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
 import BackButton from "@/components/ProjectsPage/Sidebar/BackButton";
@@ -13,6 +13,10 @@ export default function ProjectsPage() {
    const [currentLayout, setCurrentLayout] = useState<
       "normal" | "grid" | "list"
    >("normal");
+
+   useEffect(() => {
+      window.scrollTo({ top: 0 });
+   }, []);
 
    return (
       <MainContainer>

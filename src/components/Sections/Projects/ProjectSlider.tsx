@@ -41,7 +41,7 @@ export default function ProjectSlider({
    const onAnimationComplete = () => {
       console.log("animation complete");
       // if (!isBackFromProjects)
-      router.push("/projects");
+      router.push("/projects", undefined, { scroll: false });
       // else setIsBackFromProjects(false);
    };
    // const isBackFromProjects = false;

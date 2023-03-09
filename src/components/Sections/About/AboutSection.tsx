@@ -23,7 +23,7 @@ export default function AboutSection() {
             <div ref={ref} className="h-screen w-full"></div>
          </div>
          <div className="py-24 bg-stone-500">
-            <MainContainer>This is where the text goes</MainContainer>
+            <MainContainer>Since the beginning of my journey...</MainContainer>
          </div>
       </div>
    );

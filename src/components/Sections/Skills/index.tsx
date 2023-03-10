@@ -11,10 +11,14 @@ import "swiper/css/pagination";
 import SkillCardsContainer from "./SkillCardsContainer";
 import mainSkills from "@/assets/skills/mainSkills/mainSkills";
 import secondarySkills from "@/assets/skills/secondarySkills/secondarySkills";
+import useNavbarContext from "@/context/NavbarContext";
 export default function SkillsSection() {
    const [activeIndex, setActiveIndex] = useState<number>(0);
+
+   const { skillsRef } = useNavbarContext();
+
    return (
-      <div className="bg-gray-200 w-full py-24">
+      <div ref={skillsRef} className="bg-gray-200 w-full py-24">
          <MainContainer>
             <SectionTitle>Skills</SectionTitle>
          </MainContainer>

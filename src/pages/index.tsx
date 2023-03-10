@@ -1,9 +1,10 @@
-import AboutSection from "@/components/Sections/About/AboutSection";
-import ContactSection from "@/components/Sections/Contact/ContactSection";
-import HomeSection from "@/components/Sections/Home/HomeSection";
-import ProjectsSection from "@/components/Sections/Projects/ProjectsSection";
-import SkillsSection from "@/components/Sections/Skills/SkillsSection";
 import Head from "next/head";
+
+import HomeSection from "@/components/Sections/Home";
+import AboutSection from "@/components/Sections/About";
+import SkillsSection from "@/components/Sections/Skills";
+import ProjectsSection from "@/components/Sections/Projects";
+import ContactSection from "@/components/Sections/Contact";
 
 export default function Home() {
    return (

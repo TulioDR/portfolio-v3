@@ -1,4 +1,5 @@
 import MainContainer from "@/components/MainContainer";
+import useNavbarContext from "@/context/NavbarContext";
 
 import { useScroll, useSpring, useAnimationControls } from "framer-motion";
 import { useRef, useState } from "react";
@@ -8,9 +9,11 @@ import ProjectsTitle from "./ProjectsTitle";
 import ViewProjectsButton from "./ViewProjectsButton";
 
 export default function ProjectsSection() {
-   const ref = useRef<HTMLDivElement>(null);
+   const { projectsRef } = useNavbarContext();
+
+   const divRef = useRef<HTMLDivElement>(null);
    const { scrollYProgress } = useScroll({
-      target: ref,
+      target: divRef,
       offset: ["start end", "end end"],
    });
 
@@ -23,15 +26,18 @@ export default function ProjectsSection() {
    const controls = useAnimationControls();
 
    const handleClick = () => {
-      ref.current!.scrollIntoView({ behavior: "smooth" });
+      divRef.current!.scrollIntoView({ behavior: "smooth" });
       setShowScreen(!showScreen);
       controls.start({ scale: 1.5, transition: { duration: 1, delay: 0.4 } });
    };
 
    return (
       <div className="">
-         <div className="h-screen bg-gradient-to-bl from-[#1D1D1C] to-[#232322] w-full sticky top-0">
-            <div className="w-full h-full flex items-center justify-center overflow-hidden">
+         <div
+            ref={projectsRef}
+            className="sticky top-0 h-screen w-full bg-gradient-to-bl from-[#1D1D1C] to-[#232322]"
+         >
+            <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
                <ProjectSlider
                   controls={controls}
                   showScreen={showScreen}
@@ -56,7 +62,7 @@ export default function ProjectsSection() {
          </div>
          <div
             // id="projects"
-            ref={ref}
+            ref={divRef}
             className="h-screen bg-green-500 w-full"
          ></div>
       </div>

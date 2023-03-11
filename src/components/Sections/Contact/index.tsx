@@ -1,5 +1,5 @@
 import MainContainer from "@/components/MainContainer";
-import Logo from "@/components/Navbar/Logo";
+import Logo from "@/components/Navbar/NavLogo";
 import useNavbarContext from "@/context/NavbarContext";
 import ContactForm from "./ContactForm";
 import Footer from "./Footer";

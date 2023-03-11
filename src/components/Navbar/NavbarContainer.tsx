@@ -17,7 +17,11 @@ export default function NavbarContainer({ children }: Props) {
             isWhite ? "text-white" : "text-black"
          }`}
       >
-         <MainContainer>{children}</MainContainer>
+         <MainContainer>
+            <div className="flex justify-between items-center h-20 font-semibold">
+               {children}
+            </div>
+         </MainContainer>
       </motion.div>
    );
 }

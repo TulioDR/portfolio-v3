@@ -16,8 +16,6 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
          setIsAnimating(false);
       }, 500);
    };
-
-   const isWhiteBackground = true;
    return (
       <button
          className="flex flex-col space-y-4 py-2"
@@ -29,9 +27,7 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? -45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className={`${
-               !isWhiteBackground ? "bg-white" : "bg-black"
-            }  w-12 h-1`}
+            className="bg-white  w-12 h-1"
          ></motion.span>
          <motion.span
             animate={{
@@ -39,9 +35,7 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? 45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className={`${
-               !isWhiteBackground ? "bg-white" : "bg-black"
-            }  w-12 h-1`}
+            className="bg-white  w-12 h-1"
          ></motion.span>
       </button>
    );

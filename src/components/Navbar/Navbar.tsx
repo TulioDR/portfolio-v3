@@ -26,7 +26,7 @@ export default function Navbar() {
                   </button>
                   <button>Skills</button>
                </div>
-               <Logo />
+               {/* <Logo /> */}
                <div className="flex space-x-7 items-center justify-end w-1/3">
                   <button>Projects</button>
                   <button className="rounded-full bg-orange-700 w-28 h-10 text-white">

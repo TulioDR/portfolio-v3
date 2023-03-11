@@ -25,7 +25,7 @@ interface Props {
    children: React.ReactNode;
 }
 export function NavbarContextProvider({ children }: Props) {
-   const [isWhite, setIsWhite] = useState<boolean>(false);
+   const [isWhite, setIsWhite] = useState<boolean>(true);
 
    const setBlack = () => setIsWhite(false);
    const setWhite = () => setIsWhite(true);
@@ -43,22 +43,11 @@ export function NavbarContextProvider({ children }: Props) {
    const contactInView = useInView(contactRef, { margin: "0% 0% -95% 0%" });
 
    useEffect(() => {
-      if (contactInView) {
-         console.log("contact in view");
-         setWhite();
-      } else if (projectsInView) {
-         console.log("projects in view");
-         setWhite();
-      } else if (skillsInView) {
-         console.log("skills in view");
-         setBlack();
-      } else if (aboutInView) {
-         console.log("about in view");
-         setBlack();
-      } else {
-         console.log("home in view");
-         setBlack();
-      }
+      if (contactInView) setWhite();
+      else if (projectsInView) setWhite();
+      else if (skillsInView) setBlack();
+      else if (aboutInView) setWhite();
+      else setWhite();
    }, [contactInView, projectsInView, skillsInView, aboutInView]);
 
    const value: NavbarContextInterface = {

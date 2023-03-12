@@ -1,3 +1,4 @@
+import useNavbarContext from "@/context/NavbarContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -6,7 +7,7 @@ interface Props {
    toggleMenu: () => void;
 }
 export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
-   // const { toggleMenu, isMenuOpen, isWhiteBackground } = useNavbarContext();
+   const { isWhite } = useNavbarContext();
    const [isAnimating, setIsAnimating] = useState(false);
 
    const handleClick = () => {
@@ -27,7 +28,9 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? -45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className="bg-white  w-12 h-1"
+            className={`w-12 h-1 duration-500 ${
+               isWhite || isMenuOpen ? "bg-white" : "bg-black"
+            }`}
          ></motion.span>
          <motion.span
             animate={{
@@ -35,7 +38,9 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? 45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className="bg-white  w-12 h-1"
+            className={`w-12 h-1 duration-500 ${
+               isWhite || isMenuOpen ? "bg-white" : "bg-black"
+            }`}
          ></motion.span>
       </button>
    );

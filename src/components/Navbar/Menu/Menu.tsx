@@ -1,32 +1,38 @@
-import MainContainer from "@/components/MainContainer";
-import Hamburger from "../Hamburger";
-import TranslateBtn from "../TranslateBtn";
+import useNavbarContext from "@/context/NavbarContext";
 import MenuContainer from "./MenuContainer";
 import MenuFooter from "./MenuFooter";
+import MenuOption from "./MenuOption";
 import MenuOptionsContainer from "./MenuOptionsContainer";
 import MenuTitle from "./MenuTitle";
 
 interface Props {
    isMenuOpen: boolean;
+   closeMenu: () => void;
 }
 
-export default function Menu({ isMenuOpen }: Props) {
+export default function Menu({ isMenuOpen, closeMenu }: Props) {
+   const {
+      scrollToAboutInfo,
+      scrollToSkills,
+      scrollToProjectsSlider,
+      scrollToContact,
+   } = useNavbarContext();
    return (
       <MenuContainer isMenuOpen={isMenuOpen}>
-         <MenuTitle />
          <MenuOptionsContainer>
-            {/* <MenuOption link="home" index={0} bulletRef={homeBullet}>
-               {home}
+            <MenuTitle />
+            <MenuOption onClick={scrollToAboutInfo} closeMenu={closeMenu}>
+               About me
             </MenuOption>
-            <MenuOption link="about" index={1} bulletRef={aboutBullet}>
-               {about}
+            <MenuOption onClick={scrollToSkills} closeMenu={closeMenu}>
+               Skills
             </MenuOption>
-            <MenuOption link="projects" index={2} bulletRef={projectsBullet}>
-               {projects}
+            <MenuOption onClick={scrollToProjectsSlider} closeMenu={closeMenu}>
+               Projects
             </MenuOption>
-            <MenuOption link="contact" index={3} bulletRef={contactBullet}>
-               {contact}
-            </MenuOption> */}
+            <MenuOption onClick={scrollToContact} closeMenu={closeMenu}>
+               Contact
+            </MenuOption>
          </MenuOptionsContainer>
          <MenuFooter />
       </MenuContainer>

@@ -20,7 +20,7 @@ export default function MenuOptionsContainer({ children }: Props) {
          variants={container}
          initial="hidden"
          animate="visible"
-         className="text-4xl sm:text-5xl font-extrabold tracking-wide flex flex-col justify-center"
+         className="flex flex-col justify-center items-center h-full"
       >
          {children}
       </motion.ul>

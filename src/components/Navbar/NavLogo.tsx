@@ -4,16 +4,18 @@ import eagleWhite from "@/assets/images/logo/eagle-white.svg";
 import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
 
-type Props = {};
+type Props = {
+   isMenuOpen: boolean;
+};
 
-export default function NavLogo({}: Props) {
+export default function NavLogo({ isMenuOpen }: Props) {
    const { isWhite } = useNavbarContext();
    return (
       <div className="flex flex-col items-center h-full justify-center">
          <AnimatePresence>
             <div className="relative">
                <Image
-                  src={isWhite ? eagleWhite : eagle}
+                  src={isWhite || isMenuOpen ? eagleWhite : eagle}
                   alt="eagle"
                   className="h-10 w-auto"
                />

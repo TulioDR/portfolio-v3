@@ -4,9 +4,10 @@ import MainContainer from "../MainContainer";
 
 type Props = {
    children: React.ReactNode;
+   isMenuOpen: boolean;
 };
 
-export default function NavbarContainer({ children }: Props) {
+export default function NavbarContainer({ children, isMenuOpen }: Props) {
    const { isWhite } = useNavbarContext();
    return (
       <motion.div
@@ -14,7 +15,7 @@ export default function NavbarContainer({ children }: Props) {
          animate={{ y: 0 }}
          transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
          className={`fixed top-0 w-full z-30 duration-500 ${
-            isWhite ? "text-white" : "text-black"
+            isWhite || isMenuOpen ? "text-white" : "text-black"
          }`}
       >
          <MainContainer>

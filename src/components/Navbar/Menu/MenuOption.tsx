@@ -1,38 +1,12 @@
-import { ReactNode } from "react";
 import { motion } from "framer-motion";
-// import usePositionContext from "../../context/PositionContext";
-// import useNavbarContext from "../../context/NavbarContext";
-import { useRouter } from "next/router";
 
 type Props = {
-   children: ReactNode;
-   index: number;
-   bulletRef: any;
-   link: string;
+   children: React.ReactNode;
+   onClick: () => void;
+   closeMenu: () => void;
 };
 
-export default function MenuOption({
-   children,
-   bulletRef,
-   index,
-   link,
-}: Props) {
-   // const { currentIndex } = usePositionContext();
-   // const { hoveredBullet, setHoveredBullet, closeMenu } = useNavbarContext();
-   const router = useRouter();
-
-   const execute = () => {
-      if (router.route === "/") bulletRef.current.click();
-      else router.push(`/#${link}`);
-      // closeMenu();
-   };
-   const handleHoverStart = () => {
-      // setHoveredBullet(index);
-   };
-   const handleHoverEnd = () => {
-      // if (currentIndex != null) setHoveredBullet(currentIndex);
-   };
-
+export default function MenuOption({ children, onClick, closeMenu }: Props) {
    const option = {
       hidden: { x: -60, opacity: 0 },
       visible: {
@@ -44,24 +18,18 @@ export default function MenuOption({
       },
    };
 
+   const handleClick = () => {
+      onClick();
+      closeMenu();
+   };
+
    return (
-      <motion.li
+      <motion.button
          variants={option}
-         className={`cursor-pointer relative mx-auto py-2 ${
-            currentIndex === index ? "" : "text-gray-400"
-         } ${currentIndex ? "" : "hover:text-white hover:duration-300"}`}
-         onClick={execute}
-         onHoverStart={handleHoverStart}
-         onHoverEnd={handleHoverEnd}
+         className="mx-auto py-2 text-2xl sm:text-3xl font-extrabold tracking-wide"
+         onClick={handleClick}
       >
          {children}
-         {hoveredBullet === index && currentIndex !== null && (
-            <motion.div
-               layoutId="menuSelector"
-               transition={{ duration: 0.2 }}
-               className="bg-white w-24 h-2 hidden md:block absolute top-1/2 -left-28"
-            ></motion.div>
-         )}
-      </motion.li>
+      </motion.button>
    );
 }

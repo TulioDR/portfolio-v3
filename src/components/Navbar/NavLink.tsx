@@ -5,18 +5,20 @@ type Props = {
    simple?: boolean;
    outline?: boolean;
    children: React.ReactNode;
+   onClick: () => void;
 };
 
-export default function NavLink({ simple, outline, children }: Props) {
+export default function NavLink({ simple, outline, children, onClick }: Props) {
    const [isHovering, setIsHovering] = useState<boolean>(false);
 
    return simple ? (
       <motion.button
+         onClick={onClick}
          onHoverStart={() => setIsHovering(true)}
          onHoverEnd={() => setIsHovering(false)}
          className="relative overflow-hidden"
       >
-         <span>{children}</span>
+         {children}
          <AnimatePresence>
             {isHovering && (
                <motion.div
@@ -31,6 +33,7 @@ export default function NavLink({ simple, outline, children }: Props) {
       </motion.button>
    ) : (
       <motion.button
+         onClick={onClick}
          onHoverStart={() => setIsHovering(true)}
          onHoverEnd={() => setIsHovering(false)}
          className={`w-28 h-10 rounded-full ${
@@ -39,7 +42,7 @@ export default function NavLink({ simple, outline, children }: Props) {
                : "bg-orange-700 text-white"
          }`}
       >
-         <span>{children}</span>
+         {children}
          <AnimatePresence>
             {isHovering && outline && (
                <motion.div

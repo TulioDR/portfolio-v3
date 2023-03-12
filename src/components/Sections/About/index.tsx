@@ -1,15 +1,14 @@
 import MainContainer from "@/components/MainContainer";
 import useNavbarContext from "@/context/NavbarContext";
 import { useScroll } from "framer-motion";
-import { useRef } from "react";
 import AboutCard from "./AboutCard";
 import AboutTitle from "./AboutTitle";
 
 export default function AboutSection() {
-   const { aboutRef } = useNavbarContext();
-   const ref = useRef(null);
+   const { aboutRef, aboutInfoRef } = useNavbarContext();
+
    const { scrollYProgress } = useScroll({
-      target: ref,
+      target: aboutInfoRef,
       offset: ["start end", "end end"],
    });
 
@@ -22,7 +21,7 @@ export default function AboutSection() {
                </MainContainer>
                <AboutCard scrollYProgress={scrollYProgress} />
             </div>
-            <div ref={ref} className="h-screen w-full"></div>
+            <div ref={aboutInfoRef} className="h-screen w-full"></div>
          </div>
          <div className="py-24 bg-stone-500">
             <MainContainer>Since the beginning of my journey...</MainContainer>

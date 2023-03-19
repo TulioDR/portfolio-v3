@@ -2,6 +2,7 @@ import MainContainer from "@/components/MainContainer";
 import useNavbarContext from "@/context/NavbarContext";
 import { useScroll } from "framer-motion";
 import AboutCard from "./AboutCard";
+import AboutPhrases from "./AboutPhrases";
 import AboutTitle from "./AboutTitle";
 
 export default function AboutSection() {
@@ -13,11 +14,14 @@ export default function AboutSection() {
    });
 
    return (
-      <div ref={aboutRef} className=" ">
+      <div ref={aboutRef} className="">
          <div className="">
             <div className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-b from-stone-700 to-stone-500">
                <MainContainer>
-                  <AboutTitle scrollYProgress={scrollYProgress} />
+                  <div className="flex flex-col h-full">
+                     <AboutTitle scrollYProgress={scrollYProgress} />
+                     <AboutPhrases />
+                  </div>
                </MainContainer>
                <AboutCard scrollYProgress={scrollYProgress} />
             </div>

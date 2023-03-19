@@ -49,7 +49,7 @@ export default function AboutCard({ scrollYProgress }: Props) {
             }}
             className="rounded-3xl bg-slate-800 text-white font-semibold text-3xl"
          >
-            <div className="w-40">Breaking out if the box</div>
+            <div className="w-40">I love to think outside the box</div>
          </motion.div>
       </div>
    );

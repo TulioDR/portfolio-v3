@@ -9,9 +9,13 @@ import SkillPagination from "./SkillPagination";
 
 import "swiper/css/pagination";
 import SkillCardsContainer from "./SkillCardsContainer";
+
+import useNavbarContext from "@/context/NavbarContext";
+
 import mainSkills from "@/assets/skills/mainSkills/mainSkills";
 import secondarySkills from "@/assets/skills/secondarySkills/secondarySkills";
-import useNavbarContext from "@/context/NavbarContext";
+import inProgressSkills from "@/assets/skills/inProgressSkills";
+
 export default function SkillsSection() {
    const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -65,7 +69,7 @@ export default function SkillsSection() {
                </SwiperSlide>
                <SwiperSlide>
                   <SkillCardsContainer>
-                     {secondarySkills.map(({ name, logo, link }) => (
+                     {inProgressSkills.map(({ name, logo, link }) => (
                         <SkillCard
                            key={name}
                            name={name}

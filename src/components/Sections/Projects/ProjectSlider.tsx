@@ -5,7 +5,10 @@ import {
    MotionValue,
    useTransform,
 } from "framer-motion";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
+
 import ProjectSlide from "./ProjectSlide";
 
 import filmOrganizer from "@/assets/images/projects/film-organizer.png";
@@ -54,7 +57,12 @@ export default function ProjectSlider({
          className="rounded-3xl aspect-video bg-gradient-to-r from-red-900 to-yellow-700 py-2 px-4 h-full"
       >
          <div className="rounded-[30px] w-full h-full bg-gray-200 overflow-hidden relative">
-            <Swiper className="w-full h-full">
+            <Swiper
+               loop={true}
+               modules={[Autoplay]}
+               autoplay={{ delay: 2000 }}
+               className="w-full h-full"
+            >
                <SwiperSlide>
                   <ProjectSlide src={filmOrganizer} />
                </SwiperSlide>

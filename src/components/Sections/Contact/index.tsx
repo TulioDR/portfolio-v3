@@ -14,7 +14,7 @@ export default function ContactSection() {
          <MainContainer>
             <div className="flex flex-col h-full">
                <div className="text-white flex">
-                  <Logo />
+                  <Logo isMenuOpen />
                </div>
                <div className="grid lg:grid-cols-2 gap-7 lg:gap-0 my-24 2xl:my-auto">
                   <div className="grid sm:grid-cols-2 gap-7 sm:gap-0 text-sm sm:text-base md:text-lg font-semibold">

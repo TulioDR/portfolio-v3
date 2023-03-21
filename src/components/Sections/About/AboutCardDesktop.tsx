@@ -47,7 +47,7 @@ export default function AboutCardDesktop({ scrollYProgress }: Props) {
                marginLeft,
                padding,
             }}
-            className="rounded-3xl bg-primary text-white font-semibold text-3xl"
+            className="rounded-3xl bg-primary text-white font-semibold text-2xl 2xl:text-3xl drop-shadow-2xl"
          >
             <div className="w-40">I love to think outside the box</div>
          </motion.div>

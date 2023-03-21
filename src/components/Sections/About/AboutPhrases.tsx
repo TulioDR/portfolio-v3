@@ -1,41 +1,51 @@
-import React from "react";
-import Phrase from "./Phrase";
+import { MotionValue, useSpring, useTransform } from "framer-motion";
+import PhraseMobile from "./AboutMobile/PhraseMobile";
 
-type Props = {};
+interface Props {
+   scrollYProgress: MotionValue<number>;
+}
 
-export default function AboutPhrases({}: Props) {
+export default function AboutPhrases({ scrollYProgress }: Props) {
+   const scrollYVelocity = useSpring(scrollYProgress, {
+      stiffness: 200,
+      damping: 30,
+   });
+
+   const x1 = useTransform(scrollYVelocity, [0.3, 0.6], ["-50%", "0%"]);
+   const x2 = useTransform(scrollYVelocity, [0.4, 0.7], ["-50%", "0%"]);
+   const x3 = useTransform(scrollYVelocity, [0.5, 0.8], ["-50%", "0%"]);
+   const x4 = useTransform(scrollYVelocity, [0.6, 0.9], ["-50%", "0%"]);
+   const x5 = useTransform(scrollYVelocity, [0.7, 0.9], ["-50%", "0%"]);
+
+   const op1 = useTransform(scrollYVelocity, [0.3, 0.6], [0, 1]);
+   const op2 = useTransform(scrollYVelocity, [0.4, 0.7], [0, 1]);
+   const op3 = useTransform(scrollYVelocity, [0.5, 0.8], [0, 1]);
+   const op4 = useTransform(scrollYVelocity, [0.6, 0.9], [0, 1]);
+   const op5 = useTransform(scrollYVelocity, [0.7, 0.9], [0, 1]);
+
    return (
-      <>
-         <div className="w-full md:hidden space-y-5">
-            <div className="pr-10">
-               <Phrase>To try new Things</Phrase>
-            </div>
-            <div className="ml-auto max-w-max pl-10">
-               <Phrase>I learn fast</Phrase>
-            </div>
-            <div className="pr-10">
-               <Phrase>I'm Disciplined with a high attention to Detail</Phrase>
-            </div>
-            <div className="ml-auto max-w-max pl-10">
-               <Phrase>Clean Code Enyoer</Phrase>
-            </div>
-            <div className="pr-10">
-               <Phrase>I Speak English Spanish and Coding</Phrase>
+      <div className="flex justify-between h-full w-full flex-1">
+         <div className="w-1/2 h-full flex flex-col justify-around pr-5 2xl:pr-10">
+            <PhraseMobile x={x1} opacity={op1}>
+               To try new Things
+            </PhraseMobile>
+            <PhraseMobile x={x2} opacity={op2}>
+               I'm Disciplined with a high attention to Detail
+            </PhraseMobile>
+            <PhraseMobile x={x3} opacity={op3}>
+               I Speak English Spanish and Coding
+            </PhraseMobile>
+         </div>
+         <div className="w-1/2 h-full pl-80">
+            <div className="flex flex-col items-end justify-evenly h-full pl-5 2xl:pl-10">
+               <PhraseMobile x={x4} opacity={op4}>
+                  I learn fast
+               </PhraseMobile>
+               <PhraseMobile x={x5} opacity={op5}>
+                  Clean Code Enyoer
+               </PhraseMobile>
             </div>
          </div>
-         <div className="hidden md:flex justify-between h-full w-full flex-1">
-            <div className="w-1/2 h-full flex flex-col justify-around pr-5 2xl:pr-10">
-               <Phrase>To try new Things</Phrase>
-               <Phrase>I'm Disciplined with a high attention to Detail</Phrase>
-               <Phrase>I Speak English Spanish and Coding</Phrase>
-            </div>
-            <div className="w-1/2 h-full lg:pl-80">
-               <div className="flex flex-col items-end justify-evenly h-full pl-5 2xl:pl-10">
-                  <Phrase>I learn fast</Phrase>
-                  <Phrase>Clean Code Enyoer</Phrase>
-               </div>
-            </div>
-         </div>
-      </>
+      </div>
    );
 }

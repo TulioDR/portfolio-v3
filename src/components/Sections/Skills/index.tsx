@@ -12,8 +12,8 @@ import SkillCardsContainer from "./SkillCardsContainer";
 
 import useNavbarContext from "@/context/NavbarContext";
 
-import mainSkills from "@/assets/skills/mainSkills/mainSkills";
-import secondarySkills from "@/assets/skills/secondarySkills/secondarySkills";
+import mainSkills from "@/assets/skills/mainSkills";
+import secondarySkills from "@/assets/skills/secondarySkills";
 import inProgressSkills from "@/assets/skills/inProgressSkills";
 
 export default function SkillsSection() {

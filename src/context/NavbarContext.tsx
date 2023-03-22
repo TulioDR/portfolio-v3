@@ -53,15 +53,21 @@ export function NavbarContextProvider({ children }: Props) {
    const contactRef = useRef<HTMLDivElement>(null);
    const contactInView = useInView(contactRef, { margin: "0% 0% -95% 0%" });
 
+   const router = useRouter();
+   const { asPath, route } = router;
+
    useEffect(() => {
+      if (route === "/projects") {
+         setBlack();
+         return;
+      }
       if (contactInView) setWhite();
       else if (projectsInView) setWhite();
       else if (skillsInView) setBlack();
       else if (aboutInView) setWhite();
       else setWhite();
-   }, [contactInView, projectsInView, skillsInView, aboutInView]);
+   }, [contactInView, projectsInView, skillsInView, aboutInView, route]);
 
-   const { asPath } = useRouter();
    useEffect(() => {
       const scrollTo = (el: RefObject<HTMLDivElement>) => {
          el.current?.scrollIntoView();

@@ -1,5 +1,5 @@
 import { MotionValue, useSpring, useTransform } from "framer-motion";
-import PhraseMobile from "./AboutMobile/PhraseMobile";
+import Phrase from "./Phrase";
 
 interface Props {
    scrollYProgress: MotionValue<number>;
@@ -26,24 +26,24 @@ export default function AboutPhrases({ scrollYProgress }: Props) {
    return (
       <div className="flex justify-between h-full w-full flex-1">
          <div className="w-1/2 h-full flex flex-col justify-around pr-5 2xl:pr-10">
-            <PhraseMobile x={x1} opacity={op1}>
+            <Phrase x={x1} opacity={op1}>
                To try new Things
-            </PhraseMobile>
-            <PhraseMobile x={x2} opacity={op2}>
+            </Phrase>
+            <Phrase x={x2} opacity={op2}>
                I'm Disciplined with a high attention to Detail
-            </PhraseMobile>
-            <PhraseMobile x={x3} opacity={op3}>
+            </Phrase>
+            <Phrase x={x3} opacity={op3}>
                I Speak English Spanish and Coding
-            </PhraseMobile>
+            </Phrase>
          </div>
          <div className="w-1/2 h-full pl-80">
             <div className="flex flex-col items-end justify-evenly h-full pl-5 2xl:pl-10">
-               <PhraseMobile x={x4} opacity={op4}>
+               <Phrase x={x4} opacity={op4}>
                   I learn fast
-               </PhraseMobile>
-               <PhraseMobile x={x5} opacity={op5}>
+               </Phrase>
+               <Phrase x={x5} opacity={op5}>
                   Clean Code Enyoer
-               </PhraseMobile>
+               </Phrase>
             </div>
          </div>
       </div>

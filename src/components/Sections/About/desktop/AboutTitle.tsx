@@ -1,5 +1,5 @@
 import { MotionValue, useSpring, useTransform, motion } from "framer-motion";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../../SectionTitle";
 
 interface Props {
    scrollYProgress: MotionValue<number>;
@@ -11,11 +11,7 @@ export default function AboutTitle({ scrollYProgress }: Props) {
       damping: 30,
    });
 
-   const y = useTransform(
-      scrollYProgressVelocity,
-      [0, 0.75, 1],
-      ["-100%", "0%", "0%"]
-   );
+   const y = useTransform(scrollYProgressVelocity, [0, 0.75], ["-100%", "0%"]);
 
    return (
       <motion.div style={{ y }} className="pt-24">

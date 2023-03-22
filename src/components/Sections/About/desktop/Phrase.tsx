@@ -5,7 +5,7 @@ interface Props {
    x: MotionValue<string>;
    opacity: MotionValue<number>;
 }
-export default function PhraseMobile({ children, x, opacity }: Props) {
+export default function Phrase({ children, x, opacity }: Props) {
    return (
       <motion.div
          style={{ x, opacity }}

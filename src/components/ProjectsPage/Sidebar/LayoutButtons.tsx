@@ -44,12 +44,14 @@ export default function LayoutButtons({
             currentLayout={currentLayout}
             setCurrentLayout={setCurrentLayout}
          />
+         <div className="h-full w-[2px] bg-primary"></div>
          <button
             onClick={toggleProjectsExpanded}
             className="h-10 aspect-square bg-primary rounded-lg text-white "
          >
             <span className="material-icons">menu</span>
          </button>
+         <div className="h-full w-[2px] bg-primary"></div>
          <button
             onClick={toggleFilter}
             className="h-10 aspect-square bg-primary rounded-lg text-white "

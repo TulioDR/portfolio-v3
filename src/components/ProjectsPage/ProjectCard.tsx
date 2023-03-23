@@ -41,7 +41,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
          }`}
       >
          <div
-            className={`overflow-hidden h-full flex justify-center scale-[1.15]
+            className={`overflow-hidden h-full flex justify-center group
             ${currentLayout === "normal" && small ? "aspect-video" : ""}
             ${currentLayout === "grid" ? "aspect-square" : ""}
             ${currentLayout === "list" ? "aspect-video" : ""}
@@ -57,7 +57,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
                   alt="image"
                   fill
                   sizes="100%"
-                  className="object-cover"
+                  className="object-cover group-hover:scale-[1.15] duration-200"
                   priority
                />
             </motion.div>

@@ -1,53 +1,61 @@
-import { motion } from "framer-motion";
 import LayoutButton from "./LayoutButton";
+import { motion } from "framer-motion";
 
 type Props = {
    currentLayout: "normal" | "grid" | "list";
    setCurrentLayout: React.Dispatch<
       React.SetStateAction<"normal" | "grid" | "list">
    >;
-   isSidebarExpanded: boolean;
+   toggleFilter: () => void;
+   toggleProjectsExpanded: () => void;
 };
 
 export default function LayoutButtons({
    currentLayout,
    setCurrentLayout,
-   isSidebarExpanded,
+   toggleFilter,
+   toggleProjectsExpanded,
 }: Props) {
    return (
       <motion.div
-         exit={{ opacity: 0, transition: { duration: 0.4 } }}
-         className="flex-1 flex items-center w-full px-5"
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+         transition={{ duration: 0.4 }}
+         className="flex space-x-2"
       >
-         <div className="mr-auto">
-            <LayoutButton
-               icon="dashboard"
-               layout="normal"
-               currentLayout={currentLayout}
-               setCurrentLayout={setCurrentLayout}
-               isSidebarExpanded={isSidebarExpanded}
-            />
-         </div>
-         <div className="mx-auto">
-            <LayoutButton
-               sharp
-               icon="grid_view"
-               layout="grid"
-               currentLayout={currentLayout}
-               setCurrentLayout={setCurrentLayout}
-               isSidebarExpanded={isSidebarExpanded}
-            />
-         </div>
-         <div className="ml-auto">
-            <LayoutButton
-               sharp
-               icon="view_agenda"
-               layout="list"
-               currentLayout={currentLayout}
-               setCurrentLayout={setCurrentLayout}
-               isSidebarExpanded={isSidebarExpanded}
-            />
-         </div>
+         <LayoutButton
+            icon="dashboard"
+            layout="normal"
+            currentLayout={currentLayout}
+            setCurrentLayout={setCurrentLayout}
+         />
+         <LayoutButton
+            sharp
+            icon="grid_view"
+            layout="grid"
+            currentLayout={currentLayout}
+            setCurrentLayout={setCurrentLayout}
+         />
+         <LayoutButton
+            sharp
+            icon="view_agenda"
+            layout="list"
+            currentLayout={currentLayout}
+            setCurrentLayout={setCurrentLayout}
+         />
+         <button
+            onClick={toggleProjectsExpanded}
+            className="h-10 aspect-square bg-primary rounded-lg text-white "
+         >
+            <span className="material-icons">menu</span>
+         </button>
+         <button
+            onClick={toggleFilter}
+            className="h-10 aspect-square bg-primary rounded-lg text-white "
+         >
+            <span className="material-icons">sort</span>
+         </button>
       </motion.div>
    );
 }

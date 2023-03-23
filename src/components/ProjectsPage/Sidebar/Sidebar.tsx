@@ -4,25 +4,14 @@ import FilterHeader from "./FilterHeader";
 import { AnimatePresence, motion } from "framer-motion";
 import allSkills from "@/assets/skills/allSkills";
 import { useState } from "react";
-import LayoutButtons from "./LayoutButtons";
 import SkillModel from "@/models/SkillModel";
 import { StaticImageData } from "next/image";
 
 type Props = {
    toggle: () => void;
-   isSidebarExpanded: boolean;
-   currentLayout: "normal" | "grid" | "list";
-   setCurrentLayout: React.Dispatch<
-      React.SetStateAction<"normal" | "grid" | "list">
-   >;
 };
 
-export default function Sidebar({
-   toggle,
-   isSidebarExpanded,
-   currentLayout,
-   setCurrentLayout,
-}: Props) {
+export default function Sidebar({ toggle }: Props) {
    const [selectedTech, setSelectedTech] = useState<SkillModel[]>([]);
    const [NonSelectedTech, setNonSelectedTech] =
       useState<SkillModel[]>(allSkills);
@@ -50,14 +39,8 @@ export default function Sidebar({
    };
 
    return (
-      <SidebarContainer isSidebarExpanded={isSidebarExpanded}>
-         <div className="w-full flex flex-col justify-between pt-20 pb-5">
-            <LayoutButtons
-               currentLayout={currentLayout}
-               setCurrentLayout={setCurrentLayout}
-               isSidebarExpanded={isSidebarExpanded}
-            />
-         </div>
+      <SidebarContainer>
+         <div className="w-full flex flex-col justify-between pt-20 pb-5"></div>
          <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -67,7 +50,7 @@ export default function Sidebar({
          >
             <FilterHeader toggle={toggle} />
             <div className="text-sm">Selected</div>
-            <ul>
+            <ul className="space-y-1">
                <AnimatePresence>
                   {selectedTech.map(({ name, logo, link }) => (
                      <TechnologyCard
@@ -80,7 +63,7 @@ export default function Sidebar({
                </AnimatePresence>
             </ul>
             <div className="text-sm">Technologies</div>
-            <ul>
+            <ul className="space-y-1">
                <AnimatePresence>
                   {NonSelectedTech.map(({ name, logo, link }) => (
                      <TechnologyCard

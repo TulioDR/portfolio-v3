@@ -25,10 +25,8 @@ export default function TechnologyCard({ name, logo, onClick }: Props) {
          }}
          className="h-10 w-full cursor-pointer flex items-center rounded-full overflow-hidden hover:shadow-lg hover:bg-slate-800 group"
       >
-         <div className="aspect-square h-full flex-shrink-0 p-2">
-            <div className="relative h-full w-full">
-               <Image src={logo} alt={name} fill sizes="100%" />
-            </div>
+         <div className="aspect-square h-full flex-shrink-0 p-2 flex items-center justify-center">
+            <Image src={logo} alt={name} />
          </div>
          <div className="font-semibold text-gray-800 group-hover:text-white">
             {name}

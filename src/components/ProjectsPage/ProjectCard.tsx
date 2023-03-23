@@ -19,9 +19,9 @@ export default function ProjectCard({ currentLayout, small }: Props) {
       },
    };
 
-   const tilt = useRef<HTMLDivElement>(null);
+   const tiltElementRef = useRef<HTMLDivElement>(null);
    useEffect(() => {
-      VanillaTilt.init(tilt.current!, {
+      VanillaTilt.init(tiltElementRef.current!, {
          reverse: true,
          glare: true,
          "max-glare": 0.3,
@@ -48,7 +48,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
             `}
          >
             <motion.div
-               ref={tilt}
+               ref={tiltElementRef}
                layout
                className="relative h-full aspect-video"
             >

@@ -13,7 +13,7 @@ export default function BackButton() {
          animate={{ width: 80 }}
          exit={{ width: 0 }}
          transition={{ duration: 0.4 }}
-         className="mt-4 overflow-hidden"
+         className="overflow-hidden ml-auto"
       >
          <Link
             onClick={handleClick}

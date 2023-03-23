@@ -1,16 +1,17 @@
 import MainContainer from "@/components/MainContainer";
 import ProjectCard from "@/components/ProjectsPage/ProjectCard";
-import Sidebar from "@/components/ProjectsPage/Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
 import BackButton from "@/components/ProjectsPage/Sidebar/BackButton";
 import Head from "next/head";
+import Filter from "@/components/ProjectsPage/Filter";
+import LayoutButtons from "@/components/ProjectsPage/Sidebar/LayoutButtons";
+import { StaticImageData } from "next/image";
+import SkillModel from "@/models/SkillModel";
+import allSkills from "@/assets/skills/allSkills";
 
 export default function ProjectsPage() {
-   const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(true);
-   const toggle = () => setIsSidebarExpanded((prev) => !prev);
-
    const [currentLayout, setCurrentLayout] = useState<
       "normal" | "grid" | "list"
    >("normal");
@@ -19,6 +20,39 @@ export default function ProjectsPage() {
       window.scrollTo({ top: 0 });
    }, []);
 
+   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
+   const toggleFilter = () => setIsFilterOpen((prevState) => !prevState);
+   const closeFilter = () => setIsFilterOpen(false);
+
+   const [isProjectExpanded, setIsProjectExpanded] = useState<boolean>(true);
+   const toggleProjectsExpanded = () =>
+      setIsProjectExpanded((prevState) => !prevState);
+
+   const [selectedTech, setSelectedTech] = useState<SkillModel[]>([]);
+   const [Tech, setTech] = useState<SkillModel[]>(allSkills);
+
+   const addToSelectedTech = (
+      name: string,
+      logo: StaticImageData,
+      link: string
+   ) => {
+      const newArray = Tech.filter((tech) => tech.name !== name);
+      setTech(newArray);
+      setTimeout(() => {
+         setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
+      }, 300);
+   };
+
+   const removeFromSelectedTech = (
+      name: string,
+      logo: StaticImageData,
+      link: string
+   ) => {
+      setTech((oldArray) => [...oldArray, { name, logo, link }]);
+      const newArray = selectedTech.filter((tech) => tech.name !== name);
+      setSelectedTech(newArray);
+   };
+
    return (
       <>
          <Head>
@@ -26,15 +60,24 @@ export default function ProjectsPage() {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
+         {isFilterOpen && <Filter close={closeFilter} />}
          <MainContainer>
-            <div className="flex mt-20 items-center">
+            <div className="flex justify-between items-stretch mt-20 overflow-hidden pb-8">
                <ProjectsPageTitle />
-               <BackButton />
+               <div className="flex flex-col justify-between">
+                  <BackButton />
+                  <LayoutButtons
+                     currentLayout={currentLayout}
+                     setCurrentLayout={setCurrentLayout}
+                     toggleFilter={toggleFilter}
+                     toggleProjectsExpanded={toggleProjectsExpanded}
+                  />
+               </div>
             </div>
-            <div className="flex justify-between overflow-y-hidden">
+            <div className="overflow-y-hidden">
                <ProjectsContainer
                   currentLayout={currentLayout}
-                  isSidebarExpanded={isSidebarExpanded}
+                  isProjectExpanded={isProjectExpanded}
                >
                   <ProjectCard currentLayout={currentLayout} />
                   <ProjectCard currentLayout={currentLayout} small />
@@ -44,12 +87,6 @@ export default function ProjectsPage() {
                   <ProjectCard currentLayout={currentLayout} />
                   <ProjectCard currentLayout={currentLayout} small />
                </ProjectsContainer>
-               <Sidebar
-                  setCurrentLayout={setCurrentLayout}
-                  toggle={toggle}
-                  isSidebarExpanded={isSidebarExpanded}
-                  currentLayout={currentLayout}
-               />
             </div>
          </MainContainer>
       </>

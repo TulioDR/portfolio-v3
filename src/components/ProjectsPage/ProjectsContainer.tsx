@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 type Props = {
    children: React.ReactNode;
    currentLayout: "normal" | "grid" | "list";
-   isSidebarExpanded: boolean;
+   isProjectExpanded: boolean;
 };
 
 export default function ProjectsContainer({
    currentLayout,
-   isSidebarExpanded,
+   isProjectExpanded,
    children,
 }: Props) {
    const container = {
@@ -27,19 +27,19 @@ export default function ProjectsContainer({
          initial="initial"
          animate="animate"
          exit="exit"
-         className={`grid gap-7 pb-7 pr-7 flex-1 ${
+         className={`grid gap-7 pb-7 ${
             currentLayout === "list"
-               ? isSidebarExpanded
-                  ? "grid-cols-1"
-                  : "grid-cols-2"
-               : isSidebarExpanded
-               ? "grid-cols-2"
-               : "grid-cols-3"
+               ? isProjectExpanded
+                  ? "grid-cols-2"
+                  : "grid-cols-1"
+               : isProjectExpanded
+               ? "grid-cols-3"
+               : "grid-cols-2"
          } ${
             currentLayout === "normal"
-               ? isSidebarExpanded
-                  ? "grid-rows-6"
-                  : "grid-rows-4"
+               ? isProjectExpanded
+                  ? "grid-rows-4"
+                  : "grid-rows-6"
                : ""
          }`}
       >

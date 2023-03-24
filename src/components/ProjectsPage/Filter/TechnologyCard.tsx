@@ -4,23 +4,24 @@ import Image, { StaticImageData } from "next/image";
 type Props = {
    name: string;
    logo: StaticImageData;
+   onClick: () => void;
 };
 
-export default function TechnologyCard({ name, logo }: Props) {
+export default function TechnologyCard({ name, logo, onClick }: Props) {
    return (
       <motion.li
-         layout
-         initial={{ opacity: 0, scale: 0.9 }}
-         animate={{ opacity: 1, scale: 1 }}
-         exit={{ opacity: 0, scale: 0.9 }}
-         transition={{ duration: 0.3 }}
-         className="h-10 mr-3 mb-3 float-left pr-4 cursor-pointer flex items-center rounded-full overflow-hidden shadow-lg bg-white hover:bg-slate-800 group"
+         layoutId={name}
+         onClick={onClick}
+         transition={{ duration: 0.4 }}
+         className="h-10 mr-2 mb-2 ml-auto pr-4 float-left list-none cursor-pointer rounded-full shadow-lg bg-white hover:bg-slate-800 group"
       >
-         <div className="aspect-square h-full flex-shrink-0 p-2 flex items-center justify-center">
-            <Image src={logo} alt={name} />
-         </div>
-         <div className="font-semibold text-gray-800 group-hover:text-white">
-            {name}
+         <div className="w-full h-full flex items-center">
+            <div className="aspect-square h-full p-2 flex items-center justify-center">
+               <Image src={logo} alt={name} />
+            </div>
+            <div className="font-semibold text-gray-800 group-hover:text-white">
+               {name}
+            </div>
          </div>
       </motion.li>
    );

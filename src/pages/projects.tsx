@@ -5,7 +5,7 @@ import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
 import BackButton from "@/components/ProjectsPage/Sidebar/BackButton";
 import Head from "next/head";
-import Filter from "@/components/ProjectsPage/Filter";
+import Filter from "@/components/ProjectsPage/Filter/Filter";
 import LayoutButtons from "@/components/ProjectsPage/Sidebar/LayoutButtons";
 import { StaticImageData } from "next/image";
 import SkillModel from "@/models/SkillModel";
@@ -29,18 +29,17 @@ export default function ProjectsPage() {
       setIsProjectExpanded((prevState) => !prevState);
 
    const [selectedTech, setSelectedTech] = useState<SkillModel[]>([]);
-   const [Tech, setTech] = useState<SkillModel[]>(allSkills);
+   const [tech, setTech] = useState<SkillModel[]>(allSkills);
 
    const addToSelectedTech = (
       name: string,
       logo: StaticImageData,
       link: string
    ) => {
-      const newArray = Tech.filter((tech) => tech.name !== name);
+      const newArray = tech.filter((tech) => tech.name !== name);
+      console.log(newArray);
       setTech(newArray);
-      setTimeout(() => {
-         setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
-      }, 300);
+      setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
    };
 
    const removeFromSelectedTech = (
@@ -60,7 +59,15 @@ export default function ProjectsPage() {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         {isFilterOpen && <Filter close={closeFilter} />}
+         {isFilterOpen && (
+            <Filter
+               close={closeFilter}
+               tech={tech}
+               selectedTech={selectedTech}
+               addToSelectedTech={addToSelectedTech}
+               removeFromSelectedTech={removeFromSelectedTech}
+            />
+         )}
          <MainContainer>
             <div className="flex justify-between items-stretch mt-20 overflow-hidden pb-8">
                <ProjectsPageTitle />

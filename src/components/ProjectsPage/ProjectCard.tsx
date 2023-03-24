@@ -47,27 +47,32 @@ export default function ProjectCard({ currentLayout, small }: Props) {
             ${currentLayout === "list" ? "aspect-video" : ""}
             `}
          >
-            <motion.div
-               ref={tiltElementRef}
-               layout
-               className="relative h-full aspect-video"
-            >
-               <Image
-                  src={landscape}
-                  alt="image"
-                  fill
-                  sizes="100%"
-                  className="object-cover group-hover:scale-[1.15] duration-200"
-                  priority
-               />
-            </motion.div>
+            <div className="aspect-video h-full group-hover:scale-110 duration-200">
+               <motion.div
+                  ref={tiltElementRef}
+                  layout
+                  className="relative h-full aspect-video "
+               >
+                  <Image
+                     src={landscape}
+                     alt="image"
+                     fill
+                     sizes="100%"
+                     className="object-cover"
+                     priority
+                  />
+               </motion.div>
+            </div>
          </div>
          <motion.div
             className={`absolute w-full bottom-0 bg-gradient-to-t from-black to-transparent px-7 pb-7 pt-20 pointer-events-none group-hover:opacity-0 duration-300`}
          >
-            <div className="text-3xl font-bold text-center text-white">
+            <motion.div
+               layout="position"
+               className="text-3xl font-bold text-center text-white"
+            >
                Card Title
-            </div>
+            </motion.div>
          </motion.div>
       </motion.div>
    );

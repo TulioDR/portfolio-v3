@@ -47,7 +47,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
             ${currentLayout === "list" ? "aspect-video" : ""}
             `}
          >
-            <div className="aspect-video h-full group-hover:scale-110 duration-200">
+            <div className="aspect-video h-full group-hover:scale-110 duration-300">
                <motion.div
                   ref={tiltElementRef}
                   layout

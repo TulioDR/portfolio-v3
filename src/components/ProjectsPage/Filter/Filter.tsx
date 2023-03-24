@@ -28,23 +28,24 @@ export default function Filter({
 }: Props) {
    return (
       <motion.div
-         drag
+         drag={true}
          dragMomentum={false}
-         className="fixed bottom-10 right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white"
+         className="fixed bottom-10 right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white cursor-grab active:cursor-grabbing"
       >
          <div className="flex h-10 bg-white items-center">
-            <div>
-               <span className="material-icons">drag_indicator</span>
-            </div>
+            <span className="material-icons">drag_indicator</span>
             <div className="flex-1 text-center">Drag me!</div>
             <button
                onClick={close}
-               className="h-full aspect-square grid place-content-center"
+               className="h-full aspect-square grid place-content-center hover:bg-primary hover:text-white"
             >
                <span className="material-icons">close</span>
             </button>
          </div>
-         <div className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl p-2">
+         <div
+            onPointerDownCapture={(e) => e.stopPropagation()}
+            className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl p-2 cursor-default"
+         >
             <div className="text-lg font-medium">Filter Projects</div>
             {selectedTech.length > 0 ? (
                <>

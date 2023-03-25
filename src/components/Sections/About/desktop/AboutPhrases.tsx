@@ -30,7 +30,7 @@ export default function AboutPhrases({ scrollYProgress }: Props) {
                To try new Things
             </Phrase>
             <Phrase x={x2} opacity={op2}>
-               I'm Disciplined with a high attention to Detail
+               {"I'm Disciplined with a high attention to Detail"}
             </Phrase>
             <Phrase x={x3} opacity={op3}>
                I Speak English Spanish and Coding

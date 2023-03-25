@@ -8,6 +8,7 @@ type Props = {
    >;
    toggleFilter: () => void;
    toggleProjectsExpanded: () => void;
+   isProjectExpanded: boolean;
 };
 
 export default function LayoutButtons({
@@ -15,6 +16,7 @@ export default function LayoutButtons({
    setCurrentLayout,
    toggleFilter,
    toggleProjectsExpanded,
+   isProjectExpanded,
 }: Props) {
    return (
       <motion.div
@@ -22,7 +24,7 @@ export default function LayoutButtons({
          animate={{ opacity: 1 }}
          exit={{ opacity: 0 }}
          transition={{ duration: 0.4 }}
-         className="flex space-x-2"
+         className="flex space-x-2 w-full mb-7"
       >
          <LayoutButton
             icon="dashboard"
@@ -47,14 +49,16 @@ export default function LayoutButtons({
          <div className="h-full w-[2px] bg-primary"></div>
          <button
             onClick={toggleProjectsExpanded}
-            className="h-10 aspect-square bg-primary rounded-lg text-white "
+            className="h-10 aspect-square bg-primary rounded-lg text-white grid place-content-center"
          >
-            <span className="material-icons">menu</span>
+            <span className="material-icons">
+               {isProjectExpanded ? "zoom_out_map" : "zoom_in_map"}
+            </span>
          </button>
          <div className="h-full w-[2px] bg-primary"></div>
          <button
             onClick={toggleFilter}
-            className="h-10 aspect-square bg-primary rounded-lg text-white "
+            className="h-10 aspect-square bg-primary rounded-lg text-white grid place-content-center"
          >
             <span className="material-icons">sort</span>
          </button>

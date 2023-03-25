@@ -76,7 +76,7 @@ export function NavbarContextProvider({ children }: Props) {
       else if (asPath === "/#skills") scrollTo(skillsRef);
       else if (asPath === "/#projects") scrollTo(projectsSliderRef);
       else if (asPath === "/#contact") scrollTo(contactRef);
-   }, []);
+   }, [asPath]);
 
    const scrollTo = (el: RefObject<HTMLDivElement>) => {
       el.current?.scrollIntoView({ behavior: "smooth" });

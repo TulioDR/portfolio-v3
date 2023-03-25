@@ -19,7 +19,7 @@ export default function AboutSectionMobile() {
                </div>
                <div className="pr-10">
                   <PhraseMobile>
-                     I'm Disciplined with a high attention to Detail
+                     {"I'm Disciplined with a high attention to Detail"}
                   </PhraseMobile>
                </div>
                <div className="ml-auto max-w-max pl-10">

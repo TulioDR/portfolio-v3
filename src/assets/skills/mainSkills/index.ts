@@ -16,77 +16,77 @@ import sassLogo from "./img/sass.png";
 import supabaseLogo from "./img/supabase.png";
 import npmLogo from "./img/npm.png";
 
-const html: SkillModel = {
+export const html: SkillModel = {
    name: "HTML",
    logo: htmlLogo,
    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
 };
-const css: SkillModel = {
+export const css: SkillModel = {
    name: "CSS",
    logo: cssLogo,
    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
 };
-const javascript: SkillModel = {
+export const javascript: SkillModel = {
    name: "Javascript",
    logo: javascriptLogo,
    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
 };
-const nextJs: SkillModel = {
+export const nextJs: SkillModel = {
    name: "Next.js",
    logo: nextLogo,
    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
 };
-const react: SkillModel = {
+export const react: SkillModel = {
    name: "React",
    logo: reactLogo,
    link: "https://reactjs.org/",
 };
-const reactRouter: SkillModel = {
+export const reactRouter: SkillModel = {
    name: "React-Router",
    logo: reactRouterLogo,
    link: "",
 };
-const redux: SkillModel = {
+export const redux: SkillModel = {
    name: "Redux",
    logo: reduxLogo,
    link: "",
 };
-const tailwindcss: SkillModel = {
+export const tailwindcss: SkillModel = {
    name: "Tailwind CSS",
    logo: tailwindLogo,
    link: "https://tailwindcss.com/",
 };
-const typescript: SkillModel = {
+export const typescript: SkillModel = {
    name: "Typescript",
    logo: typescriptLogo,
    link: "https://www.typescriptlang.org/",
 };
-const bootstrap: SkillModel = {
+export const bootstrap: SkillModel = {
    name: "Bootstrap",
    logo: bootstrapLogo,
    link: "https://getbootstrap.com/",
 };
-const git: SkillModel = {
+export const git: SkillModel = {
    name: "Git",
    logo: gitLogo,
    link: "",
 };
-const sass: SkillModel = {
+export const sass: SkillModel = {
    name: "Sass",
    logo: sassLogo,
    link: "",
 };
-const prisma: SkillModel = {
+export const prisma: SkillModel = {
    name: "Prisma",
    logo: prismaLogo,
    link: "",
 };
-const supabase: SkillModel = {
+export const supabase: SkillModel = {
    name: "Supabase",
    logo: supabaseLogo,
    link: "",
 };
-const npm: SkillModel = {
+export const npm: SkillModel = {
    name: "npm",
    logo: npmLogo,
    link: "https://www.npmjs.com/",

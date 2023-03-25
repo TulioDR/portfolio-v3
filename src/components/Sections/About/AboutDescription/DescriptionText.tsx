@@ -23,12 +23,14 @@ export default function DescriptionText({ scrollVelocity }: Props) {
    return (
       <div className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-black">
          <motion.div style={{ x: x1, y: y1, opacity: op1 }}>
-            I'm a self-taught Front-End Developer with basic knowledge of
-            Back-End Technology.
+            {
+               "I'm a self-taught Front-End Developer with basic knowledge ofBack-End Technology."
+            }
          </motion.div>
          <motion.div style={{ x: x2, y: y2, opacity: op2 }}>
-            I'm a well-organized person, problem solver with high attention to
-            detail that specializes on React.
+            {
+               "I'm a well-organized person, problem solver with high attention to detail that specializes on React."
+            }
          </motion.div>
          <motion.div style={{ x: x3, y: y3, opacity: op3 }}>
             Coding is a passion that motivates me to learn and improve my skills

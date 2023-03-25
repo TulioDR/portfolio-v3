@@ -51,7 +51,7 @@ export const swiper: SkillModel = {
    logo: swiperLogo,
    link: "",
 };
-export const Syncfusion: SkillModel = {
+export const syncfusion: SkillModel = {
    name: "Syncfusion",
    logo: syncfusionLogo,
    link: "",

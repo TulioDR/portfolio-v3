@@ -10,6 +10,7 @@ import LayoutButtons from "@/components/ProjectsPage/LayoutButtons";
 import { StaticImageData } from "next/image";
 import SkillModel from "@/models/SkillModel";
 import allSkills from "@/assets/skills/allSkills";
+import projects from "@/assets/projects";
 
 export default function ProjectsPage() {
    const [currentLayout, setCurrentLayout] = useState<
@@ -37,7 +38,6 @@ export default function ProjectsPage() {
       link: string
    ) => {
       const newArray = tech.filter((tech) => tech.name !== name);
-      console.log(newArray);
       setTech(newArray);
       setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
    };
@@ -51,6 +51,16 @@ export default function ProjectsPage() {
       const newArray = selectedTech.filter((tech) => tech.name !== name);
       setSelectedTech(newArray);
    };
+
+   const [filteredProjects, setFilteredProjects] = useState<any[]>(projects);
+   useEffect(() => {
+      const founded = projects.filter((project) =>
+         selectedTech.every((value) =>
+            project.technologies.some(({ name }) => name === value.name)
+         )
+      );
+      setFilteredProjects(founded);
+   }, [selectedTech]);
 
    return (
       <>
@@ -69,30 +79,31 @@ export default function ProjectsPage() {
             />
          )}
          <MainContainer>
-            <div className="flex justify-between items-stretch mt-20 overflow-hidden pb-8">
+            <div className="flex justify-between items-center mt-20 overflow-hidden pb-8">
                <ProjectsPageTitle />
-               <div className="flex flex-col justify-between">
-                  <BackButton />
-                  <LayoutButtons
-                     currentLayout={currentLayout}
-                     setCurrentLayout={setCurrentLayout}
-                     toggleFilter={toggleFilter}
-                     toggleProjectsExpanded={toggleProjectsExpanded}
-                  />
-               </div>
+               <BackButton />
             </div>
+            <LayoutButtons
+               currentLayout={currentLayout}
+               setCurrentLayout={setCurrentLayout}
+               toggleFilter={toggleFilter}
+               toggleProjectsExpanded={toggleProjectsExpanded}
+               isProjectExpanded={isProjectExpanded}
+            />
             <div className="overflow-y-hidden">
                <ProjectsContainer
                   currentLayout={currentLayout}
                   isProjectExpanded={isProjectExpanded}
                >
-                  <ProjectCard currentLayout={currentLayout} />
-                  <ProjectCard currentLayout={currentLayout} small />
-                  <ProjectCard currentLayout={currentLayout} />
-                  <ProjectCard currentLayout={currentLayout} />
-                  <ProjectCard currentLayout={currentLayout} />
-                  <ProjectCard currentLayout={currentLayout} />
-                  <ProjectCard currentLayout={currentLayout} small />
+                  {filteredProjects.map((project, index) => (
+                     <ProjectCard
+                        key={project.title + index}
+                        title={project.title}
+                        img={project.img}
+                        currentLayout={currentLayout}
+                        small={index === 1 || index === 6}
+                     />
+                  ))}
                </ProjectsContainer>
             </div>
          </MainContainer>

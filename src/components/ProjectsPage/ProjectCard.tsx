@@ -1,20 +1,31 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
-import landscape from "@/assets/images/projects/film-organizer.png";
+import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
 type Props = {
+   title: string;
+   img: StaticImageData;
    small?: boolean;
    currentLayout: "grid" | "list" | "normal";
 };
 
-export default function ProjectCard({ currentLayout, small }: Props) {
+export default function ProjectCard({
+   title,
+   img,
+   small,
+   currentLayout,
+}: Props) {
    const item = {
-      initial: { y: 100, opacity: 0 },
+      initial: { scale: 0.9, opacity: 0 },
       animate: {
-         y: 0,
+         scale: 1,
          opacity: 1,
+         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+      },
+      exit: {
+         scale: 0.9,
+         opacity: 0,
          transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
       },
    };
@@ -54,8 +65,8 @@ export default function ProjectCard({ currentLayout, small }: Props) {
                   className="relative h-full aspect-video "
                >
                   <Image
-                     src={landscape}
-                     alt="image"
+                     src={img}
+                     alt={title}
                      fill
                      sizes="100%"
                      className="object-cover"
@@ -71,7 +82,7 @@ export default function ProjectCard({ currentLayout, small }: Props) {
                layout="position"
                className="text-3xl font-bold text-center text-white"
             >
-               Card Title
+               {title}
             </motion.div>
          </motion.div>
       </motion.div>

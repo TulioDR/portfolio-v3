@@ -79,7 +79,7 @@ export default function ProjectsPage() {
             />
          )}
          <MainContainer>
-            <div className="flex justify-between items-center mt-20 overflow-hidden pb-8">
+            <div className="flex justify-between items-center mt-20 overflow-hidden pb-7">
                <ProjectsPageTitle />
                <BackButton />
             </div>
@@ -89,6 +89,7 @@ export default function ProjectsPage() {
                toggleFilter={toggleFilter}
                toggleProjectsExpanded={toggleProjectsExpanded}
                isProjectExpanded={isProjectExpanded}
+               isFilterOpen={isFilterOpen}
             />
             <div className="overflow-y-hidden">
                <ProjectsContainer

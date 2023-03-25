@@ -62,6 +62,11 @@ export default function ProjectsPage() {
       setFilteredProjects(founded);
    }, [selectedTech]);
 
+   const resetFilter = () => {
+      setTech(allSkills);
+      setSelectedTech([]);
+   };
+
    return (
       <>
          <Head>
@@ -76,6 +81,7 @@ export default function ProjectsPage() {
                selectedTech={selectedTech}
                addToSelectedTech={addToSelectedTech}
                removeFromSelectedTech={removeFromSelectedTech}
+               resetFilter={resetFilter}
             />
          )}
          <MainContainer>

@@ -18,6 +18,7 @@ type Props = {
       logo: StaticImageData,
       link: string
    ) => void;
+   resetFilter: () => void;
 };
 
 export default function Filter({
@@ -26,6 +27,7 @@ export default function Filter({
    selectedTech,
    addToSelectedTech,
    removeFromSelectedTech,
+   resetFilter,
 }: Props) {
    return (
       <motion.div
@@ -38,7 +40,15 @@ export default function Filter({
             onPointerDownCapture={(e) => e.stopPropagation()}
             className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl pt-2 pl-2 cursor-default"
          >
-            <div className="text-lg font-medium">Filter Projects</div>
+            <div className="w-full flex justify-between">
+               <div className="text-lg font-medium">Filter Projects</div>
+               <button
+                  onClick={resetFilter}
+                  className="rounded-lg py-1 px-3 text-white bg-primary mr-2 text-sm"
+               >
+                  Reset
+               </button>
+            </div>
             {selectedTech.length > 0 ? (
                <div>
                   {selectedTech.map(({ name, logo, link }) => (

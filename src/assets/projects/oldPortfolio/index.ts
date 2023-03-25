@@ -1,18 +1,17 @@
 import ProjectModel from "@/models/ProjectModel";
-import filmOrganizerImg from "./img/film-organizer.png";
-import filmOrganizerTech from "./technologies";
+import oldPortfolioImg from "./img/old-portfolio.png";
 
-const filmOrganizer: ProjectModel = {
+const oldPortfolio: ProjectModel = {
    title: "Film Organizer",
-   img: filmOrganizerImg,
+   img: oldPortfolioImg,
    link: "film-organizer",
    website: "https://film-organizer.vercel.app/",
    repository: "https://github.com/TulioDR/film-organizer-v2/",
-   technologies: filmOrganizerTech,
+   technologies: [],
    translations: {
       english: "",
       spanish: "",
    },
 };
 
-export default filmOrganizer;
+export default oldPortfolio;

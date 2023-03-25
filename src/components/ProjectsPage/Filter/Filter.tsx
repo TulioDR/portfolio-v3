@@ -44,7 +44,7 @@ export default function Filter({
          </div>
          <div
             onPointerDownCapture={(e) => e.stopPropagation()}
-            className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl p-2 cursor-default"
+            className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl pt-2 pl-2 cursor-default"
          >
             <div className="text-lg font-medium">Filter Projects</div>
             {selectedTech.length > 0 ? (

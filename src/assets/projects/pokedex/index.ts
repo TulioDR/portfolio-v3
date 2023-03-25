@@ -1,7 +1,8 @@
+import ProjectModel from "@/models/ProjectModel";
 import pokedexImg from "./img/pokedex.png";
 import pokedexTech from "./technologies";
 
-const pokedex = {
+const pokedex: ProjectModel = {
    title: "Pokédex",
    img: pokedexImg,
    link: "pokedex",

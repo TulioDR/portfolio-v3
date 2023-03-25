@@ -5,7 +5,6 @@ import {
    javascript,
    nextJs,
    react,
-   supabase,
    tailwindcss,
    typescript,
 } from "@/assets/skills/mainSkills";
@@ -19,7 +18,6 @@ const pokedexTech: SkillModel[] = [
    nextJs,
    typescript,
    tailwindcss,
-   supabase,
    framerMotion,
 ];
 

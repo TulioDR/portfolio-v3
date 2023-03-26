@@ -9,6 +9,7 @@ export default function ContactSection() {
    const { contactRef } = useNavbarContext();
    return (
       <div
+         id="contact"
          ref={contactRef}
          className="w-full py-24 bg-[#161b21] text-white 2xl:h-screen"
       >

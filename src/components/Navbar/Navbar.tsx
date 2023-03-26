@@ -7,15 +7,15 @@ import NavLink from "./NavLink";
 import useNavbarContext from "@/context/NavbarContext";
 
 export default function Navbar() {
-   // cubic-bezier(1,0,0,1)
    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
    const closeMenu = () => setIsMenuOpen(false);
 
    const {
-      scrollToAboutInfo,
+      scrollToAboutDesktop,
+      scrollToAboutMobile,
       scrollToSkills,
-      scrollToProjectsSlider,
+      scrollToProjects,
       scrollToContact,
    } = useNavbarContext();
 
@@ -23,16 +23,25 @@ export default function Navbar() {
       <>
          <NavbarContainer isMenuOpen={isMenuOpen}>
             <div className="hidden md:flex space-x-7 items-center w-1/3">
-               <NavLink onClick={scrollToAboutInfo} outline>
-                  About me
-               </NavLink>
+               <div>
+                  <div className="lg:hidden">
+                     <NavLink onClick={scrollToAboutMobile} outline>
+                        About me
+                     </NavLink>
+                  </div>
+                  <div className="hidden lg:block">
+                     <NavLink onClick={scrollToAboutDesktop} outline>
+                        About me
+                     </NavLink>
+                  </div>
+               </div>
                <NavLink onClick={scrollToSkills} simple>
                   Skills
                </NavLink>
             </div>
             <NavLogo isMenuOpen={isMenuOpen} />
             <div className="hidden md:flex space-x-7 items-center justify-end w-1/3">
-               <NavLink onClick={scrollToProjectsSlider} simple>
+               <NavLink onClick={scrollToProjects} simple>
                   Projects
                </NavLink>
                <NavLink onClick={scrollToContact}>Contact me</NavLink>

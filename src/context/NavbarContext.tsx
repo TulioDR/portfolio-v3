@@ -17,9 +17,10 @@ interface NavbarContextInterface {
    contactRef: RefObject<HTMLDivElement>;
    aboutInfoRef: RefObject<HTMLDivElement>;
    projectsSliderRef: RefObject<HTMLDivElement>;
-   scrollToAboutInfo: () => void;
+   scrollToAboutDesktop: () => void;
+   scrollToAboutMobile: () => void;
    scrollToSkills: () => void;
-   scrollToProjectsSlider: () => void;
+   scrollToProjects: () => void;
    scrollToContact: () => void;
 }
 
@@ -54,7 +55,7 @@ export function NavbarContextProvider({ children }: Props) {
    const contactInView = useInView(contactRef, { margin: "0% 0% -95% 0%" });
 
    const router = useRouter();
-   const { asPath, route } = router;
+   const { route } = router;
 
    useEffect(() => {
       if (route === "/projects") {
@@ -68,24 +69,25 @@ export function NavbarContextProvider({ children }: Props) {
       else setWhite();
    }, [contactInView, projectsInView, skillsInView, aboutInView, route]);
 
-   useEffect(() => {
-      const scrollTo = (el: RefObject<HTMLDivElement>) => {
-         el.current?.scrollIntoView();
-      };
-      if (asPath === "/#about") scrollTo(aboutInfoRef);
-      else if (asPath === "/#skills") scrollTo(skillsRef);
-      else if (asPath === "/#projects") scrollTo(projectsSliderRef);
-      else if (asPath === "/#contact") scrollTo(contactRef);
-   }, [asPath]);
-
-   const scrollTo = (el: RefObject<HTMLDivElement>) => {
-      el.current?.scrollIntoView({ behavior: "smooth" });
+   const scrollTo = (el: RefObject<HTMLDivElement>, id: string) => {
+      if (route === "/") el.current?.scrollIntoView({ behavior: "smooth" });
+      else router.push(id);
    };
+   const scrollToAboutDesktop = () => scrollTo(aboutInfoRef, "/#about");
+   const scrollToAboutMobile = () => scrollTo(aboutRef, "/#about");
+   const scrollToSkills = () => scrollTo(skillsRef, "/#skills");
+   const scrollToProjects = () => scrollTo(projectsSliderRef, "/#projects");
+   const scrollToContact = () => scrollTo(contactRef, "/#contact");
 
-   const scrollToAboutInfo = () => scrollTo(aboutInfoRef);
-   const scrollToSkills = () => scrollTo(skillsRef);
-   const scrollToProjectsSlider = () => scrollTo(projectsSliderRef);
-   const scrollToContact = () => scrollTo(contactRef);
+   // useEffect(() => {
+   //    const scrollTo = (el: RefObject<HTMLDivElement>) => {
+   //       el.current?.scrollIntoView();
+   //    };
+   //    if (asPath === "/#about") scrollTo(aboutInfoRef);
+   //    else if (asPath === "/#skills") scrollTo(skillsRef);
+   //    else if (asPath === "/#projects") scrollTo(projectsSliderRef);
+   //    else if (asPath === "/#contact") scrollTo(contactRef);
+   // }, [asPath]);
 
    const value: NavbarContextInterface = {
       isWhite,
@@ -95,9 +97,10 @@ export function NavbarContextProvider({ children }: Props) {
       contactRef,
       aboutInfoRef,
       projectsSliderRef,
-      scrollToAboutInfo,
+      scrollToAboutDesktop,
+      scrollToAboutMobile,
       scrollToSkills,
-      scrollToProjectsSlider,
+      scrollToProjects,
       scrollToContact,
    };
 

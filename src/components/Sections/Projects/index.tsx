@@ -60,6 +60,7 @@ export default function ProjectsSection() {
             </div>
          </div>
          <div
+            id="projects"
             ref={projectsSliderRef}
             className="h-screen bg-green-500 w-full"
          ></div>

@@ -18,7 +18,7 @@ export default function SkillPagination({
    return (
       <span
          onClick={handleClick}
-         className={`cursor-pointer text-2xl font-semibold duration-200 ${
+         className={`cursor-pointer text-sm sm:text-base md:text-2xl font-semibold duration-200 ${
             activeIndex === index ? "text-black" : "text-gray-400"
          }`}
       >

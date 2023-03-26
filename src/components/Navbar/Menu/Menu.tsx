@@ -12,22 +12,22 @@ interface Props {
 
 export default function Menu({ isMenuOpen, closeMenu }: Props) {
    const {
-      scrollToAboutInfo,
+      scrollToAboutMobile,
       scrollToSkills,
-      scrollToProjectsSlider,
+      scrollToProjects,
       scrollToContact,
    } = useNavbarContext();
    return (
       <MenuContainer isMenuOpen={isMenuOpen}>
          <MenuOptionsContainer>
             <MenuTitle />
-            <MenuOption onClick={scrollToAboutInfo} closeMenu={closeMenu}>
+            <MenuOption onClick={scrollToAboutMobile} closeMenu={closeMenu}>
                About me
             </MenuOption>
             <MenuOption onClick={scrollToSkills} closeMenu={closeMenu}>
                Skills
             </MenuOption>
-            <MenuOption onClick={scrollToProjectsSlider} closeMenu={closeMenu}>
+            <MenuOption onClick={scrollToProjects} closeMenu={closeMenu}>
                Projects
             </MenuOption>
             <MenuOption onClick={scrollToContact} closeMenu={closeMenu}>

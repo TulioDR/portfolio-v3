@@ -7,7 +7,7 @@ export default function AboutSection() {
    const { aboutRef } = useNavbarContext();
 
    return (
-      <div ref={aboutRef} className="">
+      <div ref={aboutRef} id="about">
          <AboutSectionDesktop />
          <AboutSectionMobile />
          <AboutDescription />

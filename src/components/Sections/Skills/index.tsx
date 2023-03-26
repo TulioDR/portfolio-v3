@@ -22,7 +22,7 @@ export default function SkillsSection() {
    const { skillsRef } = useNavbarContext();
 
    return (
-      <div ref={skillsRef} className="bg-gray-200 w-full py-24">
+      <div ref={skillsRef} id="skills" className="bg-gray-200 w-full py-24">
          <MainContainer>
             <SectionTitle>Skills</SectionTitle>
          </MainContainer>
@@ -32,7 +32,7 @@ export default function SkillsSection() {
                style={{ display: "flex" }}
                className="flex-col-reverse"
             >
-               <div className="flex space-x-5 my-7 pl-[14px]">
+               <div className="flex space-x-3 sm:space-x-4 md:space-x-5 my-7 sm:pl-[14px]">
                   <SkillPagination activeIndex={activeIndex} index={0}>
                      Main
                   </SkillPagination>

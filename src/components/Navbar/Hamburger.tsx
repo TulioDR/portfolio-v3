@@ -28,7 +28,7 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? -45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className={`w-12 h-1 duration-500 ${
+            className={`w-12 h-1 duration-300 ${
                isWhite || isMenuOpen ? "bg-white" : "bg-black"
             }`}
          ></motion.span>
@@ -38,7 +38,7 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
                rotate: isMenuOpen ? 45 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className={`w-12 h-1 duration-500 ${
+            className={`w-12 h-1 duration-300 ${
                isWhite || isMenuOpen ? "bg-white" : "bg-black"
             }`}
          ></motion.span>

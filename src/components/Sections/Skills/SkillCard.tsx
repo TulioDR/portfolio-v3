@@ -16,12 +16,12 @@ export default function SkillCard({ logo, name, link }: Props) {
          onTap={onTap}
          whileHover={{ scale: 1.05 }}
          whileTap={{ scale: 0.95 }}
-         className="aspect-square rounded-2xl shadow-xl bg-white flex flex-col items-center justify-center p-5 flex-grow-0 cursor-pointer"
+         className="aspect-square rounded-2xl shadow-xl bg-white flex flex-col items-center justify-center p-2 sm:p-5 flex-grow-0 cursor-pointer"
       >
          <div className="aspect-square relative w-1/2 flex items-center">
             <Image src={logo} alt={name} />
          </div>
-         <div className="text-slate-700 font-bold text-sm md:text-base">
+         <div className="text-slate-700 font-bold text-xs sm:text-sm md:text-base">
             {name}
          </div>
       </motion.div>

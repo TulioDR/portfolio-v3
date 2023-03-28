@@ -1,10 +1,4 @@
-import {
-   AnimatePresence,
-   AnimationControls,
-   motion,
-   MotionValue,
-   useTransform,
-} from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
@@ -14,19 +8,13 @@ import ProjectSlide from "./ProjectSlide";
 import filmOrganizer from "@/assets/images/projects/film-organizer.png";
 import pokedex from "@/assets/images/projects/pokedex.png";
 import dashboard from "@/assets/images/projects/dashboard.png";
-import { useRouter } from "next/router";
+import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 
 type Props = {
    scrollYProgressVelocity: MotionValue<any>;
-   showScreen: boolean;
-   controls: AnimationControls;
 };
 
-export default function ProjectSlider({
-   scrollYProgressVelocity,
-   showScreen,
-   controls,
-}: Props) {
+export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
    const scale = useTransform(
       scrollYProgressVelocity,
       [0, 0.75, 1],
@@ -37,23 +25,18 @@ export default function ProjectSlider({
       [0, 0.75, 1],
       ["-45deg", "0deg", "0deg"]
    );
-   const router = useRouter();
-   // const { isBackFromProjects, setIsBackFromProjects } =
-   //    useBackFromProjectsContext();
+   const { isBackFromProjects, setIsBackFromProjects } =
+      useBackFromProjectsContext();
 
    const onAnimationComplete = () => {
-      console.log("animation complete");
-      // if (!isBackFromProjects)
-      // router.push("/projects");
-      router.push("/projects", undefined, { scroll: false });
-      // else setIsBackFromProjects(false);
+      setIsBackFromProjects(false);
    };
-   // const isBackFromProjects = false;
    return (
       <motion.div
-         style={{ scale, rotate }}
-         // initial={isBackFromProjects ? { scale: 1.5 } : {}}
-         animate={controls}
+         style={isBackFromProjects ? {} : { scale, rotate }}
+         initial={{ scale: 1.5 }}
+         animate={{ scale: 1, transition: { duration: 1 } }}
+         exit={{ scale: 1.5, transition: { duration: 1, delay: 0.4 } }}
          onAnimationComplete={onAnimationComplete}
          className="rounded-3xl aspect-video bg-gradient-to-r from-red-900 to-yellow-700 py-2 px-4 h-full"
       >
@@ -74,17 +57,15 @@ export default function ProjectSlider({
                   <ProjectSlide src={dashboard} />
                </SwiperSlide>
             </Swiper>
-            <AnimatePresence>
-               {showScreen && (
-                  <motion.div
-                     // initial={isBackFromProjects ? {} : { opacity: 0 }}
-                     animate={{ opacity: 1 }}
-                     exit={{ opacity: 0 }}
-                     transition={{ duration: 0.2 }}
-                     className="absolute top-0 left-0 bg-gray-200 h-full w-full z-10"
-                  ></motion.div>
-               )}
-            </AnimatePresence>
+            <motion.div
+               initial={{ opacity: 1 }}
+               animate={{
+                  opacity: 0,
+                  transition: { duration: 0.5, delay: 0.4 },
+               }}
+               exit={{ opacity: 1, transition: { duration: 0.5 } }}
+               className="absolute top-0 left-0 bg-gray-200 h-full w-full z-10"
+            ></motion.div>
          </div>
       </motion.div>
    );

@@ -22,28 +22,30 @@ export default function ProjectsContainer({
       exit: { y: 100, opacity: 0, transition: { duration: 0.1 } },
    };
    return (
-      <motion.div
-         variants={container}
-         initial="initial"
-         animate="animate"
-         exit="exit"
-         className={`grid gap-7 pb-7 ${
-            currentLayout === "list"
-               ? isProjectExpanded
-                  ? "grid-cols-2"
-                  : "grid-cols-1"
-               : isProjectExpanded
-               ? "grid-cols-3"
-               : "grid-cols-2"
-         } ${
-            currentLayout === "normal"
-               ? isProjectExpanded
-                  ? "grid-rows-4"
-                  : "grid-rows-6"
-               : ""
-         }`}
-      >
-         {children}
-      </motion.div>
+      <div className="overflow-y-hidden">
+         <motion.div
+            variants={container}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className={`grid gap-7 pb-7 ${
+               currentLayout === "list"
+                  ? isProjectExpanded
+                     ? "grid-cols-2"
+                     : "grid-cols-1"
+                  : isProjectExpanded
+                  ? "grid-cols-3"
+                  : "grid-cols-2"
+            } ${
+               currentLayout === "normal"
+                  ? isProjectExpanded
+                     ? "grid-rows-4"
+                     : "grid-rows-6"
+                  : ""
+            }`}
+         >
+            {children}
+         </motion.div>
+      </div>
    );
 }

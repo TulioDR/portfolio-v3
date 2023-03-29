@@ -1,34 +1,48 @@
+import allSkills from "@/assets/skills/allSkills";
 import SkillModel from "@/models/SkillModel";
 import { motion } from "framer-motion";
 import { StaticImageData } from "next/image";
+import { useState } from "react";
 import FilterHeader from "./FilterHeader";
 import TechnologyCard from "./TechnologyCard";
 
 type Props = {
    close: () => void;
-   tech: SkillModel[];
    selectedTech: SkillModel[];
-   addToSelectedTech: (
-      name: string,
-      logo: StaticImageData,
-      link: string
-   ) => void;
-   removeFromSelectedTech: (
-      name: string,
-      logo: StaticImageData,
-      link: string
-   ) => void;
-   resetFilter: () => void;
+   setSelectedTech: React.Dispatch<React.SetStateAction<SkillModel[]>>;
 };
 
 export default function Filter({
    close,
-   tech,
    selectedTech,
-   addToSelectedTech,
-   removeFromSelectedTech,
-   resetFilter,
+   setSelectedTech,
 }: Props) {
+   const [tech, setTech] = useState<SkillModel[]>(allSkills);
+
+   const addToSelectedTech = (
+      name: string,
+      logo: StaticImageData,
+      link: string
+   ) => {
+      const newArray = tech.filter((tech) => tech.name !== name);
+      setTech(newArray);
+      setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
+   };
+
+   const removeFromSelectedTech = (
+      name: string,
+      logo: StaticImageData,
+      link: string
+   ) => {
+      setTech((oldArray) => [...oldArray, { name, logo, link }]);
+      const newArray = selectedTech.filter((tech) => tech.name !== name);
+      setSelectedTech(newArray);
+   };
+
+   const resetFilter = () => {
+      setTech(allSkills);
+      setSelectedTech([]);
+   };
    return (
       <motion.div
          drag={true}
@@ -68,7 +82,7 @@ export default function Filter({
             )}
 
             <div className="mb-2">Technologies</div>
-            <div className="">
+            <div>
                {tech.map(({ name, logo, link }) => (
                   <TechnologyCard
                      key={name}

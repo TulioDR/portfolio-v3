@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
    return (
       <>
-         <InitialLoadingAnimation />
+         {/* <InitialLoadingAnimation /> */}
          <NavbarContextProvider>
             <BackFromContextProvider>
                <Navbar />

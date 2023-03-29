@@ -1,21 +1,29 @@
+import ProjectAnimationModel from "@/models/ProjectAnimationModel";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
 type Props = {
-   title: string;
-   img: StaticImageData;
    small?: boolean;
    currentLayout: "grid" | "list" | "normal";
+   project: {
+      link: string;
+      title: string;
+      img: StaticImageData;
+   };
+   setSelectedProject: React.Dispatch<
+      React.SetStateAction<ProjectAnimationModel | null>
+   >;
 };
 
 export default function ProjectCard({
-   title,
-   img,
    small,
    currentLayout,
+   project,
+   setSelectedProject,
 }: Props) {
+   const { link, title, img } = project;
    const item = {
       initial: { scale: 0.9, opacity: 0 },
       animate: {
@@ -38,10 +46,20 @@ export default function ProjectCard({
          "max-glare": 0.3,
       });
    }, []);
+
+   const elementRef = useRef<HTMLDivElement>(null);
+   const handleClick = () => {
+      const rect = elementRef.current!.getBoundingClientRect();
+      const { top, left, height, width } = rect;
+      setSelectedProject({ top, left, height, width, img, link });
+   };
+
    return (
       <motion.div
+         ref={elementRef}
          layout
          variants={item}
+         onClick={handleClick}
          className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden group
          ${
             currentLayout === "normal"
@@ -51,7 +69,9 @@ export default function ProjectCard({
                : ""
          }`}
       >
-         <div
+         <motion.div
+            // href={`/projects/${link}`}
+
             className={`overflow-hidden h-full flex justify-center group
             ${currentLayout === "normal" && small ? "aspect-video" : ""}
             ${currentLayout === "grid" ? "aspect-square" : ""}
@@ -74,7 +94,7 @@ export default function ProjectCard({
                   />
                </motion.div>
             </div>
-         </div>
+         </motion.div>
          <motion.div
             className={`absolute w-full bottom-0 bg-gradient-to-t from-black to-transparent px-7 pb-7 pt-20 pointer-events-none group-hover:opacity-0 duration-300`}
          >

@@ -39,8 +39,8 @@ export default function BackgroundGradient({ children }: Props) {
          className="w-full h-full absolute top-0 left-0"
       >
          <MainContainer>
-            <div className="w-full h-full overflow-hidden space-y-5 flex flex-col justify-center pl-16">
-               {children}
+            <div className="w-full h-full lg:pl-16 flex items-center">
+               <div className="overflow-hidden space-y-5">{children}</div>
             </div>
          </MainContainer>
       </motion.div>

@@ -1,8 +1,15 @@
 import projects from "@/assets/projects";
-import ProjectModel from "@/models/ProjectModel";
-import { useEffect } from "react";
+import ProjectModel, { ProjectTranslations } from "@/models/ProjectModel";
+import { useEffect, useState } from "react";
 import Header from "@/components/ProjectDetails/Header";
 import BackButton from "@/components/ProjectDetails/BackButton";
+import Head from "next/head";
+import useLanguageContext from "@/context/LanguageContext";
+import MainContainer from "@/components/MainContainer";
+import Description from "@/components/ProjectDetails/Description";
+import Subtitle from "@/components/ProjectDetails/Subtitle";
+import Features from "@/components/ProjectDetails/Features";
+import TechnologiesUsed from "@/components/ProjectDetails/TechnologiesUsed";
 
 export async function getServerSideProps({ query }: any) {
    const project = projects.find((p) => p.link === query.project);
@@ -18,11 +25,33 @@ export default function ProjectDetails({ project }: Props) {
       console.log(project);
    }, [project]);
 
+   const { isEnglish } = useLanguageContext();
+   const { english, spanish } = project.translations;
+
+   const [currentLan, setCurrentLan] = useState<ProjectTranslations>(english);
+   useEffect(() => {
+      if (isEnglish) setCurrentLan(english);
+      else setCurrentLan(spanish);
+   }, [isEnglish, english, spanish]);
+
    return (
       <>
+         <Head>
+            <title>{project.title}</title>
+            <meta name="description" content="Check out my projects!" />
+            <link rel="icon" href="/favicon.ico" />
+         </Head>
          <BackButton />
-         <Header project={project} />
-         <div className="h-screen w-full py-20"></div>
+         <Header project={project} currentLan={currentLan} />
+         <MainContainer>
+            <div className="w-full py-20 space-y-20">
+               <Description currentLan={currentLan} />
+               <Subtitle>Features</Subtitle>
+               <Features features={currentLan.features} />
+               <Subtitle>Technologies Used</Subtitle>
+               <TechnologiesUsed technologies={project.technologies} />
+            </div>
+         </MainContainer>
       </>
    );
 }

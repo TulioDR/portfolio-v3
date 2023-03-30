@@ -1,7 +1,5 @@
 import RevealToRight from "@/animations/RevealToRight";
-import useLanguageContext from "@/context/LanguageContext";
 import ProjectModel, { ProjectTranslations } from "@/models/ProjectModel";
-import React, { useEffect, useState } from "react";
 import BackgroundGradient from "./BackgroundGradient";
 import MainButton from "./MainButton";
 import ProjectDescription from "./ProjectDescription";
@@ -12,26 +10,17 @@ import Underline from "./Underline";
 
 type Props = {
    project: ProjectModel;
+   currentLan: ProjectTranslations;
 };
 
-export default function Header({ project }: Props) {
+export default function Header({ project, currentLan }: Props) {
    const goToWebsite = () => {
       console.log("go to website");
    };
-
-   const { isEnglish } = useLanguageContext();
-   const { english, spanish } = project.translations;
-
-   const [currentLan, setCurrentLan] = useState<ProjectTranslations>(english);
-   useEffect(() => {
-      if (isEnglish) setCurrentLan(english);
-      else setCurrentLan(spanish);
-   }, [isEnglish, english, spanish]);
-
    return (
       <>
          <div className="h-screen w-full relative overflow-hidden text-white">
-            <ProjectImage src={project.img} alt={project.title} background />
+            <ProjectImage src={project.img} alt={project.title} />
             <BackgroundGradient>
                <RevealToRight>
                   <Title>{project.title}</Title>

@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function Home() {
    useEffect(() => {
       const hash = window.location.hash;
-      if (hash) document.querySelector(hash)!.scrollIntoView();
+      if (hash) document.querySelector(hash)?.scrollIntoView();
    }, []);
    return (
       <>

@@ -1,6 +1,8 @@
 import ProjectModel from "@/models/ProjectModel";
 import dashboardImg from "./img/dashboard.png";
 import dashboardTech from "./technologies";
+import dashboardEnglish from "./translations/english";
+import dashboardSpanish from "./translations/spanish";
 
 const dashboard: ProjectModel = {
    title: "Admin Dashboard",
@@ -10,8 +12,8 @@ const dashboard: ProjectModel = {
    repository: "https://github.com/TulioDR/dashboard-syncfusion-concept",
    technologies: dashboardTech,
    translations: {
-      english: "",
-      spanish: "",
+      english: dashboardEnglish,
+      spanish: dashboardSpanish,
    },
 };
 

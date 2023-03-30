@@ -1,6 +1,8 @@
 import ProjectModel from "@/models/ProjectModel";
 import filmOrganizerImg from "./img/film-organizer.png";
 import filmOrganizerTech from "./technologies";
+import filmOrganizerEnglish from "./translations/english";
+import filmOrganizerSpanish from "./translations/spanish";
 
 const filmOrganizer: ProjectModel = {
    title: "Film Organizer",
@@ -10,8 +12,8 @@ const filmOrganizer: ProjectModel = {
    repository: "https://github.com/TulioDR/film-organizer-v2/",
    technologies: filmOrganizerTech,
    translations: {
-      english: "",
-      spanish: "",
+      english: filmOrganizerEnglish,
+      spanish: filmOrganizerSpanish,
    },
 };
 

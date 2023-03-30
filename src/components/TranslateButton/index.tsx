@@ -1,17 +1,16 @@
-import { useState } from "react";
 import spanish from "@/assets/images/languages/spanish.jpg";
 import english from "@/assets/images/languages/english.png";
 import LanguageOption from "./LanguageOption";
 import TranslateButtonContainer from "./TranslateButtonContainer";
+import useLanguageContext from "@/context/LanguageContext";
 
 export default function TranslateButton() {
-   const [isEnglish, setIsEnglish] = useState<boolean>(true);
-   const toggle = () => setIsEnglish((prev) => !prev);
+   const { isEnglish, toggleLanguage } = useLanguageContext();
 
    return (
       <TranslateButtonContainer>
          <button
-            onClick={toggle}
+            onClick={toggleLanguage}
             className="h-14 w-14 p-2 hover:w-36 duration-300 rounded-full overflow-hidden bg-orange-700 flex justify-end pointer-events-auto"
          >
             <div className="w-20 h-full rounded-full mr-2 flex-shrink-0 overflow-hidden">

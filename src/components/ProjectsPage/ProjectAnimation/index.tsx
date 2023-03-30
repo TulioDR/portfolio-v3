@@ -8,14 +8,14 @@ type Props = {
 };
 
 export default function ProjectAnimation({ selectedProject }: Props) {
-   if (!selectedProject) return <></>;
-
-   const { top, left, width, height, img, link } = selectedProject;
-
    const router = useRouter();
    const onAnimationComplete = () => {
       router.push(`/projects/${link}`);
    };
+
+   if (!selectedProject) return <></>;
+
+   const { top, left, width, height, img, link } = selectedProject;
 
    return (
       <AnimatePresence>
@@ -45,7 +45,7 @@ export default function ProjectAnimation({ selectedProject }: Props) {
                      alt="layout"
                      fill
                      sizes="100%"
-                     className="object-cover"
+                     className="object-cover object-top"
                   />
                </motion.div>
             </motion.div>

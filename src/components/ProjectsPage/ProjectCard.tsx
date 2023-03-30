@@ -89,7 +89,7 @@ export default function ProjectCard({
                      alt={title}
                      fill
                      sizes="100%"
-                     className="object-cover"
+                     className="object-cover object-top"
                      priority
                   />
                </motion.div>

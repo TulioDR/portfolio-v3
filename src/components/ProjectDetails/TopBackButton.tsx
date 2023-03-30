@@ -19,7 +19,7 @@ const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
    </svg>
 );
 
-export default function BackButton() {
+export default function TopBackButton() {
    // const { isWhiteArrow } = useNavbarContext();
 
    const router = useRouter();

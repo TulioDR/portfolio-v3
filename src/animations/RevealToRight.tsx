@@ -1,29 +1,23 @@
 import { motion } from "framer-motion";
 
-export const revealToRightAnimation = {
-   initial: { x: "-100%" },
-   animate: {
-      x: 0,
-      transition: { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
-   },
-   exit: {
-      x: "-100%",
-      transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
-   },
-};
-
-type Props = {
+interface Props {
    children: React.ReactNode;
-   about?: boolean;
-};
+   reverse?: boolean;
+}
 
-export default function RevealToRight({ children, about }: Props) {
+export default function RevealToRight({ children, reverse }: Props) {
+   const revealHorizontalAnimation = {
+      initial: { x: reverse ? "100%" : "-100%" },
+      animate: {
+         x: 0,
+         transition: { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      },
+      exit: {
+         x: reverse ? "100%" : "-100%",
+         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+      },
+   };
    return (
-      <motion.div
-         variants={revealToRightAnimation}
-         className={`${about ? "" : "sm:w-max"}`}
-      >
-         {children}
-      </motion.div>
+      <motion.div variants={revealHorizontalAnimation}>{children}</motion.div>
    );
 }

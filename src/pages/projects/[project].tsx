@@ -34,11 +34,16 @@ export default function ProjectDetails({ project }: Props) {
    }, [isEnglish, english, spanish]);
 
    const router = useRouter();
-   const goToTopAndBack = () => {
-      animateScroll.scrollToTop({ duration: 800, smooth: true });
+   useEffect(() => {
+      if (!router) return;
       Events.scrollEvent.register("end", () => {
          router.push("/projects");
+         Events.scrollEvent.remove("end");
       });
+   }, [router]);
+
+   const goTopAndBack = () => {
+      animateScroll.scrollToTop({ duration: 800, smooth: true });
    };
 
    return (
@@ -48,7 +53,7 @@ export default function ProjectDetails({ project }: Props) {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <TopBackButton onClick={goToTopAndBack} />
+         <TopBackButton onClick={goTopAndBack} />
          <Header project={project} currentLan={currentLan} />
          <MainContainer>
             <div className="w-full py-20 space-y-20">
@@ -57,9 +62,7 @@ export default function ProjectDetails({ project }: Props) {
                <Features features={currentLan.features} />
                <Subtitle>Technologies Used</Subtitle>
                <TechnologiesUsed technologies={project.technologies} />
-               <BottomBackButton onClick={goToTopAndBack}>
-                  Back
-               </BottomBackButton>
+               <BottomBackButton onClick={goTopAndBack}>Back</BottomBackButton>
             </div>
          </MainContainer>
       </>

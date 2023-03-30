@@ -1,7 +1,7 @@
 import RevealToRight from "@/animations/RevealToRight";
 import ProjectModel, { ProjectTranslations } from "@/models/ProjectModel";
 import BackgroundGradient from "./BackgroundGradient";
-import MainButton from "./MainButton";
+import HeaderButton from "./HeaderButton";
 import ProjectDescription from "./ProjectDescription";
 import ProjectImage from "./ProjectImage";
 
@@ -14,9 +14,6 @@ type Props = {
 };
 
 export default function Header({ project, currentLan }: Props) {
-   const goToWebsite = () => {
-      console.log("go to website");
-   };
    return (
       <>
          <div className="h-screen w-full relative overflow-hidden text-white">
@@ -33,12 +30,13 @@ export default function Header({ project, currentLan }: Props) {
                      {currentLan.description}
                   </ProjectDescription>
                </RevealToRight>
-               <MainButton onClick={goToWebsite}>Visit Site</MainButton>
+               <div className="flex space-x-5">
+                  <HeaderButton href={project.website}>Visit Site</HeaderButton>
+                  <HeaderButton href={project.repository} alternative>
+                     View Code
+                  </HeaderButton>
+               </div>
             </BackgroundGradient>
-            {/* <ViewCodeBtn onClick={goToRepo} mobile>
-                  {viewCode}
-               </ViewCodeBtn>
-               <ViewCodeBtn onClick={goToRepo}>{viewCode}</ViewCodeBtn> */}
          </div>
       </>
    );

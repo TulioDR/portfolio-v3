@@ -1,14 +1,23 @@
 import { motion } from "framer-motion";
-type Props = {
+
+interface Props {
    children: React.ReactNode;
-};
+   reverse?: boolean;
+}
 
-const revealToTopAnimation = {
-   initial: { y: "110%" },
-   animate: { y: 0, transition: { duration: 0.5 } },
-   exit: { y: "110%", transition: { duration: 0.5 } },
-};
-
-export default function RevealToTop({ children }: Props) {
-   return <motion.div variants={revealToTopAnimation}>{children}</motion.div>;
+export default function RevealToTop({ children, reverse }: Props) {
+   const revealVerticalAnimation = {
+      initial: { y: reverse ? "-100%" : "100%" },
+      animate: {
+         y: 0,
+         transition: { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      },
+      exit: {
+         y: reverse ? "-100%" : "100%",
+         transition: { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      },
+   };
+   return (
+      <motion.div variants={revealVerticalAnimation}>{children}</motion.div>
+   );
 }

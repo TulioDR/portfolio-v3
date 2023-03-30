@@ -20,9 +20,10 @@ const infoContainerAnimation = {
    },
    exit: {
       background:
-         "linear-gradient(90deg, rgba(20,23,25,0) 0%, rgba(0,0,0,0) 100%)",
+         "linear-gradient(90deg, rgba(229,231,235,1) 0%, rgba(229,231,235,1) 100%)",
       transition: {
          duration: 0.5,
+         delay: 0.5,
          staggerChildren: 0.1,
          staggerDirection: -1,
       },

@@ -11,6 +11,8 @@ import Features from "@/components/ProjectDetails/Features";
 import TechnologiesUsed from "@/components/ProjectDetails/TechnologiesUsed";
 import TopBackButton from "@/components/ProjectDetails/TopBackButton";
 import BottomBackButton from "@/components/ProjectDetails/BottomBackBtn";
+import { useRouter } from "next/router";
+import { animateScroll, Events } from "react-scroll";
 
 export async function getServerSideProps({ query }: any) {
    const project = projects.find((p) => p.link === query.project);
@@ -31,6 +33,14 @@ export default function ProjectDetails({ project }: Props) {
       else setCurrentLan(spanish);
    }, [isEnglish, english, spanish]);
 
+   const router = useRouter();
+   const goToTopAndBack = () => {
+      animateScroll.scrollToTop({ duration: 800, smooth: true });
+      Events.scrollEvent.register("end", () => {
+         router.push("/projects");
+      });
+   };
+
    return (
       <>
          <Head>
@@ -38,7 +48,7 @@ export default function ProjectDetails({ project }: Props) {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <TopBackButton />
+         <TopBackButton onClick={goToTopAndBack} />
          <Header project={project} currentLan={currentLan} />
          <MainContainer>
             <div className="w-full py-20 space-y-20">
@@ -47,7 +57,9 @@ export default function ProjectDetails({ project }: Props) {
                <Features features={currentLan.features} />
                <Subtitle>Technologies Used</Subtitle>
                <TechnologiesUsed technologies={project.technologies} />
-               <BottomBackButton>Back</BottomBackButton>
+               <BottomBackButton onClick={goToTopAndBack}>
+                  Back
+               </BottomBackButton>
             </div>
          </MainContainer>
       </>

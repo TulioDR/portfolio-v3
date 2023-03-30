@@ -1,12 +1,12 @@
-type Props = {
+interface Props {
    children: React.ReactNode;
-};
+   onClick: () => void;
+}
 
-export default function BottomBackButton({ children }: Props) {
-   const handleClick = () => {};
+export default function BottomBackButton({ children, onClick }: Props) {
    return (
       <button
-         onClick={handleClick}
+         onClick={onClick}
          className="flex w-max mx-auto items-center space-x-7 hover:-translate-x-4 duration-300 cursor-pointer group"
       >
          <span className="h-[0.15rem] w-20 bg-black">

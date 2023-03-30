@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
 import MainContainer from "../MainContainer";
 
 type SvgProps = {
@@ -19,13 +18,12 @@ const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
    </svg>
 );
 
-export default function TopBackButton() {
-   // const { isWhiteArrow } = useNavbarContext();
+interface Props {
+   onClick: () => void;
+}
 
-   const router = useRouter();
-   const handleClick = () => {
-      router.push("/projects");
-   };
+export default function TopBackButton({ onClick }: Props) {
+   // const { isWhiteArrow } = useNavbarContext();
    const animation = {
       initial: { x: "100%" },
       animate: { x: 0, transition: { duration: 0.6 } },
@@ -40,7 +38,7 @@ export default function TopBackButton() {
                   initial="initial"
                   animate="animate"
                   exit="exit"
-                  onClick={handleClick}
+                  onClick={onClick}
                   className="w-full h-full relative pointer-events-auto"
                >
                   <SvgComponent isWhiteArrow={false} />

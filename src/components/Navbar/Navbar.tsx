@@ -5,6 +5,7 @@ import Menu from "./Menu/Menu";
 import NavbarContainer from "./NavbarContainer";
 import NavLink from "./NavLink";
 import useNavbarContext from "@/context/NavbarContext";
+import useLanguageContext from "@/context/LanguageContext";
 
 export default function Navbar() {
    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -19,6 +20,8 @@ export default function Navbar() {
       scrollToContact,
    } = useNavbarContext();
 
+   const { currentLanguage } = useLanguageContext();
+   const { about, skills, projects, contact } = currentLanguage.navbar;
    return (
       <>
          <NavbarContainer isMenuOpen={isMenuOpen}>
@@ -26,25 +29,25 @@ export default function Navbar() {
                <div>
                   <div className="lg:hidden">
                      <NavLink onClick={scrollToAboutMobile} outline>
-                        About me
+                        {about}
                      </NavLink>
                   </div>
                   <div className="hidden lg:block">
                      <NavLink onClick={scrollToAboutDesktop} outline>
-                        About me
+                        {about}
                      </NavLink>
                   </div>
                </div>
                <NavLink onClick={scrollToSkills} simple>
-                  Skills
+                  {skills}
                </NavLink>
             </div>
             <NavLogo isMenuOpen={isMenuOpen} />
             <div className="hidden md:flex space-x-7 items-center justify-end w-1/3">
                <NavLink onClick={scrollToProjects} simple>
-                  Projects
+                  {projects}
                </NavLink>
-               <NavLink onClick={scrollToContact}>Contact me</NavLink>
+               <NavLink onClick={scrollToContact}>{contact}</NavLink>
             </div>
             <div className="md:hidden">
                <Hamburger isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />

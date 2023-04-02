@@ -1,3 +1,4 @@
+import useLanguageContext from "@/context/LanguageContext";
 import useNavbarContext from "@/context/NavbarContext";
 import MenuContainer from "./MenuContainer";
 import MenuFooter from "./MenuFooter";
@@ -17,21 +18,24 @@ export default function Menu({ isMenuOpen, closeMenu }: Props) {
       scrollToProjects,
       scrollToContact,
    } = useNavbarContext();
+
+   const { currentLanguage } = useLanguageContext();
+   const { about, skills, projects, contact } = currentLanguage.navbar;
    return (
       <MenuContainer isMenuOpen={isMenuOpen}>
          <MenuOptionsContainer>
             <MenuTitle />
             <MenuOption onClick={scrollToAboutMobile} closeMenu={closeMenu}>
-               About me
+               {about}
             </MenuOption>
             <MenuOption onClick={scrollToSkills} closeMenu={closeMenu}>
-               Skills
+               {skills}
             </MenuOption>
             <MenuOption onClick={scrollToProjects} closeMenu={closeMenu}>
-               Projects
+               {projects}
             </MenuOption>
             <MenuOption onClick={scrollToContact} closeMenu={closeMenu}>
-               Contact
+               {contact}
             </MenuOption>
          </MenuOptionsContainer>
          <MenuFooter />

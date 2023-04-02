@@ -1,3 +1,4 @@
+import useLanguageContext from "@/context/LanguageContext";
 import React from "react";
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 };
 
 export default function FilterButton({ onClick, isFilterOpen }: Props) {
+   const { currentLanguage } = useLanguageContext();
+   const { open, close } = currentLanguage.projects.filer;
    return (
       <button
          onClick={onClick}
@@ -16,9 +19,7 @@ export default function FilterButton({ onClick, isFilterOpen }: Props) {
          <div className="aspect-square h-full grid place-content-center">
             <span className="material-icons">sort</span>
          </div>
-         <div className="min-w-max ml-1">
-            {`${isFilterOpen ? "Close" : "Open"} Filter`}
-         </div>
+         <div className="min-w-max ml-1">{isFilterOpen ? close : open}</div>
       </button>
    );
 }

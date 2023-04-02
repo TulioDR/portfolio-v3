@@ -7,6 +7,7 @@ import ProjectImage from "./ProjectImage";
 
 import Title from "./Title";
 import Underline from "./Underline";
+import useLanguageContext from "@/context/LanguageContext";
 
 type Props = {
    project: ProjectModel;
@@ -14,6 +15,8 @@ type Props = {
 };
 
 export default function Header({ project, currentLan }: Props) {
+   const { currentLanguage } = useLanguageContext();
+   const { visitSite, viewCode } = currentLanguage.projects.details;
    return (
       <>
          <div className="h-screen w-full relative overflow-hidden text-white">
@@ -31,9 +34,11 @@ export default function Header({ project, currentLan }: Props) {
                   </ProjectDescription>
                </RevealToRight>
                <div className="flex space-x-5">
-                  <HeaderButton href={project.website}>Visit Site</HeaderButton>
+                  <HeaderButton href={project.website}>
+                     {visitSite}
+                  </HeaderButton>
                   <HeaderButton href={project.repository} alternative>
-                     View Code
+                     {viewCode}
                   </HeaderButton>
                </div>
             </BackgroundGradient>

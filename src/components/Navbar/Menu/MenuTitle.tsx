@@ -1,9 +1,9 @@
+import useLanguageContext from "@/context/LanguageContext";
 import { motion } from "framer-motion";
-// import useLanguageContext from "../../context/LanguageContext";
 
 export default function MenuTitle() {
-   // const { currentIdiom } = useLanguageContext();
-   // const { menu } = currentIdiom.menu;
+   const { currentLanguage } = useLanguageContext();
+   const { menu } = currentLanguage.navbar;
    return (
       <motion.h5
          initial={{ opacity: 0 }}
@@ -11,7 +11,7 @@ export default function MenuTitle() {
          transition={{ duration: 0.4, delay: 0.3 }}
          className="text-center text-sm text-gray-400 uppercase mb-5 tracking-widest"
       >
-         Menu
+         {menu}
       </motion.h5>
    );
 }

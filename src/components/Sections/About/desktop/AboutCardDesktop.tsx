@@ -1,3 +1,4 @@
+import useLanguageContext from "@/context/LanguageContext";
 import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
 
 interface Props {
@@ -37,6 +38,9 @@ export default function AboutCardDesktop({ scrollYProgress }: Props) {
       [0, 0.75],
       ["150px 250px", "56px 40px"]
    );
+
+   const { currentLanguage } = useLanguageContext();
+   const { card } = currentLanguage.about;
    return (
       <div className="hidden lg:flex items-center absolute top-0 left-0 w-full h-full overflow-hidden">
          <motion.div
@@ -49,7 +53,7 @@ export default function AboutCardDesktop({ scrollYProgress }: Props) {
             }}
             className="rounded-3xl bg-primary text-white font-semibold text-2xl 2xl:text-3xl drop-shadow-2xl"
          >
-            <div className="w-40">I love to think outside the box</div>
+            <div className="w-40">{card}</div>
          </motion.div>
       </div>
    );

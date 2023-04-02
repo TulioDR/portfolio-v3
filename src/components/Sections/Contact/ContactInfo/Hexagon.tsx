@@ -12,7 +12,9 @@ export default function Hexagon({ children }: Props) {
                "polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)",
          }}
       >
-         <span className="text-sm w-min">{children}</span>
+         <div className="text-sm w-min flex flex-col items-center justify-center text-center">
+            {children}
+         </div>
       </motion.div>
    );
 }

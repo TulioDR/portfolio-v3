@@ -1,4 +1,5 @@
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
+import useLanguageContext from "@/context/LanguageContext";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 type Props = {
@@ -17,6 +18,9 @@ export default function ViewProjectsButton({
       [0, 0.75, 1],
       ["150%", "0%", "0%"]
    );
+
+   const { currentLanguage } = useLanguageContext();
+   const { button } = currentLanguage.projects;
    return (
       <motion.div
          onClick={onClick}
@@ -25,9 +29,9 @@ export default function ViewProjectsButton({
          animate={{ x: 0, opacity: 1 }}
          exit={{ x: 100, opacity: 0 }}
          transition={{ duration: 0.2 }}
-         className="bg-yellow-600 text-black cursor-pointer rounded-full aspect-square w-min text-xl p-7 z-10"
+         className="bg-yellow-600 text-black cursor-pointer rounded-full aspect-square w-32 text-xl z-10 grid place-content-center"
       >
-         View Projects
+         <div className="w-min">{button}</div>
       </motion.div>
    );
 }

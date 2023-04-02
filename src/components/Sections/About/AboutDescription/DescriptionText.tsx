@@ -1,3 +1,4 @@
+import useLanguageContext from "@/context/LanguageContext";
 import { useTransform, MotionValue, motion } from "framer-motion";
 
 type Props = {
@@ -20,26 +21,14 @@ export default function DescriptionText({ scrollVelocity }: Props) {
    const op3 = useTransform(scrollVelocity, [0.5, 0.8], [0, 1]);
    const op4 = useTransform(scrollVelocity, [0.6, 0.9], [0, 1]);
 
+   const { currentLanguage } = useLanguageContext();
+   const { p1, p2, p3, p4 } = currentLanguage.about;
    return (
       <div className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-black">
-         <motion.div style={{ x: x1, y: y1, opacity: op1 }}>
-            {
-               "I'm a self-taught Front-End Developer with basic knowledge ofBack-End Technology."
-            }
-         </motion.div>
-         <motion.div style={{ x: x2, y: y2, opacity: op2 }}>
-            {
-               "I'm a well-organized person, problem solver with high attention to detail that specializes on React."
-            }
-         </motion.div>
-         <motion.div style={{ x: x3, y: y3, opacity: op3 }}>
-            Coding is a passion that motivates me to learn and improve my skills
-            day by day, either with my team or on my own.
-         </motion.div>
-         <motion.div style={{ x: x4, y: y4, opacity: op4 }}>
-            Interested in the entire frontend spectrum and working on ambitious
-            projects with positive people.
-         </motion.div>
+         <motion.div style={{ x: x1, y: y1, opacity: op1 }}>{p1}</motion.div>
+         <motion.div style={{ x: x2, y: y2, opacity: op2 }}>{p2}</motion.div>
+         <motion.div style={{ x: x3, y: y3, opacity: op3 }}>{p3}</motion.div>
+         <motion.div style={{ x: x4, y: y4, opacity: op4 }}>{p4}</motion.div>
       </div>
    );
 }

@@ -1,9 +1,9 @@
 import MainContainer from "@/components/MainContainer";
-import Logo from "@/components/Navbar/NavLogo";
 import useNavbarContext from "@/context/NavbarContext";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactInfo from "./ContactInfo/ContactInfo";
 import Footer from "./Footer";
+import SectionTitle from "../SectionTitle";
 
 export default function ContactSection() {
    const { contactRef } = useNavbarContext();
@@ -15,9 +15,7 @@ export default function ContactSection() {
       >
          <MainContainer>
             <div className="flex flex-col h-full">
-               <div className="text-white flex">
-                  <Logo isMenuOpen />
-               </div>
+               <SectionTitle>Get in Touch</SectionTitle>
                <div className="grid lg:grid-cols-2 gap-7 lg:gap-0 my-24 2xl:my-auto">
                   <ContactInfo />
                   <ContactForm />

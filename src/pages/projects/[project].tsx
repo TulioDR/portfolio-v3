@@ -46,6 +46,8 @@ export default function ProjectDetails({ project }: Props) {
       animateScroll.scrollToTop({ duration: 800, smooth: true });
    };
 
+   const { currentLanguage } = useLanguageContext();
+   const { featuresTitle, technologiesUsed } = currentLanguage.projects.details;
    return (
       <>
          <Head>
@@ -58,11 +60,11 @@ export default function ProjectDetails({ project }: Props) {
          <MainContainer>
             <div className="w-full py-20 space-y-20">
                <Description currentLan={currentLan} />
-               <Subtitle>Features</Subtitle>
+               <Subtitle>{featuresTitle}</Subtitle>
                <Features features={currentLan.features} />
-               <Subtitle>Technologies Used</Subtitle>
+               <Subtitle>{technologiesUsed}</Subtitle>
                <TechnologiesUsed technologies={project.technologies} />
-               <BottomBackButton onClick={goTopAndBack}>Back</BottomBackButton>
+               <BottomBackButton onClick={goTopAndBack} />
             </div>
          </MainContainer>
       </>

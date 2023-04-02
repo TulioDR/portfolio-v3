@@ -1,9 +1,12 @@
+import useLanguageContext from "@/context/LanguageContext";
+
 interface Props {
-   children: React.ReactNode;
    onClick: () => void;
 }
 
-export default function BottomBackButton({ children, onClick }: Props) {
+export default function BottomBackButton({ onClick }: Props) {
+   const { currentLanguage } = useLanguageContext();
+   const { back } = currentLanguage.projects.details;
    return (
       <button
          onClick={onClick}
@@ -13,7 +16,7 @@ export default function BottomBackButton({ children, onClick }: Props) {
             <div className="bg-black w-6 h-1/2 group-hover:-rotate-45 duration-300 origin-left"></div>
          </span>
          <span className="text-4xl text-black tracking-widest font-light uppercase">
-            {children}
+            {back}
          </span>
       </button>
    );

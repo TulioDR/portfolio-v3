@@ -5,6 +5,8 @@ import { StaticImageData } from "next/image";
 import { useState } from "react";
 import FilterHeader from "./FilterHeader";
 import TechnologyCard from "./TechnologyCard";
+import ResetButton from "./ResetButton";
+import useLanguageContext from "@/context/LanguageContext";
 
 type Props = {
    close: () => void;
@@ -43,6 +45,9 @@ export default function Filter({
       setTech(allSkills);
       setSelectedTech([]);
    };
+
+   const { currentLanguage } = useLanguageContext();
+   const { title, message, technologies } = currentLanguage.projects.filer;
    return (
       <motion.div
          drag={true}
@@ -55,13 +60,8 @@ export default function Filter({
             className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl pt-2 pl-2 cursor-default"
          >
             <div className="w-full flex justify-between">
-               <div className="text-lg font-medium">Filter Projects</div>
-               <button
-                  onClick={resetFilter}
-                  className="rounded-lg py-1 px-3 text-white bg-primary mr-2 text-sm"
-               >
-                  Reset
-               </button>
+               <div className="text-lg font-medium">{title}</div>
+               <ResetButton onClick={resetFilter} />
             </div>
             {selectedTech.length > 0 ? (
                <div>
@@ -77,11 +77,11 @@ export default function Filter({
                </div>
             ) : (
                <div className="text-gray-500 text-sm ml-2 mb-2 h-10 flex items-center">
-                  Select a technology from below to filter the projects
+                  {message}
                </div>
             )}
 
-            <div className="mb-2">Technologies</div>
+            <div className="mb-2">{technologies}</div>
             <div>
                {tech.map(({ name, logo, link }) => (
                   <TechnologyCard

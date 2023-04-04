@@ -1,19 +1,30 @@
+import { InputNameModel, ValuesModel } from "@/models/ContactFormModel";
+import { FormikErrors, FormikTouched } from "formik";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
-type Props = { isError: boolean };
+interface Props {
+   name: InputNameModel;
+   errors: FormikErrors<ValuesModel>;
+   touched: FormikTouched<ValuesModel>;
+}
 
-export default function InputError({ isError }: Props) {
+export default function InputError({ name, errors, touched }: Props) {
    return (
       <AnimatePresence>
-         {isError && (
+         {touched[name] && errors[name] && (
             <motion.div
                initial={{ height: 0, marginTop: 0 }}
                animate={{ height: 16, marginTop: 8 }}
                exit={{ height: 0, marginTop: 0 }}
                transition={{ duration: 0.4 }}
-               className="w-full bg-red-800"
-            ></motion.div>
+               className="overflow-hidden"
+            >
+               <div className="flex h-4 flex-shrink-0 items-center space-x-2 text-red-800 text-xs sm:text-sm">
+                  <span className="material-icons !text-lg">warning</span>
+                  <span>{errors[name]}</span>
+               </div>
+            </motion.div>
          )}
       </AnimatePresence>
    );

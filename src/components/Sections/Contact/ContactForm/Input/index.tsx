@@ -1,22 +1,25 @@
 import { useState } from "react";
 import InputBorder from "./InputBorder";
 import InputError from "./InputError";
-import { Field } from "formik";
+import { Field, FormikErrors, FormikTouched } from "formik";
+import { InputNameModel, ValuesModel } from "@/models/ContactFormModel";
 
 interface Props {
-   name: string;
+   name: InputNameModel;
    textarea?: true;
    placeholder: string;
-   isError: boolean;
    nameInputRef?: React.RefObject<HTMLInputElement>;
+   errors: FormikErrors<ValuesModel>;
+   touched: FormikTouched<ValuesModel>;
 }
 
 export default function Input({
    name,
    textarea,
    placeholder,
-   isError,
    nameInputRef,
+   errors,
+   touched,
 }: Props) {
    const [isOnFocus, setIsOnFocus] = useState<boolean>(false);
 
@@ -33,10 +36,9 @@ export default function Input({
                placeholder={placeholder}
                autoComplete="off"
             />
-            {/* <div className="h-[2px] w-full bg-gray-700 absolute bottom-0"></div> */}
             <InputBorder isOnFocus={isOnFocus} />
          </div>
-         <InputError isError={isError} />
+         <InputError name={name} errors={errors} touched={touched} />
       </div>
    );
 }

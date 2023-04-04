@@ -18,3 +18,5 @@ export type InputNameModel =
    | "email"
    | "phone"
    | "message";
+
+export type SentStatusModel = null | "success" | "fail";

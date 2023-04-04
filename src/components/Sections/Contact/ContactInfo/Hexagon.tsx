@@ -1,19 +1,27 @@
-type Props = { children: React.ReactNode };
 import { motion } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
 
-export default function Hexagon({ children }: Props) {
+interface Props {
+   children: React.ReactNode;
+   src?: StaticImageData;
+   onClick?: () => void;
+}
+
+export default function Hexagon({ children, src, onClick }: Props) {
    return (
       <motion.div
          whileHover={{ scale: 1.1 }}
          whileTap={{ scale: 0.9 }}
-         className="bg-orange-600 w-[100px] h-[125px] grid place-content-center cursor-pointer"
+         onTap={onClick}
+         className="bg-orange-600 w-[100px] h-[125px] cursor-pointer"
          style={{
             clipPath:
                "polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)",
          }}
       >
-         <div className="text-sm w-min flex flex-col items-center justify-center text-center">
-            {children}
+         <div className="flex flex-col items-center justify-center text-center w-full h-full">
+            {src && <Image src={src} alt="logo" className="w-1/3 mb-1" />}
+            <div className="text-sm w-min">{children}</div>
          </div>
       </motion.div>
    );

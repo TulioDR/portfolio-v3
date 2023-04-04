@@ -3,12 +3,18 @@ import { AnimatePresence, motion } from "framer-motion";
 interface Props {
    placeholder: string;
    isError: boolean;
+   nameInputRef?: React.RefObject<HTMLInputElement>;
 }
 
-export default function ContactInput({ placeholder, isError }: Props) {
+export default function ContactInput({
+   placeholder,
+   isError,
+   nameInputRef,
+}: Props) {
    return (
       <div>
          <input
+            ref={nameInputRef}
             type="text"
             className="w-full outline-none h-12 text-sm bg-white text-black px-5 rounded-xl"
             placeholder={placeholder}

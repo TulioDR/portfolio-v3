@@ -4,9 +4,15 @@ import ContactForm from "./ContactForm/ContactForm";
 import ContactInfo from "./ContactInfo/ContactInfo";
 import Footer from "./Footer";
 import SectionTitle from "../SectionTitle";
+import useLanguageContext from "@/context/LanguageContext";
+import { useRef } from "react";
 
 export default function ContactSection() {
    const { contactRef } = useNavbarContext();
+   const { currentLanguage } = useLanguageContext();
+   const { title } = currentLanguage.contact;
+
+   const nameInputRef = useRef<HTMLInputElement>(null);
    return (
       <div
          id="contact"
@@ -15,10 +21,10 @@ export default function ContactSection() {
       >
          <MainContainer>
             <div className="flex flex-col h-full">
-               <SectionTitle>Get in Touch</SectionTitle>
+               <SectionTitle>{title}</SectionTitle>
                <div className="grid lg:grid-cols-2 gap-7 lg:gap-0 my-24 2xl:my-auto">
-                  <ContactInfo />
-                  <ContactForm />
+                  <ContactInfo nameInputRef={nameInputRef} />
+                  <ContactForm nameInputRef={nameInputRef} />
                </div>
                <Footer />
             </div>

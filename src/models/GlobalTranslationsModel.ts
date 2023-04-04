@@ -54,5 +54,8 @@ export default interface GlobalTranslationsModel {
          back: string;
       };
    };
-   contact: {};
+   contact: {
+      title: string;
+      contactMeAt: string;
+   };
 }

@@ -2,7 +2,11 @@ import { useState } from "react";
 import ContactInput from "./ContactInput";
 import SendButton from "./SendButton";
 
-export default function ContactForm() {
+interface Props {
+   nameInputRef: React.RefObject<HTMLInputElement>;
+}
+
+export default function ContactForm({ nameInputRef }: Props) {
    const [isError, setIsError] = useState<boolean>(false);
 
    const handleClick = () => {
@@ -11,7 +15,11 @@ export default function ContactForm() {
    return (
       <div className="w-full space-y-4">
          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-            <ContactInput isError={isError} placeholder="First Name" />
+            <ContactInput
+               nameInputRef={nameInputRef}
+               isError={isError}
+               placeholder="First Name"
+            />
             <ContactInput isError={isError} placeholder="Last Name" />
             <ContactInput isError={isError} placeholder="Email" />
             <ContactInput

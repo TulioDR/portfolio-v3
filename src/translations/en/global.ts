@@ -62,22 +62,26 @@ const english: GlobalTranslationsModel = {
    contact: {
       title: "Get In Touch",
       contactMeAt: "Contact me at",
-      // namePlaceholder: "What's your name?",
-      // emailPlaceholder: "What is your email?",
-      // messagePlaceholder: "What do you want to talk about?",
-      // send: "Send",
-      // close: "Close",
-      // successMessage: "Email sent successfully",
-      // errorMessage: "Something went wrong.",
-      // formErrors: {
-      //    noName1: "You haven't told me your name yet.",
-      //    invalidName1: "That name is pretty weird.",
-      //    invalidName2: "It should only contain letters and spaces.",
-      //    noEmail: "You forgot your email.",
-      //    invalidEmail: "Are you sure that's your email?",
-      //    noMessage1: "I can't read minds yet...",
-      //    noMessage2: "so a message would be nice.",
-      // },
+      placeholders: {
+         firstName: "First name",
+         lastName: "Last name",
+         email: "Email",
+         phone: "Phone Number (optional)",
+         message: "Write your message here",
+      },
+      errors: {
+         noFirstName: "Please add your first name",
+         invalidFirstName: "It should only contain letters and space",
+         noLastName: "Please add your last name",
+         invalidLastName: "It should only contain letters and space",
+         noEmail: "Please add your email",
+         invalidEmail: "Invalid Email",
+         noMessage: "Please write a message",
+      },
+      send: "Send",
+      successMessage: "Email sent successfully",
+      errorMessage:
+         "Something went wrong, try again later or message me directly by email.",
    },
 };
 

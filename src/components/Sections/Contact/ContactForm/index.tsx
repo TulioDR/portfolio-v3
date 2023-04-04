@@ -1,19 +1,18 @@
 import SendButton from "./SendButton";
 import Input from "./Input";
-import { Formik, Form } from "formik";
-import { SentStatusModel, ValuesModel } from "@/models/ContactFormModel";
-import formValidation from "@/utils/formValidation";
-import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { Formik } from "formik";
+import { ValuesModel } from "@/models/ContactFormModel";
 import SentStatus from "./SentStatus";
+import useLanguageContext from "@/context/LanguageContext";
+import useFormValidation from "@/hooks/useFormValidation";
+import useFormSubmit from "@/hooks/useFormSubmit";
+import FormContainer from "./FormContainer";
 
 interface Props {
    nameInputRef: React.RefObject<HTMLInputElement>;
 }
 
 export default function ContactForm({ nameInputRef }: Props) {
-   const [sentStatus, setSentStatus] = useState<SentStatusModel>(null);
-
    const initialValues: ValuesModel = {
       firstName: "",
       lastName: "",
@@ -21,60 +20,46 @@ export default function ContactForm({ nameInputRef }: Props) {
       phone: "",
       message: "",
    };
-   const form = useRef<HTMLFormElement>(null);
-   const handleSubmit = (_values: ValuesModel, { resetForm }: any) => {
-      emailjs
-         .sendForm(
-            process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID!,
-            process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID!,
-            form.current!,
-            process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY!
-         )
-         .then(
-            (_result) => {
-               resetForm();
-               setSentStatus("success");
-               setTimeout(() => setSentStatus(null), 4000);
-            },
-            (error) => {
-               console.log(error);
-               setSentStatus("fail");
-            }
-         );
-   };
+
+   const { formValidation } = useFormValidation();
+   const { formSubmit, formRef, sentStatus, setSentStatus } = useFormSubmit();
+
+   const { currentLanguage } = useLanguageContext();
+   const { firstName, lastName, email, phone, message } =
+      currentLanguage.contact.placeholders;
    return (
       <>
          <SentStatus sentStatus={sentStatus} setSentStatus={setSentStatus} />
          <Formik
             initialValues={initialValues}
             validate={formValidation}
-            onSubmit={handleSubmit}
+            onSubmit={formSubmit}
          >
-            {({ errors, touched }) => (
-               <Form ref={form} className="w-full space-y-4 bg-gray-200 p-4">
+            {({ errors, touched, validateForm }) => (
+               <FormContainer formRef={formRef} validateForm={validateForm}>
                   <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
                      <Input
                         name="firstName"
                         nameInputRef={nameInputRef}
-                        placeholder="First Name"
+                        placeholder={firstName}
                         errors={errors}
                         touched={touched}
                      />
                      <Input
                         name="lastName"
-                        placeholder="Last Name"
+                        placeholder={lastName}
                         errors={errors}
                         touched={touched}
                      />
                      <Input
                         name="email"
-                        placeholder="Email"
+                        placeholder={email}
                         errors={errors}
                         touched={touched}
                      />
                      <Input
                         name="phone"
-                        placeholder="Phone Number (optional)"
+                        placeholder={phone}
                         errors={errors}
                         touched={touched}
                      />
@@ -82,12 +67,12 @@ export default function ContactForm({ nameInputRef }: Props) {
                   <Input
                      name="message"
                      textarea
-                     placeholder="Write your message here"
+                     placeholder={message}
                      errors={errors}
                      touched={touched}
                   />
                   <SendButton />
-               </Form>
+               </FormContainer>
             )}
          </Formik>
       </>

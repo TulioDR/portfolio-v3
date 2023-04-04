@@ -1,6 +1,9 @@
+import useLanguageContext from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 
 export default function SendButton() {
+   const { currentLanguage } = useLanguageContext();
+   const { send } = currentLanguage.contact;
    return (
       <motion.button
          whileTap={{ scale: 0.9 }}
@@ -8,7 +11,7 @@ export default function SendButton() {
          type="submit"
       >
          <span className="material-icons">send</span>
-         <span>Send</span>
+         <span>{send}</span>
       </motion.button>
    );
 }

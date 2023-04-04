@@ -62,23 +62,26 @@ const spanish: GlobalTranslationsModel = {
    contact: {
       title: "Contáctame",
       contactMeAt: "Contáctame en",
-      // namePlaceholder: "¿Como te llamas?",
-      // emailPlaceholder: "¿Cuál es tu correo?",
-      // messagePlaceholder: "¿De qué quieres hablar?",
-      // send: "Enviar",
-      // close: "Cerrar",
-      // successMessage: "Correo enviado con éxito",
-      // errorMessage: "Algo salió mal",
-      // formErrors: {
-      //    noName1: "Aún no me has dicho tu nombre.",
-      //    noName2: "Estoy seguro que es genial.",
-      //    invalidName1: "Ese nombre es muy raro.",
-      //    invalidName2: "Solo debería contener letras y espacios.",
-      //    noEmail: "Se te olvidó tu correo.",
-      //    invalidEmail: "¿Estás seguro de que ese es tu correo?",
-      //    noMessage1: "Todavía no puedo leer mentes...",
-      //    noMessage2: "Así que un mensaje estaría bien.",
-      // },
+      placeholders: {
+         firstName: "Nombre",
+         lastName: "Apellido",
+         email: "Correo",
+         phone: "Teléfono (opcional)",
+         message: "Escribe tu mensage aquí",
+      },
+      errors: {
+         noFirstName: "Por favor añade tu nombre",
+         invalidFirstName: "Solo debería contener letras y espacios",
+         noLastName: "Por favor añade tu apellido",
+         invalidLastName: "Solo debería contener letras y espacios",
+         noEmail: "Por favor añade tu correo",
+         invalidEmail: "Correo inválido",
+         noMessage: "Por favor escribe un mensaje",
+      },
+      send: "Enviar",
+      successMessage: "Correo enviado con éxito",
+      errorMessage:
+         "Algo salió mal, inténtalo de nuevo más tarde o contáctame directamente por correo",
    },
 };
 

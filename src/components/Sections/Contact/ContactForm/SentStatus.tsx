@@ -1,4 +1,5 @@
 import MainContainer from "@/components/MainContainer";
+import useLanguageContext from "@/context/LanguageContext";
 import { SentStatusModel } from "@/models/ContactFormModel";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -11,6 +12,8 @@ export default function SentStatus({ sentStatus, setSentStatus }: Props) {
    const isSuccessful = sentStatus === "success";
    const close = () => setSentStatus(null);
 
+   const { currentLanguage } = useLanguageContext();
+   const { successMessage, errorMessage } = currentLanguage.contact;
    return (
       <AnimatePresence>
          {sentStatus && (
@@ -27,11 +30,7 @@ export default function SentStatus({ sentStatus, setSentStatus }: Props) {
                         isSuccessful ? "bg-green-700" : "bg-red-700"
                      }`}
                   >
-                     <span>
-                        {isSuccessful
-                           ? "Email sent successfully"
-                           : "Something went wrong, please try again"}
-                     </span>
+                     <span>{isSuccessful ? successMessage : errorMessage}</span>
                      <button
                         onClick={close}
                         className="grid place-content-center"

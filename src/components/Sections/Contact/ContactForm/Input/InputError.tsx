@@ -15,12 +15,12 @@ export default function InputError({ name, errors, touched }: Props) {
          {touched[name] && errors[name] && (
             <motion.div
                initial={{ height: 0, marginTop: 0 }}
-               animate={{ height: 16, marginTop: 8 }}
+               animate={{ height: "auto", marginTop: 8 }}
                exit={{ height: 0, marginTop: 0 }}
                transition={{ duration: 0.4 }}
                className="overflow-hidden"
             >
-               <div className="flex h-4 flex-shrink-0 items-center space-x-2 text-red-800 text-xs sm:text-sm">
+               <div className="flex h-max flex-shrink-0 items-center space-x-2 text-red-800 text-xs">
                   <span className="material-icons !text-lg">warning</span>
                   <span>{errors[name]}</span>
                </div>

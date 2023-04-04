@@ -22,6 +22,9 @@ export default function ContactSection() {
          <MainContainer>
             <div className="flex flex-col h-full">
                <SectionTitle>{title}</SectionTitle>
+               <div className="sm:text-lg w-max mt-7 ml-2 hover:underline decoration-orange-700">
+                  tulioruzo29@gmail.com
+               </div>
                <div className="grid lg:grid-cols-2 gap-7 lg:gap-0 my-24 2xl:my-auto">
                   <ContactInfo nameInputRef={nameInputRef} />
                   <ContactForm nameInputRef={nameInputRef} />

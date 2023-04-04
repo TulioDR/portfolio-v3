@@ -57,5 +57,24 @@ export default interface GlobalTranslationsModel {
    contact: {
       title: string;
       contactMeAt: string;
+      placeholders: {
+         firstName: string;
+         lastName: string;
+         email: string;
+         phone: string;
+         message: string;
+      };
+      errors: {
+         noFirstName: string;
+         invalidFirstName: string;
+         noLastName: string;
+         invalidLastName: string;
+         noEmail: string;
+         invalidEmail: string;
+         noMessage: string;
+      };
+      send: string;
+      successMessage: string;
+      errorMessage: string;
    };
 }

@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 interface ContextInterface {
    isEnglish: boolean;
+   setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>;
    toggleLanguage: () => void;
    currentLanguage: GlobalTranslationsModel;
 }
@@ -33,6 +34,7 @@ export function LanguageContextProvider({ children }: Props) {
 
    const value: ContextInterface = {
       isEnglish,
+      setIsEnglish,
       toggleLanguage,
       currentLanguage,
    };

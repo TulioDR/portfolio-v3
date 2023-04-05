@@ -13,6 +13,7 @@ import TopBackButton from "@/components/ProjectDetails/TopBackButton";
 import BottomBackButton from "@/components/ProjectDetails/BottomBackBtn";
 import { useRouter } from "next/router";
 import { animateScroll, Events } from "react-scroll";
+import useNavbarContext from "@/context/NavbarContext";
 
 export async function getServerSideProps({ query }: any) {
    const project = projects.find((p) => p.link === query.project);
@@ -34,6 +35,7 @@ export default function ProjectDetails({ project }: Props) {
    }, [isEnglish, english, spanish]);
 
    const router = useRouter();
+   console.log(router.route);
    useEffect(() => {
       if (!router) return;
       Events.scrollEvent.register("end", () => {
@@ -48,6 +50,7 @@ export default function ProjectDetails({ project }: Props) {
 
    const { currentLanguage } = useLanguageContext();
    const { featuresTitle, technologiesUsed } = currentLanguage.projects.details;
+   const { projectsRef } = useNavbarContext();
    return (
       <>
          <Head>
@@ -58,7 +61,7 @@ export default function ProjectDetails({ project }: Props) {
          <TopBackButton onClick={goTopAndBack} />
          <Header project={project} currentLan={currentLan} />
          <MainContainer>
-            <div className="w-full py-20 space-y-20">
+            <div ref={projectsRef} className="w-full py-20 space-y-20">
                <Description currentLan={currentLan} />
                <Subtitle>{featuresTitle}</Subtitle>
                <Features features={currentLan.features} />

@@ -62,6 +62,11 @@ export function NavbarContextProvider({ children }: Props) {
          setBlack();
          return;
       }
+      if (route === "/projects/[project]") {
+         if (projectsInView) setBlack();
+         else setWhite();
+         return;
+      }
       if (contactInView) setWhite();
       else if (projectsInView) setWhite();
       else if (skillsInView) setBlack();

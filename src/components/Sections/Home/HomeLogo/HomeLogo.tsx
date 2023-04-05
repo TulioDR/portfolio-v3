@@ -9,22 +9,26 @@ import Parallax from "parallax-js";
 import Eagle from "./Eagle";
 import Moon from "./Moon";
 import Cloud from "./Cloud";
+import useInitialLoadingContext from "@/context/InitialLoadingContext";
 
 export default function HomeLogo() {
    const moonControls = useAnimationControls();
    const cloudControls = useAnimationControls();
 
-   const handleClick = () => {
+   const { isFullyLoaded } = useInitialLoadingContext();
+
+   useEffect(() => {
+      if (!isFullyLoaded) return;
       moonControls.start({
          x: "-75%",
          y: "-75%",
-         transition: { duration: 1, ease: "easeInOut" },
+         transition: { duration: 1, delay: 1, ease: "easeInOut" },
       });
       cloudControls.start({
          opacity: 1,
-         transition: { duration: 1, ease: "easeInOut" },
+         transition: { duration: 1, delay: 1, ease: "easeInOut" },
       });
-   };
+   }, [isFullyLoaded]);
 
    useEffect(() => {
       var scene = document.getElementById("moon-scene");
@@ -32,10 +36,7 @@ export default function HomeLogo() {
    }, []);
 
    return (
-      <div
-         onClick={handleClick}
-         className="absolute top-40 right-10 sm:right-20 rounded-full w-2/3 sm:w-48 md:w-60 lg:w-80 xl:w-96 2xl:w-[30rem]"
-      >
+      <div className="absolute top-40 right-10 sm:right-20 rounded-full w-2/3 sm:w-48 md:w-60 lg:w-80 xl:w-96 2xl:w-[30rem]">
          <div id="moon-scene" className="relative w-full aspect-square">
             <Moon moonControls={moonControls} />
             <Eagle />

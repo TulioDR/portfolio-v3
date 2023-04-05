@@ -9,12 +9,13 @@ import InitialLoadingAnimation from "@/components/InitialLoadingAnimation";
 import { NavbarContextProvider } from "@/context/NavbarContext";
 import { BackFromContextProvider } from "@/context/BackFromProjectsContext";
 import { LanguageContextProvider } from "@/context/LanguageContext";
+import { InitialLoadingContextProvider } from "@/context/InitialLoadingContext";
 
 export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
    return (
-      <>
-         {/* <InitialLoadingAnimation /> */}
+      <InitialLoadingContextProvider>
+         <InitialLoadingAnimation />
          <LanguageContextProvider>
             <NavbarContextProvider>
                <BackFromContextProvider>
@@ -28,6 +29,6 @@ export default function App({ Component, pageProps }: AppProps) {
                </BackFromContextProvider>
             </NavbarContextProvider>
          </LanguageContextProvider>
-      </>
+      </InitialLoadingContextProvider>
    );
 }

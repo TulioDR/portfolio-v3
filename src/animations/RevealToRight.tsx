@@ -14,10 +14,12 @@ export default function RevealToRight({ children, reverse }: Props) {
       },
       exit: {
          x: reverse ? "100%" : "-100%",
-         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+         transition: { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
       },
    };
    return (
-      <motion.div variants={revealHorizontalAnimation}>{children}</motion.div>
+      <motion.div variants={revealHorizontalAnimation} className="w-max">
+         {children}
+      </motion.div>
    );
 }

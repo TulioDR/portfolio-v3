@@ -1,9 +1,13 @@
 import useLanguageContext from "@/context/LanguageContext";
 import Hexagon from "./Hexagon";
 
-import gmailLogo from "@/assets/images/contact/gmail.png";
-import githubLogo from "@/assets/images/contact/github.svg";
-import linkedinLogo from "@/assets/images/contact/linkedin.svg";
+import gmailLogoWhite from "@/assets/images/contact/gmail-white.svg";
+import githubLogoWhite from "@/assets/images/contact/github-white.svg";
+import linkedinLogoWhite from "@/assets/images/contact/linkedin-white.svg";
+
+import gmailLogoOrange from "@/assets/images/contact/gmail-orange.svg";
+import githubLogoOrange from "@/assets/images/contact/github-orange.svg";
+import linkedinLogoOrange from "@/assets/images/contact/linkedin-orange.svg";
 
 interface Props {
    nameInputRef: React.RefObject<HTMLInputElement>;
@@ -25,7 +29,11 @@ export default function ContactInfo({ nameInputRef }: Props) {
          <div>
             <div className="flex space-x-4">
                <Hexagon>{contactMeAt}</Hexagon>
-               <Hexagon src={gmailLogo} onClick={() => openLink(gmailLink)}>
+               <Hexagon
+                  src={gmailLogoWhite}
+                  hoverSrc={gmailLogoOrange}
+                  onClick={() => openLink(gmailLink)}
+               >
                   Gmail
                </Hexagon>
                <Hexagon onClick={focusContactForm}>
@@ -37,12 +45,17 @@ export default function ContactInfo({ nameInputRef }: Props) {
             </div>
             <div className="flex justify-center space-x-4 -translate-y-4">
                <Hexagon
-                  src={linkedinLogo}
+                  src={linkedinLogoWhite}
+                  hoverSrc={linkedinLogoOrange}
                   onClick={() => openLink(linkedinLink)}
                >
                   LinkedIn
                </Hexagon>
-               <Hexagon src={githubLogo} onClick={() => openLink(githubLink)}>
+               <Hexagon
+                  src={githubLogoWhite}
+                  hoverSrc={githubLogoOrange}
+                  onClick={() => openLink(githubLink)}
+               >
                   Github
                </Hexagon>
             </div>

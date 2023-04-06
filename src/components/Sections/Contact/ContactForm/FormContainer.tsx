@@ -17,7 +17,7 @@ export default function FormContainer({
       setTimeout(() => validateForm(), 0);
    }, [validateForm, isEnglish]);
    return (
-      <Form ref={formRef} className="w-full space-y-4 bg-gray-200 p-4">
+      <Form ref={formRef} className="w-full space-y-4 bg-main-white p-4">
          {children}
       </Form>
    );

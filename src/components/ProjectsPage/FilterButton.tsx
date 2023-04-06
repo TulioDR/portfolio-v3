@@ -12,7 +12,7 @@ export default function FilterButton({ onClick, isFilterOpen }: Props) {
    return (
       <button
          onClick={onClick}
-         className={`h-10 duration-300 bg-primary rounded-lg text-white flex items-center overflow-hidden ${
+         className={`h-10 duration-300 bg-main-primary rounded-lg text-white flex items-center overflow-hidden ${
             isFilterOpen ? "w-36" : "w-36 md:w-10 hover:w-36"
          }`}
       >

@@ -34,13 +34,13 @@ export default function Underline({ projects }: Props) {
          <div className="w-2/3 h-1">
             <motion.div
                variants={projects ? projectsUnderline : normal1}
-               className="bg-orange-700 h-full rounded-sm"
+               className="bg-main-orange h-full rounded-sm"
             ></motion.div>
          </div>
          <div className="w-2/3 h-1 ml-[33.33%]">
             <motion.div
                variants={projects ? projectsUnderline : normal2}
-               className="bg-orange-700 h-full rounded-sm"
+               className="bg-main-orange h-full rounded-sm"
             ></motion.div>
          </div>
       </div>

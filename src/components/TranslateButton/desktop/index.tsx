@@ -9,7 +9,7 @@ export default function TranslateButtonDesktop() {
    return (
       <button
          onClick={toggleLanguage}
-         className="h-14 w-14 p-2 hover:w-36 duration-300 rounded-full overflow-hidden bg-orange-700 flex justify-end"
+         className="h-14 w-14 p-2 hover:w-36 duration-300 rounded-full overflow-hidden bg-main-orange flex justify-end"
       >
          <div className="w-20 h-full rounded-full mr-2 flex-shrink-0 overflow-hidden">
             <div

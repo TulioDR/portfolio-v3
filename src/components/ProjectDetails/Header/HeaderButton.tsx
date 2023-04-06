@@ -13,7 +13,7 @@ export default function HeaderButton({ children, alternative, href }: Props) {
             <a
                href={href}
                target="_blank"
-               className={`bg-orange-700 w-max px-10 h-11 md:h-12 flex items-center cursor-pointer ${
+               className={`bg-main-orange w-max px-10 h-11 md:h-12 flex items-center cursor-pointer ${
                   alternative ? "rounded-xl" : "rounded-full"
                }`}
             >

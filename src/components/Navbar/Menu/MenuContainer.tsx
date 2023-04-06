@@ -13,7 +13,7 @@ export default function MenuContainer({ children, isMenuOpen }: Props) {
             isMenuOpen ? "h-screen" : "h-0"
          }`}
       >
-         <div className="w-full h-screen bg-gradient-to-br from-orange-900 to-orange-600">
+         <div className="w-full h-screen bg-gradient-to-br from-orange-900 to-main-orange">
             <motion.div className="relative h-full w-full flex flex-col">
                {children}
             </motion.div>

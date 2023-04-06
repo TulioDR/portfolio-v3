@@ -24,7 +24,7 @@ export default function SkillsSection() {
    const { currentLanguage } = useLanguageContext();
    const { title, main, secondary, inProgress } = currentLanguage.skills;
    return (
-      <div ref={skillsRef} id="skills" className="bg-gray-200 w-full py-24">
+      <div ref={skillsRef} id="skills" className="bg-main-white w-full py-24">
          <MainContainer>
             <SectionTitle>{title}</SectionTitle>
          </MainContainer>

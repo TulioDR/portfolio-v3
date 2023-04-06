@@ -31,7 +31,7 @@ export default function ProjectsSection() {
       <div className="">
          <div
             ref={projectsRef}
-            className="sticky top-0 h-screen w-full bg-gradient-to-bl from-[#1D1D1C] to-[#232322]"
+            className="sticky top-0 h-screen w-full bg-gradient-to-b from-main-gray to-main-primary"
          >
             <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
                <ProjectSlider

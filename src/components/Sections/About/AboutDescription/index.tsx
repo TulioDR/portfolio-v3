@@ -18,7 +18,7 @@ export default function AboutDescription({}: Props) {
    });
 
    return (
-      <div ref={ref} className="pb-24 bg-stone-500">
+      <div ref={ref} className="pb-24 bg-main-gray">
          <MainContainer>
             <div className="grid sm:grid-cols-2 gap-10">
                <DescriptionText scrollVelocity={scrollVelocity} />

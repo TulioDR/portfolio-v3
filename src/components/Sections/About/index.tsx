@@ -8,7 +8,9 @@ export default function AboutSection() {
 
    return (
       <div ref={aboutRef} id="about">
-         <AboutSectionDesktop />
+         <div className="hidden lg:block">
+            <AboutSectionDesktop />
+         </div>
          <AboutSectionMobile />
          <AboutDescription />
       </div>

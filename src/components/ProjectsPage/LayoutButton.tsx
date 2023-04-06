@@ -21,8 +21,8 @@ export default function LayoutButton({
          onClick={handleClick}
          className={`rounded-lg aspect-square w-10 flex-shrink-0 grid place-content-center ${
             currentLayout === layout
-               ? "bg-slate-800 text-white"
-               : "bg-white hover:bg-slate-800 hover:text-white"
+               ? "bg-main-primary text-white"
+               : "bg-white hover:bg-main-primary hover:text-white"
          }`}
       >
          <span className={`material-icons${sharp ? "-sharp" : ""}`}>

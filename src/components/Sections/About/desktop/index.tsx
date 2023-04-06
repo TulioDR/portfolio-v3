@@ -15,8 +15,8 @@ export default function AboutSectionDesktop({}: Props) {
    });
 
    return (
-      <div className="hidden lg:block">
-         <div className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-b from-stone-700 to-stone-500">
+      <>
+         <div className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-t from-main-gray to-stone-500">
             <MainContainer>
                <div className="flex flex-col h-full pb-20">
                   <AboutTitle scrollYProgress={scrollYProgress} />
@@ -26,6 +26,6 @@ export default function AboutSectionDesktop({}: Props) {
             <AboutCardDesktop scrollYProgress={scrollYProgress} />
          </div>
          <div ref={aboutInfoRef} className="h-screen w-full"></div>
-      </div>
+      </>
    );
 }

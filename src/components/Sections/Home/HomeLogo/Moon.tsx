@@ -11,7 +11,7 @@ export default function Moon({ moonControls }: Props) {
          data-depth="0.4"
          className="overflow-hidden rounded-full w-full h-full"
       >
-         <div className="relative w-full h-full border border-slate-900">
+         <div className="relative w-full h-full border border-main-primary">
             <Image src={moon} alt="moon" fill sizes="100%" priority />
          </div>
          <motion.div

@@ -10,10 +10,9 @@ interface Props {
 export default function Hexagon({ children, src, onClick }: Props) {
    return (
       <motion.div
-         whileHover={{ scale: 1.1 }}
          whileTap={{ scale: 0.9 }}
          onTap={onClick}
-         className="bg-orange-600 w-[100px] h-[125px] cursor-pointer"
+         className="bg-main-orange w-[100px] h-[125px] cursor-pointer"
          style={{
             clipPath:
                "polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)",

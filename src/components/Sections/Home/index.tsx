@@ -4,7 +4,7 @@ import HomeTitle from "./HomeTitle";
 
 export default function HomeSection() {
    return (
-      <main className="h-screen bg-primary overflow-hidden">
+      <main className="h-screen bg-main-primary overflow-hidden">
          <MainContainer>
             <div className="h-full w-full relative">
                <HomeLogo />

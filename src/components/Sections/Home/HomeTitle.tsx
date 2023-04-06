@@ -24,7 +24,6 @@ export default function HomeTitle() {
    useEffect(() => {
       if (!isFullyLoaded) return;
       showName.start("animate");
-      console.log("start initial name animation");
    }, [isFullyLoaded]);
    return (
       <motion.h1

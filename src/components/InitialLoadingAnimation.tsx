@@ -29,7 +29,7 @@ export default function InitialLoadingAnimation() {
                animate={{ y: 0 }}
                transition={{ duration: 2, ease: "easeInOut" }}
                onAnimationComplete={onLoadingAnimationComplete}
-               className="absolute w-full h-full top-0 left-0 bg-orange-600"
+               className="absolute w-full h-full top-0 left-0 bg-main-orange"
             ></motion.div>
             <div className="relative w-full">
                <Image

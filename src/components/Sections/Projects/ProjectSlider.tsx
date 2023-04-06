@@ -40,7 +40,7 @@ export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
          onAnimationComplete={onAnimationComplete}
          className="rounded-3xl aspect-video bg-gradient-to-r from-red-900 to-yellow-700 py-2 px-4 h-full"
       >
-         <div className="rounded-[30px] w-full h-full bg-gray-200 overflow-hidden relative">
+         <div className="rounded-[30px] w-full h-full bg-main-white overflow-hidden relative">
             <Swiper
                loop={true}
                modules={[Autoplay]}
@@ -64,7 +64,7 @@ export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
                   transition: { duration: 0.5, delay: 0.4 },
                }}
                exit={{ opacity: 1, transition: { duration: 0.5 } }}
-               className="absolute top-0 left-0 bg-gray-200 h-full w-full z-10"
+               className="absolute top-0 left-0 bg-main-white h-full w-full z-10"
             ></motion.div>
          </div>
       </motion.div>

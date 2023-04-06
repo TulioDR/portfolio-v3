@@ -57,7 +57,7 @@ export default function Filter({
          <FilterHeader close={close} />
          <div
             onPointerDownCapture={(e) => e.stopPropagation()}
-            className="w-full md:w-[600px] h-auto shadow-inner bg-gray-200 rounded-xl pt-2 pl-2 cursor-default"
+            className="w-full md:w-[600px] h-auto shadow-inner bg-main-white rounded-xl pt-2 pl-2 cursor-default"
          >
             <div className="w-full flex justify-between">
                <div className="text-lg font-medium">{title}</div>

@@ -54,7 +54,7 @@ export default function LayoutButtons({
             <div className="h-full w-[2px] bg-primary"></div>
             <button
                onClick={toggleProjectsExpanded}
-               className="h-10 aspect-square bg-primary rounded-lg text-white grid place-content-center"
+               className="h-10 aspect-square bg-main-primary rounded-lg text-white grid place-content-center"
             >
                <span className="material-icons">
                   {isProjectExpanded ? "zoom_out_map" : "zoom_in_map"}

@@ -33,11 +33,11 @@ export default function InputBorder({ isOnFocus }: Props) {
                   exit="exit"
                >
                   <motion.div
-                     className="absolute left-0 top-0 w-[3px] bg-orange-600"
+                     className="absolute left-0 top-0 w-[3px] bg-main-orange"
                      variants={itemY}
                   />
                   <motion.div
-                     className="absolute left-0 bottom-0 h-[3px] bg-orange-600"
+                     className="absolute left-0 bottom-0 h-[3px] bg-main-orange"
                      variants={itemX}
                   />
                </motion.div>
@@ -48,11 +48,11 @@ export default function InputBorder({ isOnFocus }: Props) {
                   exit="exit"
                >
                   <motion.div
-                     className="absolute left-0 top-0 h-[3px] bg-orange-600"
+                     className="absolute left-0 top-0 h-[3px] bg-main-orange"
                      variants={itemX}
                   />
                   <motion.div
-                     className="absolute right-0 top-0 w-[3px] bg-orange-600"
+                     className="absolute right-0 top-0 w-[3px] bg-main-orange"
                      variants={itemY}
                   />
                </motion.div>

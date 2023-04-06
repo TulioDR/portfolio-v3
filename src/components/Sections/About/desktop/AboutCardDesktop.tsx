@@ -1,5 +1,6 @@
 import useLanguageContext from "@/context/LanguageContext";
 import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
+import ShieldLogo from "../ShieldLogo";
 
 interface Props {
    scrollYProgress: MotionValue<number>;
@@ -54,6 +55,7 @@ export default function AboutCardDesktop({ scrollYProgress }: Props) {
             className="rounded-3xl bg-main-primary text-main-white font-semibold text-2xl 2xl:text-3xl drop-shadow-2xl"
          >
             <div className="w-40">{card}</div>
+            <ShieldLogo />
          </motion.div>
       </div>
    );

@@ -4,11 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 
 import ProjectSlide from "./ProjectSlide";
-
-import filmOrganizer from "@/assets/images/projects/film-organizer.png";
-import pokedex from "@/assets/images/projects/pokedex.png";
-import dashboard from "@/assets/images/projects/dashboard.png";
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
+import projects from "@/assets/projects";
 
 type Props = {
    scrollYProgressVelocity: MotionValue<any>;
@@ -47,15 +44,11 @@ export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
                autoplay={{ delay: 2000 }}
                className="w-full h-full"
             >
-               <SwiperSlide>
-                  <ProjectSlide src={filmOrganizer} />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <ProjectSlide src={pokedex} />
-               </SwiperSlide>
-               <SwiperSlide>
-                  <ProjectSlide src={dashboard} />
-               </SwiperSlide>
+               {projects.map(({ img, link }, index) => (
+                  <SwiperSlide key={link + index}>
+                     <ProjectSlide src={img} />
+                  </SwiperSlide>
+               ))}
             </Swiper>
             <motion.div
                initial={{ opacity: 1 }}

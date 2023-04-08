@@ -24,7 +24,7 @@ export default function ProjectsSection() {
    const router = useRouter();
    const handleClick = () => {
       router.push("/projects", undefined, { scroll: false });
-      // projectsSliderRef.current!.scrollIntoView({ behavior: "smooth" });
+      projectsSliderRef.current?.scrollIntoView({ behavior: "smooth" });
    };
 
    return (

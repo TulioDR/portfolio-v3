@@ -11,6 +11,7 @@ export default function ProjectSlide({ src }: Props) {
             fill
             sizes="100%"
             className="object-cover"
+            priority
          />
       </div>
    );

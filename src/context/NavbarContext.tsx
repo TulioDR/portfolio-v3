@@ -58,6 +58,7 @@ export function NavbarContextProvider({ children }: Props) {
    const { route } = router;
 
    useEffect(() => {
+      console.log(route);
       if (route === "/projects") {
          setBlack();
          return;

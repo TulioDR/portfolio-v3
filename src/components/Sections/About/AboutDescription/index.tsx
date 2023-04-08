@@ -2,6 +2,7 @@ import MainContainer from "@/components/MainContainer";
 import { useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
 import DescriptionText from "./DescriptionText";
+import Rhetorician from "./Rhetorician";
 
 type Props = {};
 
@@ -20,9 +21,11 @@ export default function AboutDescription({}: Props) {
    return (
       <div ref={ref} className="pb-24 bg-main-gray">
          <MainContainer>
-            <div className="grid sm:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-y-5">
                <DescriptionText scrollVelocity={scrollVelocity} />
-               <div className="bg-primary"></div>
+               <div className="bg-main-primary rounded-3xl overflow-hidden">
+                  <Rhetorician />
+               </div>
             </div>
          </MainContainer>
       </div>

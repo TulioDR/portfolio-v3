@@ -24,7 +24,7 @@ export default function DescriptionText({ scrollVelocity }: Props) {
    const { currentLanguage } = useLanguageContext();
    const { p1, p2, p3, p4 } = currentLanguage.about;
    return (
-      <div className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light">
+      <div className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light pr-5">
          <motion.div style={{ x: x1, y: y1, opacity: op1 }}>{p1}</motion.div>
          <motion.div style={{ x: x2, y: y2, opacity: op2 }}>{p2}</motion.div>
          <motion.div style={{ x: x3, y: y3, opacity: op3 }}>{p3}</motion.div>

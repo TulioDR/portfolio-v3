@@ -21,7 +21,7 @@ export default function SkillCard({ logo, name, link }: Props) {
          <div className="aspect-square relative w-1/2 flex items-center">
             <Image src={logo} alt={name} />
          </div>
-         <div className="text-slate-700 font-bold text-xs sm:text-sm md:text-base">
+         <div className="text-slate-700 text-xs sm:text-sm md:text-base">
             {name}
          </div>
       </motion.div>

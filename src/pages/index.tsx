@@ -6,12 +6,22 @@ import SkillsSection from "@/components/Sections/Skills";
 import ProjectsSection from "@/components/Sections/Projects";
 import ContactSection from "@/components/Sections/Contact";
 import { useEffect } from "react";
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 export default function Home() {
    useEffect(() => {
       const hash = window.location.hash;
       if (hash) document.querySelector(hash)?.scrollIntoView();
    }, []);
+
+   const {
+      aboutRef,
+      aboutInfoRef,
+      skillsRef,
+      projectsRef,
+      projectsSliderRef,
+      contactRef,
+   } = useScrollPosition();
    return (
       <>
          <Head>
@@ -20,10 +30,13 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <HomeSection />
-         <AboutSection />
-         <SkillsSection />
-         <ProjectsSection />
-         <ContactSection />
+         <AboutSection aboutRef={aboutRef} aboutInfoRef={aboutInfoRef} />
+         <SkillsSection skillsRef={skillsRef} />
+         <ProjectsSection
+            projectsRef={projectsRef}
+            projectsSliderRef={projectsSliderRef}
+         />
+         <ContactSection contactRef={contactRef} />
       </>
    );
 }

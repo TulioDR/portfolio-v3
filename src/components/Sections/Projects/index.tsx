@@ -1,5 +1,4 @@
 import MainContainer from "@/components/MainContainer";
-import useNavbarContext from "@/context/NavbarContext";
 
 import { useScroll, useSpring } from "framer-motion";
 import { useRouter } from "next/router";
@@ -8,9 +7,15 @@ import ProjectSlider from "./ProjectSlider";
 import ProjectsTitle from "./ProjectsTitle";
 import ViewProjectsButton from "./ViewProjectsButton";
 
-export default function ProjectsSection() {
-   const { projectsRef, projectsSliderRef } = useNavbarContext();
+interface Props {
+   projectsRef: React.RefObject<HTMLDivElement>;
+   projectsSliderRef: React.RefObject<HTMLDivElement>;
+}
 
+export default function ProjectsSection({
+   projectsRef,
+   projectsSliderRef,
+}: Props) {
    const { scrollYProgress } = useScroll({
       target: projectsSliderRef,
       offset: ["start end", "end end"],
@@ -24,7 +29,7 @@ export default function ProjectsSection() {
    const router = useRouter();
    const handleClick = () => {
       router.push("/projects", undefined, { scroll: false });
-      projectsSliderRef.current?.scrollIntoView({ behavior: "smooth" });
+      // projectsSliderRef.current?.scrollIntoView({ behavior: "smooth" });
    };
 
    return (

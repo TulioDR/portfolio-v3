@@ -1,15 +1,16 @@
-import useNavbarContext from "@/context/NavbarContext";
 import AboutDescription from "./AboutDescription";
 import AboutSectionDesktop from "./desktop";
 import AboutSectionMobile from "./mobile";
 
-export default function AboutSection() {
-   const { aboutRef } = useNavbarContext();
-
+interface Props {
+   aboutRef: React.RefObject<HTMLDivElement>;
+   aboutInfoRef: React.RefObject<HTMLDivElement>;
+}
+export default function AboutSection({ aboutRef, aboutInfoRef }: Props) {
    return (
       <div ref={aboutRef} id="about">
          <div className="hidden lg:block">
-            <AboutSectionDesktop />
+            <AboutSectionDesktop aboutInfoRef={aboutInfoRef} />
          </div>
          <AboutSectionMobile />
          <AboutDescription />

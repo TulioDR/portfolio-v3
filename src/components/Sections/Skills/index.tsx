@@ -10,16 +10,17 @@ import SkillPagination from "./SkillPagination";
 import "swiper/css/pagination";
 import SkillCardsContainer from "./SkillCardsContainer";
 
-import useNavbarContext from "@/context/NavbarContext";
-
 import mainSkills from "@/assets/skills/mainSkills";
 import secondarySkills from "@/assets/skills/secondarySkills";
 import inProgressSkills from "@/assets/skills/inProgressSkills";
 import useLanguageContext from "@/context/LanguageContext";
 
-export default function SkillsSection() {
+interface Props {
+   skillsRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function SkillsSection({ skillsRef }: Props) {
    const [activeIndex, setActiveIndex] = useState<number>(0);
-   const { skillsRef } = useNavbarContext();
 
    const { currentLanguage } = useLanguageContext();
    const { title, main, secondary, inProgress } = currentLanguage.skills;

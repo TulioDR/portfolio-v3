@@ -3,12 +3,12 @@ import AboutCardDesktop from "./AboutCardDesktop";
 import AboutPhrases from "./AboutPhrases";
 import AboutTitle from "./AboutTitle";
 import { useScroll } from "framer-motion";
-import useNavbarContext from "@/context/NavbarContext";
 
-type Props = {};
+interface Props {
+   aboutInfoRef: React.RefObject<HTMLDivElement>;
+}
 
-export default function AboutSectionDesktop({}: Props) {
-   const { aboutInfoRef } = useNavbarContext();
+export default function AboutSectionDesktop({ aboutInfoRef }: Props) {
    const { scrollYProgress } = useScroll({
       target: aboutInfoRef,
       offset: ["start end", "end end"],
@@ -25,7 +25,11 @@ export default function AboutSectionDesktop({}: Props) {
             </MainContainer>
             <AboutCardDesktop scrollYProgress={scrollYProgress} />
          </div>
-         <div ref={aboutInfoRef} className="h-screen w-full"></div>
+         <div
+            ref={aboutInfoRef}
+            id="about-info"
+            className="h-screen w-full"
+         ></div>
       </>
    );
 }

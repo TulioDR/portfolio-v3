@@ -1,5 +1,4 @@
 import MainContainer from "@/components/MainContainer";
-import useNavbarContext from "@/context/NavbarContext";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import Footer from "./Footer";
@@ -7,8 +6,11 @@ import SectionTitle from "../SectionTitle";
 import useLanguageContext from "@/context/LanguageContext";
 import { useRef } from "react";
 
-export default function ContactSection() {
-   const { contactRef } = useNavbarContext();
+interface Props {
+   contactRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function ContactSection({ contactRef }: Props) {
    const { currentLanguage } = useLanguageContext();
    const { title } = currentLanguage.contact;
 

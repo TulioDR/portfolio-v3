@@ -13,7 +13,7 @@ import TopBackButton from "@/components/ProjectDetails/TopBackButton";
 import BottomBackButton from "@/components/ProjectDetails/BottomBackBtn";
 import { useRouter } from "next/router";
 import { animateScroll, Events } from "react-scroll";
-import useNavbarContext from "@/context/NavbarContext";
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 export async function getServerSideProps({ query }: any) {
    const project = projects.find((p) => p.link === query.project);
@@ -50,7 +50,9 @@ export default function ProjectDetails({ project }: Props) {
 
    const { currentLanguage } = useLanguageContext();
    const { featuresTitle, technologiesUsed } = currentLanguage.projects.details;
-   const { projectsRef } = useNavbarContext();
+
+   const { projectsRef } = useScrollPosition();
+
    return (
       <>
          <Head>

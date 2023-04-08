@@ -13,11 +13,15 @@ import ProjectAnimationModel from "@/models/ProjectAnimationModel";
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
+import useNavbarContext from "@/context/NavbarContext";
 
 export default function ProjectsPage() {
    useEffect(() => {
       window.scrollTo({ top: 0 });
    }, []);
+
+   const { setBlack } = useNavbarContext();
+   useEffect(() => setBlack(), []);
 
    const [currentLayout, setCurrentLayout] = useState<
       "normal" | "grid" | "list"

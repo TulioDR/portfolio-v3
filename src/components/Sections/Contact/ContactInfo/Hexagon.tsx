@@ -32,7 +32,7 @@ export default function Hexagon({ children, src, hoverSrc, onClick }: Props) {
             {currentSrc && (
                <Image src={currentSrc} alt="logo" className="w-1/3 mb-1" />
             )}
-            <div className="text-sm w-min">{children}</div>
+            <div className="text-sm w-min font-light">{children}</div>
          </div>
       </motion.div>
    );

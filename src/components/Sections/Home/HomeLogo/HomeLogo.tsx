@@ -28,7 +28,7 @@ export default function HomeLogo() {
          opacity: 1,
          transition: { duration: 1, delay: 1, ease: "easeInOut" },
       });
-   }, [isFullyLoaded]);
+   }, [isFullyLoaded, moonControls, cloudControls]);
 
    useEffect(() => {
       var scene = document.getElementById("moon-scene");

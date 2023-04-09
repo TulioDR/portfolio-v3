@@ -35,7 +35,15 @@ export default function useScrollPosition() {
       else if (skillsInView) setBlack();
       else if (aboutInView) setWhite();
       else setWhite();
-   }, [contactInView, projectsInView, skillsInView, aboutInView]);
+   }, [
+      contactInView,
+      projectsInView,
+      skillsInView,
+      aboutInView,
+      setWhite,
+      setBlack,
+      route,
+   ]);
 
    return {
       aboutRef,

@@ -6,8 +6,6 @@ import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
 import Head from "next/head";
 import Filter from "@/components/ProjectsPage/Filter/Filter";
 import LayoutButtons from "@/components/ProjectsPage/LayoutButtons";
-import SkillModel from "@/models/SkillModel";
-import projects from "@/assets/projects";
 import ProjectAnimation from "@/components/ProjectsPage/ProjectAnimation";
 import ProjectAnimationModel from "@/models/ProjectAnimationModel";
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
@@ -16,6 +14,7 @@ import { useRouter } from "next/router";
 import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
 import { LayoutModel } from "@/models/ProjectModel";
+import useProjectsFilter from "@/hooks/useProjectsFilter";
 
 export default function ProjectsPage() {
    useEffect(() => {
@@ -23,7 +22,7 @@ export default function ProjectsPage() {
    }, []);
 
    const { setBlack } = useNavbarContext();
-   useEffect(() => setBlack(), []);
+   useEffect(() => setBlack(), [setBlack]);
 
    const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
 
@@ -31,20 +30,16 @@ export default function ProjectsPage() {
    const toggleProjectsExpanded = () =>
       setIsProjectExpanded((prevState) => !prevState);
 
-   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
-   const toggleFilter = () => setIsFilterOpen((prevState) => !prevState);
-   const closeFilter = () => setIsFilterOpen(false);
-
-   const [selectedTech, setSelectedTech] = useState<SkillModel[]>([]);
-   const [filteredProjects, setFilteredProjects] = useState<any[]>(projects);
-   useEffect(() => {
-      const founded = projects.filter((project) =>
-         selectedTech.every((value) =>
-            project.technologies.some(({ name }) => name === value.name)
-         )
-      );
-      setFilteredProjects(founded);
-   }, [selectedTech]);
+   const {
+      selectedTech,
+      setSelectedTech,
+      notSelectedTech,
+      setNotSelectedTech,
+      filteredProjects,
+      isFilterOpen,
+      toggleFilter,
+      closeFilter,
+   } = useProjectsFilter();
 
    const [selectedProject, setSelectedProject] =
       useState<ProjectAnimationModel | null>(null);
@@ -69,6 +64,8 @@ export default function ProjectsPage() {
                close={closeFilter}
                selectedTech={selectedTech}
                setSelectedTech={setSelectedTech}
+               notSelectedTech={notSelectedTech}
+               setNotSelectedTech={setNotSelectedTech}
             />
          )}
          <MainContainer>

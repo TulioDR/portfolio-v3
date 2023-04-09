@@ -1,53 +1,52 @@
 import allSkills from "@/assets/skills/allSkills";
 import SkillModel from "@/models/SkillModel";
 import { motion } from "framer-motion";
-import { StaticImageData } from "next/image";
-import { useState } from "react";
 import FilterHeader from "./FilterHeader";
-import TechnologyCard from "./TechnologyCard";
 import ResetButton from "./ResetButton";
 import useLanguageContext from "@/context/LanguageContext";
+import TechnologiesDisplayed from "./TechnologiesDisplayed";
 
 type Props = {
    close: () => void;
    selectedTech: SkillModel[];
    setSelectedTech: React.Dispatch<React.SetStateAction<SkillModel[]>>;
+   notSelectedTech: SkillModel[];
+   setNotSelectedTech: React.Dispatch<React.SetStateAction<SkillModel[]>>;
 };
 
 export default function Filter({
    close,
    selectedTech,
    setSelectedTech,
+   notSelectedTech,
+   setNotSelectedTech,
 }: Props) {
-   const [tech, setTech] = useState<SkillModel[]>(allSkills);
+   const addToSelectedTech = (newTech: SkillModel) => {
+      setSelectedTech((oldArray) => [...oldArray, newTech]);
 
-   const addToSelectedTech = (
-      name: string,
-      logo: StaticImageData,
-      link: string
-   ) => {
-      const newArray = tech.filter((tech) => tech.name !== name);
-      setTech(newArray);
-      setSelectedTech((oldArray) => [...oldArray, { name, logo, link }]);
+      const newArray = notSelectedTech.filter(
+         ({ name }) => name !== newTech.name
+      );
+      setNotSelectedTech(newArray);
    };
-
-   const removeFromSelectedTech = (
-      name: string,
-      logo: StaticImageData,
-      link: string
-   ) => {
-      setTech((oldArray) => [...oldArray, { name, logo, link }]);
-      const newArray = selectedTech.filter((tech) => tech.name !== name);
+   const removeFromSelectedTech = (oldTech: SkillModel) => {
+      const newArray = selectedTech.filter(({ name }) => name !== oldTech.name);
       setSelectedTech(newArray);
+
+      const newTechToSelect = allSkills.filter((tech) =>
+         newArray.every(({ name }) => tech.name !== name)
+      );
+      setNotSelectedTech(newTechToSelect);
    };
 
    const resetFilter = () => {
-      setTech(allSkills);
+      setNotSelectedTech(allSkills);
       setSelectedTech([]);
    };
 
    const { currentLanguage } = useLanguageContext();
-   const { title, message, technologies } = currentLanguage.projects.filer;
+   const { title, message1, message2, technologies } =
+      currentLanguage.projects.filer;
    return (
       <motion.div
          drag={true}
@@ -63,36 +62,18 @@ export default function Filter({
                <div className="text-lg font-medium">{title}</div>
                <ResetButton onClick={resetFilter} />
             </div>
-            {selectedTech.length > 0 ? (
-               <div>
-                  {selectedTech.map(({ name, logo, link }) => (
-                     <TechnologyCard
-                        key={name}
-                        name={name}
-                        logo={logo}
-                        onClick={() => removeFromSelectedTech(name, logo, link)}
-                     />
-                  ))}
-                  <div className="clear-both" />
-               </div>
-            ) : (
-               <div className="text-gray-500 text-sm ml-2 mb-2 h-10 flex items-center">
-                  {message}
-               </div>
-            )}
+            <TechnologiesDisplayed
+               technologies={selectedTech}
+               addTech={removeFromSelectedTech}
+               emptyMessage={message1}
+            />
 
             <div className="mb-2">{technologies}</div>
-            <div>
-               {tech.map(({ name, logo, link }) => (
-                  <TechnologyCard
-                     key={name}
-                     name={name}
-                     logo={logo}
-                     onClick={() => addToSelectedTech(name, logo, link)}
-                  />
-               ))}
-               <div className="clear-both" />
-            </div>
+            <TechnologiesDisplayed
+               technologies={notSelectedTech}
+               addTech={addToSelectedTech}
+               emptyMessage={message2}
+            />
          </div>
       </motion.div>
    );

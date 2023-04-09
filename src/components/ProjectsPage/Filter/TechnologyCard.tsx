@@ -19,7 +19,7 @@ export default function TechnologyCard({ name, logo, onClick }: Props) {
             <div className="aspect-square h-full p-2 flex items-center justify-center">
                <Image src={logo} alt={name} />
             </div>
-            <div className="font-semibold text-main-primary group-hover:text-white">
+            <div className="font-light text-main-primary group-hover:text-white">
                {name}
             </div>
          </div>

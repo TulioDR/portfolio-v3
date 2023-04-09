@@ -12,7 +12,7 @@ export default function ProjectCardTitle({ children, isFinished }: Props) {
       >
          <motion.div
             layout="position"
-            className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl md:font-semibold lg:font-bold text-center text-white"
+            className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl md:font-semibold text-center text-white"
          >
             <div>{children}</div>
             <div>{!isFinished && <div>(Coming Soon)</div>}</div>

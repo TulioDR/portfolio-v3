@@ -17,14 +17,12 @@ export default function ProjectCardContainer({
    children,
 }: Props) {
    const item = {
-      initial: { scale: 0.9, opacity: 0 },
+      initial: { opacity: 0 },
       animate: {
-         scale: 1,
          opacity: 1,
          transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
       },
       exit: {
-         scale: 0.9,
          opacity: 0,
          transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
       },

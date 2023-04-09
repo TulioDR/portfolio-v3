@@ -24,7 +24,7 @@ export default function HomeTitle() {
    useEffect(() => {
       if (!isFullyLoaded) return;
       showName.start("animate");
-   }, [isFullyLoaded]);
+   }, [isFullyLoaded, showName]);
    return (
       <motion.h1
          variants={container}

@@ -45,7 +45,9 @@ const english: GlobalTranslationsModel = {
          drag: "Drag me!",
          title: "Filter Projects",
          technologies: "Technologies",
-         message: "Select a technology from below to filter the projects",
+         message1: "Select a technology from below to filter the projects",
+         message2:
+            "You just selected everything!, what the hell are you looking for?",
          reset: "Reset",
       },
       details: {

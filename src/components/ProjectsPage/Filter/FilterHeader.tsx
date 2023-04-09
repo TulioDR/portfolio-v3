@@ -14,7 +14,7 @@ export default function FilterHeader({ close }: Props) {
          <div className="flex-1 text-center">{drag}</div>
          <button
             onClick={close}
-            className="h-full aspect-square grid place-content-center hover:bg-primary hover:text-white"
+            className="h-full aspect-square grid place-content-center hover:bg-main-primary hover:text-white"
          >
             <span className="material-icons">close</span>
          </button>

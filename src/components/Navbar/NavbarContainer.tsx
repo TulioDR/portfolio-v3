@@ -20,7 +20,7 @@ export default function NavbarContainer({ children, isMenuOpen }: Props) {
          y: 0,
          transition: { duration: 1, delay: 0.5, ease: "easeInOut" },
       });
-   }, [isFullyLoaded]);
+   }, [isFullyLoaded, showNavbar]);
    return (
       <motion.div
          initial={{ y: "-100%" }}

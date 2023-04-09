@@ -15,7 +15,7 @@ export default function InitialLoadingAnimation() {
          y: "-110%",
          transition: { duration: 1.7, ease: "easeInOut" },
       });
-   }, [isFullyLoaded]);
+   }, [isFullyLoaded, removeLoadingScreen]);
 
    return (
       <motion.div

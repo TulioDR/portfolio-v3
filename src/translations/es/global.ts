@@ -45,7 +45,8 @@ const spanish: GlobalTranslationsModel = {
          drag: "Arrástrame!",
          title: "Filtrar Proyectos",
          technologies: "Technologías",
-         message: "Selecciona una tecnología de abajo para filtrar proyectos",
+         message1: "Selecciona una tecnología de abajo para filtrar proyectos",
+         message2: "Seleccionaste todo!, ¿Que demonios estás buscando?",
          reset: "Resetear",
       },
       details: {

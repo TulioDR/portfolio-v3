@@ -1,11 +1,11 @@
+import { LayoutModel } from "@/models/ProjectModel";
+
 type Props = {
    icon: string;
    sharp?: boolean;
-   layout: "normal" | "grid" | "list";
-   currentLayout: "normal" | "grid" | "list";
-   setCurrentLayout: React.Dispatch<
-      React.SetStateAction<"normal" | "grid" | "list">
-   >;
+   layout: LayoutModel;
+   currentLayout: LayoutModel;
+   setCurrentLayout: React.Dispatch<React.SetStateAction<LayoutModel>>;
 };
 
 export default function LayoutButton({

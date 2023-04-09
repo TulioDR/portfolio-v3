@@ -1,9 +1,10 @@
+import { LayoutModel } from "@/models/ProjectModel";
 import { motion } from "framer-motion";
 
 type Props = {
    elementRef: React.RefObject<HTMLDivElement>;
    onClick: () => void;
-   currentLayout: "grid" | "list" | "normal";
+   currentLayout: LayoutModel;
    small?: boolean;
    children: React.ReactNode;
 };
@@ -39,7 +40,7 @@ export default function ProjectCardContainer({
          onClick={onClick}
          className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden group
             ${
-               currentLayout === "normal"
+               currentLayout === "mixed"
                   ? small
                      ? "row-span-1"
                      : "row-span-2"

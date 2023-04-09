@@ -26,3 +26,5 @@ export interface ProjectTranslations {
       img: StaticImageData;
    }[];
 }
+
+export type LayoutModel = "mixed" | "grid" | "list";

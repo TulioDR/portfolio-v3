@@ -1,12 +1,13 @@
 import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
+import { LayoutModel } from "@/models/ProjectModel";
 
 type Props = {
    tiltRef: React.RefObject<HTMLDivElement>;
    src: StaticImageData;
    alt: string;
    small: boolean;
-   currentLayout: "grid" | "list" | "normal";
+   currentLayout: LayoutModel;
 };
 
 export default function ProjectCardImage({
@@ -19,7 +20,7 @@ export default function ProjectCardImage({
    return (
       <motion.div
          className={`overflow-hidden h-full flex justify-center group
-      ${currentLayout === "normal" && small ? "aspect-video" : ""}
+      ${currentLayout === "mixed" && small ? "aspect-video" : ""}
       ${currentLayout === "grid" ? "aspect-square" : ""}
       ${currentLayout === "list" ? "aspect-video" : ""}
       `}

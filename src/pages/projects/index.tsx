@@ -15,6 +15,7 @@ import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
 import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
+import { LayoutModel } from "@/models/ProjectModel";
 
 export default function ProjectsPage() {
    useEffect(() => {
@@ -24,9 +25,7 @@ export default function ProjectsPage() {
    const { setBlack } = useNavbarContext();
    useEffect(() => setBlack(), []);
 
-   const [currentLayout, setCurrentLayout] = useState<
-      "normal" | "grid" | "list"
-   >("normal");
+   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
 
    const [isProjectExpanded, setIsProjectExpanded] = useState<boolean>(true);
    const toggleProjectsExpanded = () =>

@@ -1,5 +1,5 @@
 import ProjectAnimationModel from "@/models/ProjectAnimationModel";
-import ProjectModel from "@/models/ProjectModel";
+import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
 
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
@@ -9,7 +9,7 @@ import ProjectCardContainer from "./ProjectCardContainer";
 
 type Props = {
    small: boolean;
-   currentLayout: "grid" | "list" | "normal";
+   currentLayout: LayoutModel;
    project: ProjectModel;
    setSelectedProject: React.Dispatch<
       React.SetStateAction<ProjectAnimationModel | null>

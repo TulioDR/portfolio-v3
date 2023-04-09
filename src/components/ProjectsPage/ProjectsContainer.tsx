@@ -1,8 +1,9 @@
+import { LayoutModel } from "@/models/ProjectModel";
 import { motion } from "framer-motion";
 
 type Props = {
    children: React.ReactNode;
-   currentLayout: "normal" | "grid" | "list";
+   currentLayout: LayoutModel;
    isProjectExpanded: boolean;
 };
 
@@ -28,7 +29,7 @@ export default function ProjectsContainer({
             initial="initial"
             animate="animate"
             exit="exit"
-            className={`grid gap-7 pb-20 ${
+            className={`grid gap-2 sm:gap-3 md:gap-5 lg:gap-7 pb-7 ${
                currentLayout === "list"
                   ? isProjectExpanded
                      ? "grid-cols-2"
@@ -37,7 +38,7 @@ export default function ProjectsContainer({
                   ? "grid-cols-3"
                   : "grid-cols-2"
             } ${
-               currentLayout === "normal"
+               currentLayout === "mixed"
                   ? isProjectExpanded
                      ? "grid-rows-4"
                      : "grid-rows-6"

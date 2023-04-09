@@ -4,7 +4,9 @@ export default function Footer() {
    return (
       <div className="text-sm py-7 bg-main-primary text-white">
          <MainContainer>
-            <span>2023 Tulio Ruzo | Portfolio</span>
+            <div className="h-14 flex items-center">
+               2023 Tulio Ruzo | Portfolio
+            </div>
          </MainContainer>
       </div>
    );

@@ -9,7 +9,7 @@ export default function AboutSectionMobile() {
    const { currentLanguage } = useLanguageContext();
    const { title, sub1, sub2, sub3, sub4, sub5 } = currentLanguage.about;
    return (
-      <div className="py-24 lg:hidden bg-gradient-to-t from-main-gray to-stone-500">
+      <div className="py-24 lg:hidden bg-gradient-to-t from-main-gray to-stone-500 overflow-hidden">
          <MainContainer>
             <SectionTitle>{title}</SectionTitle>
             <AboutCardMobile />

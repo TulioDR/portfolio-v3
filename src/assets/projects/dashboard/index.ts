@@ -11,6 +11,7 @@ const dashboard: ProjectModel = {
    website: "https://admin-dashboard-concept.netlify.app/",
    repository: "https://github.com/TulioDR/dashboard-syncfusion-concept",
    technologies: dashboardTech,
+   isFinished: true,
    translations: {
       english: dashboardEnglish,
       spanish: dashboardSpanish,

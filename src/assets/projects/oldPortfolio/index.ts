@@ -8,6 +8,7 @@ const oldPortfolio: ProjectModel = {
    website: "https://film-organizer.vercel.app/",
    repository: "https://github.com/TulioDR/film-organizer-v2/",
    technologies: [],
+   isFinished: true,
    translations: {
       english: "",
       spanish: "",

@@ -9,6 +9,7 @@ const pokedex: ProjectModel = {
    website: "https://film-organizer.vercel.app/",
    repository: "https://github.com/TulioDR/film-organizer-v2/",
    technologies: pokedexTech,
+   isFinished: true,
    translations: {
       english: "",
       spanish: "",

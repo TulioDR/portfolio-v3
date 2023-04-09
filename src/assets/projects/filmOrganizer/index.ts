@@ -11,6 +11,7 @@ const filmOrganizer: ProjectModel = {
    website: "https://film-organizer.vercel.app/",
    repository: "https://github.com/TulioDR/film-organizer-v2/",
    technologies: filmOrganizerTech,
+   isFinished: true,
    translations: {
       english: filmOrganizerEnglish,
       spanish: filmOrganizerSpanish,

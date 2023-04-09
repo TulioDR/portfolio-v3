@@ -8,6 +8,7 @@ export default interface ProjectModel {
    website: string;
    repository: string;
    technologies: SkillModel[];
+   isFinished: boolean;
    translations: {
       english: ProjectTranslations;
       spanish: ProjectTranslations;

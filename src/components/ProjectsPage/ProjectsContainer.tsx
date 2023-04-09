@@ -19,7 +19,7 @@ export default function ProjectsContainer({
             staggerChildren: 0.18,
          },
       },
-      exit: { y: 100, opacity: 0, transition: { duration: 0.1 } },
+      exit: { opacity: 0, transition: { duration: 0.4 } },
    };
    return (
       <div className="overflow-y-hidden">

@@ -14,6 +14,7 @@ import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
 import useNavbarContext from "@/context/NavbarContext";
+import { AnimatePresence } from "framer-motion";
 
 export default function ProjectsPage() {
    useEffect(() => {
@@ -88,15 +89,17 @@ export default function ProjectsPage() {
                currentLayout={currentLayout}
                isProjectExpanded={isProjectExpanded}
             >
-               {filteredProjects.map((project, index) => (
-                  <ProjectCard
-                     key={project.link + index}
-                     project={project}
-                     currentLayout={currentLayout}
-                     small={index === 1 || index === 6}
-                     setSelectedProject={setSelectedProject}
-                  />
-               ))}
+               <AnimatePresence>
+                  {filteredProjects.map((project, index) => (
+                     <ProjectCard
+                        key={project.link}
+                        project={project}
+                        currentLayout={currentLayout}
+                        small={index === 1 || index === 6}
+                        setSelectedProject={setSelectedProject}
+                     />
+                  ))}
+               </AnimatePresence>
             </ProjectsContainer>
          </MainContainer>
       </>

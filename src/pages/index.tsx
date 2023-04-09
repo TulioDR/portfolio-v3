@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/Sections/Projects";
 import ContactSection from "@/components/Sections/Contact";
 import { useEffect } from "react";
 import useScrollPosition from "@/hooks/useScrollPosition";
+import Footer from "@/components/Footer";
 
 export default function Home() {
    useEffect(() => {
@@ -37,6 +38,7 @@ export default function Home() {
             projectsSliderRef={projectsSliderRef}
          />
          <ContactSection contactRef={contactRef} />
+         <Footer />
       </>
    );
 }

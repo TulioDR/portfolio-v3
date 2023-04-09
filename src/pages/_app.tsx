@@ -10,7 +10,6 @@ import { NavbarContextProvider } from "@/context/NavbarContext";
 import { BackFromContextProvider } from "@/context/BackFromProjectsContext";
 import { LanguageContextProvider } from "@/context/LanguageContext";
 import { InitialLoadingContextProvider } from "@/context/InitialLoadingContext";
-import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
@@ -26,7 +25,6 @@ export default function App({ Component, pageProps }: AppProps) {
                         <Component {...pageProps} />
                      </motion.div>
                   </AnimatePresence>
-                  <Footer />
                   <TranslateButton />
                </BackFromContextProvider>
             </NavbarContextProvider>

@@ -35,7 +35,6 @@ export default function ProjectDetails({ project }: Props) {
    }, [isEnglish, english, spanish]);
 
    const router = useRouter();
-   console.log(router.route);
    useEffect(() => {
       if (!router) return;
       Events.scrollEvent.register("end", () => {

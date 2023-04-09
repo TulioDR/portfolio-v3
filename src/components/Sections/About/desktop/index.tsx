@@ -28,7 +28,7 @@ export default function AboutSectionDesktop({ aboutInfoRef }: Props) {
          <div
             ref={aboutInfoRef}
             id="about-info"
-            className="h-screen w-full"
+            className="h-screen w-full bg-black"
          ></div>
       </>
    );

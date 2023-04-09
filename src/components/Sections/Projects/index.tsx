@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import ProjectSlider from "./ProjectSlider";
 import ProjectsTitle from "./ProjectsTitle";
 import ViewProjectsButton from "./ViewProjectsButton";
+import { useEffect } from "react";
+import { Element, scroller, Events } from "react-scroll";
 
 interface Props {
    projectsRef: React.RefObject<HTMLDivElement>;
@@ -27,13 +29,25 @@ export default function ProjectsSection({
    });
 
    const router = useRouter();
+   useEffect(() => {
+      if (!router) return;
+      Events.scrollEvent.register("end", () => {
+         console.log("lets go");
+         router.push("/projects", undefined, { scroll: false });
+         Events.scrollEvent.remove("end");
+      });
+   }, [router]);
+
    const handleClick = () => {
-      router.push("/projects", undefined, { scroll: false });
-      // projectsSliderRef.current?.scrollIntoView({ behavior: "smooth" });
+      scroller.scrollTo("myScrollToElement", {
+         duration: 500,
+         smooth: true,
+         ease: "easeInOut",
+      });
    };
 
    return (
-      <div className="">
+      <div>
          <div
             ref={projectsRef}
             className="sticky top-0 h-screen w-full bg-gradient-to-b from-main-gray to-main-primary"
@@ -60,8 +74,10 @@ export default function ProjectsSection({
          <div
             id="projects"
             ref={projectsSliderRef}
-            className="h-screen bg-green-500 w-full"
-         ></div>
+            className="h-screen bg-black w-full"
+         >
+            <Element name="myScrollToElement"></Element>
+         </div>
       </div>
    );
 }

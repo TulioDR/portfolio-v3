@@ -33,7 +33,7 @@ export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
          style={isBackFromProjects ? {} : { scale, rotate }}
          initial={{ scale: 1.5 }}
          animate={{ scale: 1, transition: { duration: 1 } }}
-         exit={{ scale: 1.5, transition: { duration: 1, delay: 0.4 } }}
+         exit={{ scale: 1.5, transition: { duration: 1, delay: 0.5 } }}
          onAnimationComplete={onAnimationComplete}
          className="rounded-3xl aspect-video bg-gradient-to-r from-red-900 to-yellow-700 py-2 px-4 h-full"
       >
@@ -54,7 +54,7 @@ export default function ProjectSlider({ scrollYProgressVelocity }: Props) {
                initial={{ opacity: 1 }}
                animate={{
                   opacity: 0,
-                  transition: { duration: 0.5, delay: 0.4 },
+                  transition: { duration: 0.5 },
                }}
                exit={{ opacity: 1, transition: { duration: 0.5 } }}
                className="absolute top-0 left-0 bg-main-white h-full w-full z-10"

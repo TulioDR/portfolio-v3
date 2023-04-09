@@ -26,7 +26,7 @@ export default function ContactInfo({ nameInputRef }: Props) {
 
    return (
       <div className="flex justify-center items-center">
-         <div>
+         <div className="w-full sm:w-auto">
             <div className="flex space-x-4">
                <Hexagon>{contactMeAt}</Hexagon>
                <Hexagon

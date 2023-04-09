@@ -8,7 +8,7 @@ interface Props {
 }
 export default function AboutSection({ aboutRef, aboutInfoRef }: Props) {
    return (
-      <div ref={aboutRef} id="about">
+      <div ref={aboutRef} id="about" className="overflow-hidden">
          <div className="hidden lg:block">
             <AboutSectionDesktop aboutInfoRef={aboutInfoRef} />
          </div>

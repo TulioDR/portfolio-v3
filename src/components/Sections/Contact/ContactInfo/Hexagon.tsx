@@ -22,7 +22,7 @@ export default function Hexagon({ children, src, hoverSrc, onClick }: Props) {
          onTap={onClick}
          onHoverStart={onHoverStart}
          onHoverEnd={onHoverEnd}
-         className="bg-main-orange hover:bg-main-white hover:text-main-orange w-[100px] h-[125px] cursor-pointer"
+         className="bg-main-orange hover:bg-main-white hover:text-main-orange aspect-[8/10] w-1/3 sm:w-[100px] cursor-pointer"
          style={{
             clipPath:
                "polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%)",

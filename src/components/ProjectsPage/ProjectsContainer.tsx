@@ -28,7 +28,7 @@ export default function ProjectsContainer({
             initial="initial"
             animate="animate"
             exit="exit"
-            className={`grid gap-7 pb-7 ${
+            className={`grid gap-7 pb-20 ${
                currentLayout === "list"
                   ? isProjectExpanded
                      ? "grid-cols-2"

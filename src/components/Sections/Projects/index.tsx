@@ -32,7 +32,6 @@ export default function ProjectsSection({
    useEffect(() => {
       if (!router) return;
       Events.scrollEvent.register("end", () => {
-         console.log("lets go");
          router.push("/projects", undefined, { scroll: false });
          Events.scrollEvent.remove("end");
       });

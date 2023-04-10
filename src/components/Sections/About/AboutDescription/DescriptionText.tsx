@@ -3,9 +3,10 @@ import { useTransform, MotionValue, motion } from "framer-motion";
 
 type Props = {
    scrollVelocity: MotionValue<any>;
+   scrollRef: React.RefObject<HTMLDivElement>;
 };
 
-export default function DescriptionText({ scrollVelocity }: Props) {
+export default function DescriptionText({ scrollVelocity, scrollRef }: Props) {
    const x1 = useTransform(scrollVelocity, [0.3, 0.6], ["-25%", "0%"]);
    const x2 = useTransform(scrollVelocity, [0.4, 0.7], ["-25%", "0%"]);
    const x3 = useTransform(scrollVelocity, [0.5, 0.8], ["-25%", "0%"]);
@@ -24,7 +25,10 @@ export default function DescriptionText({ scrollVelocity }: Props) {
    const { currentLanguage } = useLanguageContext();
    const { p1, p2, p3, p4 } = currentLanguage.about;
    return (
-      <div className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light pr-5">
+      <div
+         ref={scrollRef}
+         className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light pr-5"
+      >
          <motion.div style={{ x: x1, y: y1, opacity: op1 }}>{p1}</motion.div>
          <motion.div style={{ x: x2, y: y2, opacity: op2 }}>{p2}</motion.div>
          <motion.div style={{ x: x3, y: y3, opacity: op3 }}>{p3}</motion.div>

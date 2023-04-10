@@ -19,10 +19,10 @@ export default function LayoutButton({
    return (
       <button
          onClick={handleClick}
-         className={`rounded-lg aspect-square w-10 flex-shrink-0 grid place-content-center ${
+         className={`rounded-lg aspect-square w-10 grid place-content-center ${
             currentLayout === layout
                ? "bg-main-primary text-white"
-               : "bg-white hover:bg-main-primary hover:text-white"
+               : "bg-white hover:bg-main-primary hover:bg-opacity-50 hover:text-white"
          }`}
       >
          <span className={`material-icons${sharp ? "-sharp" : ""}`}>

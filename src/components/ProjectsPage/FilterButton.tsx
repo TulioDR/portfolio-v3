@@ -13,13 +13,13 @@ export default function FilterButton({ onClick, isFilterOpen }: Props) {
       <button
          onClick={onClick}
          className={`h-10 duration-300 bg-main-primary rounded-lg text-white flex items-center overflow-hidden ${
-            isFilterOpen ? "w-36" : "w-36 md:w-10 hover:w-36"
+            isFilterOpen ? "w-32" : "w-32 md:w-10 hover:w-32"
          }`}
       >
          <div className="aspect-square h-full grid place-content-center">
             <span className="material-icons">sort</span>
          </div>
-         <div className="min-w-max ml-1">{isFilterOpen ? close : open}</div>
+         <div className="min-w-max text-sm">{isFilterOpen ? close : open}</div>
       </button>
    );
 }

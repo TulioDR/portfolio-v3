@@ -26,7 +26,7 @@ export default function LayoutButtons({
          animate={{ opacity: 1 }}
          exit={{ opacity: 0 }}
          transition={{ duration: 0.4 }}
-         className="sm:flex space-y-4 sm:space-y-0 justify-between w-full mb-7"
+         className="flex justify-between w-full mb-7"
       >
          <FilterButton onClick={toggleFilter} isFilterOpen={isFilterOpen} />
          <div className="flex space-x-2 items-center">
@@ -50,10 +50,10 @@ export default function LayoutButtons({
                currentLayout={currentLayout}
                setCurrentLayout={setCurrentLayout}
             />
-            <div className="h-full w-[2px] bg-main-primary"></div>
+            <div className="h-full w-[2px] bg-main-primary hidden md:block"></div>
             <button
                onClick={toggleProjectsExpanded}
-               className="h-10 aspect-square bg-main-primary rounded-lg text-white grid place-content-center"
+               className="h-10 aspect-square bg-main-primary rounded-lg text-white hidden md:grid place-content-center "
             >
                <span className="material-icons">
                   {isProjectExpanded ? "zoom_out_map" : "zoom_in_map"}

@@ -12,7 +12,9 @@ export default function AboutSection({ aboutRef, aboutInfoRef }: Props) {
          <div className="hidden lg:block">
             <AboutSectionDesktop aboutInfoRef={aboutInfoRef} />
          </div>
-         <AboutSectionMobile />
+         <div className="lg:hidden">
+            <AboutSectionMobile />
+         </div>
          <AboutDescription />
       </div>
    );

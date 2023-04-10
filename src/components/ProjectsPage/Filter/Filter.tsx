@@ -51,7 +51,7 @@ export default function Filter({
       <motion.div
          drag={true}
          dragMomentum={false}
-         className="w-full md:w-[600px] max-h-screen fixed bottom-0 right-0 sm:bottom-10 sm:right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white cursor-grab active:cursor-grabbing"
+         className="w-full md:w-[585px] max-h-screen fixed bottom-0 right-0 sm:bottom-10 sm:right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white cursor-grab active:cursor-grabbing"
       >
          <FilterHeader close={close} />
          <div

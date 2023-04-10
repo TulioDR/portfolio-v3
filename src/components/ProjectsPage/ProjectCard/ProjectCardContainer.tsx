@@ -7,6 +7,7 @@ type Props = {
    currentLayout: LayoutModel;
    small?: boolean;
    children: React.ReactNode;
+   isOneProject: boolean;
 };
 
 export default function ProjectCardContainer({
@@ -15,6 +16,7 @@ export default function ProjectCardContainer({
    currentLayout,
    small,
    children,
+   isOneProject,
 }: Props) {
    const item = {
       initial: { opacity: 0 },
@@ -39,7 +41,9 @@ export default function ProjectCardContainer({
          className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden group
             ${
                currentLayout === "mixed"
-                  ? small
+                  ? isOneProject
+                     ? "aspect-[5/6]"
+                     : small
                      ? "row-span-1"
                      : "row-span-2"
                   : ""

@@ -14,6 +14,7 @@ type Props = {
    setSelectedProject: React.Dispatch<
       React.SetStateAction<ProjectAnimationModel | null>
    >;
+   filteredProjects: ProjectModel[];
 };
 
 export default function ProjectCard({
@@ -21,6 +22,7 @@ export default function ProjectCard({
    currentLayout,
    project,
    setSelectedProject,
+   filteredProjects,
 }: Props) {
    const { link, title, img, isFinished } = project;
 
@@ -50,6 +52,8 @@ export default function ProjectCard({
          onClick={handleClick}
          currentLayout={currentLayout}
          small={small}
+         // Only for bug fixing when there is one project displayed
+         isOneProject={filteredProjects.length === 1}
       >
          <ProjectCardImage
             tiltRef={tiltElementRef}

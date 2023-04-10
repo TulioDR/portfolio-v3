@@ -1,5 +1,6 @@
 import projects from "@/assets/projects";
 import allSkills from "@/assets/skills/allSkills";
+import ProjectModel from "@/models/ProjectModel";
 import SkillModel from "@/models/SkillModel";
 import { useEffect, useState } from "react";
 
@@ -12,7 +13,8 @@ export default function useProjectsFilter() {
    const [notSelectedTech, setNotSelectedTech] =
       useState<SkillModel[]>(allSkills);
 
-   const [filteredProjects, setFilteredProjects] = useState<any[]>(projects);
+   const [filteredProjects, setFilteredProjects] =
+      useState<ProjectModel[]>(projects);
 
    useEffect(() => {
       const founded = projects.filter((project) =>

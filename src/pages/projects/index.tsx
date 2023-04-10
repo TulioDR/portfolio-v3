@@ -92,6 +92,8 @@ export default function ProjectsPage() {
                         currentLayout={currentLayout}
                         small={index === 1 || index === 6}
                         setSelectedProject={setSelectedProject}
+                        // Only for bug fixing when there is one project displayed
+                        filteredProjects={filteredProjects}
                      />
                   ))}
                </AnimatePresence>

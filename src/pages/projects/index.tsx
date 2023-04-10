@@ -17,12 +17,11 @@ import { LayoutModel } from "@/models/ProjectModel";
 import useProjectsFilter from "@/hooks/useProjectsFilter";
 
 export default function ProjectsPage() {
+   const { setBlack } = useNavbarContext();
    useEffect(() => {
       window.scrollTo({ top: 0 });
-   }, []);
-
-   const { setBlack } = useNavbarContext();
-   useEffect(() => setBlack(), [setBlack]);
+      setBlack();
+   }, [setBlack]);
 
    const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
 
@@ -46,7 +45,7 @@ export default function ProjectsPage() {
 
    const { setIsBackFromProjects } = useBackFromProjectsContext();
    const router = useRouter();
-   const handleClick = () => {
+   const goBack = () => {
       setIsBackFromProjects(true);
       router.push("/#projects");
    };
@@ -71,7 +70,7 @@ export default function ProjectsPage() {
          <MainContainer>
             <div className="flex justify-between items-center mt-20 overflow-hidden pb-7">
                <ProjectsPageTitle />
-               <BackArrowButton onClick={handleClick} isArrowWhite={false} />
+               <BackArrowButton onClick={goBack} isArrowWhite={false} />
             </div>
             <LayoutButtons
                currentLayout={currentLayout}

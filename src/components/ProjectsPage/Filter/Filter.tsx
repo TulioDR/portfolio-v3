@@ -51,12 +51,12 @@ export default function Filter({
       <motion.div
          drag={true}
          dragMomentum={false}
-         className="fixed bottom-10 right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white cursor-grab active:cursor-grabbing"
+         className="w-full md:w-[600px] max-h-screen fixed bottom-0 right-0 sm:bottom-10 sm:right-10 bg-white rounded-xl z-50 shadow-xl p-3 pt-0 border-white cursor-grab active:cursor-grabbing"
       >
          <FilterHeader close={close} />
          <div
             onPointerDownCapture={(e) => e.stopPropagation()}
-            className="w-full md:w-[600px] h-auto shadow-inner bg-main-white rounded-xl pt-2 pl-2 cursor-default"
+            className="w-full h-full shadow-inner bg-main-white rounded-xl pt-2 pl-2 cursor-default overflow-y-auto"
          >
             <div className="w-full flex justify-between">
                <div className="text-lg font-medium">{title}</div>

@@ -51,7 +51,7 @@ export default function TranslateButtonMobile() {
          <button
             onClick={toggleIsOpen}
             className={`h-14 aspect-square rounded-full  text-white grid place-content-center duration-300 ${
-               isOpen ? "bg-primary" : "bg-main-orange"
+               isOpen ? "bg-main-primary" : "bg-main-orange"
             }`}
          >
             <span className="material-icons">translate</span>

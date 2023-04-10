@@ -22,6 +22,8 @@ export default function ProjectsContainer({
       },
       exit: { opacity: 0, transition: { duration: 0.4 } },
    };
+   const isList = currentLayout === "list";
+   const isMixed = currentLayout === "mixed";
    return (
       <div className="overflow-y-hidden">
          <motion.div
@@ -30,7 +32,7 @@ export default function ProjectsContainer({
             animate="animate"
             exit="exit"
             className={`grid gap-2 sm:gap-3 md:gap-5 lg:gap-7 pb-7 ${
-               currentLayout === "list"
+               isList
                   ? isProjectExpanded
                      ? "grid-cols-2"
                      : "grid-cols-1"
@@ -38,7 +40,7 @@ export default function ProjectsContainer({
                   ? "grid-cols-3"
                   : "grid-cols-2"
             } ${
-               currentLayout === "mixed"
+               isMixed
                   ? isProjectExpanded
                      ? "grid-rows-4"
                      : "grid-rows-6"

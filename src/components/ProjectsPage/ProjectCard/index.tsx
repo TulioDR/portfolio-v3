@@ -37,13 +37,9 @@ export default function ProjectCard({
 
    const elementRef = useRef<HTMLDivElement>(null);
    const handleClick = () => {
-      if (project.isFinished) {
-         const rect = elementRef.current!.getBoundingClientRect();
-         const { top, left, height, width } = rect;
-         setSelectedProject({ top, left, height, width, img, link });
-      } else {
-         console.log("This project is not done yet");
-      }
+      const rect = elementRef.current!.getBoundingClientRect();
+      const { top, left, height, width } = rect;
+      setSelectedProject({ top, left, height, width, img, link });
    };
 
    return (

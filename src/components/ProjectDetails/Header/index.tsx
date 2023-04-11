@@ -34,10 +34,17 @@ export default function Header({ project, currentLan }: Props) {
                   </ProjectDescription>
                </RevealToRight>
                <div className="flex space-x-5">
-                  <HeaderButton href={project.website}>
+                  <HeaderButton
+                     href={project.website}
+                     valid={project.isFinished}
+                  >
                      {visitSite}
                   </HeaderButton>
-                  <HeaderButton href={project.repository} alternative>
+                  <HeaderButton
+                     href={project.repository}
+                     valid={project.isFinished}
+                     alternative
+                  >
                      {viewCode}
                   </HeaderButton>
                </div>

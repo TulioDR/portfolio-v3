@@ -5,10 +5,10 @@ const oldPortfolio: ProjectModel = {
    title: "Old Portfolio",
    img: oldPortfolioImg,
    link: "old-portfolio",
-   website: "https://film-organizer.vercel.app/",
-   repository: "https://github.com/TulioDR/film-organizer-v2/",
+   website: "#",
+   repository: "#",
    technologies: [],
-   isFinished: true,
+   isFinished: false,
    translations: {
       english: "",
       spanish: "",

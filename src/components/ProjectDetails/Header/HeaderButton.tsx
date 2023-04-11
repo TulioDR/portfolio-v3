@@ -4,15 +4,21 @@ interface Props {
    children: React.ReactNode;
    alternative?: boolean;
    href: string;
+   valid: boolean;
 }
 
-export default function HeaderButton({ children, alternative, href }: Props) {
+export default function HeaderButton({
+   children,
+   alternative,
+   href,
+   valid,
+}: Props) {
    return (
       <div className="overflow-hidden md:hover:-translate-y-1 duration-300">
          <RevealToTop reverse={alternative}>
             <a
                href={href}
-               target="_blank"
+               target={valid ? "_blank" : undefined}
                className={`bg-main-orange w-max px-10 h-11 md:h-12 flex items-center cursor-pointer ${
                   alternative ? "rounded-xl" : "rounded-full"
                }`}

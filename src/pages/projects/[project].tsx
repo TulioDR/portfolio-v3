@@ -62,13 +62,21 @@ export default function ProjectDetails({ project }: Props) {
          <TopBackButton onClick={goTopAndBack} />
          <Header project={project} currentLan={currentLan} />
          <MainContainer>
-            <div ref={projectsRef} className="w-full py-20 space-y-20">
-               <Description currentLan={currentLan} />
-               <Subtitle>{featuresTitle}</Subtitle>
-               <Features features={currentLan.features} />
-               <Subtitle>{technologiesUsed}</Subtitle>
-               <TechnologiesUsed technologies={project.technologies} />
-               <BottomBackButton onClick={goTopAndBack} />
+            <div ref={projectsRef} className="w-full">
+               {project.isFinished ? (
+                  <div className="py-20 space-y-20">
+                     <Description currentLan={currentLan} />
+                     <Subtitle>{featuresTitle}</Subtitle>
+                     <Features features={currentLan.features} />
+                     <Subtitle>{technologiesUsed}</Subtitle>
+                     <TechnologiesUsed technologies={project.technologies} />
+                     <BottomBackButton onClick={goTopAndBack} />
+                  </div>
+               ) : (
+                  <div className="w-full h-screen grid place-content-center text-9xl font-black font-black">
+                     <span>WIP</span>
+                  </div>
+               )}
             </div>
          </MainContainer>
       </>

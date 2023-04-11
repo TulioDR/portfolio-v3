@@ -5,8 +5,8 @@ const nftSite: ProjectModel = {
    title: "NFT Site",
    img: nftSiteImg,
    link: "nft-site",
-   website: "https://film-organizer.vercel.app/",
-   repository: "https://github.com/TulioDR/film-organizer-v2/",
+   website: "#",
+   repository: "#",
    technologies: [],
    isFinished: false,
    translations: {

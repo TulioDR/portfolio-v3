@@ -22,7 +22,7 @@ export default function DescriptionText({ scrollVelocity, scrollRef }: Props) {
    return (
       <div
          ref={scrollRef}
-         className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light pr-5 overflow-hidden"
+         className="space-y-5 text-xs sm:text-sm md:text-base lg:text-lg text-main-white font-light md:pr-5 overflow-hidden"
       >
          <motion.div style={{ x: x1, opacity: op1 }}>{p1}</motion.div>
          <motion.div style={{ x: x2, opacity: op2 }}>{p2}</motion.div>

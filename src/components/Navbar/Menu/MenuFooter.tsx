@@ -12,12 +12,9 @@ export default function MenuFooter() {
             duration: 0.4,
             delay: 0.5,
          }}
-         className="absolute text-center w-full bottom-8 flex flex-col sm:flex-row items-center sm:justify-center sm:space-x-1 text-gray-300 text-xs sm:text-sm"
+         className="absolute text-center w-full bottom-14 flex flex-col sm:flex-row items-center sm:justify-center sm:space-x-1 text-gray-300 text-xs sm:text-sm"
       >
-         <div className="flex items-center">
-            <span className="material-icons mx-1">copyright</span>
-            <span>2022 Tulio Ruzo.</span>
-         </div>
+         <div className="flex items-center">2022 - Tulio Ruzo.</div>
          <div className="flex items-center">
             <span>{footer1}</span>
             <span className="material-icons mx-1">favorite</span>

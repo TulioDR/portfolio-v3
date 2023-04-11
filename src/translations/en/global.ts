@@ -11,9 +11,6 @@ const english: GlobalTranslationsModel = {
       footer1: "Made with",
       footer2: "in Carabobo, Venezuela.",
    },
-   // others: {
-   //    goBack: "Go Back",
-   // },
    home: {
       developer: "Software Developer",
    },
@@ -25,10 +22,10 @@ const english: GlobalTranslationsModel = {
       sub3: "I Speak English, Spanish and Coding",
       sub4: "I learn fast",
       sub5: "Clean Code Enyoer",
-      p1: "I'm a self-taught Front-End Developer with basic knowledge of Back-End Technology.",
-      p2: "I'm a well-organized person, problem solver with high attention to detail that specializes on React.",
-      p3: "Coding is a passion that motivates me to learn and improve my skills day by day, either with my team or on my own.",
-      p4: "Interested in the entire frontend spectrum and working on ambitious projects with positive people.",
+      p1: "I'm a software Developer specialized in Front-End. I have a serious passion for coding problem solving, and learning new technologies.",
+      p2: "I'm a well-organized person, a fast learner with high attention to detail.",
+      p3: "Coding is a passion that motivates me to learn and improve my skills day by day.",
+      p4: "Although I'm very proficient with React and Next.js, I'm interested in the entire Front-End spectrum and working on all kinds of projects with all kinds of people.",
    },
    skills: {
       title: "Skills",

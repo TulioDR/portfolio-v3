@@ -1,5 +1,7 @@
 import ProjectModel from "@/models/ProjectModel";
 import bootstrapSiteImg from "./img/bootstrap-site.jpg";
+import bootstrapSiteEnglish from "./translations/english";
+import bootstrapSiteSpanish from "./translations/spanish";
 
 const bootstrapSite: ProjectModel = {
    title: "Bootstrap Site",
@@ -10,8 +12,8 @@ const bootstrapSite: ProjectModel = {
    technologies: [],
    isFinished: false,
    translations: {
-      english: {},
-      spanish: {},
+      english: bootstrapSiteEnglish,
+      spanish: bootstrapSiteSpanish,
    },
 };
 

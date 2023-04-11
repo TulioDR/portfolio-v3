@@ -1,5 +1,7 @@
 import ProjectModel from "@/models/ProjectModel";
 import oldPortfolioImg from "./img/old-portfolio.png";
+import spaceSiteEnglish from "../spaceSite/translations/english";
+import spaceSiteSpanish from "../spaceSite/translations/spanish";
 
 const oldPortfolio: ProjectModel = {
    title: "Old Portfolio",
@@ -10,8 +12,8 @@ const oldPortfolio: ProjectModel = {
    technologies: [],
    isFinished: false,
    translations: {
-      english: "",
-      spanish: "",
+      english: spaceSiteEnglish,
+      spanish: spaceSiteSpanish,
    },
 };
 

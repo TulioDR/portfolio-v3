@@ -1,5 +1,7 @@
 import ProjectModel from "@/models/ProjectModel";
 import nftSiteImg from "./img/nft-site.jpg";
+import nftSiteEnglish from "./translations/english";
+import nftSiteSpanish from "./translations/spanish";
 
 const nftSite: ProjectModel = {
    title: "NFT Site",
@@ -10,8 +12,8 @@ const nftSite: ProjectModel = {
    technologies: [],
    isFinished: false,
    translations: {
-      english: {},
-      spanish: {},
+      english: nftSiteEnglish,
+      spanish: nftSiteSpanish,
    },
 };
 

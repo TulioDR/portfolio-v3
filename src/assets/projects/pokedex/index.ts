@@ -1,6 +1,8 @@
 import ProjectModel from "@/models/ProjectModel";
 import pokedexImg from "./img/pokedex.png";
 import pokedexTech from "./technologies";
+import pokedexEnglish from "./translations/english";
+import pokedexSpanish from "./translations/spanish";
 
 const pokedex: ProjectModel = {
    title: "Pokédex",
@@ -11,8 +13,8 @@ const pokedex: ProjectModel = {
    technologies: pokedexTech,
    isFinished: true,
    translations: {
-      english: "",
-      spanish: "",
+      english: pokedexEnglish,
+      spanish: pokedexSpanish,
    },
 };
 

@@ -57,7 +57,7 @@ export default function ProjectsSection({
                />
                <div className="absolute top-0 left-0 w-full h-full">
                   <MainContainer>
-                     <div className="flex items-center justify-between h-full">
+                     <div className="flex items-center justify-between h-full overflow-hidden">
                         <ProjectsTitle
                            scrollYProgressVelocity={scrollYProgressVelocity}
                         />

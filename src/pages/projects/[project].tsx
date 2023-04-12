@@ -73,7 +73,7 @@ export default function ProjectDetails({ project }: Props) {
                      <BottomBackButton onClick={goTopAndBack} />
                   </div>
                ) : (
-                  <div className="w-full h-screen grid place-content-center text-9xl font-black font-black">
+                  <div className="w-full h-screen grid place-content-center text-9xl font-black">
                      <span>WIP</span>
                   </div>
                )}

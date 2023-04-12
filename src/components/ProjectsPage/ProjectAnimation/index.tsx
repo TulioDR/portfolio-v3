@@ -21,23 +21,23 @@ export default function ProjectAnimation({ selectedProject }: Props) {
       <AnimatePresence>
          {selectedProject && (
             <motion.div
-               transition={{ duration: 0.4 }}
+               transition={{ duration: 0.8, ease: [0.645, 0.045, 0.355, 1] }}
                initial={{
                   top,
                   left,
                   width,
                   height,
-                  borderWidth: 4,
+                  borderRadius: 24,
                }}
                animate={{
                   top: 0,
                   left: 0,
                   width: "100%",
                   height: "100vh",
-                  borderWidth: 0,
+                  borderRadius: 0,
                }}
                onAnimationComplete={onAnimationComplete}
-               className="fixed z-10 border-black bg-white"
+               className="fixed z-10 bg-white overflow-hidden"
             >
                <motion.div className="aspect-video w-full h-full relative">
                   <Image

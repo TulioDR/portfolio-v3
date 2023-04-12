@@ -8,7 +8,7 @@ type Props = {
 export default function ProjectCardTitle({ children, isFinished }: Props) {
    return (
       <motion.div
-         className={`absolute w-full bottom-0 bg-gradient-to-t from-black to-transparent px-2 sm:px-3 md:px-5 lg:px-6 pb-2 pt-20 pointer-events-none group-hover:opacity-0 duration-300`}
+         className={`absolute w-full bottom-0 bg-gradient-to-t from-black to-transparent px-2 sm:px-3 md:px-5 lg:px-6 pb-2 lg:pb-4 pt-20 pointer-events-none group-hover:opacity-0 duration-300`}
       >
          <motion.div
             layout="position"

@@ -38,7 +38,7 @@ export default function ProjectCardContainer({
          animate="animate"
          exit="exit"
          onClick={onClick}
-         className={`bg-white border-black border-[4px] shadow-xl relative cursor-pointer overflow-hidden group
+         className={`bg-white rounded-3xl shadow-xl relative cursor-pointer overflow-hidden group
             ${
                currentLayout === "mixed"
                   ? isOneProject

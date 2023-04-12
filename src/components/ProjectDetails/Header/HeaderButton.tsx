@@ -19,7 +19,7 @@ export default function HeaderButton({
             <a
                href={href}
                target={valid ? "_blank" : undefined}
-               className={`bg-main-orange w-max px-10 h-11 md:h-12 flex items-center cursor-pointer ${
+               className={`bg-main-orange w-max px-5 md:px-8 lg:px-10 h-11 md:h-12 flex items-center cursor-pointer ${
                   alternative ? "rounded-xl" : "rounded-full"
                }`}
             >

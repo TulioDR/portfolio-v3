@@ -3,7 +3,7 @@ import neptuneDesignsImg from "./img/neptune-designs.jpg";
 import bootstrapSiteEnglish from "./translations/english";
 import bootstrapSiteSpanish from "./translations/spanish";
 
-const bootstrapSite: ProjectModel = {
+const neptuneDesigns: ProjectModel = {
    title: "Neptune Designs",
    img: neptuneDesignsImg,
    link: "neptune-designs",
@@ -17,4 +17,4 @@ const bootstrapSite: ProjectModel = {
    },
 };
 
-export default bootstrapSite;
+export default neptuneDesigns;

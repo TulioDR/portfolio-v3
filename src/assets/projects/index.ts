@@ -4,7 +4,7 @@ import filmOrganizer from "./filmOrganizer";
 import oldPortfolio from "./oldPortfolio";
 import pokedex from "./pokedex";
 import nftSite from "./nftSite";
-import bootstrapSite from "./bootstrapSite";
+import neptuneDesigns from "./neptuneDesigns";
 import spaceSite from "./spaceSite";
 
 const projects: ProjectModel[] = [
@@ -13,7 +13,7 @@ const projects: ProjectModel[] = [
    dashboard,
    oldPortfolio,
    nftSite,
-   bootstrapSite,
+   neptuneDesigns,
    spaceSite,
 ];
 export default projects;

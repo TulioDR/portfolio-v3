@@ -1,14 +1,14 @@
 import ProjectModel from "@/models/ProjectModel";
-import bootstrapSiteImg from "./img/bootstrap-site.jpg";
+import neptuneDesignsImg from "./img/neptune-designs.jpg";
 import bootstrapSiteEnglish from "./translations/english";
 import bootstrapSiteSpanish from "./translations/spanish";
 
 const bootstrapSite: ProjectModel = {
-   title: "Bootstrap Site",
-   img: bootstrapSiteImg,
-   link: "bootstrap-site",
-   website: "#",
-   repository: "#",
+   title: "Neptune Designs",
+   img: neptuneDesignsImg,
+   link: "neptune-designs",
+   website: "https://neptune-desings.netlify.app/",
+   repository: "https://github.com/TulioDR/neptune-designs",
    technologies: [],
    isFinished: false,
    translations: {

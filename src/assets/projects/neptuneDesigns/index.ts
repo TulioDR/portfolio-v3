@@ -1,5 +1,5 @@
 import ProjectModel from "@/models/ProjectModel";
-import neptuneDesignsImg from "./img/neptune-designs.jpg";
+import neptuneDesignsImg from "./img/neptune-designs.png";
 import bootstrapSiteEnglish from "./translations/english";
 import bootstrapSiteSpanish from "./translations/spanish";
 

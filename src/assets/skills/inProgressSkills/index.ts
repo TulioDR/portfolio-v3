@@ -2,6 +2,7 @@ import SkillModel from "@/models/SkillModel";
 
 import figmaLogo from "./img/figma.png";
 import threejsLogo from "./img/threejs.png";
+import pythonLogo from "./img/python.png";
 
 export const figma: SkillModel = {
    name: "Figma",
@@ -13,6 +14,11 @@ export const threejs: SkillModel = {
    logo: threejsLogo,
    link: "https://threejs.org/",
 };
+export const python: SkillModel = {
+   name: "Python",
+   logo: pythonLogo,
+   link: "https://www.python.org/",
+};
 
-const inProgressSkills = [figma, threejs];
+const inProgressSkills = [figma, threejs, python];
 export default inProgressSkills;

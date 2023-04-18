@@ -2,7 +2,7 @@ type Props = {
    isFilterOpen: boolean;
 };
 
-export default function FilterMessage({ isFilterOpen }: Props) {
+export default function FilterMessage({}: Props) {
    return (
       <div className="flex items-center h-full">
          <div className="aspect-square h-full grid place-content-center">

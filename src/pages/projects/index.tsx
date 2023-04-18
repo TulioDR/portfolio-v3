@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
 import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
 import Head from "next/head";
-import Filter from "@/components/ProjectsPage/Filter/Filter";
+import Filter from "@/components/ProjectsPage/Filter";
 import LayoutButtons from "@/components/ProjectsPage/LayoutButtons";
 import ProjectAnimation from "@/components/ProjectsPage/ProjectAnimation";
 import ProjectAnimationModel from "@/models/ProjectAnimationModel";
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       setNotSelectedTech,
       filteredProjects,
       isFilterOpen,
-      toggleFilter,
+      openFilter,
       closeFilter,
    } = useProjectsFilter();
 
@@ -58,28 +58,28 @@ export default function ProjectsPage() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <ProjectAnimation selectedProject={selectedProject} />
-         {isFilterOpen && (
-            <Filter
-               close={closeFilter}
-               selectedTech={selectedTech}
-               setSelectedTech={setSelectedTech}
-               notSelectedTech={notSelectedTech}
-               setNotSelectedTech={setNotSelectedTech}
-            />
-         )}
          <MainContainer>
             <div className="flex justify-between items-center mt-20 overflow-hidden pb-7">
                <ProjectsPageTitle />
                <BackArrowButton onClick={goBack} isArrowWhite={false} />
             </div>
-            <LayoutButtons
-               currentLayout={currentLayout}
-               setCurrentLayout={setCurrentLayout}
-               toggleFilter={toggleFilter}
-               toggleProjectsExpanded={toggleProjectsExpanded}
-               isProjectExpanded={isProjectExpanded}
-               isFilterOpen={isFilterOpen}
-            />
+            <div className="flex justify-end mb-7 relative">
+               <Filter
+                  close={closeFilter}
+                  open={openFilter}
+                  selectedTech={selectedTech}
+                  setSelectedTech={setSelectedTech}
+                  notSelectedTech={notSelectedTech}
+                  setNotSelectedTech={setNotSelectedTech}
+                  isFilterOpen={isFilterOpen}
+               />
+               <LayoutButtons
+                  currentLayout={currentLayout}
+                  setCurrentLayout={setCurrentLayout}
+                  toggleProjectsExpanded={toggleProjectsExpanded}
+                  isProjectExpanded={isProjectExpanded}
+               />
+            </div>
             <ProjectsContainer
                currentLayout={currentLayout}
                isProjectExpanded={isProjectExpanded}

@@ -1,30 +1,22 @@
 import LayoutButton from "./LayoutButton";
-import FilterButton from "./FilterButton";
 import { LayoutModel } from "@/models/ProjectModel";
 import RevealToRight from "@/animations/RevealToRight";
 
 type Props = {
    currentLayout: LayoutModel;
    setCurrentLayout: React.Dispatch<React.SetStateAction<LayoutModel>>;
-   toggleFilter: () => void;
    toggleProjectsExpanded: () => void;
    isProjectExpanded: boolean;
-   isFilterOpen: boolean;
 };
 
 export default function LayoutButtons({
    currentLayout,
    setCurrentLayout,
-   toggleFilter,
    toggleProjectsExpanded,
    isProjectExpanded,
-   isFilterOpen,
 }: Props) {
    return (
-      <div className="flex justify-between w-full mb-7 overflow-hidden">
-         <RevealToRight main>
-            <FilterButton onClick={toggleFilter} isFilterOpen={isFilterOpen} />
-         </RevealToRight>
+      <div className="w-max mb-7 overflow-hidden ml-auto">
          <RevealToRight main reverse>
             <div className="flex space-x-2 items-center">
                <LayoutButton

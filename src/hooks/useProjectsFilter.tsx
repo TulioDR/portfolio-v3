@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function useProjectsFilter() {
    const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
-   const toggleFilter = () => setIsFilterOpen((prevState) => !prevState);
+   const openFilter = () => setIsFilterOpen(true);
    const closeFilter = () => setIsFilterOpen(false);
 
    const [selectedTech, setSelectedTech] = useState<SkillModel[]>([]);
@@ -32,7 +32,7 @@ export default function useProjectsFilter() {
       setNotSelectedTech,
       filteredProjects,
       isFilterOpen,
-      toggleFilter,
+      openFilter,
       closeFilter,
    };
 }

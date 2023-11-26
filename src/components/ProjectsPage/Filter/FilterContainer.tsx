@@ -16,7 +16,7 @@ export default function FilterContainer({
          drag={isFilterOpen}
          animate={filterContainerControls}
          dragMomentum={false}
-         className="absolute top-0 left-0 z-20 w-max rounded-lg bg-main-primary"
+         className="absolute top-0 left-0 z-40 rounded-lg bg-main-primary"
       >
          <div className="relative">{children}</div>
       </motion.div>

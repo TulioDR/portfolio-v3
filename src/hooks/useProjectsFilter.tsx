@@ -58,7 +58,7 @@ export default function useProjectsFilter(
          )
       );
       setFilteredProjects(founded);
-   }, [selectedTech]);
+   }, [selectedTech, setFilteredProjects]);
 
    return {
       selectedTech,

@@ -40,8 +40,6 @@ export default interface GlobalTranslationsModel {
          drag: string;
          title: string;
          technologies: string;
-         message1: string;
-         message2: string;
          reset: string;
       };
       details: {

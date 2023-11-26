@@ -13,8 +13,8 @@ import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
 import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
-import { LayoutModel } from "@/models/ProjectModel";
-import useProjectsFilter from "@/hooks/useProjectsFilter";
+import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
+import projects from "@/assets/projects";
 
 export default function ProjectsPage() {
    const { setBlack } = useNavbarContext();
@@ -26,19 +26,7 @@ export default function ProjectsPage() {
    const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
 
    const [isProjectExpanded, setIsProjectExpanded] = useState<boolean>(true);
-   const toggleProjectsExpanded = () =>
-      setIsProjectExpanded((prevState) => !prevState);
-
-   const {
-      selectedTech,
-      setSelectedTech,
-      notSelectedTech,
-      setNotSelectedTech,
-      filteredProjects,
-      isFilterOpen,
-      openFilter,
-      closeFilter,
-   } = useProjectsFilter();
+   const toggleExpanded = () => setIsProjectExpanded((prevState) => !prevState);
 
    const [selectedProject, setSelectedProject] =
       useState<ProjectAnimationModel | null>(null);
@@ -50,8 +38,10 @@ export default function ProjectsPage() {
       router.push("/#projects");
    };
 
+   const [filteredProjects, setFilteredProjects] =
+      useState<ProjectModel[]>(projects);
    return (
-      <>
+      <div className="w-full min-h-screen overflow-x-hidden">
          <Head>
             <title>Projects - by Tulio Ruzo</title>
             <meta name="description" content="Check out my projects!" />
@@ -64,19 +54,11 @@ export default function ProjectsPage() {
                <BackArrowButton onClick={goBack} isArrowWhite={false} />
             </div>
             <div className="flex justify-end mb-7 relative">
-               <Filter
-                  close={closeFilter}
-                  open={openFilter}
-                  selectedTech={selectedTech}
-                  setSelectedTech={setSelectedTech}
-                  notSelectedTech={notSelectedTech}
-                  setNotSelectedTech={setNotSelectedTech}
-                  isFilterOpen={isFilterOpen}
-               />
+               <Filter setFilteredProjects={setFilteredProjects} />
                <LayoutButtons
                   currentLayout={currentLayout}
                   setCurrentLayout={setCurrentLayout}
-                  toggleProjectsExpanded={toggleProjectsExpanded}
+                  toggleExpanded={toggleExpanded}
                   isProjectExpanded={isProjectExpanded}
                />
             </div>
@@ -99,6 +81,6 @@ export default function ProjectsPage() {
                </AnimatePresence>
             </ProjectsContainer>
          </MainContainer>
-      </>
+      </div>
    );
 }

@@ -21,7 +21,7 @@ export default function InitialLoadingAnimation() {
       <motion.div
          initial={{ y: 0 }}
          animate={removeLoadingScreen}
-         className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-black text-white z-20"
+         className="fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-black text-white z-30"
       >
          <div className="relative w-40 overflow-hidden">
             <motion.div

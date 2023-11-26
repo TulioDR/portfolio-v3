@@ -5,14 +5,14 @@ import RevealToRight from "@/animations/RevealToRight";
 type Props = {
    currentLayout: LayoutModel;
    setCurrentLayout: React.Dispatch<React.SetStateAction<LayoutModel>>;
-   toggleProjectsExpanded: () => void;
+   toggleExpanded: () => void;
    isProjectExpanded: boolean;
 };
 
 export default function LayoutButtons({
    currentLayout,
    setCurrentLayout,
-   toggleProjectsExpanded,
+   toggleExpanded,
    isProjectExpanded,
 }: Props) {
    return (
@@ -41,7 +41,7 @@ export default function LayoutButtons({
                />
                <div className="h-full w-[2px] bg-main-primary hidden md:block"></div>
                <button
-                  onClick={toggleProjectsExpanded}
+                  onClick={toggleExpanded}
                   className="h-10 aspect-square bg-main-primary rounded-lg text-white hidden md:grid place-content-center "
                >
                   <span className="material-icons">

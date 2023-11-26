@@ -77,8 +77,8 @@ body::-webkit-scrollbar {
    width: 12px;
 }
 body::-webkit-scrollbar-track {
-   @apply bg-white;
+   @apply bg-main-primary;
 }
 body::-webkit-scrollbar-thumb {
-   @apply bg-main-primary;
+   @apply bg-white;
 }

@@ -2,33 +2,28 @@ import { AnimationControls, motion } from "framer-motion";
 
 interface Props {
    children: React.ReactNode;
-   onClick: () => void;
    isFilterOpen: boolean;
    animationControls: AnimationControls;
 }
 
 export default function FilterHeaderContainer({
    children,
-   onClick,
    isFilterOpen,
    animationControls,
 }: Props) {
    return (
       <motion.div
-         initial={{
-            width: 40,
-            borderBottomLeftRadius: 8,
-            borderBottomRightRadius: 8,
-         }}
+         initial={{ width: 40 }}
          animate={animationControls}
-         onClick={isFilterOpen ? undefined : onClick}
-         className={`h-10 w-full bg-main-primary rounded-t-lg text-white flex items-center justify-between overflow-hidden ${
+         className={`h-10 text-white overflow-hidden ${
             isFilterOpen
                ? "cursor-grab active:cursor-grabbing"
-               : "rounded-b-lg cursor-pointer"
+               : "cursor-pointer"
          }`}
       >
-         {children}
+         <div className="flex items-center justify-between h-full w-[calc(100vw-40px)] sm:w-[540px] md:w-[610px] flex-shrink-0">
+            {children}
+         </div>
       </motion.div>
    );
 }

@@ -11,7 +11,9 @@ export default function FilterBodyHeader({ resetFilter }: Props) {
    const { title, reset } = currentLanguage.projects.filer;
    return (
       <div className="w-full flex items-center justify-between mb-5">
-         <div className="text-3xl font-medium">{title}</div>
+         <div className="text-xl sm:text-2xl md:text-3xl font-medium">
+            {title}
+         </div>
          <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}

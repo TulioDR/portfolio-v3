@@ -25,7 +25,7 @@ export default function NavbarContainer({ children, isMenuOpen }: Props) {
       <motion.div
          initial={{ y: "-100%" }}
          animate={showNavbar}
-         className="fixed top-0 w-full z-30"
+         className="fixed top-0 w-full z-30 pointer-events-none"
       >
          <div
             className={`w-full duration-500 ${

@@ -7,7 +7,7 @@ type Props = {
    isProjectExpanded: boolean;
 };
 
-export default function ProjectsContainer({
+export default function ProjectsShowcaseContainer({
    currentLayout,
    isProjectExpanded,
    children,
@@ -31,7 +31,7 @@ export default function ProjectsContainer({
             initial="initial"
             animate="animate"
             exit="exit"
-            className={`grid gap-2 sm:gap-3 md:gap-5 lg:gap-7 pb-7 ${
+            className={`grid gap-3 sm:gap-5 pb-5 ${
                isList
                   ? isProjectExpanded
                      ? "grid-cols-1 md:grid-cols-2"

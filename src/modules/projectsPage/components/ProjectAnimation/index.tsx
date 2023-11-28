@@ -1,10 +1,9 @@
-import ProjectAnimationModel from "@/models/ProjectAnimationModel";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 type Props = {
-   selectedProject: ProjectAnimationModel | null;
+   selectedProject: any;
 };
 
 export default function ProjectAnimation({ selectedProject }: Props) {

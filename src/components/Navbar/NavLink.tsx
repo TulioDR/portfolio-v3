@@ -16,7 +16,7 @@ export default function NavLink({ simple, outline, children, onClick }: Props) {
          onClick={onClick}
          onHoverStart={() => setIsHovering(true)}
          onHoverEnd={() => setIsHovering(false)}
-         className="relative overflow-hidden"
+         className="relative overflow-hidden pointer-events-auto"
       >
          {children}
          <AnimatePresence>
@@ -36,7 +36,7 @@ export default function NavLink({ simple, outline, children, onClick }: Props) {
          onClick={onClick}
          onHoverStart={() => setIsHovering(true)}
          onHoverEnd={() => setIsHovering(false)}
-         className={`w-28 h-10 rounded-full ${
+         className={`w-28 h-10 rounded-full pointer-events-auto ${
             outline
                ? "border border-main-orange relative overflow-hidden"
                : "bg-main-orange text-white"

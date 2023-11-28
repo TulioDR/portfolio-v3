@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { LayoutModel } from "@/models/ProjectModel";
 
 type Props = {
-   tiltRef: React.RefObject<HTMLDivElement>;
    src: StaticImageData;
    alt: string;
    small: boolean;
@@ -11,7 +10,6 @@ type Props = {
 };
 
 export default function ProjectCardImage({
-   tiltRef,
    src,
    alt,
    currentLayout,
@@ -19,24 +17,21 @@ export default function ProjectCardImage({
 }: Props) {
    return (
       <motion.div
+         transition={{ duration: 2 }}
          className={`overflow-hidden h-full flex justify-center group
       ${currentLayout === "mixed" && small ? "aspect-video" : ""}
       ${currentLayout === "grid" ? "aspect-square" : ""}
       ${currentLayout === "list" ? "aspect-video" : ""}
       `}
       >
-         <div className="aspect-video h-full group-hover:scale-110 duration-300">
-            <motion.div
-               ref={tiltRef}
-               layout
-               className="relative h-full aspect-video"
-            >
+         <div className="aspect-video h-full">
+            <motion.div layout className="relative h-full aspect-video">
                <Image
                   src={src}
                   alt={alt}
                   fill
                   sizes="100%"
-                  className="object-cover object-top"
+                  className="object-cover"
                   priority
                />
             </motion.div>

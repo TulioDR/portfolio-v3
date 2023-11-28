@@ -1,6 +1,7 @@
 import useLanguageContext from "@/context/LanguageContext";
-import SectionTitle from "../Sections/SectionTitle";
+
 import RevealToRight from "@/animations/RevealToRight";
+import SectionTitle from "@/components/Sections/SectionTitle";
 
 export default function ProjectsPageTitle() {
    const { currentLanguage } = useLanguageContext();

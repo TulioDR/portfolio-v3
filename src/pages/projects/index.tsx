@@ -1,13 +1,8 @@
 import MainContainer from "@/components/MainContainer";
-import ProjectCard from "@/components/ProjectsPage/ProjectCard";
 import { useState, useEffect } from "react";
-import ProjectsContainer from "@/components/ProjectsPage/ProjectsContainer";
-import ProjectsPageTitle from "@/components/ProjectsPage/ProjectsPageTitle";
+
 import Head from "next/head";
-import Filter from "@/components/ProjectsPage/Filter";
-import LayoutButtons from "@/components/ProjectsPage/LayoutButtons";
-import ProjectAnimation from "@/components/ProjectsPage/ProjectAnimation";
-import ProjectAnimationModel from "@/models/ProjectAnimationModel";
+
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
@@ -15,6 +10,11 @@ import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
 import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
 import projects from "@/assets/projects";
+import ProjectsShowcase from "@/modules/projectsPage/components/ProjectsShowcase";
+import ProjectModal from "@/modules/projectsPage/components/ProjectModal";
+import ProjectsPageTitle from "@/modules/projectsPage/components/ProjectsPageTitle";
+import Filter from "@/modules/projectsPage/components/Filter";
+import LayoutButtons from "@/modules/projectsPage/components/LayoutButtons";
 
 export default function ProjectsPage() {
    const { setBlack } = useNavbarContext();
@@ -28,9 +28,6 @@ export default function ProjectsPage() {
    const [isProjectExpanded, setIsProjectExpanded] = useState<boolean>(true);
    const toggleExpanded = () => setIsProjectExpanded((prevState) => !prevState);
 
-   const [selectedProject, setSelectedProject] =
-      useState<ProjectAnimationModel | null>(null);
-
    const { setIsBackFromProjects } = useBackFromProjectsContext();
    const router = useRouter();
    const goBack = () => {
@@ -40,14 +37,23 @@ export default function ProjectsPage() {
 
    const [filteredProjects, setFilteredProjects] =
       useState<ProjectModel[]>(projects);
+
+   const [selectedProject, setSelectedProject] = useState<ProjectModel | null>(
+      null
+   );
+
+   const onExitComplete = () => {
+      document.body.style.overflowY = "auto";
+      document.body.style.paddingRight = "0px";
+   };
+
    return (
-      <div className="w-full min-h-screen overflow-x-hidden">
+      <div className="w-full min-h-screen">
          <Head>
             <title>Projects - by Tulio Ruzo</title>
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <ProjectAnimation selectedProject={selectedProject} />
          <MainContainer>
             <div className="flex justify-between items-center mt-20 overflow-hidden pb-7">
                <ProjectsPageTitle />
@@ -62,25 +68,21 @@ export default function ProjectsPage() {
                   isProjectExpanded={isProjectExpanded}
                />
             </div>
-            <ProjectsContainer
+            <ProjectsShowcase
                currentLayout={currentLayout}
                isProjectExpanded={isProjectExpanded}
-            >
-               <AnimatePresence>
-                  {filteredProjects.map((project, index) => (
-                     <ProjectCard
-                        key={project.link}
-                        project={project}
-                        currentLayout={currentLayout}
-                        small={index === 1 || index === 6}
-                        setSelectedProject={setSelectedProject}
-                        // Only for bug fixing when there is one project displayed
-                        filteredProjects={filteredProjects}
-                     />
-                  ))}
-               </AnimatePresence>
-            </ProjectsContainer>
+               filteredProjects={filteredProjects}
+               setSelectedProject={setSelectedProject}
+            />
          </MainContainer>
+         <AnimatePresence onExitComplete={onExitComplete}>
+            {selectedProject && (
+               <ProjectModal
+                  project={selectedProject}
+                  close={() => setSelectedProject(null)}
+               />
+            )}
+         </AnimatePresence>
       </div>
    );
 }

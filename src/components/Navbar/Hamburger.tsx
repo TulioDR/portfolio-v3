@@ -19,7 +19,7 @@ export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
    };
    return (
       <button
-         className="flex flex-col space-y-4 py-2"
+         className="flex flex-col space-y-4 py-2 pointer-events-auto"
          onClick={isAnimating ? undefined : handleClick}
       >
          <motion.span

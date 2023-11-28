@@ -16,7 +16,7 @@ export default function LayoutButtons({
    isProjectExpanded,
 }: Props) {
    return (
-      <div className="w-max mb-7 overflow-hidden ml-auto">
+      <div className="w-max overflow-hidden ml-auto">
          <RevealToRight main reverse>
             <div className="flex space-x-2 items-center">
                <LayoutButton

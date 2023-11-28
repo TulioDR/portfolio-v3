@@ -74,11 +74,11 @@ a {
 }
 
 body::-webkit-scrollbar {
-   width: 12px;
+   width: 15px;
 }
 body::-webkit-scrollbar-track {
-   @apply bg-main-primary;
+   @apply bg-main-white;
 }
 body::-webkit-scrollbar-thumb {
-   @apply bg-white;
+   @apply bg-main-primary;
 }

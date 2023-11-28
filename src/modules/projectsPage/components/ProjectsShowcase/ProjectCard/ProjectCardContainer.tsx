@@ -2,21 +2,21 @@ import { LayoutModel } from "@/models/ProjectModel";
 import { motion } from "framer-motion";
 
 type Props = {
-   elementRef: React.RefObject<HTMLDivElement>;
    onClick: () => void;
    currentLayout: LayoutModel;
    small?: boolean;
    children: React.ReactNode;
    isOneProject: boolean;
+   id: string;
 };
 
 export default function ProjectCardContainer({
-   elementRef,
    onClick,
    currentLayout,
    small,
    children,
    isOneProject,
+   id,
 }: Props) {
    const item = {
       initial: { opacity: 0 },
@@ -31,23 +31,23 @@ export default function ProjectCardContainer({
    };
    return (
       <motion.div
-         ref={elementRef}
-         layout
-         variants={item}
-         initial="initial"
-         animate="animate"
-         exit="exit"
+         id={id}
+         // ref={elementRef}
+         // layout
+         // variants={item}
+         // initial="initial"
+         // animate="animate"
+         // exit="exit"
          onClick={onClick}
-         className={`bg-white rounded-3xl shadow-xl relative cursor-pointer overflow-hidden group
-            ${
-               currentLayout === "mixed"
-                  ? isOneProject
-                     ? "aspect-[5/6]"
-                     : small
-                     ? "row-span-1"
-                     : "row-span-2"
-                  : ""
-            }`}
+         className={`bg-white relative cursor-pointer group overflow-hidden ${
+            currentLayout === "mixed"
+               ? isOneProject
+                  ? "aspect-[5/6]"
+                  : small
+                  ? "row-span-1"
+                  : "row-span-2"
+               : ""
+         }`}
       >
          {children}
       </motion.div>

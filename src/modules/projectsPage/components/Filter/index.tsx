@@ -4,6 +4,7 @@ import useProjectsFilter from "@/hooks/useProjectsFilter";
 import ProjectModel from "@/models/ProjectModel";
 import FilterHeader from "./FilterHeader";
 import FilterBody from "./FilterBody";
+import CloseFilterButton from "./CloseFilterButton";
 
 type Props = {
    setFilteredProjects: React.Dispatch<React.SetStateAction<ProjectModel[]>>;
@@ -25,26 +26,29 @@ export default function Filter({ setFilteredProjects }: Props) {
    } = useProjectsFilter(setFilteredProjects);
 
    return (
-      <FilterContainer
-         filterContainerControls={filterContainerControls}
-         isFilterOpen={isFilterOpen}
-      >
-         <FilterHeader
-            expandFilter={openFilter}
-            contractFilter={closeFilter}
+      <>
+         <CloseFilterButton onClick={closeFilter} />
+         <FilterContainer
+            filterContainerControls={filterContainerControls}
             isFilterOpen={isFilterOpen}
-            headerContainerControls={headerContainerControls}
-         />
-         <AnimatePresence onExitComplete={contractHeader}>
-            {showFilterBody && (
-               <FilterBody
-                  addTech={addTech}
-                  removeTech={removeTech}
-                  selectedTech={selectedTech}
-                  resetFilter={resetFilter}
-               />
-            )}
-         </AnimatePresence>
-      </FilterContainer>
+         >
+            <FilterHeader
+               expandFilter={openFilter}
+               contractFilter={closeFilter}
+               isFilterOpen={isFilterOpen}
+               headerContainerControls={headerContainerControls}
+            />
+            <AnimatePresence onExitComplete={contractHeader}>
+               {showFilterBody && (
+                  <FilterBody
+                     addTech={addTech}
+                     removeTech={removeTech}
+                     selectedTech={selectedTech}
+                     resetFilter={resetFilter}
+                  />
+               )}
+            </AnimatePresence>
+         </FilterContainer>
+      </>
    );
 }

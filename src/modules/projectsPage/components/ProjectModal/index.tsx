@@ -16,6 +16,7 @@ import {
 } from "../../animations/jumbotronAnimations";
 import ModalButton from "./ModalButton";
 import ModalButtonsContainer from "./ModalButtonsContainer";
+import ProjectAnimation from "./ProjectAnimation";
 
 type Props = {
    close: () => void;
@@ -85,6 +86,14 @@ export default function ProjectModal({ close, project }: Props) {
       }, 400);
    };
 
+   const [newPosition, setNewPosition] = useState<PositionModel | null>(null);
+   const learnMore = () => {
+      setTiltEnable(false);
+      const container = document.getElementById("modal-container")!;
+      const { x, y, width, height } = container.getBoundingClientRect();
+      setNewPosition({ x, y, width, height });
+   };
+
    return (
       <div className="fixed top-0 left-0 w-screen h-screen z-[60]">
          <ProjectModalBackdrop />
@@ -99,11 +108,14 @@ export default function ProjectModal({ close, project }: Props) {
                jumboBackgroundControls={jumboBackgroundControls}
             />
             <ModalButtonsContainer animationControls={modalButtonsAnimations}>
-               <ModalButton onClick={() => {}}>Learn more</ModalButton>
+               <ModalButton onClick={learnMore}>Learn more</ModalButton>
                <ModalButton onClick={() => {}}>Visit Site</ModalButton>
                <ModalButton onClick={() => {}}>View Repository</ModalButton>
             </ModalButtonsContainer>
          </div>
+         {newPosition && (
+            <ProjectAnimation project={project} newPosition={newPosition} />
+         )}
       </div>
    );
 }

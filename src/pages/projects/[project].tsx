@@ -28,6 +28,11 @@ export default function ProjectDetails({ project }: Props) {
    const { isEnglish } = useLanguageContext();
    const { english, spanish } = project.translations;
 
+   useEffect(() => {
+      document.body.style.overflowY = "auto";
+      document.body.style.paddingRight = "0px";
+   }, []);
+
    const [currentLan, setCurrentLan] = useState<ProjectTranslations>(english);
    useEffect(() => {
       if (isEnglish) setCurrentLan(english);

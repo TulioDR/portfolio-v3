@@ -1,6 +1,6 @@
 import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
 
-import ProjectCardTitle from "./ProjectCardTitle";
+// import ProjectCardTitle from "./ProjectCardTitle";
 import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardContainer from "./ProjectCardContainer";
 
@@ -20,6 +20,7 @@ export default function ProjectCard({
    onClick,
 }: Props) {
    const { link, title, img, isFinished } = project;
+   console.log(isFinished);
    return (
       <ProjectCardContainer
          id={link}

@@ -18,17 +18,17 @@ export default function ProjectCardContainer({
    isOneProject,
    id,
 }: Props) {
-   const item = {
-      initial: { opacity: 0 },
-      animate: {
-         opacity: 1,
-         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
-      },
-      exit: {
-         opacity: 0,
-         transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
-      },
-   };
+   // const item = {
+   //    initial: { opacity: 0 },
+   //    animate: {
+   //       opacity: 1,
+   //       transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+   //    },
+   //    exit: {
+   //       opacity: 0,
+   //       transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
+   //    },
+   // };
    return (
       <motion.div
          id={id}

@@ -71,6 +71,8 @@ export default function ProjectModal({ close, project }: Props) {
       jumboImgControls,
       jumboBackgroundControls,
       jumboTitleControls,
+      modalButtonsAnimations,
+      initialModalButtons,
       position,
    ]);
 
@@ -94,6 +96,13 @@ export default function ProjectModal({ close, project }: Props) {
       setNewPosition({ x, y, width, height });
    };
 
+   const visitSite = () => {
+      window.open(project.website, "_blank");
+   };
+   const viewRepo = () => {
+      window.open(project.repository, "_blank");
+   };
+
    return (
       <div className="fixed top-0 left-0 w-screen h-screen z-[60]">
          <ProjectModalBackdrop />
@@ -109,8 +118,8 @@ export default function ProjectModal({ close, project }: Props) {
             />
             <ModalButtonsContainer animationControls={modalButtonsAnimations}>
                <ModalButton onClick={learnMore}>Learn more</ModalButton>
-               <ModalButton onClick={() => {}}>Visit Site</ModalButton>
-               <ModalButton onClick={() => {}}>View Repository</ModalButton>
+               <ModalButton onClick={visitSite}>Visit Site</ModalButton>
+               <ModalButton onClick={viewRepo}>View Repository</ModalButton>
             </ModalButtonsContainer>
          </div>
          {newPosition && (

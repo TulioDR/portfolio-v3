@@ -15,14 +15,16 @@ export default function Subtitle({ children }: Props) {
          className="flex items-center justify-center text-gray-800 space-x-2 sm:space-x-4"
       >
          <div
-            className={`h-1 rounded-full bg-main-orange duration-500 ${
-               isInView ? "w-[4.66rem] md:w-[6.5rem]" : "w-0"
+            className={`h-1 rounded-full bg-main-orange duration-1000 ${
+               isInView ? "w-full" : "w-0"
             }`}
          ></div>
-         <div className="text-2xl sm:text-5xl text-center">{children}</div>
+         <div className="text-2xl sm:text-5xl text-center min-w-max">
+            {children}
+         </div>
          <div
-            className={`h-1 rounded-full bg-main-orange duration-500 ${
-               isInView ? "w-[4.66rem] md:w-[6.5rem]" : "w-0"
+            className={`h-1 rounded-full bg-main-orange duration-1000 ${
+               isInView ? "w-full" : "w-0"
             }`}
          ></div>
       </div>

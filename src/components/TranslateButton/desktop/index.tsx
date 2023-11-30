@@ -1,29 +1,28 @@
-import spanish from "@/assets/images/languages/spanish.jpg";
-import english from "@/assets/images/languages/english.png";
-import useLanguageContext from "@/context/LanguageContext";
-import React from "react";
-import LanguageOption from "./LanguageOption";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import SwitchLanBtn from "./SwitchLanBtn";
+import TranslateIcon from "./TranslateIcon";
 
 export default function TranslateButtonDesktop() {
-   const { isEnglish, toggleLanguage } = useLanguageContext();
+   const [isOpen, setIsOpen] = useState<boolean>(false);
+   const handleHoverStart = () => setIsOpen(true);
+   const handleHOverEnd = () => setIsOpen(false);
+
    return (
-      <button
-         onClick={toggleLanguage}
-         className="h-14 w-14 p-2 hover:w-36 duration-300 rounded-full overflow-hidden bg-main-orange flex justify-end"
+      <motion.div
+         onHoverStart={handleHoverStart}
+         onHoverEnd={handleHOverEnd}
+         className={`h-14 duration-200 flex justify-center rounded-full overflow-hidden bg-main-orange text-white ${
+            isOpen ? "w-56" : "w-14"
+         }`}
       >
-         <div className="w-20 h-full rounded-full mr-2 flex-shrink-0 overflow-hidden">
-            <div
-               className={`w-40 h-full flex duration-300 ${
-                  isEnglish ? "-translate-x-1/2" : ""
-               }`}
-            >
-               <LanguageOption src={spanish} alt="spanish" />
-               <LanguageOption src={english} alt="english" />
-            </div>
-         </div>
-         <div className="h-full aspect-square text-white grid place-content-center flex-shrink-0">
-            <span className="material-icons">translate</span>
-         </div>
-      </button>
+         <AnimatePresence mode="wait">
+            {isOpen ? (
+               <SwitchLanBtn key="switch" />
+            ) : (
+               <TranslateIcon key="icon" />
+            )}
+         </AnimatePresence>
+      </motion.div>
    );
 }

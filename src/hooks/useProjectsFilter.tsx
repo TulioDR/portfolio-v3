@@ -30,7 +30,7 @@ export default function useProjectsFilter(
       setIsFilterOpen(true);
       await headerContainerControls.start({
          width: "auto",
-         transition: { duration: 0.4, ease: "easeInOut" },
+         transition: { duration: 0.3, ease: "easeInOut" },
       });
       setShowFilterBody(true);
    };
@@ -43,11 +43,11 @@ export default function useProjectsFilter(
       filterContainerControls.start({
          x: 0,
          y: 0,
-         transition: { duration: 0.4 },
+         transition: { duration: 0.3 },
       });
       headerContainerControls.start({
          width: 40,
-         transition: { duration: 0.4, ease: "easeInOut" },
+         transition: { duration: 0.3, ease: "easeInOut" },
       });
    };
 

@@ -6,7 +6,6 @@ import Head from "next/head";
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
 import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
-import useNavbarContext from "@/context/NavbarContext";
 import { AnimatePresence } from "framer-motion";
 import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
 import projects from "@/assets/projects";
@@ -15,13 +14,12 @@ import ProjectModal from "@/modules/projectsPage/components/ProjectModal";
 import ProjectsPageTitle from "@/modules/projectsPage/components/ProjectsPageTitle";
 import Filter from "@/modules/projectsPage/components/Filter";
 import LayoutButtons from "@/modules/projectsPage/components/LayoutButtons";
+import SectionContainer from "@/components/Sections/SectionContainer";
 
 export default function ProjectsPage() {
-   const { setBlack } = useNavbarContext();
    useEffect(() => {
       window.scrollTo({ top: 0 });
-      setBlack();
-   }, [setBlack]);
+   }, []);
 
    const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
 
@@ -44,7 +42,6 @@ export default function ProjectsPage() {
 
    const onExitComplete = () => {
       document.body.style.overflowY = "auto";
-      document.body.style.paddingRight = "0px";
    };
 
    return (
@@ -54,35 +51,37 @@ export default function ProjectsPage() {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <MainContainer>
-            <div className="flex justify-between items-center mt-20 overflow-hidden pb-7">
-               <ProjectsPageTitle />
-               <BackArrowButton onClick={goBack} isArrowWhite={false} />
-            </div>
-            <div className="flex justify-end mb-7 relative">
-               <Filter setFilteredProjects={setFilteredProjects} />
-               <LayoutButtons
+         <SectionContainer lightBg>
+            <MainContainer>
+               <div className="flex justify-between items-center pt-20 overflow-hidden pb-7">
+                  <ProjectsPageTitle />
+                  <BackArrowButton onClick={goBack} black />
+               </div>
+               <div className="flex justify-end mb-7 relative">
+                  <Filter setFilteredProjects={setFilteredProjects} />
+                  <LayoutButtons
+                     currentLayout={currentLayout}
+                     setCurrentLayout={setCurrentLayout}
+                     toggleExpanded={toggleExpanded}
+                     isProjectExpanded={isProjectExpanded}
+                  />
+               </div>
+               <ProjectsShowcase
                   currentLayout={currentLayout}
-                  setCurrentLayout={setCurrentLayout}
-                  toggleExpanded={toggleExpanded}
                   isProjectExpanded={isProjectExpanded}
+                  filteredProjects={filteredProjects}
+                  setSelectedProject={setSelectedProject}
                />
-            </div>
-            <ProjectsShowcase
-               currentLayout={currentLayout}
-               isProjectExpanded={isProjectExpanded}
-               filteredProjects={filteredProjects}
-               setSelectedProject={setSelectedProject}
-            />
-         </MainContainer>
-         <AnimatePresence onExitComplete={onExitComplete}>
-            {selectedProject && (
-               <ProjectModal
-                  project={selectedProject}
-                  close={() => setSelectedProject(null)}
-               />
-            )}
-         </AnimatePresence>
+            </MainContainer>
+            <AnimatePresence onExitComplete={onExitComplete}>
+               {selectedProject && (
+                  <ProjectModal
+                     project={selectedProject}
+                     close={() => setSelectedProject(null)}
+                  />
+               )}
+            </AnimatePresence>
+         </SectionContainer>
       </div>
    );
 }

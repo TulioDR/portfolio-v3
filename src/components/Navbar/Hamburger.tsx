@@ -1,4 +1,3 @@
-import useNavbarContext from "@/context/NavbarContext";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -7,7 +6,7 @@ interface Props {
    toggleMenu: () => void;
 }
 export default function Hamburger({ isMenuOpen, toggleMenu }: Props) {
-   const { isWhite } = useNavbarContext();
+   const isWhite = true;
    const [isAnimating, setIsAnimating] = useState(false);
 
    const handleClick = () => {

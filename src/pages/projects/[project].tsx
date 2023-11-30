@@ -13,7 +13,7 @@ import TopBackButton from "@/components/ProjectDetails/TopBackButton";
 import BottomBackButton from "@/components/ProjectDetails/BottomBackBtn";
 import { useRouter } from "next/router";
 import { animateScroll, Events } from "react-scroll";
-import useScrollPosition from "@/hooks/useScrollPosition";
+import SectionContainer from "@/components/Sections/SectionContainer";
 
 export async function getServerSideProps({ query }: any) {
    const project = projects.find((p) => p.link === query.project);
@@ -55,8 +55,6 @@ export default function ProjectDetails({ project }: Props) {
    const { currentLanguage } = useLanguageContext();
    const { featuresTitle, technologiesUsed } = currentLanguage.projects.details;
 
-   const { projectsRef } = useScrollPosition();
-
    return (
       <>
          <Head>
@@ -64,26 +62,31 @@ export default function ProjectDetails({ project }: Props) {
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <TopBackButton onClick={goTopAndBack} />
-         <Header project={project} currentLan={currentLan} />
-         <MainContainer>
-            <div ref={projectsRef} className="w-full">
-               {project.isFinished ? (
-                  <div className="py-20 space-y-20">
-                     <Description currentLan={currentLan} />
-                     <Subtitle>{featuresTitle}</Subtitle>
-                     <Features features={currentLan.features} />
-                     <Subtitle>{technologiesUsed}</Subtitle>
-                     <TechnologiesUsed technologies={project.technologies} />
-                     <BottomBackButton onClick={goTopAndBack} />
-                  </div>
-               ) : (
-                  <div className="w-full h-screen grid place-content-center text-9xl font-black">
-                     <span>WIP</span>
-                  </div>
-               )}
-            </div>
-         </MainContainer>
+         <SectionContainer>
+            <TopBackButton onClick={goTopAndBack} />
+            <Header project={project} currentLan={currentLan} />
+         </SectionContainer>
+         <SectionContainer lightBg>
+            <TopBackButton onClick={goTopAndBack} black />
+            <MainContainer>
+               <div className="w-full">
+                  {project.isFinished ? (
+                     <div className="py-20 space-y-20">
+                        <Description currentLan={currentLan} />
+                        <Subtitle>{featuresTitle}</Subtitle>
+                        <Features features={currentLan.features} />
+                        <Subtitle>{technologiesUsed}</Subtitle>
+                        <TechnologiesUsed technologies={project.technologies} />
+                        <BottomBackButton onClick={goTopAndBack} />
+                     </div>
+                  ) : (
+                     <div className="w-full h-screen grid place-content-center text-9xl font-black">
+                        <span>WIP</span>
+                     </div>
+                  )}
+               </div>
+            </MainContainer>
+         </SectionContainer>
       </>
    );
 }

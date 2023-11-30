@@ -73,7 +73,16 @@ a {
    src: url("../assets/fonts/Futura\ Extra\ Black\ font.ttf");
 }
 
-body::-webkit-scrollbar {
+:root::-webkit-scrollbar {
+   display: none;
+}
+
+:root {
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+/* body::-webkit-scrollbar {
    width: 15px;
 }
 body::-webkit-scrollbar-track {
@@ -81,4 +90,4 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar-thumb {
    @apply bg-main-primary;
-}
+} */

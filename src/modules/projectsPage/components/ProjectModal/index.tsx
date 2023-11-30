@@ -45,10 +45,6 @@ export default function ProjectModal({ close, project }: Props) {
 
       document.body.style.overflowY = "hidden";
 
-      if (window.innerWidth > 640) {
-         document.body.style.paddingRight = "15px";
-      }
-
       const x = x2 - x1;
       const y = y2 - y1;
       setPosition({ x, y, width, height });

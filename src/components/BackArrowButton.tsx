@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 
 type SvgProps = {
-   isWhiteArrow: boolean;
+   black?: boolean;
 };
 
-const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
+const SvgComponent = ({ black }: SvgProps) => (
    <svg xmlns="http://www.w3.org/2000/svg" height={34} viewBox="0 0 67 34">
       <g
          fill="none"
          fillRule="evenodd"
-         stroke={isWhiteArrow ? "#FFF" : "#000"}
+         stroke={black ? "#000" : "#FFF"}
          strokeLinecap="round"
          strokeWidth={2}
       >
@@ -20,10 +20,10 @@ const SvgComponent = ({ isWhiteArrow }: SvgProps) => (
 
 interface Props {
    onClick: () => void;
-   isArrowWhite: boolean;
+   black?: true;
 }
 
-export default function BackArrowButton({ onClick, isArrowWhite }: Props) {
+export default function BackArrowButton({ onClick, black }: Props) {
    const animation = {
       initial: { x: "100%" },
       animate: { x: 0, transition: { duration: 0.6 } },
@@ -39,7 +39,7 @@ export default function BackArrowButton({ onClick, isArrowWhite }: Props) {
             onClick={onClick}
             className="w-full h-full relative pointer-events-auto"
          >
-            <SvgComponent isWhiteArrow={isArrowWhite} />
+            <SvgComponent black={black} />
          </motion.button>
       </div>
    );

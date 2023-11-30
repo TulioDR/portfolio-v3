@@ -4,21 +4,17 @@ import ContactInfo from "./ContactInfo";
 import SectionTitle from "../SectionTitle";
 import useLanguageContext from "@/context/LanguageContext";
 import { useRef } from "react";
+import SectionContainer from "../SectionContainer";
 
-interface Props {
-   contactRef: React.RefObject<HTMLDivElement>;
-}
-
-export default function ContactSection({ contactRef }: Props) {
+export default function ContactSection() {
    const { currentLanguage } = useLanguageContext();
    const { title } = currentLanguage.contact;
 
    const nameInputRef = useRef<HTMLInputElement>(null);
    return (
-      <>
+      <SectionContainer>
          <div
             id="contact"
-            ref={contactRef}
             className="w-full py-24 bg-[#161b21] text-white 2xl:h-screen"
          >
             <MainContainer>
@@ -34,6 +30,6 @@ export default function ContactSection({ contactRef }: Props) {
                </div>
             </MainContainer>
          </div>
-      </>
+      </SectionContainer>
    );
 }

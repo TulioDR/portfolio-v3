@@ -6,18 +6,12 @@ import { useRouter } from "next/router";
 import ProjectSlider from "./ProjectSlider";
 import ProjectsTitle from "./ProjectsTitle";
 import ViewProjectsButton from "./ViewProjectsButton";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Element, scroller, Events } from "react-scroll";
+import SectionContainer from "../SectionContainer";
 
-interface Props {
-   projectsRef: React.RefObject<HTMLDivElement>;
-   projectsSliderRef: React.RefObject<HTMLDivElement>;
-}
-
-export default function ProjectsSection({
-   projectsRef,
-   projectsSliderRef,
-}: Props) {
+export default function ProjectsSection() {
+   const projectsSliderRef = useRef(null);
    const { scrollYProgress } = useScroll({
       target: projectsSliderRef,
       offset: ["start end", "end end"],
@@ -46,11 +40,8 @@ export default function ProjectsSection({
    };
 
    return (
-      <div>
-         <div
-            ref={projectsRef}
-            className="sticky top-0 h-screen w-full bg-gradient-to-b from-main-gray to-main-primary"
-         >
+      <SectionContainer>
+         <div className="sticky top-0 h-screen w-full bg-gradient-to-b from-main-gray to-main-primary">
             <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
                <ProjectSlider
                   scrollYProgressVelocity={scrollYProgressVelocity}
@@ -77,6 +68,6 @@ export default function ProjectsSection({
          >
             <Element name="myScrollToElement"></Element>
          </div>
-      </div>
+      </SectionContainer>
    );
 }

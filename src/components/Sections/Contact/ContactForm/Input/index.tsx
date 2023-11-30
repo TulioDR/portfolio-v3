@@ -32,7 +32,7 @@ export default function Input({
                as={textarea ? "textarea" : "input"}
                onFocus={() => setIsOnFocus(true)}
                onBlur={() => setIsOnFocus(false)}
-               className={`w-full h-full outline-none text-xs sm:text-sm bg-white text-black px-5 py-3`}
+               className={`w-full h-full outline-none text-xs sm:text-sm bg-main-white text-black px-5 py-3`}
                placeholder={placeholder}
                autoComplete="off"
             />

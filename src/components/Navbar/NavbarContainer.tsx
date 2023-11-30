@@ -7,10 +7,14 @@ import useInitialLoadingContext from "@/context/InitialLoadingContext";
 type Props = {
    children: React.ReactNode;
    isMenuOpen: boolean;
+   black?: true;
 };
 
-export default function NavbarContainer({ children, isMenuOpen }: Props) {
-   const { isWhite } = useNavbarContext();
+export default function NavbarContainer({
+   children,
+   isMenuOpen,
+   black,
+}: Props) {
    const { isFullyLoaded } = useInitialLoadingContext();
    const showNavbar = useAnimationControls();
 
@@ -22,22 +26,14 @@ export default function NavbarContainer({ children, isMenuOpen }: Props) {
       });
    }, [isFullyLoaded, showNavbar]);
    return (
-      <motion.div
-         initial={{ y: "-100%" }}
-         animate={showNavbar}
-         className="fixed top-0 w-full z-[80] pointer-events-none"
-      >
-         <div
-            className={`w-full duration-500 ${
-               isWhite || isMenuOpen ? "text-white" : "text-black"
-            }`}
-         >
+      <div className="fixed top-0 w-full pointer-events-none z-10">
+         <div className={`w-full ${black ? "text-black" : "text-white"}`}>
             <MainContainer>
                <div className="flex justify-between items-center h-20 font-semibold">
                   {children}
                </div>
             </MainContainer>
          </div>
-      </motion.div>
+      </div>
    );
 }

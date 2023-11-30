@@ -3,12 +3,12 @@ import AboutCardDesktop from "./AboutCardDesktop";
 import AboutPhrases from "./AboutPhrases";
 import AboutTitle from "./AboutTitle";
 import { useScroll } from "framer-motion";
+import { useRef } from "react";
 
-interface Props {
-   aboutInfoRef: React.RefObject<HTMLDivElement>;
-}
+interface Props {}
 
-export default function AboutSectionDesktop({ aboutInfoRef }: Props) {
+export default function AboutSectionDesktop({}: Props) {
+   const aboutInfoRef = useRef(null);
    const { scrollYProgress } = useScroll({
       target: aboutInfoRef,
       offset: ["start end", "end end"],

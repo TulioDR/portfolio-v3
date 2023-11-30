@@ -1,10 +1,10 @@
 import useLanguageContext from "@/context/LanguageContext";
-import useNavbarContext from "@/context/NavbarContext";
 import MenuContainer from "./MenuContainer";
 import MenuFooter from "./MenuFooter";
 import MenuOption from "./MenuOption";
 import MenuOptionsContainer from "./MenuOptionsContainer";
 import MenuTitle from "./MenuTitle";
+import { useRouter } from "next/router";
 
 interface Props {
    isMenuOpen: boolean;
@@ -12,13 +12,17 @@ interface Props {
 }
 
 export default function Menu({ isMenuOpen, closeMenu }: Props) {
-   const {
-      scrollToAboutMobile,
-      scrollToSkills,
-      scrollToProjects,
-      scrollToContact,
-   } = useNavbarContext();
+   const router = useRouter();
+   const scrollTo = (id: string) => {
+      const element = document.getElementById(id);
+      if (router.route === "/") element?.scrollIntoView({ behavior: "smooth" });
+      else router.push("/#" + id);
+   };
 
+   const scrollToAboutMobile = () => scrollTo("about");
+   const scrollToSkills = () => scrollTo("skills");
+   const scrollToProjects = () => scrollTo("projects");
+   const scrollToContact = () => scrollTo("contact");
    const { currentLanguage } = useLanguageContext();
    const { about, skills, projects, contact } = currentLanguage.navbar;
    return (

@@ -16,29 +16,27 @@ export default function LayoutButtons({
    isProjectExpanded,
 }: Props) {
    return (
-      <div className="w-max overflow-hidden ml-auto">
+      <div className="w-max ml-auto">
          <RevealToRight main reverse>
-            <div className="flex space-x-2 items-center">
+            <div className="flex gap-1">
                <LayoutButton
-                  icon="dashboard"
-                  layout="mixed"
-                  currentLayout={currentLayout}
-                  setCurrentLayout={setCurrentLayout}
-               />
+                  onClick={() => setCurrentLayout("mixed")}
+                  isActive={currentLayout === "mixed"}
+               >
+                  List
+               </LayoutButton>
                <LayoutButton
-                  sharp
-                  icon="grid_view"
-                  layout="grid"
-                  currentLayout={currentLayout}
-                  setCurrentLayout={setCurrentLayout}
-               />
+                  onClick={() => setCurrentLayout("grid")}
+                  isActive={currentLayout === "grid"}
+               >
+                  Cascade
+               </LayoutButton>
                <LayoutButton
-                  sharp
-                  icon="view_agenda"
-                  layout="list"
-                  currentLayout={currentLayout}
-                  setCurrentLayout={setCurrentLayout}
-               />
+                  onClick={() => setCurrentLayout("list")}
+                  isActive={currentLayout === "list"}
+               >
+                  Carousel
+               </LayoutButton>
                <div className="h-full w-[2px] bg-main-primary hidden md:block"></div>
                <button
                   onClick={toggleExpanded}

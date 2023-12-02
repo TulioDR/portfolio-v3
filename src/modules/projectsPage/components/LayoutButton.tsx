@@ -1,32 +1,29 @@
-import { LayoutModel } from "@/models/ProjectModel";
+import { motion } from "framer-motion";
 
 type Props = {
-   icon: string;
-   sharp?: boolean;
-   layout: LayoutModel;
-   currentLayout: LayoutModel;
-   setCurrentLayout: React.Dispatch<React.SetStateAction<LayoutModel>>;
+   children: React.ReactNode;
+   onClick: () => void;
+   isActive: boolean;
 };
 
-export default function LayoutButton({
-   icon,
-   sharp,
-   layout,
-   currentLayout,
-   setCurrentLayout,
-}: Props) {
-   const handleClick = () => setCurrentLayout(layout);
+export default function LayoutButton({ children, onClick, isActive }: Props) {
    return (
       <button
-         onClick={handleClick}
-         className={`rounded-lg aspect-square w-10 grid place-content-center ${
-            currentLayout === layout
-               ? "bg-main-primary text-white"
-               : "bg-white hover:bg-main-primary hover:bg-opacity-50 hover:text-white"
+         onClick={onClick}
+         className={`h-10 px-5 text-white relative font-medium ${
+            isActive ? "" : " hover:text-white/50"
          }`}
       >
-         <span className={`material-icons${sharp ? "-sharp" : ""}`}>
-            {icon}
+         {isActive && (
+            <motion.div
+               layoutId="selected"
+               style={{ borderRadius: 9999 }}
+               className="absolute inset-0 bg-white"
+               transition={{ type: "spring", duration: 0.6 }}
+            />
+         )}
+         <span className="h-full flex items-center relative z-10 mix-blend-exclusion">
+            {children}
          </span>
       </button>
    );

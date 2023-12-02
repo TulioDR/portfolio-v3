@@ -28,10 +28,11 @@ export default function ProjectsShowcase({
                   key={project.link}
                   project={project}
                   currentLayout={currentLayout}
-                  small={index === 1 || index === 6}
                   // Only for bug fixing when there is one project displayed
                   filteredProjects={filteredProjects}
+                  isProjectExpanded={isProjectExpanded}
                   onClick={() => setSelectedProject(project)}
+                  isReversed={index % 2 !== 0}
                />
             ))}
          </AnimatePresence>

@@ -45,33 +45,37 @@ export default function ProjectsPage() {
    };
 
    return (
-      <div className="w-full min-h-screen">
+      <div className="w-full overflow-hidden bg-main-primary">
          <Head>
             <title>Projects - by Tulio Ruzo</title>
             <meta name="description" content="Check out my projects!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <SectionContainer lightBg>
+         <SectionContainer minHScreen>
             <MainContainer>
-               <div className="flex justify-between items-center pt-20 overflow-hidden pb-7">
-                  <ProjectsPageTitle />
-                  <BackArrowButton onClick={goBack} black />
+               <div className="space-y-7">
+                  <div className="flex justify-between items-center pt-20 text-white">
+                     <ProjectsPageTitle />
+                     <BackArrowButton onClick={goBack} black />
+                  </div>
+                  <div className="flex justify-end relative">
+                     <Filter setFilteredProjects={setFilteredProjects} />
+                     <LayoutButtons
+                        currentLayout={currentLayout}
+                        setCurrentLayout={setCurrentLayout}
+                        toggleExpanded={toggleExpanded}
+                        isProjectExpanded={isProjectExpanded}
+                     />
+                  </div>
+                  <div className="pb-20">
+                     <ProjectsShowcase
+                        currentLayout={currentLayout}
+                        isProjectExpanded={isProjectExpanded}
+                        filteredProjects={filteredProjects}
+                        setSelectedProject={setSelectedProject}
+                     />
+                  </div>
                </div>
-               <div className="flex justify-end mb-7 relative">
-                  <Filter setFilteredProjects={setFilteredProjects} />
-                  <LayoutButtons
-                     currentLayout={currentLayout}
-                     setCurrentLayout={setCurrentLayout}
-                     toggleExpanded={toggleExpanded}
-                     isProjectExpanded={isProjectExpanded}
-                  />
-               </div>
-               <ProjectsShowcase
-                  currentLayout={currentLayout}
-                  isProjectExpanded={isProjectExpanded}
-                  filteredProjects={filteredProjects}
-                  setSelectedProject={setSelectedProject}
-               />
             </MainContainer>
             <AnimatePresence onExitComplete={onExitComplete}>
                {selectedProject && (

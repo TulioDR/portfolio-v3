@@ -1,55 +1,34 @@
-import { LayoutModel } from "@/models/ProjectModel";
 import { motion } from "framer-motion";
-
+import Tilt from "react-parallax-tilt";
 type Props = {
    onClick: () => void;
-   currentLayout: LayoutModel;
-   small?: boolean;
    children: React.ReactNode;
-   isOneProject: boolean;
    id: string;
 };
 
-export default function ProjectCardContainer({
-   onClick,
-   currentLayout,
-   small,
-   children,
-   isOneProject,
-   id,
-}: Props) {
-   // const item = {
-   //    initial: { opacity: 0 },
-   //    animate: {
-   //       opacity: 1,
-   //       transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
-   //    },
-   //    exit: {
-   //       opacity: 0,
-   //       transition: { duration: 0.4, ease: [0.645, 0.045, 0.355, 1] },
-   //    },
-   // };
+export default function ProjectCardContainer({ onClick, children, id }: Props) {
    return (
       <motion.div
+         layout
          id={id}
-         // ref={elementRef}
-         // layout
-         // variants={item}
-         // initial="initial"
-         // animate="animate"
-         // exit="exit"
+         initial={{ opacity: 0, scale: 0.9 }}
+         animate={{ opacity: 1, scale: 1 }}
+         exit={{ opacity: 0, scale: 0.9 }}
+         transition={{ duration: 0.4 }}
          onClick={onClick}
-         className={`bg-white relative cursor-pointer group overflow-hidden ${
-            currentLayout === "mixed"
-               ? isOneProject
-                  ? "aspect-[5/6]"
-                  : small
-                  ? "row-span-1"
-                  : "row-span-2"
-               : ""
-         }`}
+         className={`cursor-pointer w-full aspect-video relative`}
       >
-         {children}
+         <Tilt
+            glareEnable
+            perspective={1000}
+            transitionSpeed={800}
+            tiltReverse
+            className="w-full h-full group"
+            style={{ transformStyle: "preserve-3d" }}
+         >
+            {/* <div className="absolute bg-gradient-to-br from-main-orange to-main-gold bg-repeat -inset-0 group-hover:-inset-1 group-hover:blur duration-500"></div> */}
+            {children}
+         </Tilt>
       </motion.div>
    );
 }

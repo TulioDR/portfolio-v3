@@ -22,33 +22,17 @@ export default function ProjectsShowcaseContainer({
       },
       exit: { opacity: 0, transition: { duration: 0.4 } },
    };
-   const isList = currentLayout === "list";
-   const isMixed = currentLayout === "mixed";
    return (
-      <div className="overflow-y-hidden">
-         <motion.div
-            variants={container}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className={`grid gap-3 sm:gap-5 pb-5 ${
-               isList
-                  ? isProjectExpanded
-                     ? "grid-cols-1 md:grid-cols-2"
-                     : "grid-cols-1"
-                  : isProjectExpanded
-                  ? "grid-cols-2 md:grid-cols-3"
-                  : "grid-cols-2 md:grid-cols-2"
-            } ${
-               isMixed
-                  ? isProjectExpanded
-                     ? "grid-rows-6 md:grid-rows-4"
-                     : "grid-rows-6 md:grid-rows-6"
-                  : ""
-            }`}
-         >
-            {children}
-         </motion.div>
-      </div>
+      <motion.div
+         // variants={container}
+         // initial="initial"
+         // animate="animate"
+         // exit="exit"
+         className={`gap-5 grid ${
+            isProjectExpanded ? " sm:grid-cols-2 lg:grid-cols-3" : ""
+         }`}
+      >
+         {children}
+      </motion.div>
    );
 }

@@ -14,7 +14,8 @@ export default function ProjectCardContainer({ onClick, children, id }: Props) {
          initial={{ opacity: 0, scale: 0.9 }}
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 0.9 }}
-         transition={{ duration: 0.4 }}
+         // transition={{ duration: 0.4 }}
+         transition={{ type: "spring", duration: 0.6 }}
          onClick={onClick}
          className={`cursor-pointer w-full aspect-video relative`}
       >

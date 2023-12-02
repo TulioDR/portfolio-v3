@@ -18,7 +18,7 @@ export default function LayoutButton({ children, onClick, isActive }: Props) {
             <motion.div
                layoutId="selected"
                style={{ borderRadius: 9999 }}
-               className="absolute inset-0 bg-white"
+               className="absolute inset-0 bg-main-white"
                transition={{ type: "spring", duration: 0.6 }}
             />
          )}

@@ -21,10 +21,7 @@ export default function ProjectsPage() {
       window.scrollTo({ top: 0 });
    }, []);
 
-   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("mixed");
-
-   const [isProjectExpanded, setIsProjectExpanded] = useState<boolean>(true);
-   const toggleExpanded = () => setIsProjectExpanded((prevState) => !prevState);
+   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("list");
 
    const { setIsBackFromProjects } = useBackFromProjectsContext();
    const router = useRouter();
@@ -63,14 +60,11 @@ export default function ProjectsPage() {
                      <LayoutButtons
                         currentLayout={currentLayout}
                         setCurrentLayout={setCurrentLayout}
-                        toggleExpanded={toggleExpanded}
-                        isProjectExpanded={isProjectExpanded}
                      />
                   </div>
                   <div className="pb-20">
                      <ProjectsShowcase
                         currentLayout={currentLayout}
-                        isProjectExpanded={isProjectExpanded}
                         filteredProjects={filteredProjects}
                         setSelectedProject={setSelectedProject}
                      />

@@ -15,7 +15,7 @@ export default function FilterHeaderContainer({
       <motion.div
          initial={{ width: 40 }}
          animate={animationControls}
-         className={`h-10 text-white overflow-hidden ${
+         className={`h-10 overflow-hidden ${
             isFilterOpen
                ? "cursor-grab active:cursor-grabbing"
                : "cursor-pointer"

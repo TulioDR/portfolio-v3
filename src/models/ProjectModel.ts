@@ -27,4 +27,4 @@ export interface ProjectTranslations {
    }[];
 }
 
-export type LayoutModel = "mixed" | "grid" | "list";
+export type LayoutModel = "list" | "cascade" | "carousel";

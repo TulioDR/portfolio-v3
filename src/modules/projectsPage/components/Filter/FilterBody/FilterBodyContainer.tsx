@@ -13,8 +13,8 @@ export default function FilterBodyContainer({ children }: Props) {
          transition={{ duration: 0.3 }}
          className="overflow-hidden w-full"
       >
-         <div className="w-full h-full p-3 sm:p-5 pt-0 sm:pt-0">
-            <div className="w-full h-full p-3 sm:p-5 bg-main-white rounded-xl overflow-hidden">
+         <div className="w-full h-full">
+            <div className="w-full h-full p-3 sm:p-5 overflow-hidden">
                {children}
             </div>
          </div>

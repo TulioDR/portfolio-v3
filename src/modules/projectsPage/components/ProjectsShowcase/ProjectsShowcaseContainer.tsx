@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 type Props = {
    children: React.ReactNode;
    currentLayout: LayoutModel;
-   isProjectExpanded: boolean;
 };
 
 export default function ProjectsShowcaseContainer({
    currentLayout,
-   isProjectExpanded,
    children,
 }: Props) {
    const container = {
@@ -22,15 +20,20 @@ export default function ProjectsShowcaseContainer({
       },
       exit: { opacity: 0, transition: { duration: 0.4 } },
    };
+
+   const isList = currentLayout === "list";
+   const isCascade = currentLayout === "cascade";
+
    return (
       <motion.div
          // variants={container}
          // initial="initial"
          // animate="animate"
          // exit="exit"
-         className={`gap-5 grid ${
-            isProjectExpanded ? " sm:grid-cols-2 lg:grid-cols-3" : ""
-         }`}
+         className={` grid 
+         ${isList ? "gap-5 sm:grid-cols-2 lg:grid-cols-3" : ""}
+         ${isCascade ? "gap-10" : ""}
+         `}
       >
          {children}
       </motion.div>

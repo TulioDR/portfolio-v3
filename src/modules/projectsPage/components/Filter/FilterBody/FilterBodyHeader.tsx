@@ -10,15 +10,13 @@ export default function FilterBodyHeader({ resetFilter }: Props) {
    const { currentLanguage } = useLanguageContext();
    const { title, reset } = currentLanguage.projects.filer;
    return (
-      <div className="w-full flex items-center justify-between mb-5">
-         <div className="text-xl sm:text-2xl md:text-3xl font-medium">
-            {title}
-         </div>
+      <div className="w-full flex items-center justify-between">
+         <div className="text-lg sm:text-xl font-medium">{title}</div>
          <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={resetFilter}
-            className="rounded-xl h-10 px-4 text-white bg-main-primary text-sm"
+            className="rounded-full h-10 px-4 text-black bg-white text-sm"
          >
             {reset}
          </motion.button>

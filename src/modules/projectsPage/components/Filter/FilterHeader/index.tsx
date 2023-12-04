@@ -1,33 +1,18 @@
 import React from "react";
-import FilterHeaderContainer from "./FilterHeaderContainer";
-import { AnimationControls } from "framer-motion";
 import FilterHeaderButton from "./FilterHeaderButton";
 
 type Props = {
-   expandFilter: () => void;
-   contractFilter: () => void;
-   isFilterOpen: boolean;
-   headerContainerControls: AnimationControls;
+   closeFilter: () => void;
 };
 
-export default function FilterHeader({
-   expandFilter,
-   contractFilter,
-   isFilterOpen,
-   headerContainerControls,
-}: Props) {
+export default function FilterHeader({ closeFilter }: Props) {
    return (
-      <FilterHeaderContainer
-         isFilterOpen={isFilterOpen}
-         animationControls={headerContainerControls}
-      >
-         <FilterHeaderButton onClick={expandFilter} icon="filter_alt" />
+      <div className="flex items-center justify-between h-full w-full px-4">
          <div className="flex items-center">
             <span className="material-icons">drag_indicator</span>
-            <span className="uppercase">Drag me!</span>
-            <span className="material-icons">drag_indicator</span>
+            <span>Drag me!</span>
          </div>
-         <FilterHeaderButton onClick={contractFilter} icon="close" />
-      </FilterHeaderContainer>
+         <FilterHeaderButton onClick={closeFilter} icon="close" />
+      </div>
    );
 }

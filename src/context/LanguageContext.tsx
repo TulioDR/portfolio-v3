@@ -11,15 +11,11 @@ interface ContextInterface {
 }
 
 const LanguageContext = createContext({} as ContextInterface);
-
 export default function useLanguageContext() {
    return useContext(LanguageContext);
 }
 
-interface Props {
-   children: React.ReactNode;
-}
-
+type Props = { children: React.ReactNode };
 export function LanguageContextProvider({ children }: Props) {
    const [isEnglish, setIsEnglish] = useState<boolean>(true);
    const toggleLanguage = () => setIsEnglish((prev) => !prev);

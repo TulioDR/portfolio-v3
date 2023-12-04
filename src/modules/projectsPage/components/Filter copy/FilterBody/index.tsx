@@ -20,7 +20,7 @@ export default function FilterBody({
    return (
       <FilterBodyContainer>
          <FilterBodyHeader resetFilter={resetFilter} />
-         <div className="grid gap-2 grid-cols-4 sm:grid-cols-5 lg:grid-cols-6">
+         <div className="grid gap-2 grid-cols-4 sm:grid-cols-6">
             {allSkills.map((tech) => (
                <TechnologyCard
                   key={tech.name}

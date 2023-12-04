@@ -1,3 +1,4 @@
+import useScrollContext from "@/context/ScrollContext";
 import { motion } from "framer-motion";
 
 type Props = {
@@ -7,9 +8,15 @@ type Props = {
 };
 
 export default function LayoutButton({ children, onClick, isActive }: Props) {
+   const { refreshScroll } = useScrollContext();
+   const handleClick = () => {
+      onClick();
+      refreshScroll();
+   };
+
    return (
       <button
-         onClick={onClick}
+         onClick={handleClick}
          className={`h-10 px-5 text-white relative font-medium ${
             isActive ? "" : " hover:text-white/50"
          }`}
@@ -18,7 +25,7 @@ export default function LayoutButton({ children, onClick, isActive }: Props) {
             <motion.div
                layoutId="selected"
                style={{ borderRadius: 9999 }}
-               className="absolute inset-0 bg-main-white"
+               className="absolute inset-0 bg-white"
                transition={{ type: "spring", duration: 0.6 }}
             />
          )}

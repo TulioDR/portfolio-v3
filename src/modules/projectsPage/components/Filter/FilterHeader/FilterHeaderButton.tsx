@@ -9,7 +9,7 @@ export default function FilterHeaderButton({ icon, onClick }: Props) {
    return (
       <button
          onClick={onClick}
-         className="aspect-square h-full grid place-content-center"
+         className="flex items-center justify-center h-10"
       >
          <span className="material-icons">{icon}</span>
       </button>

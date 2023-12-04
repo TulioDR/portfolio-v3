@@ -9,7 +9,7 @@ type Props = {
    isSelected: boolean;
 };
 
-export default function TechnologyCard({
+export default function FilterCard({
    name,
    logo,
    isSelected,
@@ -22,7 +22,7 @@ export default function TechnologyCard({
          whileHover={{ scale: 1.1 }}
          whileTap={{ scale: 0.9 }}
          className={`aspect-square list-none cursor-pointer rounded-xl ${
-            isSelected ? "bg-main-primary text-white" : "bg-white text-black"
+            isSelected ? "bg-white text-black" : "text-white"
          }`}
       >
          <div className="w-full h-full flex flex-col items-center justify-center">

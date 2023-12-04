@@ -61,14 +61,10 @@ export default function ProjectModal({ close, project }: Props) {
       };
       startInitialAnimation();
    }, [
-      initialJumboImg,
-      initialJumboBackground,
-      initialJumboTitle,
       jumboImgControls,
       jumboBackgroundControls,
       jumboTitleControls,
       modalButtonsAnimations,
-      initialModalButtons,
       position,
    ]);
 

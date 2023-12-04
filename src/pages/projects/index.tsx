@@ -21,7 +21,7 @@ export default function ProjectsPage() {
       window.scrollTo({ top: 0 });
    }, []);
 
-   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("list");
+   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("carousel");
 
    const { setIsBackFromProjects } = useBackFromProjectsContext();
    const router = useRouter();
@@ -37,49 +37,22 @@ export default function ProjectsPage() {
       null
    );
 
-   const onExitComplete = () => {
-      document.body.style.overflowY = "auto";
-   };
-
    return (
-      <div className="w-full overflow-hidden bg-main-primary">
-         <Head>
-            <title>Projects - by Tulio Ruzo</title>
-            <meta name="description" content="Check out my projects!" />
-            <link rel="icon" href="/favicon.ico" />
-         </Head>
-         <SectionContainer minHScreen>
-            <MainContainer>
-               <div className="space-y-7">
-                  <div className="flex justify-between items-center pt-20 text-white">
-                     <ProjectsPageTitle />
-                     <BackArrowButton onClick={goBack} black />
-                  </div>
-                  <div className="flex justify-end relative">
-                     <Filter setFilteredProjects={setFilteredProjects} />
-                     <LayoutButtons
-                        currentLayout={currentLayout}
-                        setCurrentLayout={setCurrentLayout}
-                     />
-                  </div>
-                  <div className="pb-20">
-                     <ProjectsShowcase
-                        currentLayout={currentLayout}
-                        filteredProjects={filteredProjects}
-                        setSelectedProject={setSelectedProject}
-                     />
-                  </div>
-               </div>
-            </MainContainer>
-            <AnimatePresence onExitComplete={onExitComplete}>
-               {selectedProject && (
-                  <ProjectModal
-                     project={selectedProject}
-                     close={() => setSelectedProject(null)}
-                  />
-               )}
-            </AnimatePresence>
-         </SectionContainer>
-      </div>
+      <>
+         <ProjectsShowcase
+            currentLayout={currentLayout}
+            filteredProjects={filteredProjects}
+            setSelectedProject={setSelectedProject}
+         />
+         <div className="fixed bottom-0 left-0 pb-5 w-full flex justify-center z-10">
+            <div className="flex gap-5">
+               <Filter setFilteredProjects={setFilteredProjects} />
+               <LayoutButtons
+                  currentLayout={currentLayout}
+                  setCurrentLayout={setCurrentLayout}
+               />
+            </div>
+         </div>
+      </>
    );
 }

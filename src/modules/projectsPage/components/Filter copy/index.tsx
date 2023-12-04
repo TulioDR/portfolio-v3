@@ -26,7 +26,7 @@ export default function Filter({ setFilteredProjects }: Props) {
    } = useProjectsFilter(setFilteredProjects);
 
    return (
-      <>
+      <div className="relative h-[66px] aspect-square bg-black pointer-events-auto">
          <CloseFilterButton onClick={closeFilter} />
          <FilterContainer
             filterContainerControls={filterContainerControls}
@@ -49,6 +49,6 @@ export default function Filter({ setFilteredProjects }: Props) {
                )}
             </AnimatePresence>
          </FilterContainer>
-      </>
+      </div>
    );
 }

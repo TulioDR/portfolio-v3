@@ -22,40 +22,36 @@ export default function useProjectsFilter(
       setSelectedTech([]);
    };
 
-   const filterBodyControls = useAnimationControls();
+   const headerContainerControls = useAnimationControls();
    const filterContainerControls = useAnimationControls();
+   const [showFilterBody, setShowFilterBody] = useState<boolean>(false);
 
    const openFilter = async () => {
-      await setIsFilterOpen(true);
-      await filterContainerControls.start({
-         width: "auto",
-         opacity: 1,
-         transition: { duration: 0.3 },
+      setIsFilterOpen(true);
+      filterContainerControls.start({
+         borderRadius: 0,
+         transition: { duration: 5 },
       });
-      await filterContainerControls.start({
-         height: "auto",
-         transition: { duration: 0.3 },
-      });
-      await filterBodyControls.start({
-         opacity: 1,
-         transition: { duration: 0.5 },
-      });
+      // await headerContainerControls.start({
+      //    width: "auto",
+      //    transition: { duration: 0.3, ease: "easeInOut" },
+      // });
+      // setShowFilterBody(true);
    };
-   const closeFilter = async () => {
-      await filterBodyControls.start({
-         opacity: 0,
-         transition: { duration: 0.3 },
-      });
-      await filterContainerControls.start({
-         height: 5,
-         transition: { duration: 0.3 },
-      });
-      await filterContainerControls.start({
-         width: 10,
-         opacity: 0,
-         transition: { duration: 0.3 },
-      });
+   const closeFilter = () => {
+      contractHeader();
       setIsFilterOpen(false);
+   };
+
+   const contractHeader = () => {
+      filterContainerControls.start({
+         borderRadius: 999,
+         transition: { duration: 0.3 },
+      });
+      headerContainerControls.start({
+         width: 40,
+         transition: { duration: 0.3, ease: "easeInOut" },
+      });
    };
 
    useEffect(() => {
@@ -75,7 +71,9 @@ export default function useProjectsFilter(
       isFilterOpen,
       openFilter,
       closeFilter,
-      filterBodyControls,
+      contractHeader,
+      headerContainerControls,
       filterContainerControls,
+      showFilterBody,
    };
 }

@@ -1,12 +1,23 @@
+import { LayoutModel } from "@/models/ProjectModel";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 type Props = {
    onClick: () => void;
    children: React.ReactNode;
    id: string;
+   currentLayout: LayoutModel;
 };
 
-export default function ProjectCardContainer({ onClick, children, id }: Props) {
+export default function ProjectCardContainer({
+   onClick,
+   children,
+   id,
+   currentLayout,
+}: Props) {
+   const isList = currentLayout === "list";
+   const isGrid = currentLayout === "grid";
+   const isCarousel = currentLayout === "carousel";
+
    return (
       <motion.div
          layout
@@ -14,22 +25,22 @@ export default function ProjectCardContainer({ onClick, children, id }: Props) {
          initial={{ opacity: 0, scale: 0.9 }}
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 0.9 }}
-         // transition={{ duration: 0.4 }}
-         transition={{ type: "spring", duration: 0.6 }}
+         transition={{ duration: 0.6, ease: [0.645, 0.045, 0.355, 1] }}
          onClick={onClick}
-         className={`cursor-pointer w-full aspect-video relative`}
+         className={`flex-shrink-0 cursor-pointer overflow-hidden
+            ${isGrid ? "aspect-video" : ""}
+            ${isList ? "aspect-[16/5] flex items-end" : ""}
+            ${isCarousel ? "aspect-[8/9] flex justify-end" : ""}
+         `}
       >
-         <Tilt
-            glareEnable
-            perspective={1000}
-            transitionSpeed={800}
-            tiltReverse
-            className="w-full h-full group"
-            style={{ transformStyle: "preserve-3d" }}
+         <motion.div
+            layout
+            className={`relative aspect-video ${
+               isCarousel ? "h-full" : "w-full"
+            }`}
          >
-            {/* <div className="absolute bg-gradient-to-br from-main-orange to-main-gold bg-repeat -inset-0 group-hover:-inset-1 group-hover:blur duration-500"></div> */}
             {children}
-         </Tilt>
+         </motion.div>
       </motion.div>
    );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import FilterHeaderContainer from "./FilterHeaderContainer";
 import { AnimationControls } from "framer-motion";
-import DragMessage from "./DragMessage";
 import FilterHeaderButton from "./FilterHeaderButton";
 
 type Props = {
@@ -22,8 +21,12 @@ export default function FilterHeader({
          isFilterOpen={isFilterOpen}
          animationControls={headerContainerControls}
       >
-         <FilterHeaderButton icon={"sort"} onClick={expandFilter} />
-         <DragMessage />
+         <FilterHeaderButton onClick={expandFilter} icon="filter_alt" />
+         <div className="flex items-center">
+            <span className="material-icons">drag_indicator</span>
+            <span className="uppercase">Drag me!</span>
+            <span className="material-icons">drag_indicator</span>
+         </div>
          <FilterHeaderButton onClick={contractFilter} icon="close" />
       </FilterHeaderContainer>
    );

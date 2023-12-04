@@ -1,7 +1,7 @@
-import FilterBodyContainer from "./FilterBodyContainer";
+import { AnimationControls, motion } from "framer-motion";
 import FilterBodyHeader from "./FilterBodyHeader";
 import allSkills from "@/assets/skills/allSkills";
-import TechnologyCard from "./TechnologyCard";
+import FilterCard from "./FilterCard";
 import SkillModel from "@/models/SkillModel";
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
    addTech: (tech: SkillModel) => void;
    removeTech: (tech: SkillModel) => void;
    selectedTech: SkillModel[];
+   animationControls: AnimationControls;
 };
 
 export default function FilterBody({
@@ -16,13 +17,18 @@ export default function FilterBody({
    addTech,
    removeTech,
    selectedTech,
+   animationControls,
 }: Props) {
    return (
-      <FilterBodyContainer>
+      <motion.div
+         initial={{ opacity: 0 }}
+         animate={animationControls}
+         className="w-full h-full px-5 pb-5 space-y-5"
+      >
          <FilterBodyHeader resetFilter={resetFilter} />
-         <div className="grid gap-2 grid-cols-4 sm:grid-cols-5 lg:grid-cols-6">
+         <div className="grid gap-2 grid-cols-4 sm:grid-cols-6">
             {allSkills.map((tech) => (
-               <TechnologyCard
+               <FilterCard
                   key={tech.name}
                   name={tech.name}
                   logo={tech.logo}
@@ -34,6 +40,6 @@ export default function FilterBody({
                />
             ))}
          </div>
-      </FilterBodyContainer>
+      </motion.div>
    );
 }

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import useBackFromProjectsContext from "@/context/BackFromProjectsContext";
-import BackArrowButton from "@/components/BackArrowButton";
 import { useRouter } from "next/router";
 import { AnimatePresence } from "framer-motion";
 import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
@@ -25,10 +24,6 @@ export default function ProjectsPage() {
 
    const { setIsBackFromProjects } = useBackFromProjectsContext();
    const router = useRouter();
-   const goBack = () => {
-      setIsBackFromProjects(true);
-      router.push("/#projects");
-   };
 
    const [filteredProjects, setFilteredProjects] =
       useState<ProjectModel[]>(projects);

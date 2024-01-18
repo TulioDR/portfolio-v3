@@ -10,8 +10,11 @@
 
 html,
 body {
-   @apply bg-main-white;
+   @apply bg-primary;
    font-family: Futura, sans-serif;
+}
+.material-symbols-outlined {
+   font-variation-settings: "FILL" 1;
 }
 
 a {
@@ -20,6 +23,20 @@ a {
 }
 
 .card-logo {
+   box-shadow: 1px 1px 0 1px #f9f9fb;
+}
+
+/* .card-logo {
+   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
+      28px 28px 28px 0 rgba(0, 0, 0, 0.25);
+   transition: 0.4s ease-in-out box-shadow;
+}
+.card-logo:hover {
+   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
+      54px 54px 28px -10px rgba(0, 0, 0, 0.15);
+} */
+
+/* .card-logo {
    transform: rotateX(45deg) rotateZ(43deg);
    transform-style: preserve-3d;
    box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
@@ -30,7 +47,7 @@ a {
    transform: translate3d(0px, -16px, 0px) rotateX(45deg) rotateZ(43deg);
    box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
       54px 54px 28px -10px rgba(0, 0, 0, 0.15);
-}
+} */
 
 @font-face {
    font-family: "Futura";
@@ -73,14 +90,14 @@ a {
    src: url("../assets/fonts/Futura\ Extra\ Black\ font.ttf");
 }
 
-/* :root::-webkit-scrollbar {
+:root::-webkit-scrollbar {
    display: none;
 }
 
 :root {
    scrollbar-width: none;
    -ms-overflow-style: none;
-} */
+}
 
 /* .rgb {
    animation: rgb 6s linear infinite;

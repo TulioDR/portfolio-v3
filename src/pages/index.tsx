@@ -1,12 +1,11 @@
 import Head from "next/head";
 
-import HomeSection from "@/components/Sections/Home";
-import AboutSection from "@/components/Sections/About";
-import SkillsSection from "@/components/Sections/Skills";
-import ProjectsSection from "@/components/Sections/Projects";
-import ContactSection from "@/components/Sections/Contact";
 import { useEffect } from "react";
-import Footer from "@/components/Footer";
+
+import ReactLenis from "@studio-freight/react-lenis";
+import HomeSection from "@/modules/pages/home/components/HomeSection";
+import AboutSection from "@/modules/pages/home/components/AboutSection";
+import ContactSection from "@/modules/pages/home/components/ContactSection";
 
 export default function Home() {
    useEffect(() => {
@@ -21,12 +20,15 @@ export default function Home() {
             <meta name="description" content="Check out my portfolio!" />
             <link rel="icon" href="/favicon.ico" />
          </Head>
-         <HomeSection />
-         <AboutSection />
-         <SkillsSection />
-         <ProjectsSection />
-         <ContactSection />
-         <Footer />
+         <ReactLenis root>
+            <div className="bg-primary">
+               <HomeSection />
+            </div>
+            <AboutSection />
+            <div className="bg-[#1C1D20]">
+               <ContactSection />
+            </div>
+         </ReactLenis>
       </>
    );
 }

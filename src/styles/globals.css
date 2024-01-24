@@ -90,14 +90,19 @@ a {
    src: url("../assets/fonts/Futura\ Extra\ Black\ font.ttf");
 }
 
-:root::-webkit-scrollbar {
+@font-face {
+   font-family: "Nexusbold";
+   src: url("../assets/fonts/nexusbold/Nexusbold\ Regular.otf");
+}
+
+/* :root::-webkit-scrollbar {
    display: none;
 }
 
 :root {
    scrollbar-width: none;
    -ms-overflow-style: none;
-}
+} */
 
 /* .rgb {
    animation: rgb 6s linear infinite;

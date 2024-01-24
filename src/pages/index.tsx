@@ -6,6 +6,9 @@ import ReactLenis from "@studio-freight/react-lenis";
 import HomeSection from "@/modules/pages/home/components/HomeSection";
 import AboutSection from "@/modules/pages/home/components/AboutSection";
 import ContactSection from "@/modules/pages/home/components/ContactSection";
+import WorkSection from "@/modules/pages/home/components/WorkSection";
+import Tablet from "@/modules/pages/home/components/Tablet";
+import { TabletPositionProvider } from "@/modules/pages/home/context/TabletPositionContext";
 
 export default function Home() {
    useEffect(() => {
@@ -21,13 +24,13 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <ReactLenis root>
-            <div className="bg-primary">
-               <HomeSection />
-            </div>
+            <TabletPositionProvider>
+               <Tablet />
+            </TabletPositionProvider>
+            <HomeSection />
             <AboutSection />
-            <div className="bg-[#1C1D20]">
-               <ContactSection />
-            </div>
+            <WorkSection />
+            <ContactSection />
          </ReactLenis>
       </>
    );

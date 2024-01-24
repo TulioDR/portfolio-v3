@@ -1,56 +1,24 @@
-import React, { useState } from "react";
-import {
-   AnimatePresence,
-   MotionValue,
-   useMotionValueEvent,
-} from "framer-motion";
-import WorkScreenContainer from "./WorkScreenContainer";
-import LoadingWork from "./LoadingWork";
-import BrightScreen from "./BrightScreen";
-import WorkShowcase from "./WorkShowcase";
+import React from "react";
+import MainButton from "../MainButton";
 
-type Props = {
-   scroll: MotionValue<number>;
-};
+type Props = {};
 
-export default function WorkSection({ scroll }: Props) {
-   const [showLoading, setShowLoading] = useState<boolean>(false);
-   const [showWork, setShowWork] = useState<boolean>(false);
-
-   useMotionValueEvent(scroll, "change", (latest) => {
-      if (latest > 0.5) {
-         if (showLoading) return;
-         setShowLoading(true);
-      } else {
-         if (!showLoading) return;
-         setShowLoading(false);
-      }
-   });
-   useMotionValueEvent(scroll, "change", (latest) => {
-      if (latest > 0.7) {
-         if (showWork) return;
-         setShowWork(true);
-      } else {
-         if (!showWork) return;
-         setShowWork(false);
-      }
-   });
-
+export default function WorkSection({}: Props) {
    return (
-      <div className="z-20 absolute top-0 left-0 w-full h-screen pointer-events-none">
-         <div className="w-full h-full relative">
-            <WorkScreenContainer scroll={scroll}>
-               <AnimatePresence mode="wait">
-                  {!showLoading && <BrightScreen key="bright" />}
-                  {showLoading && !showWork && (
-                     <LoadingWork key="loading" scroll={scroll} />
-                  )}
-                  {showLoading && showWork && (
-                     <WorkShowcase key="work" scroll={scroll} />
-                  )}
-               </AnimatePresence>
-            </WorkScreenContainer>
+      <div>
+         <div
+            id="work"
+            className="h-screen sticky top-0 w-full bg-gradient-to-b from-gray-200 to-gray-300 "
+         >
+            <div className="flex flex-col items-center pt-20 h-full">
+               <div className="aspect-video w-[calc(50%-80px)]"></div>
+               <div className="flex-1 w-full grid place-content-center">
+                  <MainButton>View Work</MainButton>
+               </div>
+            </div>
          </div>
+         <div className="h-screen" />
+         <div className="h-screen" />
       </div>
    );
 }

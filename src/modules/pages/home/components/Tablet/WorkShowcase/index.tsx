@@ -2,13 +2,15 @@ import React from "react";
 import { MotionValue, motion, useTransform } from "framer-motion";
 import projects from "@/assets/projects";
 import ProjectImage from "./ProjectImage";
-import ViewWorkButton from "./ViewWorkButton";
+import useTabletPositionContext from "../../../context/TabletPositionContext";
 
 type Props = {
    scroll: MotionValue<number>;
 };
 export default function WorkShowcase({ scroll }: Props) {
-   const y = useTransform(scroll, [0.7, 0.9], ["-10%", "-75%"]);
+   const { positions } = useTabletPositionContext();
+   const { w1, w3 } = positions;
+   const y = useTransform(scroll, [w1, w3], ["-10%", "-80%"]);
 
    return (
       <motion.div
@@ -16,16 +18,10 @@ export default function WorkShowcase({ scroll }: Props) {
          animate={{ opacity: 1 }}
          exit={{ opacity: 0 }}
          transition={{ duration: 0.2 }}
-         className="h-full w-full pointer-events-auto overflow-hidden rounded-2xl relative"
+         className="h-full w-full pointer-events-auto relative"
       >
-         <ViewWorkButton scroll={scroll} />
          <motion.div
-            style={{
-               rotateX: 60,
-               rotateZ: 35,
-               x: "-40%",
-               y: "-25%",
-            }}
+            style={{ rotateX: 60, rotateZ: 35 }}
             className="w-full h-full"
          >
             <motion.div style={{ y }} className="space-y-[5%]">

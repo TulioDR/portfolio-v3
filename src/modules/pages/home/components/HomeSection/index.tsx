@@ -26,13 +26,14 @@ export default function HomeSection() {
    }, [showOnTop]);
 
    return (
-      <div className=" h-screen w-full overflow-hidden">
+      <div className="h-screen w-full overflow-hidden bg-gradient-to-b from-[#141B25] via-[#141B25] to-primary">
          <div className="h-full w-full relative text-white flex flex-col items-center justify-center">
-            <div className="text-9xl font-light">
-               <div>Tulio</div>
-               <div>Ruzo</div>
+            <div className="flex items-center">
+               <div className="text-[10vw] uppercase">Tulio Ruzo</div>
             </div>
-            <div className="text-lg">Software Developer</div>
+            <div className="text-[1.5vw] uppercase tracking-widest">
+               SOFTWARE ENGINEER, FRONT END & APP DEVELOPER.
+            </div>
          </div>
       </div>
    );

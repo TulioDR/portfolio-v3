@@ -29,7 +29,7 @@ export default function HomeTitle() {
 
          <motion.span
             layoutId="nav-title"
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] min-w-max"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem]"
          >
             Tulio Ruzo
          </motion.span>

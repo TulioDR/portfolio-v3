@@ -3,6 +3,9 @@ module.exports = {
    content: ["./src/**/*.{js,ts,jsx,tsx}"],
    theme: {
       extend: {
+         fontFamily: {
+            nexusbold: ["Nexusbold", "serif"],
+         },
          colors: {
             primary: "#171417",
             main: {

@@ -1,7 +1,5 @@
 import { useState } from "react";
 import LanguageIndicator from "./LanguageIndicator";
-import ActiveLang from "./ActiveLang";
-import TranslateContainer from "./TranslateContainer";
 
 type Props = {};
 
@@ -12,15 +10,13 @@ export default function TranslateButton({}: Props) {
       setIsActive((prev) => !prev);
    };
    return (
-      <TranslateContainer onClick={toggle}>
-         <LanguageIndicator>en</LanguageIndicator>
+      <button
+         onClick={toggle}
+         className="h-10 px-5 text-white flex items-center gap-2 pointer-events-auto"
+      >
+         <LanguageIndicator isActive={isActive}>en</LanguageIndicator>
          <span>/</span>
-         <LanguageIndicator>es</LanguageIndicator>
-         <ActiveLang isActive={isActive}>
-            <LanguageIndicator>En</LanguageIndicator>
-            <span>/</span>
-            <LanguageIndicator>Es</LanguageIndicator>
-         </ActiveLang>
-      </TranslateContainer>
+         <LanguageIndicator isActive={!isActive}>es</LanguageIndicator>
+      </button>
    );
 }

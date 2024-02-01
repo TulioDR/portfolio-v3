@@ -9,6 +9,8 @@ import ContactSection from "@/modules/pages/home/components/ContactSection";
 import WorkSection from "@/modules/pages/home/components/WorkSection";
 import Tablet from "@/modules/pages/home/components/Tablet";
 import { TabletPositionProvider } from "@/modules/pages/home/context/TabletPositionContext";
+import ProgressBar from "@/modules/pages/home/components/ProgressBar";
+import PositionDots from "@/modules/pages/home/components/PositionDots.tsx";
 
 export default function Home() {
    useEffect(() => {
@@ -26,7 +28,9 @@ export default function Home() {
          <ReactLenis root>
             <TabletPositionProvider>
                <Tablet />
+               <PositionDots />
             </TabletPositionProvider>
+            <ProgressBar />
             <HomeSection />
             <AboutSection />
             <WorkSection />

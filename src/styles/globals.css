@@ -22,33 +22,6 @@ a {
    text-decoration: none;
 }
 
-.card-logo {
-   box-shadow: 1px 1px 0 1px #f9f9fb;
-}
-
-/* .card-logo {
-   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
-      28px 28px 28px 0 rgba(0, 0, 0, 0.25);
-   transition: 0.4s ease-in-out box-shadow;
-}
-.card-logo:hover {
-   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
-      54px 54px 28px -10px rgba(0, 0, 0, 0.15);
-} */
-
-/* .card-logo {
-   transform: rotateX(45deg) rotateZ(43deg);
-   transform-style: preserve-3d;
-   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
-      28px 28px 28px 0 rgba(0, 0, 0, 0.25);
-   transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
-}
-.card-logo:hover {
-   transform: translate3d(0px, -16px, 0px) rotateX(45deg) rotateZ(43deg);
-   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(0, 0, 0, 0.01),
-      54px 54px 28px -10px rgba(0, 0, 0, 0.15);
-} */
-
 @font-face {
    font-family: "Futura";
    font-weight: 200;
@@ -95,14 +68,14 @@ a {
    src: url("../assets/fonts/nexusbold/Nexusbold\ Regular.otf");
 }
 
-/* :root::-webkit-scrollbar {
+:root::-webkit-scrollbar {
    display: none;
 }
 
 :root {
    scrollbar-width: none;
    -ms-overflow-style: none;
-} */
+}
 
 /* .rgb {
    animation: rgb 6s linear infinite;
@@ -117,14 +90,4 @@ a {
    100% {
       background-position: 0% 50%;
    }
-} */
-
-/* body::-webkit-scrollbar {
-   width: 15px;
-}
-body::-webkit-scrollbar-track {
-   @apply bg-main-white;
-}
-body::-webkit-scrollbar-thumb {
-   @apply bg-main-primary;
 } */

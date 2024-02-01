@@ -1,5 +1,6 @@
 import React from "react";
 import MainButton from "../MainButton";
+import ProjectsBackground from "./ProjectsBackground";
 
 type Props = {};
 
@@ -8,12 +9,12 @@ export default function WorkSection({}: Props) {
       <div>
          <div
             id="work"
-            className="h-screen sticky top-0 w-full bg-gradient-to-b from-gray-200 to-gray-300 "
+            className="h-screen sticky top-0 w-full overflow-hidden "
          >
-            <div className="flex flex-col items-center pt-20 h-full">
-               <div className="aspect-video w-[calc(50%-80px)]"></div>
-               <div className="flex-1 w-full grid place-content-center">
-                  <MainButton>View Work</MainButton>
+            <ProjectsBackground />
+            <div className="absolute top-0 left-0 flex justify-end w-full h-full py-20 px-40">
+               <div className="h-full w-1/2 grid place-content-center z-50">
+                  <MainButton light>View Work</MainButton>
                </div>
             </div>
          </div>

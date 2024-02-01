@@ -1,34 +1,35 @@
 "use client";
 
 import { useScroll } from "framer-motion";
-import AboutCardDesktop from "./desktop/AboutCardDesktop";
 import { useRef } from "react";
 
 import AboutDescription from "./AboutDescription";
+import TransformBackground from "./desktop/TransformBackground";
+import AboutMeButton from "./desktop/AboutMeButton";
 
 export default function AboutSection() {
    const aboutRef1 = useRef(null);
-   const aboutRef2 = useRef(null);
    const { scrollYProgress: scroll1 } = useScroll({
       target: aboutRef1,
       offset: ["start end", "end end"],
    });
-   const { scrollYProgress: scroll2 } = useScroll({
-      target: aboutRef2,
-      offset: ["start end", "end end"],
-   });
 
    return (
-      <div>
+      <div className="relative">
          <div
             id="about "
-            className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-900 to-zinc-700 backdrop-blur-2xl"
+            className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-800 to-zinc-600"
          >
-            <AboutCardDesktop scroll={scroll1} />
-            <AboutDescription scroll={scroll2} />
+            <AboutDescription />
+            <TransformBackground scroll={scroll1} />
          </div>
-         <div ref={aboutRef1} className="h-screen" />
-         <div ref={aboutRef2} className="h-screen" />
+         <div
+            ref={aboutRef1}
+            className="h-screen w-full z-50 sticky top-0 pointer-events-none"
+         >
+            <AboutMeButton scroll={scroll1} />
+         </div>
+         <div className="h-screen" />
       </div>
    );
 }

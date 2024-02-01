@@ -13,7 +13,7 @@ type Props = {
 
 export default function TabletContainer({ children, scroll }: Props) {
    const { positions } = useTabletPositionContext();
-   const { h2, a1, a2, a3, w1, w3, c1 } = positions;
+   const { h3, a1, a2, a3, w1, w3, c1 } = positions;
    const width = useTransform(
       scroll,
       [a3, w1, w3, c1],
@@ -27,12 +27,12 @@ export default function TabletContainer({ children, scroll }: Props) {
 
    const top = useTransform(
       scroll,
-      [h2, a1, a3, w1, w3, c1],
+      [h3, a1, a3, w1, w3, c1],
       ["100%", "50%", "50%", "50%", "50%", "50%"]
    );
    const y = useTransform(
       scroll,
-      [h2, a1, a3, w1, w3, c1],
+      [h3, a1, a3, w1, w3, c1],
       ["0%", "-50%", "-50%", "-50%", "-50%", "-50%"]
    );
 

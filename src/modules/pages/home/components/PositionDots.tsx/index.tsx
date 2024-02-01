@@ -11,11 +11,11 @@ export default function PositionDots({}: Props) {
    const [currentP, setCurrentP] = useState<Position>("home");
 
    const { positions } = useTabletPositionContext();
-   const { h1, h2, a3, w3, c1 } = positions;
+   const { h1, h3, a3, w3, c1 } = positions;
 
    const { scrollYProgress } = useScroll();
    useMotionValueEvent(scrollYProgress, "change", (current) => {
-      if (current < h2) {
+      if (current < h3) {
          setCurrentP("home");
       } else if (current < a3) {
          setCurrentP("about");
@@ -29,8 +29,8 @@ export default function PositionDots({}: Props) {
    return (
       <div className="fixed top-0 left-20 w-20 flex items-center justify-center h-screen z-20">
          <div className="h-1/3 flex flex-col items-center justify-between">
-            <Dot active={currentP === "home"} initial={h1} final={h2} />
-            <Dot active={currentP === "about"} initial={h2} final={a3} />
+            <Dot active={currentP === "home"} initial={h1} final={h3} />
+            <Dot active={currentP === "about"} initial={h3} final={a3} />
             <Dot active={currentP === "work"} initial={a3} final={w3} />
             <Dot active={currentP === "contact"} initial={w3} final={c1} />
          </div>

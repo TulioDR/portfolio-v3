@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
    return (
       <InitialLoadingContextProvider>
-         <InitialLoadingAnimation />
+         {/* <InitialLoadingAnimation /> */}
          <LanguageContextProvider>
             <Navbar />
             <AnimatePresence mode="wait">

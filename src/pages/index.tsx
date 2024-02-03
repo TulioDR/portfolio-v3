@@ -27,7 +27,7 @@ export default function Home() {
          </Head>
          <ReactLenis root>
             <TabletPositionProvider>
-               <Tablet />
+               {/* <Tablet /> */}
                <PositionDots />
             </TabletPositionProvider>
             <ProgressBar />

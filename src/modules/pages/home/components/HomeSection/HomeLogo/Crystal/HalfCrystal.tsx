@@ -13,7 +13,7 @@ export default function HalfCrystal({ position, invert }: Props) {
 
    return (
       <mesh position={position} rotation={[dtr(invert ? 180 : 0), 0, 0]}>
-         <coneGeometry args={[1.5, 2, 4]} />
+         <coneGeometry args={[2, 2.5, 4]} />
          <meshStandardMaterial color="orange" />
       </mesh>
    );

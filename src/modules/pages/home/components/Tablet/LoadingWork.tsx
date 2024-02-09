@@ -8,9 +8,9 @@ type Props = {
 
 export default function LoadingWork({ scroll }: Props) {
    const { positions } = useTabletPositionContext();
-   const { a3, w1 } = positions;
+   const { a4, w1 } = positions;
 
-   const width = useTransform(scroll, [a3, w1], ["0%", "100%"]);
+   const width = useTransform(scroll, [a4, w1], ["0%", "100%"]);
 
    return (
       <motion.div

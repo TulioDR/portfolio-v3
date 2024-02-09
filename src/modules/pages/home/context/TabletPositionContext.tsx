@@ -7,6 +7,7 @@ interface PositionsModel {
    a1: number;
    a2: number;
    a3: number;
+   a4: number;
    w1: number;
    w2: number;
    w3: number;
@@ -24,7 +25,7 @@ export default function useTabletPositionContext() {
 
 type Props = { children: React.ReactNode };
 export function TabletPositionProvider({ children }: Props) {
-   const NUMBER_OF_PAGES = 9;
+   const NUMBER_OF_PAGES = 10;
 
    const [positions, setPositions] = useState<PositionsModel>(
       {} as PositionsModel
@@ -37,11 +38,12 @@ export function TabletPositionProvider({ children }: Props) {
       const a1 = sl * 3;
       const a2 = sl * 4;
       const a3 = sl * 5;
-      const w1 = sl * 6;
-      const w2 = sl * 7;
-      const w3 = sl * 8;
-      const c1 = sl * 9;
-      setPositions({ h1, h2, h3, a1, a2, a3, w1, w2, w3, c1 });
+      const a4 = sl * 6;
+      const w1 = sl * 7;
+      const w2 = sl * 8;
+      const w3 = sl * 9;
+      const c1 = sl * 10;
+      setPositions({ h1, h2, h3, a1, a2, a3, a4, w1, w2, w3, c1 });
    }, [NUMBER_OF_PAGES]);
 
    const value: TabletPositionInterface = {

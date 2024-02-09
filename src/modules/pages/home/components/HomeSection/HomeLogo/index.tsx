@@ -22,20 +22,19 @@ export default function HomeLogo({}: Props) {
             near={0.1}
             far={1000}
          />
-         <ambientLight intensity={0.1} />
-         <Crystal y={0.5} />
-         <Base position={[0, -2.2, 0]} />
-         <pointLight
-            intensity={0.2}
-            color={"orange"}
-            castShadow
-            position={[0, 3, 0]}
-         />
+         <Crystal y={-0.3} />
+         {/* <Base position={[0, -2.2, 0]} /> */}
          <pointLight
             intensity={2}
             color={"orange"}
             castShadow
-            position={[0, -2, 0]}
+            position={[1, 3, -0.5]}
+         />
+         <pointLight
+            intensity={0.2}
+            color={"orange"}
+            castShadow
+            position={[0, -4, 0]}
          />
       </Canvas>
    );

@@ -8,27 +8,45 @@ import TransformBackground from "./desktop/TransformBackground";
 import AboutMeButton from "./desktop/AboutMeButton";
 
 export default function AboutSection() {
-   const aboutRef1 = useRef(null);
+   const aboutRef = useRef(null);
+   const aboutRef2 = useRef(null);
+   const progressRef = useRef(null);
+
    const { scrollYProgress: scroll1 } = useScroll({
-      target: aboutRef1,
-      offset: ["start end", "end end"],
+      target: aboutRef,
+      offset: ["start end", "start start"],
+   });
+   const { scrollYProgress: scroll2 } = useScroll({
+      target: aboutRef2,
+      offset: ["start end", "start start"],
+   });
+   const { scrollYProgress } = useScroll({
+      target: progressRef,
+      offset: ["start start", "end end"],
    });
 
    return (
-      <div className="relative">
+      <div ref={progressRef} className="relative">
          <div
             id="about "
-            className="overflow-hidden h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-800 to-zinc-600"
+            className="h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-800 to-zinc-600"
          >
-            <AboutDescription />
-            <TransformBackground scroll={scroll1} />
+            <div className="relative w-full h-full">
+               <AboutDescription />
+               <TransformBackground
+                  scrollTitle={scroll1}
+                  scroll={scroll2}
+                  lastScroll={scrollYProgress}
+               />
+            </div>
          </div>
          <div
-            ref={aboutRef1}
-            className="h-screen w-full z-50 sticky top-0 pointer-events-none"
+            ref={aboutRef}
+            className="sticky top-0 w-full h-screen py-20 px-40 z-50 pointer-events-none"
          >
-            <AboutMeButton scroll={scroll1} />
+            <AboutMeButton scroll={scroll2} />
          </div>
+         <div ref={aboutRef2} className="h-screen" />
          <div className="h-screen" />
       </div>
    );

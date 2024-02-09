@@ -35,7 +35,7 @@ export default function Base({ position }: Props) {
             object={new ExtrudeGeometry(arcShape, extrudeSettings)}
             attach="geometry"
          />
-         <meshStandardMaterial color="lightgray" />
+         <meshStandardMaterial color="white" />
       </mesh>
    );
 }

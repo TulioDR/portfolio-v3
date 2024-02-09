@@ -1,13 +1,19 @@
 import useLanguageContext from "@/context/LanguageContext";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import ScrollIndicator from "../../ScrollIndicator";
 
 interface Props {
+   scrollTitle: MotionValue<number>;
    scroll: MotionValue<number>;
+   lastScroll: MotionValue<number>;
 }
 
-export default function TransformBackground({ scroll }: Props) {
+export default function TransformBackground({
+   scrollTitle,
+   scroll,
+   lastScroll,
+}: Props) {
    const width = useTransform(scroll, [0, 1], ["100%", "25%"]);
-
    const height = useTransform(
       scroll,
       [0, 1],
@@ -15,7 +21,9 @@ export default function TransformBackground({ scroll }: Props) {
    );
    const borderRadius = useTransform(scroll, [0, 1], [0, 24]);
    const marginRight = useTransform(scroll, [0, 1], [0, 160]);
-   const padding = useTransform(scroll, [0, 1], ["150px 250px", "56px 40px"]);
+   const paddingTop = useTransform(scroll, [0, 1], ["5rem", "2.5rem"]);
+
+   const y = useTransform(scrollTitle, [0, 1], ["100%", "0%"]);
 
    const { currentLanguage } = useLanguageContext();
    const { card } = currentLanguage.about;
@@ -26,11 +34,23 @@ export default function TransformBackground({ scroll }: Props) {
                height,
                width,
                borderRadius,
-               // padding,
+               paddingTop,
                marginRight,
             }}
-            className="rounded-3xl bg-primary text-white font-semibold text-2xl 2xl:text-3xl"
-         ></motion.div>
+            className="bg-primary text-white flex flex-col justify-between shadow-xl"
+         >
+            <div className="overflow-hidden">
+               <motion.div
+                  style={{ y }}
+                  className="font-semibold text-4xl xl:text-5xl 2xl:text-6xl text-center uppercase"
+               >
+                  About me
+               </motion.div>
+            </div>
+            <div className="pb-5 lg:w-48 xl:w-60 2xl:w-80 mx-auto">
+               <ScrollIndicator scroll={lastScroll} />
+            </div>
+         </motion.div>
       </div>
    );
 }

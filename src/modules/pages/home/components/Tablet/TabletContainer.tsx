@@ -13,10 +13,10 @@ type Props = {
 
 export default function TabletContainer({ children, scroll }: Props) {
    const { positions } = useTabletPositionContext();
-   const { h3, a1, a2, a3, w1, w3, c1 } = positions;
+   const { h3, a1, a2, a3, a4, w1, w3, c1 } = positions;
    const width = useTransform(
       scroll,
-      [a3, w1, w3, c1],
+      [a4, w1, w3, c1],
       [
          "calc(25% + 5rem)",
          "calc(50% + 0rem)",
@@ -27,38 +27,38 @@ export default function TabletContainer({ children, scroll }: Props) {
 
    const top = useTransform(
       scroll,
-      [h3, a1, a3, w1, w3, c1],
+      [a1, a2, a3, w1, w3, c1],
       ["100%", "50%", "50%", "50%", "50%", "50%"]
    );
    const y = useTransform(
       scroll,
-      [h3, a1, a3, w1, w3, c1],
-      ["0%", "-50%", "-50%", "-50%", "-50%", "-50%"]
+      [a1, a2, a3, w1, w3, c1],
+      ["100%", "-50%", "-50%", "-50%", "-50%", "-50%"]
    );
 
    const right = useTransform(
       scroll,
-      [a1, a2, a3, w1, w3, c1],
+      [a2, a3, a4, w1, w3, c1],
       ["50%", "0%", "0%", "97%", "97%", "25%"]
    );
    const x = useTransform(
       scroll,
-      [a1, a2, a3, w1, w3, c1],
+      [a2, a3, a4, w1, w3, c1],
       ["50%", "0%", "0%", "99%", "99%", "50%"]
    );
 
-   const rotateX = useTransform(scroll, [a3, w1, w3, c1], [45, 0, 0, 45]);
-   const rotateY = useTransform(scroll, [a3, w1, w3, c1], [0, 30, 30, 0]);
-   const rotateZ = useTransform(scroll, [a3, w1, w3, c1], [43, 0, 0, 43]);
+   const rotateX = useTransform(scroll, [a4, w1, w3, c1], [45, 0, 0, 45]);
+   const rotateY = useTransform(scroll, [a4, w1, w3, c1], [0, 30, 30, 0]);
+   const rotateZ = useTransform(scroll, [a4, w1, w3, c1], [43, 0, 0, 43]);
 
    const perspective = useTransform(
       scroll,
-      [a3, w1, w3, c1],
+      [a4, w1, w3, c1],
       [7000, 2000, 2000, 7000]
    );
 
-   const s1 = useTransform(scroll, [a3, w1, w3, c1], [2, -2, -2, 2]);
-   const s2 = useTransform(scroll, [a3, w1, w3, c1], [2, 0, 0, 2]);
+   const s1 = useTransform(scroll, [a4, w1, w3, c1], [2, -2, -2, 2]);
+   const s2 = useTransform(scroll, [a4, w1, w3, c1], [2, 0, 0, 2]);
    const boxShadow = useMotionTemplate`${s1}px ${s2}px 0 ${s2}px white`;
 
    return (

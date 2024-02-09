@@ -12,23 +12,27 @@ export default function HomeSection() {
       offset: ["start end", "end start"],
    });
 
-   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 
    return (
       <div className="bg-primary">
-         <motion.div
-            style={{ opacity }}
-            className="h-screen sticky top-0 px-40 w-full overflow-hidden bg-gradient-to-b from-[#141B25] via-[#141B25] to-primary"
-         >
-            <div className="h-full w-full flex relative">
-               <HomeText />
-               <div className="w-1/2 h-full cursor-grab active:cursor-grabbing">
-                  <HomeLogo />
+         <div>
+            <motion.div
+               style={{ opacity }}
+               className="h-screen sticky top-0 px-40 py-20 w-full overflow-hidden bg-gradient-to-b from-[#141B25] via-[#141B25] to-primary"
+            >
+               <div className="h-full w-full flex relative">
+                  <div className="w-2/3 h-full">
+                     <HomeText />
+                  </div>
+                  <div className="w-1/3 h-full">
+                     <HomeLogo />
+                  </div>
                </div>
-            </div>
-         </motion.div>
-         <div ref={homeRef} className="h-screen" />
-         <div className="h-screen" />
+            </motion.div>
+            <div ref={homeRef} className="h-screen" />
+            <div className="h-screen" />
+         </div>
       </div>
    );
 }

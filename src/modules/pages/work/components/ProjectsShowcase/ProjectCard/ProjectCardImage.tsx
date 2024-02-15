@@ -27,6 +27,8 @@ export default function ProjectCardImage({
 
    return (
       <motion.div
+         whileHover={{ scale: 1.1 }}
+         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
          style={isCarousel ? { x, right } : { y, bottom }}
          className={`absolute aspect-video ${isCarousel ? "h-full" : "w-full"}`}
       >

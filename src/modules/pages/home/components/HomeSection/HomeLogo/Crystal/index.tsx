@@ -15,8 +15,8 @@ export default function Crystal({ y }: Props) {
    });
    return (
       <group ref={groupRef} position={[0, y, 0]}>
-         <HalfCrystal position={[0, 1.31, 0]} />
-         <HalfCrystal position={[0, -1.31, 0]} invert />
+         <HalfCrystal position={[0, 1.56, 0]} />
+         <HalfCrystal position={[0, -1.56, 0]} invert />
       </group>
    );
 }

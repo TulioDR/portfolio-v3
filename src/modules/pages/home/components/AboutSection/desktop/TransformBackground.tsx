@@ -19,8 +19,8 @@ export default function TransformBackground({
       [0, 1],
       ["calc(100% - 0rem)", "calc(100% - 10rem)"]
    );
-   const borderRadius = useTransform(scroll, [0, 1], [0, 24]);
-   const marginRight = useTransform(scroll, [0, 1], [0, 160]);
+   const borderRadius = useTransform(scroll, [0, 1], [0, 4]);
+   const marginRight = useTransform(scroll, [0, 1], [0, 140]);
    const paddingTop = useTransform(scroll, [0, 1], ["5rem", "2.5rem"]);
 
    const y = useTransform(scrollTitle, [0, 1], ["100%", "0%"]);
@@ -30,13 +30,7 @@ export default function TransformBackground({
    return (
       <div className="hidden lg:flex items-center z-10 justify-end absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
          <motion.div
-            style={{
-               height,
-               width,
-               borderRadius,
-               paddingTop,
-               marginRight,
-            }}
+            style={{ height, width, borderRadius, paddingTop, marginRight }}
             className="bg-primary text-white flex flex-col justify-between shadow-xl"
          >
             <div className="overflow-hidden">

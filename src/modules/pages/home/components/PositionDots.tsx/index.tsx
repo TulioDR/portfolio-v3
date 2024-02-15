@@ -27,7 +27,7 @@ export default function PositionDots({}: Props) {
    });
 
    return (
-      <div className="fixed top-0 left-20 w-20 flex items-center justify-center h-screen z-20">
+      <div className="fixed top-0 left-20 w-10 flex items-center justify-center h-screen z-20">
          <div className="h-1/3 flex flex-col items-center justify-between">
             <Dot active={currentP === "home"} initial={h1} final={h3} />
             <Dot active={currentP === "about"} initial={h3} final={a4} />

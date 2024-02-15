@@ -10,11 +10,11 @@ type Props = {};
 export default function HomeLogo({}: Props) {
    return (
       <Canvas shadows={true}>
-         <OrbitControls
+         {/* <OrbitControls
             enableZoom={false}
             minPolarAngle={Math.PI / 2}
             maxPolarAngle={Math.PI / 2}
-         />
+         /> */}
          <PerspectiveCamera
             makeDefault
             fov={75}
@@ -23,8 +23,15 @@ export default function HomeLogo({}: Props) {
             far={1000}
          />
          <Crystal y={-0.3} />
-         {/* <Base position={[0, -2.2, 0]} /> */}
+         <ambientLight intensity={0.02} />
          <pointLight
+            intensity={2}
+            color={"orange"}
+            castShadow
+            position={[-3, -0.3, 2]}
+         />
+         {/* <Base position={[0, -2.2, 0]} /> */}
+         {/* <pointLight
             intensity={2}
             color={"orange"}
             castShadow
@@ -35,7 +42,7 @@ export default function HomeLogo({}: Props) {
             color={"orange"}
             castShadow
             position={[0, -4, 0]}
-         />
+         /> */}
       </Canvas>
    );
 }

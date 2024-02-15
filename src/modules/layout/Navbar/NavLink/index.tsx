@@ -22,25 +22,25 @@ export default function NavLink({ href, children }: Props) {
    return (
       <Link
          href={href}
-         className={`flex items-center relative px-5 h-10 text-white ${
+         className={`flex items-center relative h-10 text-white ${
             isActive ? "" : "hover:text-white/80"
          }`}
       >
-         <span className="relative z-10">{children}</span>
+         <span className="relative z-10">.{children}()</span>
          {isActive && (
             <div className="w-full absolute left-0 top-full flex justify-center gap-1">
                <motion.div
                   layoutId="selected-nav-link"
                   style={{ borderRadius: 9999 }}
-                  className="h-2 aspect-square bg-orange-500"
-                  transition={{ type: "spring", duration: 0.6 }}
+                  className="h-1.5 aspect-square bg-orange-500"
+                  transition={{ type: "spring", duration: 1 }}
                />
 
                {route === "/" && (
                   <>
-                     <div className="h-2 aspect-square bg-white rounded-full" />
-                     <div className="h-2 aspect-square bg-white rounded-full" />
-                     <div className="h-2 aspect-square bg-white rounded-full" />
+                     <div className="h-1.5 aspect-square bg-white rounded-full" />
+                     <div className="h-1.5 aspect-square bg-white rounded-full" />
+                     <div className="h-1.5 aspect-square bg-white rounded-full" />
                   </>
                )}
             </div>

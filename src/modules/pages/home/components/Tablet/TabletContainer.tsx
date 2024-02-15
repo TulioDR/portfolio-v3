@@ -25,17 +25,6 @@ export default function TabletContainer({ children, scroll }: Props) {
       ]
    );
 
-   const top = useTransform(
-      scroll,
-      [a1, a2, a3, w1, w3, c1],
-      ["100%", "50%", "50%", "50%", "50%", "50%"]
-   );
-   const y = useTransform(
-      scroll,
-      [a1, a2, a3, w1, w3, c1],
-      ["100%", "-50%", "-50%", "-50%", "-50%", "-50%"]
-   );
-
    const right = useTransform(
       scroll,
       [a2, a3, a4, w1, w3, c1],
@@ -61,8 +50,12 @@ export default function TabletContainer({ children, scroll }: Props) {
    const s2 = useTransform(scroll, [a4, w1, w3, c1], [2, 0, 0, 2]);
    const boxShadow = useMotionTemplate`${s1}px ${s2}px 0 ${s2}px white`;
 
+   const opacity = useTransform(scroll, [a1, a2], [0, 1]);
+   const brightness = useTransform(scroll, [a1, a2], [0, 1]);
+   const filter = useMotionTemplate`brightness(${brightness})`;
+
    return (
-      <div className="z-10 fixed top-0 left-0 w-full h-screen pointer-events-none py-20 px-40">
+      <div className="z-10 fixed top-0 left-0 w-full h-screen pointer-events-none py-20 px-35">
          <motion.div
             style={{ perspective: perspective }}
             className="w-full h-full relative"
@@ -73,13 +66,15 @@ export default function TabletContainer({ children, scroll }: Props) {
                   rotateY,
                   rotateZ,
                   width,
-                  top,
+                  top: "50%",
+                  y: "-50%",
                   right,
                   x,
-                  y,
                   boxShadow,
+                  opacity,
+                  filter,
                }}
-               className="absolute aspect-video rounded-2xl"
+               className="absolute aspect-video rounded-lg"
             >
                {children}
             </motion.div>

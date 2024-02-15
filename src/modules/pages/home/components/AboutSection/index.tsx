@@ -32,7 +32,7 @@ export default function AboutSection() {
             className="h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-800 to-zinc-600"
          >
             <div className="relative w-full h-full">
-               <AboutDescription />
+               <AboutDescription scroll={scroll2} />
                <TransformBackground
                   scrollTitle={scroll1}
                   scroll={scroll2}
@@ -42,7 +42,7 @@ export default function AboutSection() {
          </div>
          <div
             ref={aboutRef}
-            className="sticky top-0 w-full h-screen py-20 px-40 z-50 pointer-events-none"
+            className="sticky top-0 w-full h-screen py-20 px-35 z-50 pointer-events-none"
          >
             <AboutMeButton scroll={scroll2} />
          </div>

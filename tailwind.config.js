@@ -5,16 +5,19 @@ module.exports = {
       extend: {
          spacing: {
             15: "3.75rem",
+            30: "7.5rem",
+            35: "8.75rem",
          },
          fontFamily: {
             nexusbold: ["Nexusbold", "serif"],
+            "roboto-mono": ["Roboto Mono", "sans-serif"],
          },
          colors: {
             primary: "#171417",
+            secondary: "#141B25",
+            accent: "#EA580C",
             main: {
-               primary: "#161b21",
                gray: "#44403C",
-               orange: "#c2410c",
                gold: "#ca8a04",
                white: "#e5e7eb",
             },

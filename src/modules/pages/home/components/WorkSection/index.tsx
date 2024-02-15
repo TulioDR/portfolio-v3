@@ -20,12 +20,9 @@ export default function WorkSection({}: Props) {
             className="h-screen sticky top-0 w-full overflow-hidden "
          >
             <ProjectsBackground />
-            <div className="absolute top-0 left-0 flex justify-end w-full h-full py-20 px-40">
+            <div className="absolute top-0 left-0 flex justify-end w-full h-full py-20 px-35">
                <div className="h-full w-1/2 grid place-content-center z-50">
-                  <MainButton>
-                     <div>View</div>
-                     <div>more work</div>
-                  </MainButton>
+                  <MainButton>View work</MainButton>
                </div>
             </div>
             <div className="absolute bottom-0 left-0 w-full pb-5 px-40 flex justify-center">

@@ -12,7 +12,7 @@ export default function TranslateButton({}: Props) {
    return (
       <button
          onClick={toggle}
-         className="h-10 px-5 text-white flex items-center gap-2 pointer-events-auto"
+         className="h-10 text-white flex items-center gap-3 pointer-events-auto"
       >
          <LanguageIndicator isActive={isActive}>en</LanguageIndicator>
          <span>/</span>

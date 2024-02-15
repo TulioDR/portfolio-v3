@@ -7,9 +7,7 @@ type Props = {
 
 export default function LanguageIndicator({ children, isActive }: Props) {
    return (
-      <div
-         className={`uppercase ${isActive ? "text-orange-600" : "text-white"}`}
-      >
+      <div className={`uppercase ${isActive ? "text-accent" : "text-white"}`}>
          {children}
       </div>
    );

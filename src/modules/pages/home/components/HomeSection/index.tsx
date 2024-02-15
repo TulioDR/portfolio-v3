@@ -19,13 +19,13 @@ export default function HomeSection() {
          <div>
             <motion.div
                style={{ opacity }}
-               className="h-screen sticky top-0 px-40 py-20 w-full overflow-hidden bg-gradient-to-b from-[#141B25] via-[#141B25] to-primary"
+               className="h-screen sticky top-0 px-35 py-20 w-full overflow-hidden bg-gradient-to-b from-secondary via-secondary to-primary"
             >
                <div className="h-full w-full flex relative">
-                  <div className="w-2/3 h-full">
+                  <div className="w-1/2 h-full">
                      <HomeText />
                   </div>
-                  <div className="w-1/3 h-full">
+                  <div className="w-1/2 h-full bg-gradient-to-r from-gray-200 to-gray-800 rounded-3xl shadow-lg">
                      <HomeLogo />
                   </div>
                </div>

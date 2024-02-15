@@ -13,9 +13,9 @@ export default function BarIndicator({ scroll }: Props) {
          animate={{ width: "100%" }}
          exit={{ width: 0 }}
          transition={{ duration: 0.5 }}
-         className="h-0.5 bg-gray-700 flex justify-center items-center rounded-full"
+         className="h-0.5 bg-gray-700 flex justify-center"
       >
-         <motion.div style={{ width }} className="rounded-full bg-white h-1" />
+         <motion.div style={{ width }} className="bg-white h-0.5" />
       </motion.div>
    );
 }

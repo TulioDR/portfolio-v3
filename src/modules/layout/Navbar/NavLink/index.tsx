@@ -26,7 +26,7 @@ export default function NavLink({ href, children }: Props) {
             isActive ? "" : "hover:text-white/80"
          }`}
       >
-         <span className="relative z-10">.{children}()</span>
+         <span className="relative z-10">{children}</span>
          {isActive && (
             <div className="w-full absolute left-0 top-full flex justify-center gap-1">
                <motion.div

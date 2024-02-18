@@ -13,7 +13,7 @@ type Props = {
 
 export default function TabletContainer({ children, scroll }: Props) {
    const { positions } = useTabletPositionContext();
-   const { h3, a1, a2, a3, a4, w1, w3, c1 } = positions;
+   const { a1, a2, a3, a4, w1, w3, c1 } = positions;
    const width = useTransform(
       scroll,
       [a4, w1, w3, c1],
@@ -56,10 +56,7 @@ export default function TabletContainer({ children, scroll }: Props) {
 
    return (
       <div className="z-10 fixed top-0 left-0 w-full h-screen pointer-events-none py-20 px-35">
-         <motion.div
-            style={{ perspective: perspective }}
-            className="w-full h-full relative"
-         >
+         <motion.div style={{ perspective }} className="w-full h-full relative">
             <motion.div
                style={{
                   rotateX,

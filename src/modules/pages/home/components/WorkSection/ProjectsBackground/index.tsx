@@ -13,29 +13,27 @@ export default function ProjectsBackground({}: Props) {
    const projectsSliderRef = useRef(null);
    const { scrollYProgress } = useScroll({
       target: projectsSliderRef,
-      offset: ["start end", "end start"],
+      offset: ["start start", "end start"],
    });
 
-   const y = useTransform(scrollYProgress, [0, 1], ["-50%", "50%"]);
+   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
    return (
-      <motion.div
-         style={{ y }}
-         ref={projectsSliderRef}
-         className="w-full h-full brightness-50"
-      >
-         <Swiper
-            loop={true}
-            modules={[Autoplay]}
-            autoplay={{ delay: 3000 }}
-            className="w-full h-full"
-         >
-            {projects.map(({ img, link }, index) => (
-               <SwiperSlide key={link + index}>
-                  <ProjectSlide src={img} />
-               </SwiperSlide>
-            ))}
-         </Swiper>
-      </motion.div>
+      <div ref={projectsSliderRef} className="w-full h-full brightness-50">
+         <motion.div style={{ y }} className="w-full h-full">
+            <Swiper
+               loop={true}
+               modules={[Autoplay]}
+               autoplay={{ delay: 1500 }}
+               className="w-full h-full"
+            >
+               {projects.map(({ img, link }, index) => (
+                  <SwiperSlide key={link + index}>
+                     <ProjectSlide src={img} />
+                  </SwiperSlide>
+               ))}
+            </Swiper>
+         </motion.div>
+      </div>
    );
 }

@@ -27,6 +27,7 @@ export default function TransformBackground({
 
    const { currentLanguage } = useLanguageContext();
    const { card } = currentLanguage.about;
+
    return (
       <div className="hidden lg:flex items-center z-10 justify-end absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
          <motion.div

@@ -18,11 +18,11 @@ export default function AboutCard({ large, scroll, initial, final }: Props) {
 
    return (
       <div
-         className={`w-full rounded flex items-center justify-center bg-black/50 shadow-xl backdrop-blur-2xl ${
+         className={`w-full rounded flex items-center justify-center shadow-xl bg-primary text-white ${
             large ? "col-span-2" : ""
          }`}
       >
-         <div className="text-white p-10">
+         <div className="p-10">
             <div className="overflow-hidden">
                <motion.div
                   style={{ y }}

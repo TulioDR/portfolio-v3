@@ -11,6 +11,7 @@ module.exports = {
          fontFamily: {
             nexusbold: ["Nexusbold", "serif"],
             "roboto-mono": ["Roboto Mono", "sans-serif"],
+            monserrat: ["Monserrat", "sans-serif"],
          },
          colors: {
             primary: "#171417",

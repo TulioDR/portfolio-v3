@@ -7,7 +7,7 @@ type Props = {};
 
 export default function ContactSection({}: Props) {
    return (
-      <div className="h-screen w-full py-20 px-35 bg-gradient-to-b from-primary via-[#141B25] to-[#141B25]">
+      <div className="h-screen w-full py-20 px-35 bg-gradient-to-r from-primary via-secondary to-secondary">
          <div className="w-full h-full flex">
             <div className="grid place-content-center w-1/2">
                <div className="flex flex-col justify-center gap-10">

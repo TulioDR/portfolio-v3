@@ -4,14 +4,14 @@ type Props = {};
 
 export default function HomeText({}: Props) {
    return (
-      <div className="w-full h-full flex flex-col items-center justify-center text-white">
-         <div className="text-8xl 2xl:text-9xl font-semibold text-center uppercase">
-            <div>Tulio</div>
-            <div>Ruzo</div>
+      <div className="w-full h-full flex flex-col justify-between text-white text-6xl xl:text-7xl 2xl:text-8xl z-10 font-monserrat uppercase">
+         <div className="">
+            <div>Tulio Ruzo</div>
+            <div>Developer</div>
          </div>
-         <div className="text-center">
-            <div>SOFTWARE ENGINEER,</div>
-            <div>FRONT END DEVELOPER</div>
+         <div className="text-end">
+            <div>Software</div>
+            <div>Engineer</div>
          </div>
       </div>
    );

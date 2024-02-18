@@ -1,6 +1,6 @@
 "use client";
 
-import { useScroll } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
 import { useRef } from "react";
 
 import AboutDescription from "./AboutDescription";
@@ -27,9 +27,9 @@ export default function AboutSection() {
 
    return (
       <div ref={progressRef} className="relative">
-         <div
+         <motion.div
             id="about "
-            className="h-screen w-full sticky top-0 bg-gradient-to-br from-zinc-800 to-zinc-600"
+            className="h-screen w-full sticky top-0 bg-zinc-700"
          >
             <div className="relative w-full h-full">
                <AboutDescription scroll={scroll2} />
@@ -39,7 +39,7 @@ export default function AboutSection() {
                   lastScroll={scrollYProgress}
                />
             </div>
-         </div>
+         </motion.div>
          <div
             ref={aboutRef}
             className="sticky top-0 w-full h-screen py-20 px-35 z-50 pointer-events-none"

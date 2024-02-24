@@ -6,9 +6,16 @@ type Props = {
    scroll: MotionValue<number>;
    initial: number;
    final: number;
+   tall?: true;
 };
 
-export default function AboutCard({ large, scroll, initial, final }: Props) {
+export default function AboutCard({
+   large,
+   scroll,
+   initial,
+   final,
+   tall,
+}: Props) {
    const point1 = initial;
    const point2 = initial + (1 * (final - initial)) / 2;
    const point3 = final;
@@ -18,9 +25,10 @@ export default function AboutCard({ large, scroll, initial, final }: Props) {
 
    return (
       <div
-         className={`w-full rounded flex items-center justify-center shadow-xl bg-primary text-white ${
-            large ? "col-span-2" : ""
-         }`}
+         className={`w-full rounded flex items-center justify-center shadow-xl bg-primary text-white 
+            ${large ? "col-span-2" : ""}
+            ${tall ? "row-span-2 border-gray-200 border-dashed border-2" : ""}
+         `}
       >
          <div className="p-10">
             <div className="overflow-hidden">

@@ -19,8 +19,8 @@ export default function Dot({ initial, final, active }: Props) {
    return (
       <div className="relative w-10 aspect-square flex items-center justify-center">
          <div
-            className={`aspect-square rounded-full w-1.5 duration-500 ${
-               active ? "bg-white" : "bg-gray-500"
+            className={`aspect-square rounded-full duration-500 bg-white ${
+               active ? " w-1.5" : " w-3"
             } `}
          />
          <AnimatePresence>

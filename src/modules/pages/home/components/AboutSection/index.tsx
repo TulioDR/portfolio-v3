@@ -29,7 +29,7 @@ export default function AboutSection() {
       <div ref={progressRef} className="relative">
          <motion.div
             id="about "
-            className="h-screen w-full sticky top-0 bg-zinc-700"
+            className="h-screen w-full sticky top-0 bg-zinc-800"
          >
             <div className="relative w-full h-full">
                <AboutDescription scroll={scroll2} />
@@ -42,9 +42,9 @@ export default function AboutSection() {
          </motion.div>
          <div
             ref={aboutRef}
-            className="sticky top-0 w-full h-screen py-20 px-35 z-50 pointer-events-none"
+            className="sticky top-0 w-full h-screen pt-20 pb-10 px-20 z-50 pointer-events-none"
          >
-            <AboutMeButton scroll={scroll2} />
+            {/* <AboutMeButton scroll={scroll2} /> */}
          </div>
          <div ref={aboutRef2} className="h-screen" />
          <div className="h-screen" />

@@ -19,7 +19,7 @@ export default function ProjectsBackground({}: Props) {
    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
    return (
-      <div ref={projectsSliderRef} className="w-full h-full brightness-50">
+      <div ref={projectsSliderRef} className="w-full h-full brightness-75">
          <motion.div style={{ y }} className="w-full h-full">
             <Swiper
                loop={true}

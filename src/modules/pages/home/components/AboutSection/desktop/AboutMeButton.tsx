@@ -11,7 +11,7 @@ export default function AboutMeButton({ scroll }: Props) {
 
    return (
       <div className="h-full w-full flex justify-end items-center">
-         <div className="w-[calc(25%+5rem)] grid place-content-center overflow-hidden">
+         <div className="w-[calc(25%+3.7rem)] grid place-content-center overflow-hidden">
             <motion.div style={{ y }}>
                <MainButton>
                   <div>More</div>

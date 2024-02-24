@@ -16,7 +16,7 @@ export default function Tablet({}: Props) {
    const { scrollYProgress: scroll } = useScroll();
 
    const { positions } = useTabletPositionContext();
-   const { a4, w1, w3 } = positions;
+   const { a4, w1, w3 } = positions!;
 
    useMotionValueEvent(scroll, "change", (current) => {
       if (current < a4 || current > w3) {

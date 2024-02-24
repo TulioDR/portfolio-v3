@@ -23,10 +23,8 @@ export default function HomeSection() {
    return (
       <div className="bg-primary">
          <div className="z-20 ">
-            <div className="h-screen sticky top-0 w-full overflow-hidden bg-gradient-to-b from-primary via-primary to-secondary">
-               <div className="h-full w-full flex absolute px-35 py-20">
-                  <HomeText />
-               </div>
+            <div className="h-screen sticky top-0 w-full overflow-hidden bg-primary">
+               <HomeText scroll={scrollYProgress} />
                <motion.div style={{ clipPath }} className="w-full h-full">
                   <ProjectsBackground />
                </motion.div>

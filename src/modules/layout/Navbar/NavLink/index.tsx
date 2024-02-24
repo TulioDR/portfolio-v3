@@ -31,18 +31,9 @@ export default function NavLink({ href, children }: Props) {
             <div className="w-full absolute left-0 top-full flex justify-center gap-1">
                <motion.div
                   layoutId="selected-nav-link"
-                  style={{ borderRadius: 9999 }}
-                  className="h-1.5 aspect-square bg-orange-500"
+                  className="h-1 w-full aspect-square bg-orange-500"
                   transition={{ type: "spring", duration: 1 }}
                />
-
-               {route === "/" && (
-                  <>
-                     <div className="h-1.5 aspect-square bg-white rounded-full" />
-                     <div className="h-1.5 aspect-square bg-white rounded-full" />
-                     <div className="h-1.5 aspect-square bg-white rounded-full" />
-                  </>
-               )}
             </div>
          )}
          {/* {isActive && (

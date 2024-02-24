@@ -10,7 +10,7 @@
 
 html,
 body {
-   @apply bg-primary font-roboto-mono;
+   @apply bg-primary font-monserrat;
 }
 .material-symbols-outlined {
    font-variation-settings: "FILL" 1;

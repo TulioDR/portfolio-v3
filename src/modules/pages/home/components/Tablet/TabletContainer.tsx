@@ -13,14 +13,14 @@ type Props = {
 
 export default function TabletContainer({ children, scroll }: Props) {
    const { positions } = useTabletPositionContext();
-   const { a1, a2, a3, a4, w1, w3, c1 } = positions;
+   const { a1, a2, a3, a4, w1, w3, c1 } = positions!;
    const width = useTransform(
       scroll,
       [a4, w1, w3, c1],
       [
-         "calc(25% + 5rem)",
-         "calc(50% + 0rem)",
-         "calc(50% + 0rem)",
+         "calc(25% + 3.7rem)",
+         "calc(40% + 0rem)",
+         "calc(40% + 0rem)",
          "calc(40% + 0rem)",
       ]
    );
@@ -28,7 +28,7 @@ export default function TabletContainer({ children, scroll }: Props) {
    const right = useTransform(
       scroll,
       [a2, a3, a4, w1, w3, c1],
-      ["50%", "0%", "0%", "97%", "97%", "25%"]
+      ["50%", "0%", "0%", "98%", "98%", "25%"]
    );
    const x = useTransform(
       scroll,
@@ -36,15 +36,26 @@ export default function TabletContainer({ children, scroll }: Props) {
       ["50%", "0%", "0%", "99%", "99%", "50%"]
    );
 
-   const rotateX = useTransform(scroll, [a4, w1, w3, c1], [45, 0, 0, 45]);
-   const rotateY = useTransform(scroll, [a4, w1, w3, c1], [0, 30, 30, 0]);
-   const rotateZ = useTransform(scroll, [a4, w1, w3, c1], [43, 0, 0, 43]);
-
-   const perspective = useTransform(
+   const top = useTransform(
       scroll,
       [a4, w1, w3, c1],
-      [7000, 2000, 2000, 7000]
+      ["50%", "100%", "100%", "50%"]
    );
+   const y = useTransform(
+      scroll,
+      [a4, w1, w3, c1],
+      ["-50%", "-100%", "-100%", "-50%"]
+   );
+
+   const rotateX = useTransform(scroll, [a4, w1, w3, c1], [45, 0, 0, 45]);
+   // const rotateY = useTransform(scroll, [a4, w1, w3, c1], [0, 30, 30, 0]);
+   const rotateZ = useTransform(scroll, [a4, w1, w3, c1], [43, 0, 0, 43]);
+
+   // const perspective = useTransform(
+   //    scroll,
+   //    [a4, w1, w3, c1],
+   //    [7000, 2000, 2000, 7000]
+   // );
 
    const s1 = useTransform(scroll, [a4, w1, w3, c1], [2, -2, -2, 2]);
    const s2 = useTransform(scroll, [a4, w1, w3, c1], [2, 0, 0, 2]);
@@ -55,16 +66,19 @@ export default function TabletContainer({ children, scroll }: Props) {
    const filter = useMotionTemplate`brightness(${brightness})`;
 
    return (
-      <div className="z-10 fixed top-0 left-0 w-full h-screen pointer-events-none py-20 px-35">
-         <motion.div style={{ perspective }} className="w-full h-full relative">
+      <div className="z-10 fixed top-0 left-0 w-full h-screen pointer-events-none pt-20 pb-10 px-20">
+         <motion.div
+            style={{ perspective: "none" }}
+            className="w-full h-full relative"
+         >
             <motion.div
                style={{
                   rotateX,
-                  rotateY,
+                  // rotateY,
                   rotateZ,
                   width,
-                  top: "50%",
-                  y: "-50%",
+                  top,
+                  y,
                   right,
                   x,
                   boxShadow,

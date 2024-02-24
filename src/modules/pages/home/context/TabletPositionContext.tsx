@@ -14,7 +14,7 @@ interface PositionsModel {
    c1: number;
 }
 interface TabletPositionInterface {
-   positions: PositionsModel;
+   positions: PositionsModel | null;
 }
 
 const TabletPositionContext = createContext({} as TabletPositionInterface);
@@ -27,9 +27,7 @@ type Props = { children: React.ReactNode };
 export function TabletPositionProvider({ children }: Props) {
    const NUMBER_OF_PAGES = 10;
 
-   const [positions, setPositions] = useState<PositionsModel>(
-      {} as PositionsModel
-   );
+   const [positions, setPositions] = useState<PositionsModel | null>(null);
    useEffect(() => {
       const sl = 1 / NUMBER_OF_PAGES;
       const h1 = sl * 0;

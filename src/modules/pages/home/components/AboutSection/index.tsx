@@ -5,7 +5,6 @@ import { useRef } from "react";
 
 import AboutDescription from "./AboutDescription";
 import TransformBackground from "./desktop/TransformBackground";
-import AboutMeButton from "./desktop/AboutMeButton";
 
 export default function AboutSection() {
    const aboutRef = useRef(null);
@@ -20,13 +19,13 @@ export default function AboutSection() {
       target: aboutRef2,
       offset: ["start end", "start start"],
    });
-   const { scrollYProgress } = useScroll({
+   const { scrollYProgress: scrollIndicator } = useScroll({
       target: progressRef,
-      offset: ["start start", "end end"],
+      offset: ["start end", "end end"],
    });
 
    return (
-      <div ref={progressRef} className="relative">
+      <div className="relative">
          <motion.div
             id="about "
             className="h-screen w-full sticky top-0 bg-zinc-800"
@@ -36,18 +35,15 @@ export default function AboutSection() {
                <TransformBackground
                   scrollTitle={scroll1}
                   scroll={scroll2}
-                  lastScroll={scrollYProgress}
+                  lastScroll={scrollIndicator}
                />
             </div>
          </motion.div>
-         <div
-            ref={aboutRef}
-            className="sticky top-0 w-full h-screen pt-20 pb-10 px-20 z-50 pointer-events-none"
-         >
-            {/* <AboutMeButton scroll={scroll2} /> */}
+         <div ref={progressRef}>
+            <div ref={aboutRef} className="h-screen" />
+            <div ref={aboutRef2} className="h-screen" />
+            <div className="h-screen" />
          </div>
-         <div ref={aboutRef2} className="h-screen" />
-         <div className="h-screen" />
       </div>
    );
 }

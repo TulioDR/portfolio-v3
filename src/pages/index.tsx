@@ -7,10 +7,8 @@ import HomeSection from "@/modules/pages/home/components/HomeSection";
 import AboutSection from "@/modules/pages/home/components/AboutSection";
 import ContactSection from "@/modules/pages/home/components/ContactSection";
 import WorkSection from "@/modules/pages/home/components/WorkSection";
-import Tablet from "@/modules/pages/home/components/Tablet";
 import { TabletPositionProvider } from "@/modules/pages/home/context/TabletPositionContext";
 import ProgressBar from "@/modules/pages/home/components/ProgressBar";
-import PositionDots from "@/modules/pages/home/components/PositionDots.tsx";
 import ScrollProgress from "@/modules/pages/home/components/ScrollProgress";
 
 export default function Home() {

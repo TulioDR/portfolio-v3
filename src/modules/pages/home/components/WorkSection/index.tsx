@@ -5,6 +5,9 @@ import ProjectModel from "@/models/ProjectModel";
 import WorkSelector from "./WorkSelector";
 import WorkFooter from "./WorkFooter";
 import SelectedWork from "./SelectedWork";
+
+import { motion } from "framer-motion";
+
 type Props = {};
 
 export default function WorkSection({}: Props) {
@@ -17,25 +20,28 @@ export default function WorkSection({}: Props) {
    const [currentWork, setCurrentWork] = useState<ProjectModel>(projects[1]);
 
    return (
-      <div ref={progressRef}>
+      <motion.div
+         exit={{ opacity: 0 }}
+         transition={{ duration: 0.2 }}
+         ref={progressRef}
+      >
          <div
             id="work"
             className="h-screen sticky top-0 w-full flex overflow-hidden bg-primary"
          >
-            <div className="w-1/2 h-full flex flex-col justify-center gap-5 relative text-white pl-20 pt-20 pb-10 pr-10">
-               <div>SELECTED WORK</div>
+            <div className="w-1/2 h-full flex flex-col justify-center relative text-white pl-20 pt-20 pb-10 pr-10">
                <WorkSelector
                   currentWork={currentWork}
                   setCurrentWork={setCurrentWork}
                />
                <WorkFooter scroll={scrollYProgress} />
             </div>
-            <div className="w-1/2 h-full pb-10 pt-20 pr-20">
+            <div className="w-1/2 h-full pb-10 pt-20 pr-20 flex justify-center">
                <SelectedWork currentWork={currentWork} />
             </div>
          </div>
          <div className="h-screen" />
          <div className="h-screen" />
-      </div>
+      </motion.div>
    );
 }

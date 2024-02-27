@@ -1,4 +1,4 @@
-import { MotionValue, useTransform, motion } from "framer-motion";
+import { MotionValue } from "framer-motion";
 import React from "react";
 
 type Props = {
@@ -7,43 +7,22 @@ type Props = {
    initial: number;
    final: number;
    tall?: true;
+   children: React.ReactNode;
 };
 
-export default function AboutCard({
-   large,
-   scroll,
-   initial,
-   final,
-   tall,
-}: Props) {
-   const point1 = initial;
-   const point2 = initial + (1 * (final - initial)) / 2;
-   const point3 = final;
-
-   const y = useTransform(scroll, [point1, point2], ["100%", "0%"]);
-   const opacity = useTransform(scroll, [point2, point3], [0, 1]);
-
+export default function AboutCard({ large, tall, children }: Props) {
    return (
       <div
-         className={`w-full rounded flex items-center justify-center shadow-xl bg-primary text-white 
+         className={`w-full rounded flex items-center justify-center shadow-xl  text-white 
             ${large ? "col-span-2" : ""}
-            ${tall ? "row-span-2 border-gray-200 border-dashed border-2" : ""}
+            ${
+               tall
+                  ? "row-span-2 border-gray-200 border-dashed border-2"
+                  : "bg-primary"
+            }
          `}
       >
-         <div className="p-10">
-            <div className="overflow-hidden">
-               <motion.div
-                  style={{ y }}
-                  className="uppercase text-2xl font-semibold"
-               >
-                  Title
-               </motion.div>
-            </div>
-            <motion.div style={{ opacity }}>
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia,
-               debitis?.
-            </motion.div>
-         </div>
+         <div className="">{children}</div>
       </div>
    );
 }

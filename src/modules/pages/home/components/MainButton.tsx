@@ -14,7 +14,7 @@ export default function MainButton({ children }: Props) {
       <motion.button
          onHoverStart={onHoverStart}
          onHoverEnd={onHoverEnd}
-         className=" w-32 xl:w-40 2xl:w-48 z-50 aspect-square rounded-full overflow-hidden shadow-xl pointer-events-auto relative bg-gray-200 border border-gray-200 text-black hover:text-white duration-500"
+         className=" w-32 xl:w-40 2xl:w-48 z-10 aspect-square rounded-full overflow-hidden shadow-xl pointer-events-auto relative bg-gray-200 border border-gray-200 text-black hover:text-white duration-500"
       >
          <span className="text-lg font-semibold">{children}</span>
          <AnimatePresence>

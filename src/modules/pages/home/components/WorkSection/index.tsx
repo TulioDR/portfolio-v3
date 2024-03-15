@@ -1,12 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useScroll } from "framer-motion";
 import projects from "@/assets/projects";
-import ProjectModel from "@/models/ProjectModel";
 import WorkSelector from "./WorkSelector";
-import WorkFooter from "./WorkFooter";
-import SelectedWork from "./SelectedWork";
 
 import { motion } from "framer-motion";
+import ScrollIndicator from "../ScrollIndicator";
+import SelectedWork from "./SelectedWork";
 
 type Props = {};
 
@@ -17,7 +16,8 @@ export default function WorkSection({}: Props) {
       offset: ["start start", "end end"],
    });
 
-   const [currentWork, setCurrentWork] = useState<ProjectModel>(projects[1]);
+   const [layout, setLayout] = useState<number | null>(null);
+   const selectedWork = [projects[1], projects[2], projects[3]];
 
    return (
       <motion.div
@@ -27,17 +27,22 @@ export default function WorkSection({}: Props) {
       >
          <div
             id="work"
-            className="h-screen sticky top-0 w-full flex overflow-hidden bg-primary"
+            className="h-screen sticky top-0 w-full bg-primary pt-20 px-20 pb-10"
          >
-            <div className="w-1/2 h-full flex flex-col justify-center relative text-white pl-20 pt-20 pb-10 pr-10">
-               <WorkSelector
-                  currentWork={currentWork}
-                  setCurrentWork={setCurrentWork}
-               />
-               <WorkFooter scroll={scrollYProgress} />
-            </div>
-            <div className="w-1/2 h-full pb-10 pt-20 pr-20 flex justify-center">
-               <SelectedWork currentWork={currentWork} />
+            <div className="w-full h-full flex gap-10">
+               <div className="h-full flex flex-col justify-center relative text-white">
+                  <WorkSelector
+                     layout={layout}
+                     setLayout={setLayout}
+                     selectedWork={selectedWork}
+                  />
+                  <div className="absolute bottom-0 left-0">
+                     <ScrollIndicator scroll={scrollYProgress} />
+                  </div>
+               </div>
+               <div className="flex-1 h-full  flex justify-center relative">
+                  <SelectedWork selectedWork={selectedWork} layout={layout} />
+               </div>
             </div>
          </div>
          <div className="h-screen" />

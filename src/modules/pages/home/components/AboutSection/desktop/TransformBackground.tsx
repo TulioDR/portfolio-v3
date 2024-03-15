@@ -23,7 +23,7 @@ export default function TransformBackground({
       [0, 1],
       ["calc(100% - 0rem)", "calc(100% - 7.5rem)"]
    );
-   const borderRadius = useTransform(scroll, [0, 1], [0, 4]);
+   const borderRadius = useTransform(scroll, [0, 1], [0, 8]);
    const marginRight = useTransform(scroll, [0, 1], [0, 80]);
    const marginBottom = useTransform(scroll, [0, 1], [0, 40]);
    const paddingTop = useTransform(scroll, [0, 1], ["5rem", "2.5rem"]);

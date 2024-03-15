@@ -9,7 +9,7 @@ type Props = {
 
 export default function WorkFooter({ scroll }: Props) {
    return (
-      <div className="absolute bottom-0 left-0 pb-10 pl-20 pr-10 w-full flex flex-col justify-between">
+      <div className="absolute bottom-0 left-0 pb-10 pl-20 pr-10 w-full flex justify-between items-end">
          <ScrollIndicator scroll={scroll} />
          <MainButton>All work</MainButton>
       </div>

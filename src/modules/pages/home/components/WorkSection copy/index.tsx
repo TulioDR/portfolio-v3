@@ -21,26 +21,22 @@ export default function WorkSection({}: Props) {
 
    return (
       <motion.div
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
          exit={{ opacity: 0 }}
          transition={{ duration: 0.2 }}
          ref={progressRef}
-         className=""
       >
          <div
             id="work"
             className="h-screen sticky top-0 w-full flex overflow-hidden bg-primary"
          >
-            <div className="w-1/2 h-full flex flex-col justify-center gap-5 relative text-white pl-20 pt-20 pb-10 pr-10">
-               <div>SELECTED WORK</div>
+            <div className="w-1/2 h-full flex flex-col justify-center relative text-white pl-20 pt-20 pb-10 pr-10">
                <WorkSelector
                   currentWork={currentWork}
                   setCurrentWork={setCurrentWork}
                />
                <WorkFooter scroll={scrollYProgress} />
             </div>
-            <div className="w-1/2 h-full pb-10 pt-20 pr-20">
+            <div className="w-1/2 h-full pb-10 pt-20 pr-20 flex justify-center">
                <SelectedWork currentWork={currentWork} />
             </div>
          </div>

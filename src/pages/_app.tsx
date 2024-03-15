@@ -12,6 +12,7 @@ import Navbar from "@/modules/layout/Navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
+
    return (
       <InitialLoadingContextProvider>
          {/* <InitialLoadingAnimation /> */}

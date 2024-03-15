@@ -27,18 +27,29 @@ export default function ProjectCardImage({
 
    return (
       <motion.div
-         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
          style={isCarousel ? { x, right } : { y, bottom }}
-         className={`absolute aspect-video ${isCarousel ? "h-full" : "w-full"}`}
+         className={`absolute aspect-video flex items-center justify-center ${
+            isCarousel ? "h-full" : "w-full"
+         }`}
       >
-         <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes="100%"
-            className="object-cover"
-            priority
-         />
+         <motion.div
+            initial={isCarousel ? { height: 0 } : { width: 0 }}
+            animate={isCarousel ? { height: "100%" } : { width: "100%" }}
+            exit={isCarousel ? { height: 0 } : { width: 0 }}
+            transition={{ duration: 0.5, ease: [0.645, 0.045, 0.355, 1] }}
+            className={`relative overflow-hidden ${
+               isCarousel ? "w-full" : "h-full"
+            }`}
+         >
+            <Image
+               src={src}
+               alt={alt}
+               fill
+               sizes="100%"
+               className="object-cover"
+               priority
+            />
+         </motion.div>
       </motion.div>
    );
 }

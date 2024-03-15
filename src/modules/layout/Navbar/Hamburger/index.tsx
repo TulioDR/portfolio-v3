@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Menu from "../../Menu";
 
 type Props = {};
 
@@ -10,37 +11,30 @@ export default function Hamburger({}: Props) {
 
    return (
       <>
-         <AnimatePresence>
-            {showMenu && (
-               <motion.div
-                  initial={{
-                     y: "-50%",
-                     x: "-100%",
-                     borderTopRightRadius: "50%",
-                     borderBottomRightRadius: "50%",
-                  }}
-                  animate={{
-                     x: "0%",
-                     borderTopRightRadius: 0,
-                     borderBottomRightRadius: 0,
-                  }}
-                  exit={{
-                     x: "-100%",
-                     borderTopRightRadius: "50%",
-                     borderBottomRightRadius: "50%",
-                  }}
-                  transition={{ duration: 0.8, ease: [0.7, 0, 0.2, 1] }}
-                  className="fixed left-0 top-1/2 w-screen aspect-square bg-gray-200"
-               ></motion.div>
-            )}
-         </AnimatePresence>
+         <AnimatePresence>{showMenu && <Menu />}</AnimatePresence>
          <motion.button
             onClick={handleClick}
-            className="w-10 h-10 flex flex-col items-start justify-center gap-2 z-10"
+            className="h-5 w-10 flex flex-col items-start justify-between z-50"
          >
-            <div className="w-full bg-white group-hover:bg-black h-0.5" />
-            <div className="w-1/2 bg-white group-hover:bg-black h-0.5" />
-            <div className="w-full bg-white group-hover:bg-black  h-0.5" />
+            <div
+               className={`w-full duration-700 h-0.5 ${
+                  showMenu
+                     ? "bg-white rotate-45 translate-y-[9px]"
+                     : "bg-white "
+               }`}
+            />
+            <div
+               className={`duration-700 h-0.5 ${
+                  showMenu ? "bg-white w-0" : "bg-white w-1/2"
+               }`}
+            />
+            <div
+               className={`w-full duration-700 h-0.5 ${
+                  showMenu
+                     ? "bg-white -rotate-45 -translate-y-[9px]"
+                     : "bg-white"
+               }`}
+            />
          </motion.button>
       </>
    );

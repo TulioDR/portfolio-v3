@@ -5,7 +5,7 @@ type Props = {};
 
 export default function WorkSelectorTitle({}: Props) {
    return (
-      <div className="overflow-hidden uppercase mb-5 text-base">
+      <div className="overflow-hidden uppercase mb-5">
          <motion.div
             initial={{ y: "100%" }}
             animate={{ y: "0%" }}

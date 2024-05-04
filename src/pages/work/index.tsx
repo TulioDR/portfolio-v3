@@ -4,6 +4,7 @@ import ProjectsShowcase from "@/modules/pages/work/components/ProjectsShowcase";
 import ReactLenis from "@studio-freight/react-lenis";
 import React, { useState } from "react";
 import projects from "@/assets/projects";
+import ScreenNav from "@/modules/layout/ScreenNav";
 type Props = {};
 
 export default function WorkPage({}: Props) {
@@ -22,14 +23,16 @@ export default function WorkPage({}: Props) {
          root
          options={{ orientation: isCarousel ? "horizontal" : "vertical" }}
       >
+         <ScreenNav>
+            <LayoutButtons
+               currentLayout={currentLayout}
+               setCurrentLayout={setCurrentLayout}
+            />
+         </ScreenNav>
          <ProjectsShowcase
             currentLayout={currentLayout}
             filteredProjects={filteredProjects}
             setSelectedProject={setSelectedProject}
-         />
-         <LayoutButtons
-            currentLayout={currentLayout}
-            setCurrentLayout={setCurrentLayout}
          />
       </ReactLenis>
    );

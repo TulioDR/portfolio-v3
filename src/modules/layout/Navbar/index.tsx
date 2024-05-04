@@ -8,6 +8,7 @@ import Link from "next/link";
 interface Props {}
 
 export default function Navbar({}: Props) {
+   return <></>;
    return (
       <>
          <nav className="fixed top-0 left-0 w-full items-center flex h-20 px-20 z-20 pointer-events-none text-base font-normal">

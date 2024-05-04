@@ -12,9 +12,9 @@ export default function LayoutButtonsContainer({ children }: Props) {
          animate={{ opacity: 1, y: 0 }}
          exit={{ opacity: 0, y: "100%" }}
          transition={{ duration: 0.4 }}
-         className="fixed bottom-0 left-0 pb-5 w-full flex justify-center z-10 pointer-events-none"
+         className="w-full h-full pt-14 flex flex-col gap-2 items-center justify-center pointer-events-auto bg-primary/50"
       >
-         <div className="flex gap-5">{children}</div>
+         {children}
       </motion.div>
    );
 }

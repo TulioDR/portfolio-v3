@@ -27,7 +27,7 @@ export default function WorkSection({}: Props) {
       >
          <div
             id="work"
-            className="h-screen sticky top-0 w-full bg-primary pt-20 px-20 pb-10"
+            className="h-screen sticky top-0 w-full bg-primary pt-24 pl-30 pr-10 pb-10"
          >
             <div className="w-full h-full flex gap-10">
                <div className="h-full flex flex-col justify-center relative text-white">

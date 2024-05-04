@@ -1,40 +1,51 @@
 import useLanguageContext from "@/context/LanguageContext";
-import { motion, MotionValue, useTransform } from "framer-motion";
-import ScrollIndicator from "../../ScrollIndicator";
+import {
+   motion,
+   MotionValue,
+   useMotionValueEvent,
+   useTransform,
+} from "framer-motion";
+import { useState } from "react";
 
 interface Props {
-   scrollTitle: MotionValue<number>;
+   firstScrollView: MotionValue<number>;
    scroll: MotionValue<number>;
-   lastScroll: MotionValue<number>;
 }
 
 export default function TransformBackground({
-   scrollTitle,
+   firstScrollView,
    scroll,
-   lastScroll,
 }: Props) {
    const width = useTransform(
       scroll,
       [0, 1],
-      ["calc(100% - 0rem)", "calc(33% - 3.89rem)"]
+      ["calc(100% - 0rem)", "calc(100% - 160px)"]
    );
    const height = useTransform(
       scroll,
       [0, 1],
-      ["calc(100% - 0rem)", "calc(100% - 7.5rem)"]
+      ["calc(100% - 0rem)", "calc(100% - 136px)"]
    );
-   const borderRadius = useTransform(scroll, [0, 1], [0, 8]);
-   const marginRight = useTransform(scroll, [0, 1], [0, 80]);
+   const borderRadius = useTransform(scroll, [0, 1], [0, 24]);
+   const marginRight = useTransform(scroll, [0, 1], [0, 40]);
    const marginBottom = useTransform(scroll, [0, 1], [0, 40]);
    const paddingTop = useTransform(scroll, [0, 1], ["5rem", "2.5rem"]);
-
-   const y = useTransform(scrollTitle, [0, 1], ["100%", "0%"]);
 
    const { currentLanguage } = useLanguageContext();
    const { card } = currentLanguage.about;
 
+   const [hideCard, setHideCard] = useState<boolean>(false);
+   useMotionValueEvent(scroll, "change", (current) => {
+      if (current >= 1) setHideCard(true);
+      else setHideCard(false);
+   });
+
    return (
-      <div className="hidden lg:flex items-end z-10 justify-end absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
+      <div
+         className={`hidden lg:flex items-end justify-end absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none ${
+            hideCard ? "z-0" : "z-50"
+         }`}
+      >
          <motion.div
             style={{
                height,
@@ -44,18 +55,10 @@ export default function TransformBackground({
                marginRight,
                marginBottom,
             }}
-            className="bg-primary text-white flex flex-col justify-between shadow-xl"
+            className="bg-primary text-white flex flex-col justify-between shadow-xl relative"
          >
-            <div className="overflow-hidden">
-               <motion.div
-                  style={{ y }}
-                  className="font-semibold text-4xl xl:text-5xl 2xl:text-6xl text-center uppercase"
-               >
-                  About me
-               </motion.div>
-            </div>
-            <div className="pb-10 mx-auto">
-               <ScrollIndicator scroll={lastScroll} />
+            <div className="absolute top-0 left-0 w-full flex justify-center">
+               <div className="bg-zinc-700 h-14 w-96"></div>
             </div>
          </motion.div>
       </div>

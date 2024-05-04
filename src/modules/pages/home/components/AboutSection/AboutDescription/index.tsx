@@ -1,24 +1,21 @@
-import { MotionValue } from "framer-motion";
-import AboutCard from "./AboutCard";
+import Expertise from "./Expertise";
+import Eye from "./Eye";
+import RevealCards from "./RevealCards";
+import Skills from "./Skills";
+import Clock from "./Clock";
+import TallCard from "./TallCard";
 
-interface Props {
-   scroll: MotionValue<number>;
-}
+interface Props {}
 
-export default function AboutDescription({ scroll }: Props) {
+export default function AboutDescription({}: Props) {
    return (
-      <div className="flex flex-col h-screen w-full pt-20 px-20 pb-10">
-         <div className="h-full grid grid-cols-3 gap-5 w-full">
-            <AboutCard scroll={scroll} tall>
-               Bye
-            </AboutCard>
-            <AboutCard scroll={scroll}>top</AboutCard>
-            <div className="row-span-4" />
-            <AboutCard scroll={scroll} center>
-               More about me
-            </AboutCard>
-            <AboutCard scroll={scroll}>bottom</AboutCard>
-         </div>
+      <div className="grid grid-cols-3 gap-5 xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
+         <Skills />
+         <Clock />
+         <Expertise />
+         <Eye />
+         <TallCard />
+         <RevealCards />
       </div>
    );
 }

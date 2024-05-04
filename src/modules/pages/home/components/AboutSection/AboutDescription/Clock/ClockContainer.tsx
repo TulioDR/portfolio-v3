@@ -10,15 +10,19 @@ export default function ClockContainer({
    animationControls,
    pathLength,
 }: Props) {
+   const strokeWidth = 8;
    return (
-      <svg className="w-full h-full -rotate-90 p-[2px] overflow-visible relative">
+      <svg
+         style={{ padding: strokeWidth / 2 }}
+         className="w-full h-full -rotate-90 overflow-visible"
+      >
          <motion.circle
             r="50%"
             cx="50%"
             cy="50%"
-            className="stroke-accent fill-white stroke-[4px] relative"
+            className="stroke-accent fill-white"
             animate={animationControls}
-            style={{ pathLength }}
+            style={{ pathLength, strokeWidth }}
          />
       </svg>
    );

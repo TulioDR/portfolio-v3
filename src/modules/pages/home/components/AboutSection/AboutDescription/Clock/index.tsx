@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardContainer from "../CardContainer";
 import {
    useAnimationControls,
@@ -9,6 +9,7 @@ import ClockHand from "./ClockHand";
 import HourMark from "./HourMark";
 import ClockMessage from "./ClockMessage";
 import ClockContainer from "./ClockContainer";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -23,9 +24,22 @@ export default function Clock({}: Props) {
 
    const [showMessage, setShowMessage] = useState<boolean>(false);
 
+   const containerControls = useAnimationControls();
+
    useMotionValueEvent(pathLength, "change", (current) => {
       setShowMessage(current === 1);
    });
+
+   useEffect(() => {
+      const animation = async () => {
+         const transition = { type: "spring", duration: 0.1, bounce: 1 };
+         if (showMessage) {
+            await containerControls.start({ scale: 1.1, transition });
+            containerControls.start({ scale: 1, transition });
+         }
+      };
+      animation();
+   }, [showMessage]);
 
    const isClockStarting = (isStart: boolean) => {
       const currentPathLength = pathLength.get();
@@ -66,7 +80,10 @@ export default function Clock({}: Props) {
          onMouseLeave={onMouseLeave}
       >
          <div className="w-full aspect-square p-5">
-            <div className="w-full aspect-square relative">
+            <motion.div
+               animate={containerControls}
+               className="w-full aspect-square relative"
+            >
                <ClockMessage showMessage={showMessage} />
                <ClockContainer
                   pathLength={pathLength}
@@ -78,7 +95,7 @@ export default function Clock({}: Props) {
                <ClockHand animationControls={hourHandControl} />
                <ClockHand animationControls={minuteHandControl} minute />
                <div className="absolute h-3 z-10 aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
-            </div>
+            </motion.div>
          </div>
       </CardContainer>
    );

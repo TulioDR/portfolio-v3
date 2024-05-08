@@ -1,12 +1,6 @@
 import React, { useRef, useState } from "react";
 import Card from "./Card";
-import {
-   motion,
-   useAnimationControls,
-   useMotionValue,
-   useSpring,
-   useTransform,
-} from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 import projects from "@/assets/projects";
 import CardContainer from "../CardContainer";

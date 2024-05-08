@@ -32,7 +32,7 @@ export default function Clock({}: Props) {
 
    useEffect(() => {
       const animation = async () => {
-         const transition = { type: "spring", duration: 0.1, bounce: 1 };
+         const transition = { type: "spring", duration: 0.15 };
          if (showMessage) {
             await containerControls.start({ scale: 1.1, transition });
             containerControls.start({ scale: 1, transition });

@@ -3,7 +3,7 @@ import Eye from "./Eye";
 import RevealCards from "./RevealCards";
 import Skills from "./Skills";
 import Clock from "./Clock";
-import TallCard from "./TallCard";
+import Learning from "./Learning";
 
 interface Props {}
 
@@ -14,7 +14,7 @@ export default function AboutDescription({}: Props) {
          <Clock />
          <Expertise />
          <Eye />
-         <TallCard />
+         <Learning />
          <RevealCards />
       </div>
    );

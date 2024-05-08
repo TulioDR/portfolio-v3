@@ -23,7 +23,7 @@ export default function ScrollProgress({}: Props) {
    const y = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
 
    return (
-      <div className="fixed z-50 top-0 right-0 h-screen w-20 flex flex-col items-center justify-center">
+      <div className="fixed z-50 top-0 pointer-events-none right-0 h-screen w-20 flex flex-col items-center justify-center">
          <div className="h-1/3 w-full relative">
             <motion.div
                style={{ top, y }}

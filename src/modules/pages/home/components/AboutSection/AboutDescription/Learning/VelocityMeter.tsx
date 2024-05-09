@@ -17,7 +17,7 @@ export default function VelocityMeter({ smoothY }: Props) {
    const velocityMarks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
    return (
-      <div className="absolute bottom-5 left-5 w-1/3 aspect-[2/1] overflow-hidden bg-white rounded-t-[9999px]">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 z-10 aspect-[2/1] overflow-hidden bg-white rounded-t-[9999px]">
          <div className="w-full h-full flex items-end">
             <motion.div
                style={{ rotate, clipPath: "polygon(0 50%, 100% 100%, 100% 0)" }}

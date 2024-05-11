@@ -17,13 +17,14 @@ export default function Wand({ xPercentage, x, y, isCardOn }: Props) {
    return (
       <motion.div
          style={{ x: "-50%", top: smoothY, left: smoothX, rotateZ }}
-         className="absolute aspect-[1/10] w-12 bg-white z-30 rounded-2xl overflow-hidden"
+         className="absolute aspect-[1/10] w-12 flex flex-col z-30 rounded-2xl overflow-hidden"
       >
          <div
             className={`w-full h-1/5 duration-500 bg-accent ${
                isCardOn ? "brightness-100" : "brightness-50"
             }`}
          />
+         <div className="flex-1 w-full bg-white" />
       </motion.div>
    );
 }

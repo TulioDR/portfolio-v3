@@ -31,7 +31,7 @@ export default function MenuItem({
    useEffect(() => {
       if (href === pathname) setIsSelected(true);
       else setIsSelected(false);
-   }, [isSelected]);
+   }, [isSelected, href, pathname]);
 
    return (
       <motion.div layoutId={`dropdown-${label}`} className="relative z-10">

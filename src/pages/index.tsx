@@ -7,10 +7,6 @@ import HomeSection from "@/modules/pages/home/components/HomeSection";
 import AboutSection from "@/modules/pages/home/components/AboutSection";
 import ContactSection from "@/modules/pages/home/components/ContactSection";
 import WorkSection from "@/modules/pages/home/components/WorkSection";
-import { TabletPositionProvider } from "@/modules/pages/home/context/TabletPositionContext";
-import ProgressBar from "@/modules/pages/home/components/ProgressBar";
-import ScrollProgress from "@/modules/pages/home/components/ScrollProgress";
-import ScreenNav from "@/modules/layout/ScreenNav";
 
 export default function Home() {
    useEffect(() => {
@@ -26,11 +22,6 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <ReactLenis root>
-            {/* <ScreenNav /> */}
-            <TabletPositionProvider>
-               {/* <Tablet /> */}
-               <ScrollProgress />
-            </TabletPositionProvider>
             <HomeSection />
             <AboutSection />
             <WorkSection />

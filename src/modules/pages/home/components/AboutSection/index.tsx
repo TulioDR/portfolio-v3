@@ -2,35 +2,25 @@ import { useScroll } from "framer-motion";
 import { useRef } from "react";
 
 import AboutDescription from "./AboutDescription";
-
-import TransformBackground from "./desktop/TransformBackground";
+import AboutHeader from "./AboutHeader";
 
 export default function AboutSection() {
-   const aboutRef = useRef(null);
-   const { scrollYProgress: scroll1 } = useScroll({
-      target: aboutRef,
-      offset: ["start end", "start start"],
-   });
-
    const backgroundRef = useRef(null);
    const { scrollYProgress } = useScroll({
       target: backgroundRef,
       offset: ["start end", "end end"],
    });
 
+   const containerRef = useRef<HTMLDivElement>(null);
+
    return (
-      <div className="relative bg-gray-400 py-20">
-         <div className="w-full relative">
-            <div className="w-full sticky top-0 h-screen">
-               <TransformBackground
-                  firstScrollView={scroll1}
-                  scroll={scrollYProgress}
-               />
-            </div>
+      <div className="relative bg-gray-400 pb-20">
+         <div>
+            <AboutHeader scroll={scrollYProgress} containerRef={containerRef} />
             <div ref={backgroundRef} className="h-screen"></div>
             <div className="h-40"></div>
          </div>
-         <AboutDescription />
+         <AboutDescription containerRef={containerRef} />
       </div>
    );
 }

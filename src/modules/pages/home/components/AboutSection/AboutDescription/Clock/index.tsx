@@ -39,7 +39,7 @@ export default function Clock({}: Props) {
          }
       };
       animation();
-   }, [showMessage]);
+   }, [showMessage, containerControls]);
 
    const isClockStarting = (isStart: boolean) => {
       const currentPathLength = pathLength.get();

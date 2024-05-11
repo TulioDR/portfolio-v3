@@ -26,7 +26,7 @@ export default function RevealCards({}: Props) {
       y.set(height / 4);
       x.set(left);
       xPercentage.set(left / width);
-   }, []);
+   }, [xPercentage, x, y]);
 
    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       const { left, top, width, height } =

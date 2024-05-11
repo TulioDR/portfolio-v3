@@ -42,7 +42,7 @@ export default function Expertise({}: Props) {
       backControls.start({ y: "0%", transition: { duration } });
       setIsCardOn(false);
       await animateCardsOut(true);
-      containerControls.start({ zIndex: 50 });
+      containerControls.start({ zIndex: 10 });
       animateCardsOut(false);
    };
 

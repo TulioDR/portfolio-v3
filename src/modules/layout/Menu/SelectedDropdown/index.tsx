@@ -52,6 +52,7 @@ export default function SelectedDropdown({
                      <div className="w-full flex gap-10 overflow-auto pb-5">
                         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
                            <MenuItem
+                              key={value}
                               label={value.toString()}
                               setImageId={setImageId}
                               href="/work"

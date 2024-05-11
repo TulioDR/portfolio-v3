@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
-import { useScroll } from "framer-motion";
+import React, { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
 import projects from "@/assets/projects";
-import WorkSelector from "./WorkSelector";
 
 import { motion } from "framer-motion";
-import ScrollIndicator from "../ScrollIndicator";
-import SelectedWork from "./SelectedWork";
+import WorkCard from "./WorkCard";
+import MainButton from "../MainButton";
+import MainContainer from "../MainContainer";
 
 type Props = {};
 
@@ -13,40 +13,41 @@ export default function WorkSection({}: Props) {
    const progressRef = useRef(null);
    const { scrollYProgress } = useScroll({
       target: progressRef,
-      offset: ["start start", "end end"],
+      offset: ["start end", "end end"],
    });
-
-   const [layout, setLayout] = useState<number | null>(null);
    const selectedWork = [projects[1], projects[2], projects[3]];
 
+   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
+   const left = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
    return (
-      <motion.div
-         exit={{ opacity: 0 }}
-         transition={{ duration: 0.2 }}
-         ref={progressRef}
-      >
-         <div
-            id="work"
-            className="h-screen sticky top-0 w-full bg-primary pt-24 pl-30 pr-10 pb-10"
-         >
-            <div className="w-full h-full flex gap-10">
-               <div className="h-full flex flex-col justify-center relative text-white">
-                  <WorkSelector
-                     layout={layout}
-                     setLayout={setLayout}
-                     selectedWork={selectedWork}
-                  />
-                  <div className="absolute bottom-0 left-0">
-                     <ScrollIndicator scroll={scrollYProgress} />
-                  </div>
+      <motion.div>
+         <div className="h-screen sticky top-0 w-full bg-primary py-20 2xl:py-40 overflow-hidden">
+            <MainContainer hFull>
+               <div className="w-full h-full relative">
+                  <motion.div
+                     style={{ x, left }}
+                     className="flex gap-10 flex-shrink-0 h-full absolute"
+                  >
+                     <div className=" aspect-square h-full text-white flex flex-col justify-center items-center gap-10">
+                        <h1 className="font-semibold text-5xl">
+                           Selected Work
+                        </h1>
+                        <MainButton>View all work</MainButton>
+                     </div>
+                     {selectedWork.map((work, index) => (
+                        <WorkCard
+                           key={work.title}
+                           work={work}
+                           number={`0${index + 1}`}
+                           scrollYProgress={scrollYProgress}
+                        />
+                     ))}
+                  </motion.div>
                </div>
-               <div className="flex-1 h-full  flex justify-center relative">
-                  <SelectedWork selectedWork={selectedWork} layout={layout} />
-               </div>
-            </div>
+            </MainContainer>
          </div>
-         <div className="h-screen" />
-         <div className="h-screen" />
+         <div ref={progressRef} className="h-[200vh]" />
       </motion.div>
    );
 }

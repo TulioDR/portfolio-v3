@@ -4,18 +4,26 @@ import RevealCards from "./RevealCards";
 import Skills from "./Skills";
 import Clock from "./Clock";
 import Learning from "./Learning";
+import MainContainer from "../../MainContainer";
 
-interface Props {}
+interface Props {
+   containerRef: React.RefObject<HTMLDivElement>;
+}
 
-export default function AboutDescription({}: Props) {
+export default function AboutDescription({ containerRef }: Props) {
    return (
-      <div className="grid grid-cols-3 gap-5 xl:max-w-screen-lg 2xl:max-w-screen-xl mx-auto">
-         <Skills />
-         <Clock />
-         <Expertise />
-         <Eye />
-         <Learning />
-         <RevealCards />
-      </div>
+      <MainContainer>
+         <div
+            ref={containerRef}
+            className="grid grid-cols-2 xl:grid-cols-3 gap-5 w-full"
+         >
+            <Skills />
+            <Clock />
+            <Expertise />
+            <Eye />
+            <Learning />
+            <RevealCards />
+         </div>
+      </MainContainer>
    );
 }

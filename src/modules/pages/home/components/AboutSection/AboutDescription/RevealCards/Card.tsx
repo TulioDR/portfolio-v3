@@ -51,6 +51,7 @@ export default function Card({ tile1, tile2, tile3, value, alt, src }: Props) {
                className="absolute top-0 left-0 w-full h-full z-10"
             >
                <Image
+                  priority
                   alt={alt}
                   src={src}
                   fill

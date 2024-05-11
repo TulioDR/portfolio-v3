@@ -38,7 +38,7 @@ export default function Eye({}: Props) {
       };
       window.addEventListener("mousemove", getRotationAngle);
       return () => window.removeEventListener("mousemove", getRotationAngle);
-   }, []);
+   }, [rotate, rotateReverse]);
 
    const showBigEyes = () => {
       pupilControls.start({

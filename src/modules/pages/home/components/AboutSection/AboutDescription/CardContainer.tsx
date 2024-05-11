@@ -27,7 +27,7 @@ export default function CardContainer({
          onMouseLeave={onMouseLeave}
          className={`flex bg-white shadow-xl p-3 rounded-3xl
             ${tall ? "row-span-2" : ""}
-            ${large ? "col-span-2" : ""} 
+            ${large ? "col-span-2" : "col-span-1"} 
             ${right ? "pr-0" : "flex-row-reverse"}
             ${left ? "pl-0" : ""}
          `}

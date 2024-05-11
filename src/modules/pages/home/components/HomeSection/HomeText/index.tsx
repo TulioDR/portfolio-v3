@@ -1,6 +1,7 @@
 import React from "react";
-import ScrollIndicator from "../../ScrollIndicator";
+// import ScrollIndicator from "../../ScrollIndicator";
 import { MotionValue } from "framer-motion";
+import ScrollIndicator from "../ScrollIndicator";
 
 type Props = {
    scroll: MotionValue<number>;

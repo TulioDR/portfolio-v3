@@ -71,7 +71,7 @@ export default function RevealCards({}: Props) {
             ref={divRef}
             onMouseMove={handleMouseMove}
             onHoverEnd={handleHoverEnd}
-            className="w-full aspect-[16/7] relative flex items-center justify-center px-10"
+            className="w-full h-full relative flex items-center justify-center px-10"
          >
             <Wand xPercentage={xPercentage} x={x} y={y} isCardOn={isCardOn} />
             <Card tile1 value={smoothX} src={projects[0].img} alt="1" />

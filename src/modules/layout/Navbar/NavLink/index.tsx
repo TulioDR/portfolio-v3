@@ -1,39 +1,41 @@
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import {
-   AnimatePresence,
-   motion,
-   // useScroll,
-   // useTransform,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 type Props = {
    href: string;
    children: React.ReactNode;
+   openMenu: () => void;
 };
 
 export default function NavLink({ href, children }: Props) {
+   const { route, push } = useRouter();
    const [isActive, setIsActive] = useState<boolean>(false);
-
-   const { route } = useRouter();
-
    useEffect(() => {
       setIsActive(href === route);
    }, [route, href]);
 
-   // const { scrollYProgress } = useScroll();
-   // const width = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+   const [showMenu, setShowMenu] = useState<boolean>(false);
+
+   const openMenu = () => {
+      setShowMenu((prev) => !prev);
+   };
+
+   const handleClick = () => {
+      // if (isActive) openMenu();
+      // else push(href);
+      push(href);
+   };
 
    return (
-      <Link
-         href={href}
+      <button
+         onClick={handleClick}
          className={`flex items-center text-white relative px-5 rounded-full duration-300 ${
             isActive ? "" : " "
          }`}
       >
          <span className="relative z-10 mix-blend-exclusion">{children}</span>
-         <AnimatePresence>
+         {/* <AnimatePresence>
             {isActive && (
                <motion.div
                   initial={{ width: 0 }}
@@ -47,17 +49,17 @@ export default function NavLink({ href, children }: Props) {
                   </div>
                </motion.div>
             )}
-         </AnimatePresence>
+         </AnimatePresence> */}
          {isActive && (
             <motion.div
                layoutId="selected-link"
                style={{ borderRadius: 4 }}
-               className="absolute inset-0 bg-white overflow-hidden"
+               className={`absolute bottom-0 inset-0 left-0 bg-white shadow-xl`}
                transition={{ type: "spring", duration: 0.6 }}
             >
                {/* <motion.div style={{ width }} className="h-full bg-gray-300" /> */}
             </motion.div>
          )}
-      </Link>
+      </button>
    );
 }

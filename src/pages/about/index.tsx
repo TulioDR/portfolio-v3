@@ -25,32 +25,8 @@ export default function AboutPage({}: Props) {
       //       <div className="aspect-square absolute bottom-0 left-0 bg-gray-200 rotate-45 -translate-x-1/2 translate-y-1/2 h-[10%]"></div>
       //    </div>
       // </div>
-      <div ref={ref} className=" w-full bg-primary">
-         <div className="sticky top-0 h-screen w-full grid place-content-center">
-            <motion.div
-               style={{ rotateY: rotateY }}
-               className="w-80 aspect-square flex relative items-center justify-center bg-blue-500 overflow-hidden"
-            >
-               <motion.div
-                  style={{
-                     rotateY: rotateY2,
-                     x: "-50%",
-                     y: "-50%",
-                  }}
-                  className="w-full h-full block absolute top-1/2 left-1/2"
-               >
-                  <Image
-                     src={projects[0].img}
-                     alt="hello"
-                     fill
-                     sizes="100%"
-                     className="object-cover"
-                  />
-               </motion.div>
-            </motion.div>
-         </div>
-         <div className="h-screen"></div>
-         <div className="h-screen"></div>
+      <div ref={ref} className=" w-full bg-about">
+         <div className="sticky top-0 h-screen w-full grid place-content-center"></div>
       </div>
    );
 }

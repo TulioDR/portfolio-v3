@@ -17,17 +17,12 @@ export default function AboutHeaderContainer({
    const [containerWidth, setContainerWidth] = useState<number>(0);
 
    useEffect(() => {
-      const { width } = containerRef.current!.getBoundingClientRect();
-      setContainerWidth(width);
-      setFullWidth(window.innerWidth);
-   }, []);
-
-   useEffect(() => {
       const handleResize = () => {
          const { width } = containerRef.current!.getBoundingClientRect();
          setContainerWidth(width);
          setFullWidth(window.innerWidth);
       };
+      handleResize();
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
    }, []);
@@ -36,13 +31,13 @@ export default function AboutHeaderContainer({
    const height = useTransform(
       scroll,
       [0, 1],
-      ["calc(100% - 0rem)", "calc(100% - 10rem)"]
+      ["calc(100% - 0px)", "calc(100% - 40px)"]
    );
    const borderRadius = useTransform(scroll, [0, 1], [0, 24]);
    return (
       <div
          ref={aboutHeaderRef}
-         className="w-full sticky top-0 h-screen hidden lg:flex items-center justify-center"
+         className="w-full sticky top-0 h-screen flex items-center justify-center"
       >
          <motion.div
             initial={{ width: fullWidth }}

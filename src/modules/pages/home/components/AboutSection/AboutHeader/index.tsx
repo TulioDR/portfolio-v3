@@ -1,7 +1,6 @@
-import { MotionValue, useMotionValueEvent, useScroll } from "framer-motion";
+import { MotionValue, useScroll } from "framer-motion";
 import AboutHeaderContainer from "./AboutHeaderContainer";
 import { useRef } from "react";
-import TabletContainer from "../../Tablet/TabletContainer";
 import HeaderCard from "./HeaderCard";
 import AboutTitle from "./AboutHeaderTitle";
 import AboutHeaderMessage from "./AboutHeaderMessage";
@@ -25,10 +24,10 @@ export default function AboutHeader({ scroll, containerRef }: Props) {
          containerRef={containerRef}
          aboutHeaderRef={aboutHeaderRef}
       >
-         <div className="w-1/2 h-full flex flex-col justify-center items-center gap-5">
+         <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col justify-center items-center p-5">
             <AboutTitle scroll={scroll} />
-            <AboutHeaderMessage scroll={scroll} />
          </div>
+         <AboutHeaderMessage scroll={scroll} />
          <HeaderCard firstScroll={headerScroll} secondScroll={scroll} />
       </AboutHeaderContainer>
    );

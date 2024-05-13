@@ -22,6 +22,7 @@ module.exports = {
                gold: "#ca8a04",
                white: "#e5e7eb",
             },
+            about: "#9CA3AF",
          },
       },
    },

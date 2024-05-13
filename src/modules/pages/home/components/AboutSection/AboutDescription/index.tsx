@@ -14,8 +14,9 @@ export default function AboutDescription({ containerRef }: Props) {
    return (
       <MainContainer>
          <div
+            id="about-cards-container"
             ref={containerRef}
-            className="grid grid-cols-2 xl:grid-cols-3 gap-5 w-full"
+            className="grid grid-cols-3 xl:grid-cols-3 gap-5 w-full"
          >
             <Skills />
             <Clock />

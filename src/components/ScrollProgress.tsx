@@ -1,11 +1,11 @@
-import useScrollContext from "@/context/ScrollContext";
-import { motion, useTransform } from "framer-motion";
+// import useScrollContext from "@/context/ScrollContext";
+// import { motion, useTransform } from "framer-motion";
 
 type Props = {
    black?: true;
 };
 
-export default function ScrollProgress({ black }: Props) {
+export default function ScrollProgress({}: Props) {
    // const { springMotion, scrolledValue } = useScrollContext();
    // const top = useTransform(springMotion, [0, 1], ["0%", "100%"]);
 

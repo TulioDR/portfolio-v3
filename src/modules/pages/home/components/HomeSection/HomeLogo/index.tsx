@@ -2,8 +2,8 @@ import { Canvas } from "@react-three/fiber";
 
 import React from "react";
 
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import Base from "./Base";
+import { PerspectiveCamera } from "@react-three/drei";
+// import Base from "./Base";
 import Crystal from "./Crystal";
 type Props = {};
 

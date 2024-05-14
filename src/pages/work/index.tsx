@@ -1,22 +1,23 @@
-import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
-import LayoutButtons from "@/modules/pages/work/components/LayoutButtons";
+// import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
+// import LayoutButtons from "@/modules/pages/work/components/LayoutButtons";
 import ProjectsShowcase from "@/modules/pages/work/components/ProjectsShowcase";
 import ReactLenis from "@studio-freight/react-lenis";
-import React, { useState } from "react";
-import projects from "@/assets/projects";
+import React from "react";
+// import projects from "@/assets/projects";
 
 type Props = {};
 
 export default function WorkPage({}: Props) {
-   const [currentLayout, setCurrentLayout] = useState<LayoutModel>("carousel");
+   // const [currentLayout, setCurrentLayout] = useState<LayoutModel>("carousel");
 
-   const [filteredProjects, setFilteredProjects] =
-      useState<ProjectModel[]>(projects);
+   // const [filteredProjects, setFilteredProjects] =
+   //    useState<ProjectModel[]>(projects);
 
-   const [selectedProject, setSelectedProject] = useState<ProjectModel | null>(
-      null
-   );
+   // const [selectedProject, setSelectedProject] = useState<ProjectModel | null>(
+   //    null
+   // );
 
+   const currentLayout = "carousel";
    const isCarousel = currentLayout === "carousel";
    return (
       <ReactLenis
@@ -28,9 +29,8 @@ export default function WorkPage({}: Props) {
             setCurrentLayout={setCurrentLayout}
          /> */}
          <ProjectsShowcase
-            currentLayout={currentLayout}
-            filteredProjects={filteredProjects}
-            setSelectedProject={setSelectedProject}
+            currentLayout={"carousel"}
+            // setSelectedProject={setSelectedProject}
          />
       </ReactLenis>
    );

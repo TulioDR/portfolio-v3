@@ -1,21 +1,19 @@
-import React, { Dispatch, SetStateAction } from "react";
+// import React, { Dispatch, SetStateAction } from "react";
 import ProjectsShowcaseContainer from "./ProjectsShowcaseContainer";
-
-import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
+import projects from "@/assets/projects";
+import { LayoutModel } from "@/models/ProjectModel";
 import ProjectCard from "./ProjectCard";
 import { AnimatePresence, motion } from "framer-motion";
 
 type Props = {
    currentLayout: LayoutModel;
-   filteredProjects: ProjectModel[];
-   setSelectedProject: Dispatch<SetStateAction<ProjectModel | null>>;
+   // setSelectedProject: Dispatch<SetStateAction<ProjectModel | null>>;
 };
 
 export default function ProjectsShowcase({
    currentLayout,
-   filteredProjects,
-   setSelectedProject,
-}: Props) {
+}: // setSelectedProject,
+Props) {
    return (
       <motion.div
          exit={{ height: 0 }}
@@ -27,7 +25,7 @@ export default function ProjectsShowcase({
                key={currentLayout}
                currentLayout={currentLayout}
             >
-               {filteredProjects.map((project) => (
+               {projects.map((project) => (
                   <ProjectCard
                      key={project.link}
                      project={project}

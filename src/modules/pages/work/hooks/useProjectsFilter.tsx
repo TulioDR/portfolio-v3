@@ -1,4 +1,4 @@
-import work from "@/assets/work";
+import projects from "@/assets/projects";
 import ProjectModel from "@/models/ProjectModel";
 
 import SkillModel from "@/models/SkillModel";
@@ -59,7 +59,7 @@ export default function useProjectsFilter(
    };
 
    useEffect(() => {
-      const founded = work.filter((project) =>
+      const founded = projects.filter((project) =>
          selectedTech.every((value) =>
             project.technologies.some(({ name }) => name === value.name)
          )

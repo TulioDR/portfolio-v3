@@ -61,7 +61,7 @@ export default function Eye({}: Props) {
             type: "spring",
             duration: 0.3,
             bounce: 0.5,
-            height: { type: "spring", duration: 0.5, bounce: 0.5 },
+            // height: { type: "spring", duration: 0.5, bounce: 0.5 },
          },
       });
    };

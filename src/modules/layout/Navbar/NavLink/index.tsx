@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -15,11 +15,11 @@ export default function NavLink({ href, children }: Props) {
       setIsActive(href === route);
    }, [route, href]);
 
-   const [showMenu, setShowMenu] = useState<boolean>(false);
+   // const [showMenu, setShowMenu] = useState<boolean>(false);
 
-   const openMenu = () => {
-      setShowMenu((prev) => !prev);
-   };
+   // const openMenu = () => {
+   //    setShowMenu((prev) => !prev);
+   // };
 
    const handleClick = () => {
       // if (isActive) openMenu();

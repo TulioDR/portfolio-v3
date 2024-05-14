@@ -8,6 +8,8 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import githubLogo from "@/assets/images/logo/github.png";
+import WorkCardButton from "./WorkCardButton";
 
 type Props = {
    work: ProjectModel;
@@ -42,6 +44,7 @@ export default function WorkCard({ work, number, scrollYProgress }: Props) {
 
    return (
       <div
+         onClick={() => console.log(work.isFinished)}
          ref={cardRef}
          className="aspect-square h-full rounded-3xl relative overflow-hidden flex-shrink-0"
       >
@@ -61,7 +64,8 @@ export default function WorkCard({ work, number, scrollYProgress }: Props) {
             <div className="absolute top-0 left-0 w-full h-full flex items-end justify-end bg-gradient-to-t from-black/70 to-transparent">
                <div className="px-5 pb-5 w-3/4 flex justify-end">
                   <span className="font-bold text-white text-right text-lg sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
-                     {work.title}
+                     {work.title}{" "}
+                     {!work.isFinished && <span>(Work in progress)</span>}
                   </span>
                </div>
             </div>
@@ -76,12 +80,26 @@ export default function WorkCard({ work, number, scrollYProgress }: Props) {
                   {number}
                </span>
                <div className="flex flex-col items-center gap-5">
-                  <button className="aspect-square w-1/2 rounded-full border border-white hover:bg-white text-white hover:text-black">
-                     A
-                  </button>
-                  <button className="aspect-square w-1/2 rounded-full border border-white hover:bg-white text-white hover:text-black">
-                     B
-                  </button>
+                  <WorkCardButton
+                     href={work.repository}
+                     disabled={!work.isFinished}
+                  >
+                     <div className="aspect-square w-1/2 relative ">
+                        <Image
+                           src={githubLogo}
+                           alt="github"
+                           fill
+                           sizes="100%"
+                           className="object-cover"
+                        />
+                     </div>
+                  </WorkCardButton>
+                  <WorkCardButton
+                     href={work.website}
+                     disabled={!work.isFinished}
+                  >
+                     <span className="material-symbols-outlined">public</span>
+                  </WorkCardButton>
                </div>
             </div>
          </div>

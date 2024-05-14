@@ -8,8 +8,8 @@ const pokedex: ProjectModel = {
    title: "Pokédex",
    img: pokedexImg,
    link: "pokedex",
-   website: "https://film-organizer.vercel.app/",
-   repository: "https://github.com/TulioDR/film-organizer-v2/",
+   website: "https://pokedex-animated.vercel.app/",
+   repository: "https://github.com/TulioDR/pokedex",
    technologies: pokedexTech,
    isFinished: true,
    translations: {

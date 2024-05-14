@@ -4,7 +4,6 @@ import projects from "@/assets/projects";
 
 import { motion } from "framer-motion";
 import WorkCard from "./WorkCard";
-import MainButton from "../MainButton";
 import MainContainer from "../MainContainer";
 import MainTitle from "../MainTitle";
 
@@ -16,7 +15,7 @@ export default function WorkSection({}: Props) {
       target: progressRef,
       offset: ["start end", "end end"],
    });
-   const selectedWork = [projects[1], projects[2], projects[3]];
+   // const selectedWork = [projects[1], projects[2], projects[3]];
 
    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
    const left = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);

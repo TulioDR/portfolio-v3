@@ -60,7 +60,7 @@ export default function WorkCard({ work, number, scrollYProgress }: Props) {
             </motion.div>
             <div className="absolute top-0 left-0 w-full h-full flex items-end justify-end bg-gradient-to-t from-black/70 to-transparent">
                <div className="px-5 pb-5 w-3/4 flex justify-end">
-                  <span className="font-bold text-white text-right text-4xl">
+                  <span className="font-bold text-white text-right text-lg sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">
                      {work.title}
                   </span>
                </div>

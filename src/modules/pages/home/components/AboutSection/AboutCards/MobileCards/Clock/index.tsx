@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardContainer from "../CardContainer";
+
 import {
    useAnimationControls,
    useMotionValue,
@@ -10,12 +10,11 @@ import HourMark from "./HourMark";
 import ClockMessage from "./ClockMessage";
 import ClockContainer from "./ClockContainer";
 import { motion } from "framer-motion";
+import MobileContainer from "../MobileContainer";
 
 type Props = {};
 
 export default function Clock({}: Props) {
-   const [isCardOn, setIsCardOn] = useState<boolean>(false);
-
    const hourHandControl = useAnimationControls();
    const minuteHandControl = useAnimationControls();
    const circleControl = useAnimationControls();
@@ -63,23 +62,23 @@ export default function Clock({}: Props) {
 
    const onMouseEnter = async () => {
       isClockStarting(true);
-      setIsCardOn(true);
    };
    const onMouseLeave = async () => {
       isClockStarting(false);
-      setIsCardOn(false);
    };
 
    const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
    return (
-      <CardContainer
-         right
-         isCardOn={isCardOn}
-         onMouseEnter={onMouseEnter}
-         onMouseLeave={onMouseLeave}
+      <MobileContainer
+         title="Good time management"
+         text="I am good at managing my time to always meet my goals efficiently."
       >
-         <div className="w-full aspect-square p-5">
+         <div
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className="w-full aspect-square p-5 "
+         >
             <motion.div
                animate={containerControls}
                className="w-full aspect-square relative"
@@ -97,6 +96,6 @@ export default function Clock({}: Props) {
                <div className="absolute h-3 z-10 aspect-square top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
             </motion.div>
          </div>
-      </CardContainer>
+      </MobileContainer>
    );
 }

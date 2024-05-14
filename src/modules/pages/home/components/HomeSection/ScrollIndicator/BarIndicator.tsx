@@ -13,7 +13,7 @@ export default function BarIndicator({ scroll }: Props) {
          animate={{ width: "100%" }}
          exit={{ width: 0 }}
          transition={{ duration: 0.5 }}
-         className="h-0.5 bg-gray-700 flex justify-center items-center"
+         className="h-0.5 bg-gray-700 justify-center items-center hidden sm:flex"
       >
          <motion.div style={{ width }} className="bg-white h-1" />
       </motion.div>

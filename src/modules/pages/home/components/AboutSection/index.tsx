@@ -1,26 +1,28 @@
-import { useScroll } from "framer-motion";
-import { useRef } from "react";
+// import { useScroll } from "framer-motion";
+// import { useRef } from "react";
 
-import AboutDescription from "./AboutDescription";
-import AboutHeader from "./AboutHeader";
+// import AboutHeader from "./AboutHeader";
+import AboutCards from "./AboutCards";
+import MainTitle from "../MainTitle";
 
 export default function AboutSection() {
-   const backgroundRef = useRef(null);
-   const { scrollYProgress } = useScroll({
-      target: backgroundRef,
-      offset: ["start end", "end end"],
-   });
+   // const backgroundRef = useRef(null);
+   // const { scrollYProgress } = useScroll({
+   //    target: backgroundRef,
+   //    offset: ["start end", "end end"],
+   // });
 
-   const containerRef = useRef<HTMLDivElement>(null);
+   // const containerRef = useRef<HTMLDivElement>(null);
 
    return (
-      <div className="relative bg-about pb-20">
-         <div>
+      <div className="relative bg-about py-20">
+         {/* <div>
             <AboutHeader scroll={scrollYProgress} containerRef={containerRef} />
             <div ref={backgroundRef} className="h-screen" />
             <div className="h-40" />
-         </div>
-         <AboutDescription containerRef={containerRef} />
+         </div> */}
+         <MainTitle>About me</MainTitle>
+         <AboutCards />
       </div>
    );
 }

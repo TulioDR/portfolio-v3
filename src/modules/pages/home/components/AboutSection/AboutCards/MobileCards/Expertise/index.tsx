@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ExpertiseCard from "./ExpertiseCard";
 import { useAnimationControls, motion } from "framer-motion";
-import CardContainer from "../CardContainer";
+
+import reactLogo from "@/assets/images/logo/react.svg";
+import nextLogo from "@/assets/images/logo/nextjs2.svg";
+import MobileContainer from "../MobileContainer";
 
 type Props = {};
 
@@ -26,12 +29,10 @@ export default function Expertise({}: Props) {
       ]);
    };
 
-   const [isCardOn, setIsCardOn] = useState<boolean>(false);
    const onMouseEnter = async () => {
       const duration = 0.3;
       frontControls.start({ y: "4%", transition: { duration } });
       backControls.start({ y: "-4%", transition: { duration } });
-      setIsCardOn(true);
       await animateCardsOut(true);
       containerControls.start({ zIndex: 0 });
       animateCardsOut(false);
@@ -40,29 +41,34 @@ export default function Expertise({}: Props) {
       const duration = 0.3;
       frontControls.start({ y: "0%", transition: { duration } });
       backControls.start({ y: "0%", transition: { duration } });
-      setIsCardOn(false);
       await animateCardsOut(true);
       containerControls.start({ zIndex: 10 });
       animateCardsOut(false);
    };
 
    return (
-      <CardContainer
-         left
-         isCardOn={isCardOn}
-         onMouseEnter={onMouseEnter}
-         onMouseLeave={onMouseLeave}
+      <MobileContainer
+         title="My expertise"
+         text="Although my skills are focused on React and Next.js, I am interested in the entire spectrum of Front End and BackEnd"
       >
-         <div className="w-full aspect-square flex items-center justify-center relative">
+         <div
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            className="w-full aspect-square flex items-center justify-center relative"
+         >
             <motion.div
                animate={containerControls}
                initial={{ zIndex: 50 }}
                className="absolute top-0 left-0 w-full h-full pointer-events-none flex items-center justify-center"
             >
-               <ExpertiseCard animationControls={frontControls} front />
+               <ExpertiseCard
+                  src={reactLogo}
+                  animationControls={frontControls}
+                  front
+               />
             </motion.div>
-            <ExpertiseCard animationControls={backControls} />
+            <ExpertiseCard src={nextLogo} animationControls={backControls} />
          </div>
-      </CardContainer>
+      </MobileContainer>
    );
 }

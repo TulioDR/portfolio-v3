@@ -55,7 +55,7 @@ export default function CardContainer({
             cardRef.current!.getBoundingClientRect();
          setOriginalWidth(originalWidth);
 
-         const div = document.getElementById("about-cards-container")!;
+         const div = document.querySelector(".about-cards-container")!;
          const styles = window.getComputedStyle(div);
          const { gap } = styles;
          const gapNumber = parseInt(gap.slice(0, -2));
@@ -91,7 +91,7 @@ export default function CardContainer({
          animate={cardContainerControls}
          onMouseEnter={onMouseEnter}
          onMouseLeave={onMouseLeave}
-         className={`flex p-3 relative
+         className={`flex p-3 relative flex-shrink-0
             ${tall ? "row-span-2" : ""}
             ${large ? "col-span-2" : "col-span-1"} 
             ${right ? "pr-0" : "flex-row-reverse"}

@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <InitialLoadingContextProvider>
          {/* <InitialLoadingAnimation /> */}
          <LanguageContextProvider>
-            <Navbar />
+            {/* <Navbar /> */}
             <AnimatePresence mode="wait">
                <Component key={router.route} {...pageProps} />
             </AnimatePresence>

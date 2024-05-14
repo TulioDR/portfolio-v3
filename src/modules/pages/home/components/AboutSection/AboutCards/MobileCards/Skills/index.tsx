@@ -1,15 +1,16 @@
+import React, { useEffect, useRef } from "react";
+
 import Matter from "matter-js";
-import { useEffect, useRef } from "react";
+import MobileContainer from "../MobileContainer";
 
 declare module "matter-js" {
    interface Mouse {
       mousewheel: any;
    }
 }
-
 type Props = {};
 
-export default function AboutPage({}: Props) {
+export default function Skills({}: Props) {
    const matterContainer = useRef<HTMLDivElement>(null);
 
    var Engine = Matter.Engine,
@@ -38,8 +39,8 @@ export default function AboutPage({}: Props) {
          },
       });
 
-      for (let i = 0; i < 50; i++) {
-         let circle = Bodies.circle(i, 10, 30, {
+      for (let i = 0; i < 60; i++) {
+         let circle = Bodies.circle(i, 10, 20, {
             friction: 0.3,
             frictionAir: 0.00001,
             restitution: 0.8,
@@ -107,21 +108,21 @@ export default function AboutPage({}: Props) {
       };
    }, []);
 
-   // useEffect(() => {
-   //    const handleResize = () => {};
-   //    window.addEventListener("resize", handleResize);
-   //    return () => window.removeEventListener("resize", handleResize);
-   // }, []);
-
    return (
-      <>
-         <div className=" w-full bg-about h-screen p-10 pb-20">
-            <div
-               ref={matterContainer}
-               className="w-full h-full border border-black rounded-xl overflow-hidden relative"
-            ></div>
+      <MobileContainer
+         tall
+         title="I love to try new things..."
+         text="Whether experimenting with new technologies or discovering new ways to perform an action, learning has always been a part of me."
+      >
+         <div className="absolute text-center top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-5 text-2xl xl:text-3xl 2xl:text-4xl font-black text-white">
+            <div>I love</div>
+            <div>to try</div>
+            <div>new things</div>
          </div>
-         <div className="bg-red-500 w-full h-screen"></div>
-      </>
+         <div
+            ref={matterContainer}
+            className="w-full h-full relative z-10"
+         ></div>
+      </MobileContainer>
    );
 }

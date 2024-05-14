@@ -26,10 +26,10 @@ export default function ScrollIndicator({ scroll, alwaysShow }: Props) {
       else setShowIndicator(true);
    });
    return (
-      <div className="lg:w-48 xl:w-60 2xl:w-80">
+      <div className="lg:w-48 xl:w-60">
          <AnimatePresence>
             {showIndicator && (
-               <div className="w-full flex flex-col items-center gap-5">
+               <div className="w-full flex flex-col items-center gap-5 ">
                   <MouseIcon />
                   <BarIndicator scroll={scroll} />
                </div>

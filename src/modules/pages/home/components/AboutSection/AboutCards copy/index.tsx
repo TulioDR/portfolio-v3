@@ -7,19 +7,15 @@ import Learning from "./Learning";
 import MainContainer from "../../MainContainer";
 
 interface Props {
-   containerRef: React.RefObject<HTMLDivElement>;
+   // containerRef: React.RefObject<HTMLDivElement>;
 }
 
-export default function AboutDescription({ containerRef }: Props) {
+export default function AboutCards({}: Props) {
    return (
       <MainContainer>
-         <div
-            id="about-cards-container"
-            ref={containerRef}
-            className="grid grid-cols-3 xl:grid-cols-3 gap-5 w-full"
-         >
-            <Skills />
-            <Clock />
+         <div className="xl:grid grid-cols-3 gap-5 w-full about-cards-container">
+            <Skills right />
+            <Clock right />
             <Expertise />
             <Eye />
             <Learning />

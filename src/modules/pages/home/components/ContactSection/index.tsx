@@ -15,14 +15,14 @@ export default function ContactSection({}: Props) {
       window.open("https://www.linkedin.com/in/tulio-ruzo/", "_blank");
    };
 
-   const phone = () => {
-      window.open("tel:04243746279");
+   const github = () => {
+      window.open("https://github.com/TulioDR", "_blank");
    };
 
    return (
       <div className="h-screen w-full pb-10 bg-secondary">
          <MainContainer hFull>
-            <div className="w-full h-full flex">
+            <div className="w-full h-full flex flex-col sm:flex-row">
                <div className="flex-1 flex items-center justify-center">
                   <ContactTitle />
                </div>
@@ -31,9 +31,7 @@ export default function ContactSection({}: Props) {
                      tulioruzo29@gmail.com
                   </ContactButton>
                   <ContactButton onClick={linkedin}>Linkedin</ContactButton>
-                  <ContactButton onClick={phone}>
-                     0424 - 3746 - 279
-                  </ContactButton>
+                  <ContactButton onClick={github}>Github</ContactButton>
                </div>
             </div>
          </MainContainer>

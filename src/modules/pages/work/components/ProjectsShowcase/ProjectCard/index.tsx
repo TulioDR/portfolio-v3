@@ -1,48 +1,55 @@
-import ProjectModel, { LayoutModel } from "@/models/ProjectModel";
+import ProjectModel from "@/models/ProjectModel";
 
 import ProjectCardImage from "./ProjectCardImage";
 import ProjectCardContainer from "./ProjectCardContainer";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
+import useImageAnimation from "../../../hooks/useImageAnimation";
 
 type Props = {
-   currentLayout: LayoutModel;
    project: ProjectModel;
+   i: number;
+   isProjectOpen: boolean;
+   isSelected: boolean;
+   setShowBackground: React.Dispatch<React.SetStateAction<boolean>>;
    onClick: () => void;
+   setSelectedWork: React.Dispatch<React.SetStateAction<ProjectModel | null>>;
 };
 
 export default function ProjectCard({
-   currentLayout,
    project,
+   i,
+   isProjectOpen,
+   isSelected,
+   setShowBackground,
    onClick,
+   setSelectedWork,
 }: Props) {
-   const { link, title, img } = project;
-   const ref = useRef(null);
+   const { link, img } = project;
+   const cardRef = useRef<HTMLDivElement>(null);
 
    const { scrollXProgress } = useScroll({
-      target: ref,
+      target: cardRef,
       offset: ["start end", "end start"],
       axis: "x",
    });
-   const { scrollYProgress } = useScroll({
-      target: ref,
-      offset: ["start end", "end start"],
-      axis: "y",
-   });
+
+   const { containerControls } = useImageAnimation(
+      isProjectOpen,
+      isSelected,
+      setShowBackground,
+      setSelectedWork,
+      i
+   );
 
    return (
-      <ProjectCardContainer
-         id={link}
-         onClick={onClick}
-         currentLayout={currentLayout}
-         newRef={ref}
-      >
+      <ProjectCardContainer id={link} onClick={onClick} cardRef={cardRef}>
          <ProjectCardImage
-            src={img}
-            alt={title}
-            currentLayout={currentLayout}
+            src={img.src}
+            alt={link}
+            containerControls={containerControls}
             scrollXProgress={scrollXProgress}
-            scrollYProgress={scrollYProgress}
+            isSelected={isSelected}
          />
       </ProjectCardContainer>
    );

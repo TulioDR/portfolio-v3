@@ -15,7 +15,7 @@ export default function WorkSection({}: Props) {
       target: progressRef,
       offset: ["start end", "end end"],
    });
-   // const selectedWork = [projects[1], projects[2], projects[3]];
+   const selectedWork = [projects[1], projects[2], projects[3]];
 
    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
    const left = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -31,7 +31,7 @@ export default function WorkSection({}: Props) {
                         style={{ x, left }}
                         className="flex gap-10 flex-shrink-0 h-full absolute"
                      >
-                        {projects.map((work, index) => (
+                        {selectedWork.map((work, index) => (
                            <WorkCard
                               key={work.title}
                               work={work}
@@ -43,7 +43,7 @@ export default function WorkSection({}: Props) {
                   </div>
                </MainContainer>
             </div>
-            <div ref={progressRef} className="h-[400vh] hidden lg:block" />
+            <div ref={progressRef} className="h-[200vh] hidden lg:block" />
          </div>
          <MainContainer>
             <div className="w-full grid sm:grid-cols-2 gap-5 lg:hidden pb-20">

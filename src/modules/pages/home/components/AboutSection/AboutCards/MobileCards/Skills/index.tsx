@@ -13,16 +13,16 @@ type Props = {};
 export default function Skills({}: Props) {
    const matterContainer = useRef<HTMLDivElement>(null);
 
-   var Engine = Matter.Engine,
-      Render = Matter.Render,
-      Runner = Matter.Runner,
-      Bodies = Matter.Bodies,
-      Composite = Matter.Composite,
-      Mouse = Matter.Mouse;
-
    // create an engine
 
    useEffect(() => {
+      var Engine = Matter.Engine,
+         Render = Matter.Render,
+         Runner = Matter.Runner,
+         Bodies = Matter.Bodies,
+         Composite = Matter.Composite,
+         Mouse = Matter.Mouse;
+
       const groundThickness = 60;
       const container = matterContainer.current!;
       var engine = Engine.create();

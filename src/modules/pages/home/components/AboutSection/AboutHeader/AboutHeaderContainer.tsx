@@ -25,7 +25,7 @@ export default function AboutHeaderContainer({
       handleResize();
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
-   }, []);
+   }, [containerRef]);
 
    const width = useTransform(scroll, [0, 1], [fullWidth, containerWidth]);
    const height = useTransform(

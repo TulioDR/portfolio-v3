@@ -1,55 +1,49 @@
-import Image, { StaticImageData } from "next/image";
-import { MotionValue, motion, useTransform } from "framer-motion";
-import { LayoutModel } from "@/models/ProjectModel";
+import {
+   AnimationControls,
+   MotionValue,
+   motion,
+   useTransform,
+} from "framer-motion";
+import { useMotionTemplate } from "framer-motion";
+
+import useProjectCardHeight from "../../../hooks/useProjectCardHeight";
 
 type Props = {
-   src: StaticImageData;
+   src: string;
    alt: string;
-   currentLayout: LayoutModel;
    scrollXProgress: MotionValue<number>;
-   scrollYProgress: MotionValue<number>;
+   isSelected: boolean;
+   containerControls: AnimationControls;
 };
 
 export default function ProjectCardImage({
    src,
    alt,
-   currentLayout,
    scrollXProgress,
-   scrollYProgress,
+   isSelected,
+   containerControls,
 }: Props) {
-   const isCarousel = currentLayout === "carousel";
+   const x = useTransform(scrollXProgress, [0, 1], ["100%", "0%"]);
+   const objectPosition = useMotionTemplate`${x} 50%`;
+   const { height: fixedHeight } = useProjectCardHeight(alt);
 
-   const x = useTransform(scrollXProgress, [0, 1], ["0%", "100%"]);
-   const right = useTransform(scrollXProgress, [0, 1], ["0%", "100%"]);
-
-   const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-   const bottom = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
+   // Add Scale change
    return (
       <motion.div
-         style={isCarousel ? { x, right } : { y, bottom }}
-         className={`absolute aspect-video flex items-center justify-center ${
-            isCarousel ? "h-full" : "w-full"
-         }`}
+         initial={{ height: 0, width: "100%" }}
+         animate={containerControls}
+         transition={{ duration: 5, ease: [0.16, 1, 0.3, 1] }}
+         className="overflow-hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center"
       >
-         <motion.div
-            initial={isCarousel ? { height: 0 } : { width: 0 }}
-            animate={isCarousel ? { height: "100%" } : { width: "100%" }}
-            exit={isCarousel ? { height: 0 } : { width: 0 }}
-            transition={{ duration: 0.5, ease: [0.645, 0.045, 0.355, 1] }}
-            className={`relative overflow-hidden ${
-               isCarousel ? "w-full" : "h-full"
-            }`}
-         >
-            <Image
-               src={src}
-               alt={alt}
-               fill
-               sizes="100%"
-               className="object-cover"
-               priority
-            />
-         </motion.div>
+         <motion.img
+            style={{
+               objectPosition,
+               height: isSelected ? "100%" : fixedHeight,
+            }}
+            src={src}
+            alt={alt}
+            className="object-cover w-full h-full"
+         />
       </motion.div>
    );
 }

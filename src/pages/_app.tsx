@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import { LanguageContextProvider } from "@/context/LanguageContext";
 import { InitialLoadingContextProvider } from "@/context/InitialLoadingContext";
-// import Navbar from "@/modules/layout/Navbar";
+import Navbar from "@/modules/layout/Navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
    const router = useRouter();
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <InitialLoadingContextProvider>
          {/* <InitialLoadingAnimation /> */}
          <LanguageContextProvider>
-            {/* <Navbar /> */}
+            <Navbar />
             <AnimatePresence mode="wait">
                <Component key={router.route} {...pageProps} />
             </AnimatePresence>

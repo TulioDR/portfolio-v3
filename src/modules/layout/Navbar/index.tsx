@@ -13,9 +13,9 @@ export default function Navbar({}: Props) {
    // const closeMenu = () => setShowMenu(false);
 
    return (
-      <nav className="fixed h-20 pointer-events-none 2xl:h-40 bottom-0 flex items-center left-0 w-full justify-center z-50">
+      <nav className="fixed h-20 pointer-events-none 2xl:h-40 top-0 flex items-center left-0 w-full justify-center z-50">
          <div
-            className={`flex pointer-events-auto items-stretch h-16 2xl:h-20 p-2 gap-2 text-sm bg-black duration-300 rounded-b-xl relative ${
+            className={`flex pointer-events-auto items-stretch h-14 p-2 gap-2 text-sm bg-black duration-300 rounded-b-xl relative ${
                showMenu ? "rounded-t-none" : "rounded-t-xl"
             }`}
          >
@@ -23,9 +23,9 @@ export default function Navbar({}: Props) {
                <NavLink href="/" openMenu={openMenu}>
                   Home
                </NavLink>
-               {/* <NavLink href="/about" openMenu={openMenu}>
+               <NavLink href="/about" openMenu={openMenu}>
                   About
-               </NavLink> */}
+               </NavLink>
                <NavLink href="/work" openMenu={openMenu}>
                   Work
                </NavLink>

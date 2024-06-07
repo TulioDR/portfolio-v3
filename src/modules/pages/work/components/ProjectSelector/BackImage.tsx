@@ -2,16 +2,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import projects from "@/assets/projects";
+import ProjectModel from "@/models/ProjectModel";
 
-type Props = {};
+type Props = {
+   project: ProjectModel;
+   EXIT_DURATION: number;
+};
 
-export default function BackImage({}: Props) {
-   const duration = 1;
+export default function BackImage({ project, EXIT_DURATION }: Props) {
    return (
       <motion.div
-         initial={{ y: "25%" }}
-         exit={{ y: "0%" }}
-         transition={{ duration, ease: "easeInOut" }}
+         initial={{ y: "25%", opacity: 0 }}
+         exit={{ y: "0%", opacity: 1 }}
+         transition={{
+            duration: EXIT_DURATION,
+            ease: "easeInOut",
+            opacity: { duration: 0 },
+         }}
          className="relative w-full h-full"
       >
          <Image

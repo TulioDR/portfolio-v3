@@ -21,17 +21,24 @@ export default function ProjectSelector({
    const handleHover = (project: ProjectModel) => setSelectedWork(project);
 
    const isOpen = showBackground && selectedWork ? true : false;
+   const EXIT_DURATION = 1;
 
    return (
       <div className="fixed top-0 left-0 w-screen h-screen z-30 pointer-events-none">
          {selectedWork && (
             <div
                className={`relative w-full h-full ${
-                  showBackground ? "" : "opacity-0"
+                  showBackground ? "bg-primary" : "opacity-0 "
                }`}
             >
-               <FrontImage project={selectedWork} />
-               <BackImage />
+               <FrontImage
+                  project={selectedWork}
+                  EXIT_DURATION={EXIT_DURATION}
+               />
+               <BackImage
+                  project={selectedWork}
+                  EXIT_DURATION={EXIT_DURATION}
+               />
             </div>
          )}
          <div className="absolute bottom-0 left-0 w-full z-30">

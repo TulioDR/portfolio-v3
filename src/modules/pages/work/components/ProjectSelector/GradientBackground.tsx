@@ -19,7 +19,7 @@ export default function GradientBackground({ isOpen }: Props) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="w-full h-full bg-gradient-to-t from-black to-transparent"
+                  className="w-full h-full bg-gradient-to-t from-black/80 to-transparent"
                />
             )}
          </AnimatePresence>

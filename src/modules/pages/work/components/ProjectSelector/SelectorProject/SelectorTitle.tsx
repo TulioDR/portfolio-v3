@@ -14,7 +14,7 @@ export default function SelectorTitle({ isSelected, project }: Props) {
          }`}
       >
          <h4
-            className={` text-center text-lg font-semibold  duration-300 ${
+            className={` text-center text-lg font-semibold duration-300 ${
                isSelected ? "text-accent" : "text-white group-hover:text-accent"
             }`}
          >

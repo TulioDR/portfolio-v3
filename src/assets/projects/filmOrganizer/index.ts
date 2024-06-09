@@ -1,5 +1,5 @@
 import ProjectModel from "@/models/ProjectModel";
-import filmOrganizerImg from "./img/film-organizer.png";
+import filmOrganizerImg from "./img/film-organizer.jpg";
 import filmOrganizerTech from "./technologies";
 import filmOrganizerEnglish from "./translations/english";
 import filmOrganizerSpanish from "./translations/spanish";

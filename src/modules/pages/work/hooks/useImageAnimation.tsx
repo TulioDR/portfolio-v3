@@ -10,7 +10,9 @@ export default function useImageAnimation(
    i: number
 ) {
    const containerControls = useAnimationControls();
+   const imageControls = useAnimationControls();
    const duration = 0.8;
+   const ease = [0.16, 1, 0.3, 1];
 
    const hideCard = useCallback(async () => {
       await containerControls.start({
@@ -22,11 +24,15 @@ export default function useImageAnimation(
    }, [containerControls]);
 
    const expandCard = useCallback(async () => {
+      imageControls.start({
+         scale: 1,
+         transition: { duration, ease },
+      });
       await containerControls.start({
          height: "100vh",
          width: "100vw",
          zIndex: 30,
-         transition: { duration, ease: "easeOut" },
+         transition: { duration, ease },
       });
 
       setShowBackground(true);
@@ -34,12 +40,16 @@ export default function useImageAnimation(
 
    const setToNormal = useCallback(
       async (i: number) => {
+         imageControls.start({
+            scale: 1.3,
+            transition: { duration, ease },
+         });
          await containerControls.start({
             height: "100%",
             width: "100%",
             transition: {
                duration,
-               ease: [0.16, 1, 0.3, 1],
+               ease,
                delay: i * 0.08,
             },
          });
@@ -59,5 +69,5 @@ export default function useImageAnimation(
       }
    }, [isSelected, isProjectOpen, expandCard, hideCard, setToNormal, i]);
 
-   return { containerControls };
+   return { containerControls, imageControls };
 }

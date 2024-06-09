@@ -7,13 +7,21 @@ import ProjectModel from "@/models/ProjectModel";
 type Props = {
    project: ProjectModel;
    EXIT_DURATION: number;
+   isSelected: boolean;
 };
 
-export default function BackImage({ project, EXIT_DURATION }: Props) {
+export default function BackImage({
+   project,
+   EXIT_DURATION,
+   isSelected,
+}: Props) {
    return (
       <motion.div
          initial={{ y: "25%", opacity: 0 }}
-         exit={{ y: "0%", opacity: 1 }}
+         exit={{
+            y: isSelected ? "0%" : "25%",
+            opacity: isSelected ? 1 : 0,
+         }}
          transition={{
             duration: EXIT_DURATION,
             ease: "easeInOut",

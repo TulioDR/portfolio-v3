@@ -1,5 +1,5 @@
 import ProjectModel from "@/models/ProjectModel";
-import pokedexImg from "./img/pokedex.png";
+import pokedexImg from "./img/pokedex.jpeg";
 import pokedexTech from "./technologies";
 import pokedexEnglish from "./translations/english";
 import pokedexSpanish from "./translations/spanish";

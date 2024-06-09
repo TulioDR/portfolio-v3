@@ -34,7 +34,7 @@ export default function ProjectCard({
       axis: "x",
    });
 
-   const { containerControls } = useImageAnimation(
+   const { containerControls, imageControls } = useImageAnimation(
       isProjectOpen,
       isSelected,
       setShowBackground,
@@ -48,6 +48,7 @@ export default function ProjectCard({
             src={img.src}
             alt={link}
             containerControls={containerControls}
+            imageControls={imageControls}
             scrollXProgress={scrollXProgress}
             isSelected={isSelected}
          />

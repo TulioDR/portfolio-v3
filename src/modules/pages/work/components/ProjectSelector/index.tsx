@@ -4,8 +4,8 @@ import ProjectModel from "@/models/ProjectModel";
 import SelectorProject from "./SelectorProject";
 import SelectorContainer from "./SelectorContainer";
 import GradientBackground from "./GradientBackground";
-import BackImage from "./BackImage";
 import FrontImage from "./FrontImage";
+import BackImage from "./BackImage";
 
 type Props = {
    selectedWork: ProjectModel | null;
@@ -25,22 +25,30 @@ export default function ProjectSelector({
 
    return (
       <div className="fixed top-0 left-0 w-screen h-screen z-30 pointer-events-none">
-         {selectedWork && (
-            <div
-               className={`relative w-full h-full ${
-                  showBackground ? "bg-primary" : "opacity-0 "
-               }`}
-            >
-               <FrontImage
-                  project={selectedWork}
-                  EXIT_DURATION={EXIT_DURATION}
-               />
-               <BackImage
-                  project={selectedWork}
-                  EXIT_DURATION={EXIT_DURATION}
-               />
-            </div>
-         )}
+         <div
+            className={`relative w-full h-full ${
+               showBackground ? "bg-primary" : "opacity-0 "
+            }`}
+         >
+            {projects.map((project) => (
+               <div
+                  key={project.link}
+                  className="absolute top-0 left-0 w-full h-full"
+               >
+                  <BackImage
+                     project={project}
+                     EXIT_DURATION={EXIT_DURATION}
+                     isSelected={project.link === selectedWork?.link}
+                  />
+                  <FrontImage
+                     project={project}
+                     EXIT_DURATION={EXIT_DURATION}
+                     isSelected={project.link === selectedWork?.link}
+                  />
+               </div>
+            ))}
+         </div>
+
          <div className="absolute bottom-0 left-0 w-full z-30">
             <GradientBackground isOpen={isOpen} />
             <SelectorContainer isOpen={isOpen} selectedWork={selectedWork}>

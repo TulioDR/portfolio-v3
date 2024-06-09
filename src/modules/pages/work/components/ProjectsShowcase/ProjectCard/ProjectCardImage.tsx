@@ -14,6 +14,7 @@ type Props = {
    scrollXProgress: MotionValue<number>;
    isSelected: boolean;
    containerControls: AnimationControls;
+   imageControls: AnimationControls;
 };
 
 export default function ProjectCardImage({
@@ -22,6 +23,7 @@ export default function ProjectCardImage({
    scrollXProgress,
    isSelected,
    containerControls,
+   imageControls,
 }: Props) {
    const x = useTransform(scrollXProgress, [0, 1], ["100%", "0%"]);
    const objectPosition = useMotionTemplate`${x} 50%`;
@@ -40,6 +42,8 @@ export default function ProjectCardImage({
                objectPosition,
                height: isSelected ? "100%" : fixedHeight,
             }}
+            initial={{ scale: 1.3 }}
+            animate={imageControls}
             src={src}
             alt={alt}
             className="object-cover w-full h-full"

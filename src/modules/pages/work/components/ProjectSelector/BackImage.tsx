@@ -15,7 +15,6 @@ export default function BackImage({
    EXIT_DURATION,
    isSelected,
 }: Props) {
-   console.log(project);
    return (
       <motion.div
          initial={{ y: "25%", opacity: 0 }}
@@ -32,7 +31,7 @@ export default function BackImage({
       >
          <Image
             src={projects[0].img}
-            alt={projects[0].link}
+            alt={project.link}
             fill
             sizes="100%"
             quality={100}

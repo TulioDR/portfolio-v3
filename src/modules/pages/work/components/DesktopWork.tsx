@@ -40,7 +40,7 @@ export default function DesktopWork({ lenisRef }: Props) {
       const newPosition = childPosition - halfWindow + halfChild;
 
       lenisRef.current!.scrollTo(newPosition, { duration: 0.5 });
-   }, [selectedWork]);
+   }, [selectedWork, lenisRef]);
 
    return (
       <>

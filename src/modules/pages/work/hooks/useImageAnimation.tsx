@@ -12,7 +12,8 @@ export default function useImageAnimation(
    const containerControls = useAnimationControls();
    const imageControls = useAnimationControls();
    const duration = 0.8;
-   const ease = [0.16, 1, 0.3, 1];
+   // const ease = [0.16, 1, 0.3, 1];
+   const ease = "easeOut";
 
    const hideCard = useCallback(async () => {
       await containerControls.start({
@@ -36,7 +37,7 @@ export default function useImageAnimation(
       });
 
       setShowBackground(true);
-   }, [containerControls, duration, setShowBackground]);
+   }, [containerControls, duration, setShowBackground, ease, imageControls]);
 
    const setToNormal = useCallback(
       async (i: number) => {
@@ -56,7 +57,7 @@ export default function useImageAnimation(
          containerControls.start({ zIndex: 0 });
          setSelectedWork(null);
       },
-      [containerControls, duration, setSelectedWork]
+      [containerControls, duration, setSelectedWork, ease, imageControls]
    );
 
    useEffect(() => {

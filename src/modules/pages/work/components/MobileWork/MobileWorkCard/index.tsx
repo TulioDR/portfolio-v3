@@ -13,7 +13,7 @@ export default function MobileWorkCard({ GAP, project }: Props) {
    useEffect(() => {
       var scene = document.getElementById(sceneId);
       new Parallax(scene);
-   }, []);
+   }, [sceneId]);
    return (
       <div
          id={sceneId}

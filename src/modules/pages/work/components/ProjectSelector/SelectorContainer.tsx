@@ -45,7 +45,7 @@ export default function SelectorContainer({
       } else {
          containerControls.start({ y: "100%", transition: { duration: 0.3 } });
       }
-   }, [isOpen]);
+   }, [isOpen, containerControls]);
 
    return (
       <motion.div

@@ -40,7 +40,7 @@ export default function SelectorProject({
             transition: { duration },
          });
       }
-   }, [isOpen, projectControls]);
+   }, [isOpen, projectControls, index]);
 
    useEffect(() => {
       if (isSelected) projectControls.start({ scale: 1.1 });

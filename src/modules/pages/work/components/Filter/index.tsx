@@ -1,32 +1,31 @@
-import FilterContainer from "./FilterContainer";
+// import FilterContainer from "./FilterContainer";
 
 import ProjectModel from "@/models/ProjectModel";
-import FilterHeader from "./FilterHeader";
-import FilterBody from "./FilterBody";
+// import FilterHeader from "./FilterHeader";
+// import FilterBody from "./FilterBody";
 
-import ToggleFilterButton from "./ToggleFilterButton";
-import useProjectsFilter from "../../hooks/useProjectsFilter";
+// import ToggleFilterButton from "./ToggleFilterButton";
 
 type Props = {
    setFilteredProjects: React.Dispatch<React.SetStateAction<ProjectModel[]>>;
 };
 
-export default function Filter({ setFilteredProjects }: Props) {
-   const {
-      openFilter,
-      closeFilter,
-      selectedTech,
-      addTech,
-      removeTech,
-      resetFilter,
-      isFilterOpen,
-      containerControls,
-      innerControls,
-   } = useProjectsFilter(setFilteredProjects);
+export default function Filter({}: Props) {
+   // const {
+   //    openFilter,
+   //    closeFilter,
+   //    selectedTech,
+   //    addTech,
+   //    removeTech,
+   //    resetFilter,
+   //    isFilterOpen,
+   //    containerControls,
+   //    innerControls,
+   // } = useProjectsFilter(setFilteredProjects);
 
    return (
       <>
-         <ToggleFilterButton
+         {/* <ToggleFilterButton
             openFilter={openFilter}
             closeFilter={closeFilter}
             isFilterOpen={isFilterOpen}
@@ -44,7 +43,7 @@ export default function Filter({ setFilteredProjects }: Props) {
                   resetFilter={resetFilter}
                />
             </FilterContainer>
-         )}
+         )} */}
       </>
    );
 }

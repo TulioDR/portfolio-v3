@@ -1,5 +1,4 @@
-import Matter from "matter-js";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 declare module "matter-js" {
    interface Mouse {

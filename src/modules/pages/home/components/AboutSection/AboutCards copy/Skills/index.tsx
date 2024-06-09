@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import CardContainer from "../CardContainer";
-import Matter from "matter-js";
 
 declare module "matter-js" {
    interface Mouse {

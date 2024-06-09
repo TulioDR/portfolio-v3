@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useProjectCardHeight(id: string) {
    const [height, setHeight] = useState<number>(0);

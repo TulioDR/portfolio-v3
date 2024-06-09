@@ -15,6 +15,7 @@ export default function BackImage({
    EXIT_DURATION,
    isSelected,
 }: Props) {
+   console.log(project);
    return (
       <motion.div
          initial={{ y: "25%", opacity: 0 }}

@@ -23,7 +23,7 @@ export default function MobileWorkCard({ GAP, project }: Props) {
       >
          <div
             id={sceneId}
-            className="w-full flex-1 border-8 border-white flex justify-center overflow-hidden"
+            className="w-full flex-1 flex justify-center overflow-hidden"
          >
             <div data-depth="2" className="aspect-video relative h-full">
                <Image

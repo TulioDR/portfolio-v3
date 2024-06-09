@@ -70,9 +70,9 @@ export default function MobileWorkCard({ GAP, project }: Props) {
                   className="object-cover"
                />
                <div className="absolute top-0 left-0 bg-white w-full h-full z-10 text-black flex flex-col justify-center items-center">
-                  <div>Alpha:{alpha}</div>
-                  <div> Beta:{beta}</div>
-                  <div>Gamma:{gamma}</div>
+                  <div>Alpha:{alpha?.toFixed(3)}</div>
+                  <div> Beta:{beta?.toFixed(3)}</div>
+                  <div>Gamma:{gamma?.toFixed(3)}</div>
                </div>
             </div>
          </div>

@@ -1,6 +1,6 @@
 import ProjectModel from "@/models/ProjectModel";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Parallax from "parallax-js";
 
 type Props = {
@@ -16,6 +16,40 @@ export default function MobileWorkCard({ GAP, project }: Props) {
          limitY: 0,
       });
    }, [sceneId]);
+
+   const [alpha, setAlpha] = useState<number | null>(0);
+   const [beta, setBeta] = useState<number | null>(0);
+   const [gamma, setGamma] = useState<number | null>(0);
+
+   useEffect(() => {
+      const handleOrientation = (event: DeviceOrientationEvent) => {
+         const alpha = event.alpha;
+         const beta = event.beta;
+         const gamma = event.gamma;
+         setAlpha(alpha);
+         setBeta(beta);
+         setGamma(gamma);
+         console.log(alpha, beta, gamma);
+      };
+
+      if ("DeviceOrientationEvent" in window) {
+         window.addEventListener("deviceorientation", handleOrientation, true);
+      } else {
+         console.log("go to mobile");
+      }
+
+      // Cleanup function to remove the event listener
+      return () => {
+         if ("DeviceOrientationEvent" in window) {
+            window.removeEventListener(
+               "deviceorientation",
+               handleOrientation,
+               true
+            );
+         }
+      };
+   }, []);
+
    return (
       <div
          style={{ height: `calc(100vh - ${GAP + GAP / 2}px)` }}
@@ -35,6 +69,11 @@ export default function MobileWorkCard({ GAP, project }: Props) {
                   priority
                   className="object-cover"
                />
+               <div className="absolute top-0 left-0 bg-white w-full h-full z-10 text-black flex flex-col justify-center items-center">
+                  <div>Alpha:{alpha}</div>
+                  <div> Beta:{beta}</div>
+                  <div>Gamma:{gamma}</div>
+               </div>
             </div>
          </div>
          <div className="text-center flex-col flex items-center gap-2">
